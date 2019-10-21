@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@font-face {
+    font-family:Billy-Ohio;
+    src: url(assets/fonts/billy-ohio/BillyOhio.otf);
+
+  }
+  @font-face {
+    font-family:Kingsmen;
+    src: url(assets/fonts/kingsmen/Kingsmen_D.otf);
+  }
+
+  @font-face {
+    font-family:Avenir;
+    src: url(assets/fonts/Avenir.ttc);
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #d4dde1;
+    margin:0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+   
+    
+
+}

@@ -1,0 +1,114 @@
+.wrapper{
+    height: 100vh;
+    width:100vw;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+    justify-content: center;
+    position: relative;
+}
+
+.wrapper h1{
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    font-family: "Kingsmen";
+    color:#005688;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.wrapper h2{
+    justify-content: center;
+    text-align: center;
+   font-family: "Avenir";
+   font-weight: 100;
+   margin-bottom: 10%;
+   
+
+
+}
+
+ #c1{
+    background-color: white;  
+}
+#c1 img{
+    width: 100%;
+    height:30%;
+  
+
+}
+
+#c2 img{
+    width: 100%;
+    height:100%;
+  
+
+}
+
+#c2 {
+  background-color: black;
+  
+
+}
+
+#c3 img{
+    width: 100%;
+    height:100%
+  
+
+}
+
+#c3 {
+  background-color: white;
+  
+
+}
+
+#c4 {
+    background-color: white;
+    color: black;
+    
+  
+  }
+
+ 
+
+  .menu{
+      display: flex;
+      justify-content: space-around;
+  }
+
+  .log {
+    margin-top: 5px;
+    background-color:transparent;
+    display:inline-block;
+    font-family:Arial;
+    font-size:15vh;
+    text-decoration:none;
+  
+    
+  }
+
+  .log i {
+      display: block;
+      text-align: center;
+      margin: 0 auto;
+  }
+
+
+  .wrapper h3{
+text-align: center;
+justify-content: center;
+font-size: 3vh;
+font-family: "Avenir";
+font-weight: 100;
+color:#ffa600;
+  }
+
+
+  
+
+  
+    

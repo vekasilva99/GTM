@@ -1,0 +1,23 @@
+<div class="wrapper">
+        <img src="../../assets/1.png">
+    <div class="logIn">
+
+<form #logInForm="ngForm" (ngSubmit)="login(logInForm)"> 
+    <div class="formwrapper">
+    <label style="font-size: 20px;">Email</label>
+    </div>
+    <div class="formwrapper">
+<input type="text" name="email" id="email" placeholder="Email" ngModel>
+</div>
+<div class="formwrapper">
+<label style="font-size: 20px;">Password</label>
+</div>
+<div class="formwrapper">
+<input type="password" name="password" id="password" placeholder="Password" ngModel>
+</div>
+<button type="submit" class="log">Login</button>
+
+</form>
+
+      </div>
+</div>
