@@ -92,3 +92,51 @@
     }
   }
 
+  #sidebar li li ul{
+    display: none;
+    border-bottom: none;
+}
+#sidebar li li:hover ul{
+ display: block;
+ 
+}
+#sidebar li li:hover ul li{
+    background: white;
+    transition: 0.6s;
+    border-bottom: none;
+}
+
+#sidebar li li:hover ul li a{
+  color: black;
+  transition: 0.6s;
+  margin-left: 80px;
+  &:hover{
+      color:#ffa600;
+  }
+}
+
+#sidebar li li li ul{
+  display: none;
+  border-bottom: none;
+}
+#sidebar li li li:hover ul{
+display: block;
+
+}
+#sidebar li li li:hover ul li{
+  background: white;
+  transition: 0.6s;
+  border-bottom: none;
+}
+
+#sidebar li li li:hover ul li a{
+color: black;
+transition: 0.6s;
+margin-left: 150px;
+&:hover{
+    color:#ffa600;
+}
+}
+
+
+

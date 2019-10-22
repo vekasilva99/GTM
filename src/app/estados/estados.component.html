@@ -7,8 +7,9 @@
 <div class="list">
         <ul class="estados">
             <li *ngFor= "let estado of estados" > 
+                <a routerLink="/detail/{{estado.id}}">
         <span class="badge">{{estado.nombre}}</span>
-        
+    </a>
             </li>
         </ul>
         

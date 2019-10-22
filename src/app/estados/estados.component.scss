@@ -59,7 +59,7 @@
     transform: translate(-50%,-50%);
 }
 
-.list li{
+.list li {
     justify-content: center;
     display: inline;
     float:left;
@@ -70,10 +70,20 @@
     border-left: #666666 solid 1px; 
     border-bottom: #666666 solid 1px;
     cursor: pointer; 
-    &:hover{
-        color:#ffa600;
-    }
+   
  } 
+
+
+ .list li a{
+color:#666666;
+text-decoration: none;
+font-family: "Avenir";
+&:hover{
+  color:#ffa600;
+  
+}
+
+ }
  .row {
     display: flex;
     flex-wrap: wrap;

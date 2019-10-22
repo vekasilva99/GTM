@@ -5,10 +5,15 @@
     width: 100vw;
     font-family: sans-serif;
     overflow:hidden;
+    background-color: black;
+    position: relative;
+ 
 }
 
-  .wrapper .video{
-      height: 100%;
-     position: absolute;
+  .wrapper video{
+      height:100vh;
+     
+  
+
   }
 

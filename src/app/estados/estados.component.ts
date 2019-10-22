@@ -12,7 +12,7 @@ import {EstadoService} from '../Services/estado.service';
 export class EstadosComponent implements OnInit {
 
   estados: estado[];
-  selectedEstado:estado;
+  
 
   constructor( private estadoService: EstadoService) { 
 
@@ -27,9 +27,6 @@ export class EstadosComponent implements OnInit {
   this.estadoService.getEstados().subscribe(estado => (this.estados=estado));
   }
 
-  onSelect(estado: estado){
-    this.selectedEstado=estado;
-    console.log(this.selectedEstado);
-  }
+
 
 }
