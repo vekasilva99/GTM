@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Admin } from  '../admin';
+import { AuthService } from  '../Services/auth.service';
+import { Router } from  '@angular/router';
 
 
 @Component({
@@ -9,16 +12,43 @@ import { NgForm } from '@angular/forms';
 })
 export class LogComponent implements OnInit {
 
-  constructor() { }
+  loginForm: FormGroup;
+  isSubmitted  =  false;
+  admin: Admin={
+    email:'veka@gmail.com',
+    password:'123'
+  }
+
+  constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.loginForm  =  this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+  });
   }
 
-  login(form: NgForm){
-    console.log(form.value);
 
-   
 
+get formControls() { return this.loginForm.controls; }
+
+login(){
+  
+  const email = this.loginForm.value.email;
+  const password = this.loginForm.value.password;
+
+  this.isSubmitted = true;
+
+  if( 
+    email !== this.admin.email &&
+    password !== this.admin.password) {
+   this.router.navigateByUrl('/login');
+
+  } else {
+    this.router.navigateByUrl('/home');
   }
 
+
+
+}
 }

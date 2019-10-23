@@ -1,7 +1,7 @@
 .wrapper{
 
     width: 100vw;
-    height:100vw;
+    height:400vw;
     margin: 0;
     padding:0;
     background-color: white;
@@ -12,7 +12,8 @@
 
 .wrapper img{
     width: 100vw;
-    height:50vw;
+    height:115vh;
+
       
 }
 
@@ -23,7 +24,7 @@
     font-family: "Billy-Ohio";
     font-size: 15vw;
     color:white;
-    top: 20vh;
+    top: 50vh;
     left: 50%;
     transform: translate(-50%,-50%);
 
@@ -76,4 +77,20 @@
     overflow: hidden;
     justify-content: center;
     position: relative;
+}
+
+.wrapper h2{
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    font-family: "Kingsmen";
+    font-size: 3vw;
+    color:#005688;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    
+
+
 }

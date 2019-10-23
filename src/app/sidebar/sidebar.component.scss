@@ -21,14 +21,14 @@
       position: absolute;
       top:0;
       right:0;
-    
+      transform: translateX(0)    
 
     
 
   }
 
   #sidebar.hidden{
-    margin-right: -30vw;
+    transform: translateX(30vw);
     transition: 0.6s;
 }
 

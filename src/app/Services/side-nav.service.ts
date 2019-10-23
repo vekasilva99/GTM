@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class SideNavService {
 
-  hideSideNav: boolean = false;
+  hideSideNav: boolean = true;
 
   constructor() { }
 

@@ -24,7 +24,7 @@
 
 }
 
-.logIn{
+.login{
     width:30vw;
     height: 55vh;
     background-color:rgba(219, 251, 254, 0.2);
@@ -48,6 +48,7 @@ form{
         display: block;
         margin:1rem;
         color:#666666;
+     
     }
     input{
         display: block;
@@ -58,9 +59,12 @@ form{
         font-size: 10px;
         border:3px solid #00b6d9;
         border-radius:4px;
+
     }
  
 }
+
+
 
 .log {
     
@@ -84,4 +88,10 @@ form{
         background: white;
         transition: 0.6s;
     }
+}
+
+.has-error input[type="email"],
+.has-error input[type="password"] {
+    border-color: rgb(216, 12, 12);
+    color: rgb(230, 14, 14);
 }

@@ -4,6 +4,7 @@ export class estado{
     imagen: string;
     gastronomia: string;
     cultura:string;
+    inicio:string;
 
 
 

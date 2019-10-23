@@ -11,7 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
 import { PlaneaComponent } from '../app/Principal/planea/planea.component';
 import { LogComponent } from './log/log.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { EstadosComponent } from './estados/estados.component';
 import { EstadoDetailsComponent } from './estado-details/estado-details.component';
@@ -42,6 +42,7 @@ import { HomeComponent } from '../app/Principal/home/home.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
