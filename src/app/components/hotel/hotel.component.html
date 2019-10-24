@@ -1,0 +1,41 @@
+<h1>Hoteles</h1>
+
+<div class="box" *ngFor="let hotel of hotels">
+
+    <h2>
+        {{hotel.name}}
+    </h2>
+
+        <span *ngFor="let item of hotel.stars">
+            <span style="font-size: 1.5vw; color:white;">
+                <i class="fas fa-star"></i>
+            </span>
+        </span> <br><br>
+    
+
+    <b>Latitud:</b> {{hotel.latitude}}
+    <b>Longitud:</b> {{hotel.length}} <br>
+    <b>Dirección:</b> {{hotel.address}} <br>
+    <b>Estado:</b> {{hotel.state}} 
+    <b>Ciudad:</b> {{hotel.city}} <br>
+    <b>Fullday:</b>
+                
+        <span *ngIf="hotel.fullDay; else noFullDay"> 
+            Si
+            <b> Precio del Fullday:</b> {{hotel.fullDayPrice}}<b>$</b>
+        </span> <br>
+                
+        <ng-template #noFullDay> 
+             No
+        </ng-template> <br>
+
+        <div class="images">
+            <div  *ngFor="let item of hotel.hotelPictures">
+                <img width="252" height="225" [src]="item" alt="">
+            </div> 
+        </div> <br>
+
+    <b>Servicios: </b> <span *ngFor="let item of hotel.services">{{item}}, </span>
+
+</div>
+

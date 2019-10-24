@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { EstadosComponent } from './estados/estados.component';
 import { EstadoDetailsComponent } from './estado-details/estado-details.component';
 import { HomeComponent } from '../app/Principal/home/home.component';
+import { HotelComponent } from './components/hotel/hotel.component';
 
 
 
@@ -35,8 +36,8 @@ import { HomeComponent } from '../app/Principal/home/home.component';
    FooterComponent,
    EstadosComponent,
    EstadoDetailsComponent,
-   HomeComponent
-
+   HomeComponent,
+   HotelComponent
   ],
   imports: [
     BrowserModule,
