@@ -7,6 +7,7 @@ import { LogComponent } from './log/log.component';
 import { EstadosComponent } from './estados/estados.component';
 import { EstadoDetailsComponent } from './estado-details/estado-details.component';
 import { HotelComponent } from './components/hotel/hotel.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'login', component: LogComponent},
   {path: 'estado', component: EstadosComponent},
   {path: 'detail/:id', component: EstadoDetailsComponent},
-  {path: 'hotels', component: HotelComponent}
+  {path: 'hotels', component: HotelComponent},
+  {path: 'adminHome', component: AdminHomeComponent}
 ];
 
 @NgModule({

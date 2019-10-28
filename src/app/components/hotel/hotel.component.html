@@ -1,4 +1,9 @@
-<h1>Hoteles</h1>
+<div class="wrapper">
+        <img class="im" src="../../assets/11.png">  
+        <h1>Alojamientos</h1>
+</div>
+
+<div class="wrapper">
 
 <div class="box" *ngFor="let hotel of hotels">
 
@@ -7,7 +12,7 @@
     </h2>
 
         <span *ngFor="let item of hotel.stars">
-            <span style="font-size: 1.5vw; color:white;">
+            <span style="font-size: 1.5vw; color:#002e64;">
                 <i class="fas fa-star"></i>
             </span>
         </span> <br><br>
@@ -37,5 +42,6 @@
 
     <b>Servicios: </b> <span *ngFor="let item of hotel.services">{{item}}, </span>
 
+</div>
 </div>
 

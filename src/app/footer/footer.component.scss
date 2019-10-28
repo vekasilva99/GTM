@@ -5,6 +5,15 @@
     padding:0;
     position: relative;
     background-color: #005688;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+     img{
+        width:50%;
+        height:50%;
+        opacity: 0.6;
+ }
 }
 
 

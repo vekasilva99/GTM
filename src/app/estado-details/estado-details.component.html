@@ -1,9 +1,48 @@
+
 <div class="wrapper">
          <div *ngIf="estado">
  <img src="../../assets/{{estado.imagen}}">  
         <h1>{{estado.nombre}}</h1>
+    </div>
+
+
+        <div class="wrapper2">
         <h2>{{estado.inicio}}</h2>
-</div>
+        
+        </div>
+        <div class="wrapper">
+                <div class="grid">
+                        <div class="row"> 
+                                <div class="column">
+                               
+                                        <img src="../../assets/{{estado.img[0]}}"> 
+                                </div>
+                              
+                                <div class="column">
+                                        <img src="../../assets/{{estado.img[2]}}"> 
+                                   
+                            </div>
+                        </div>
+                                </div>
+            </div>
+                        
+            <div class="wrapper2">
+                    <h3>Cultura</h3>
+                    <h2>{{estado.cultura}}</h2>
+                    </div>
+    
+                    <div class="wrapper3">
+                            <main class="gallery">
+                                    <img src="../../assets/{{estado.gastronomia[0]}}" alt="Sample photo">
+                                    <img src="../../assets/{{estado.gastronomia[1]}}"  alt="Sample photo">
+                                    <img src="../../assets/{{estado.gastronomia[2]}}"  alt="Sample photo">
+                                    <img src="../../assets/{{estado.gastronomia[3]}}"  alt="Sample photo">
+                                    <img src="../../assets/{{estado.gastronomia[4]}}"  alt="Sample photo">
+                                    <img src="../../assets/{{estado.gastronomia[5]}}"  alt="Sample photo">
+                                  </main>
+                            
+                        </div>
+                                    
 
 
 

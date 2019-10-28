@@ -17,6 +17,8 @@ import { EstadosComponent } from './estados/estados.component';
 import { EstadoDetailsComponent } from './estado-details/estado-details.component';
 import { HomeComponent } from '../app/Principal/home/home.component';
 import { HotelComponent } from './components/hotel/hotel.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { BienvenidoComponent } from './bienvenido/bienvenido.component';
 
 
 
@@ -37,7 +39,9 @@ import { HotelComponent } from './components/hotel/hotel.component';
    EstadosComponent,
    EstadoDetailsComponent,
    HomeComponent,
-   HotelComponent
+   HotelComponent,
+   AdminHomeComponent,
+   BienvenidoComponent
   ],
   imports: [
     BrowserModule,

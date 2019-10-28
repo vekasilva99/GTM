@@ -45,7 +45,7 @@ login(){
    this.router.navigateByUrl('/login');
 
   } else {
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/adminHome');
   }
 
 
