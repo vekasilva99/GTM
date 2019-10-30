@@ -12,7 +12,7 @@
     </h2>
 
         <span *ngFor="let item of hotel.stars">
-            <span style="font-size: 1.5vw; color:#002e64;">
+            <span style="font-size: 1.5vw; color:white;">
                 <i class="fas fa-star"></i>
             </span>
         </span> <br><br>
@@ -35,9 +35,7 @@
         </ng-template> <br>
 
         <div class="images">
-            <div  *ngFor="let item of hotel.hotelPictures">
-                <img width="252" height="225" [src]="item" alt="">
-            </div> 
+                <app-hotel-slider [hotel]=hotel></app-hotel-slider>    
         </div> <br>
 
     <b>Servicios: </b> <span *ngFor="let item of hotel.services">{{item}}, </span>

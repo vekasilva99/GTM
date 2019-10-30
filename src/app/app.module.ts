@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {HammerGestureConfig, HAMMER_GESTURE_CONFIG} from '@angular/platform-browser';
+import * as Hammer from 'hammerjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -19,9 +20,20 @@ import { HomeComponent } from '../app/Principal/home/home.component';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { BienvenidoComponent } from './bienvenido/bienvenido.component';
+import {NgxGalleryModule} from 'ngx-gallery';
+import { HotelSliderComponent } from './hotel-slider/hotel-slider.component';
+import { ListaEstadosComponent } from './lista-estados/lista-estados.component';
 
 
 
+export class CustomHammerConfig extends HammerGestureConfig{
+  overrides={
+    'pan':{
+      direction: Hammer.DIRECTION_ALL,
+
+    }
+  }
+}
 
 
 @NgModule({
@@ -41,16 +53,23 @@ import { BienvenidoComponent } from './bienvenido/bienvenido.component';
    HomeComponent,
    HotelComponent,
    AdminHomeComponent,
-   BienvenidoComponent
+   BienvenidoComponent,
+   HotelSliderComponent,
+   ListaEstadosComponent,
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxGalleryModule
+
 
   ],
-  providers: [],
+  providers: [
+    {provide:HAMMER_GESTURE_CONFIG, useClass:CustomHammerConfig}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
