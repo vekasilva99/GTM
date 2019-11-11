@@ -1,0 +1,104 @@
+<div class="wrapper">
+    <img src="../../assets/5.png">
+    <h1>{{hotel.name}}</h1>
+    <div class="wrapper" id="c4">
+        <div class="info">
+            <div class="margen"></div>
+            <div class="direccion">
+                
+                <div class="a"> </div>
+                <div class="b">
+                    <h2>{{hotel.city}}, {{hotel.state}}</h2>
+                    <h3><i class="fas fa-map-marker-alt"></i> {{hotel.address}}</h3>
+                    <h3>Latitud: {{hotel.latitude}}  Longitud: {{hotel.length}}</h3>
+                    
+                </div>
+                <div class="c"></div>
+           
+
+            </div>
+            <div class="direccion">
+                    <div class="a"></div>
+                    <div class="b">
+                            <span *ngFor="let item of hotel.stars">
+                                    <span style="font-size: 1.5em; color:#005688;">
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </span>
+                            <div *ngIf="(hotel.fullDay)">
+                                <h4>US${{hotel.fullDayPrice}}/dia</h4>
+
+                            </div>
+                    </div>
+                    <div class="c"></div>
+                
+                </div>
+                <div class="margen"></div>
+
+
+        </div>
+
+    </div>
+ <div class="wrapper" id="c5">
+<div class="gallery">
+    <div class="img1"><img src="{{ho"></div>
+    <div class="img2">
+        <div class="a">
+            <div class="d"></div>
+            <div class="e"></div>
+        </div>
+        <div class="b">Hola</div>
+    </div>
+</div>
+
+ </div>
+    <div class="wrapper-rooms" *ngFor="let hab of hotel.hab; let i=index">
+        <div class="even" *ngIf="(i%2==0)">
+            <div class="grid">
+
+                <div class="a"><img src="{{hab.habPictures[0]}}">
+                </div>
+
+                <div class="b">
+
+                    <div class="grid2">
+
+                        <div class="a"></div>
+                        <div class="b">
+                                <a routerLink="/hotels/{{hotel.id}}/{{hab.i}}">
+                                    <span class="badge">{{hab.nombre}}</span>
+                               </a>
+                            <h3>Maximo de {{hab.maxPersonas}} Personas</h3>
+                            <h4>{{hab.tipoVista}}</h4>
+                            <a class="button">VER MAS</a>
+                        </div>
+                        <div class="c"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="odd" *ngIf="(i%2!==0)">
+            <div class="grid">
+                <div class="b">
+                    <div class="grid2">
+
+                        <div class="a"></div>
+                        <div class="b">
+                                <a routerLink="/hotels/{{hotel.id}}/{{hab.i}}">
+                                    <span class="badge">{{hab.nombre}}</span>
+                               </a>
+                            <h3>Maximo de {{hab.maxPersonas}} Personas </h3>
+                            <h4>{{hab.tipoVista}}</h4>
+                            <a class="button">VER MAS</a>
+                        </div>
+                        <div class="c"></div>
+                    </div>
+                </div>
+                <div class="a"><img src="{{hab.habPictures[0]}}"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

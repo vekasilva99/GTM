@@ -3,28 +3,29 @@
         <ul class="navbar-nav">
             <li class="nav-item active"><a class="nav-link" routerLink="/hotels" routerLinkActive="router-link-active"  href="#">ALOJAMIENTOS</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#">QUÉ HACER</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">A DÓNDE</a>
+            <li class="nav-item"><a class="item" class="nav-link" href="#">QUÉ HACER</a></li>
+            <li class="nav-item"><a class="item" class="nav-link" href="#">A DÓNDE</a>
                 <ul>
-                        <li  ><a routerLink="/estado" href="#">ESTADOS</a>
+                        <li  ><button class="item" type="button" (click)="listaEstadosService.toggleLista()">ESTADOS</button>
+                            <!-- <li><button class="item" type="button" (click)="listaEstadosService.toggleLista()"></button></li> -->
                         <li ><a href="#">DESTINOS</a>
                             <ul>
-                                <li><a href="#">PLAYA</a></li>
+                                <li><a class="item" href="#">PLAYA</a></li>
                                     <ul>
-                                            <li><a href="#">ISLA MARGARITA</a></li>
-                                            <li><a href="#">LOS ROQUES</a></li>
-                                            <li><a href="#">MORROCOY</a></li> 
+                                            <li><a class="item" href="#">ISLA MARGARITA</a></li>
+                                            <li><a class="item" href="#">LOS ROQUES</a></li>
+                                            <li><a class="item" href="#">MORROCOY</a></li> 
                                     </ul>
-                                <li><a href="#">SELVA</a></li>
-                                <li><a href="#">MONTAÑA</a></li>
+                                <li><a class="item" href="#">SELVA</a></li>
+                                <li><a class="item" href="#">MONTAÑA</a></li>
                             </ul>
                 </ul>
                 
               
             </li>
 
-            <li class="nav-item"><a class="nav-link" href="#">LO MÁS VISITADO</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">CONTÁCTANOS</a></li>
+            <li class="nav-item"><a class="item" class="nav-link" href="#">LO MÁS VISITADO</a></li>
+            <li class="nav-item"><a class="item" class="nav-link" href="#">CONTÁCTANOS</a></li>
 
         </ul>
 

@@ -6,10 +6,10 @@
 <div class="wrapper">
 
 <div class="box" *ngFor="let hotel of hotels">
-
-    <h2>
-        {{hotel.name}}
-    </h2>
+        <a routerLink="/hotels/{{hotel.id}}">
+            <span class="badge">{{hotel.name}}</span>
+       </a>
+    
 
         <span *ngFor="let item of hotel.stars">
             <span style="font-size: 1.5vw; color:white;">
@@ -35,7 +35,8 @@
         </ng-template> <br>
 
         <div class="images">
-                <app-hotel-slider [hotel]=hotel></app-hotel-slider>    
+                <app-hotel-slider [hotel]=hotel></app-hotel-slider>
+    
         </div> <br>
 
     <b>Servicios: </b> <span *ngFor="let item of hotel.services">{{item}}, </span>
