@@ -41,14 +41,28 @@
     </div>
  <div class="wrapper" id="c5">
 <div class="gallery">
-    <div class="img1"><img src="{{ho"></div>
+    <div class="img1"><img src="{{hotel.hotelPictures[0]}}"></div>
     <div class="img2">
         <div class="a">
-            <div class="d"></div>
-            <div class="e"></div>
+            <div class="img2a"><img src="{{hotel.hotelPictures[1]}}"></div>
+            <div class="img2b"><img src="{{hotel.hotelPictures[2]}}"></div>
         </div>
-        <div class="b">Hola</div>
+        <div class="b"><img src="{{hotel.hotelPictures[3]}}"></div>
     </div>
+</div>
+
+ </div>
+
+ <div class="wrapper" id="c2">
+<div class="services">
+    <div class="margin"></div>
+    <div class="list" >
+        <h2>Los servicios incluidos son: </h2>
+        <div class="item" *ngFor="let service of hotel.services" >
+            <div id="lista" *ngIf="(service.value)"><i style="font-size: 0.8em; color:#005688;" class="fas fa-check"></i>   {{service.servicio}}</div>
+        </div>
+    </div>
+    <div class="margin"></div>
 </div>
 
  </div>
@@ -65,12 +79,12 @@
 
                         <div class="a"></div>
                         <div class="b">
-                                <a routerLink="/hotels/{{hotel.id}}/{{hab.i}}">
-                                    <span class="badge">{{hab.nombre}}</span>
-                               </a>
+                                
+                                    <h2>{{hab.nombre}}</h2>
+                               
                             <h3>Maximo de {{hab.maxPersonas}} Personas</h3>
                             <h4>{{hab.tipoVista}}</h4>
-                            <a class="button">VER MAS</a>
+                            <a routerLink="/hotels/{{hotel.id}}/{{hab.i}}" class="button">VER MAS</a>
                         </div>
                         <div class="c"></div>
                     </div>
@@ -84,12 +98,11 @@
 
                         <div class="a"></div>
                         <div class="b">
-                                <a routerLink="/hotels/{{hotel.id}}/{{hab.i}}">
-                                    <span class="badge">{{hab.nombre}}</span>
-                               </a>
-                            <h3>Maximo de {{hab.maxPersonas}} Personas </h3>
-                            <h4>{{hab.tipoVista}}</h4>
-                            <a class="button">VER MAS</a>
+                                <h2>{{hab.nombre}}</h2>
+                               
+                                <h3>Maximo de {{hab.maxPersonas}} Personas</h3>
+                                <h4>{{hab.tipoVista}}</h4>
+                                <a routerLink="/hotels/{{hotel.id}}/{{hab.i}}" class="button">VER MAS</a>
                         </div>
                         <div class="c"></div>
                     </div>

@@ -35,7 +35,7 @@
   #c4 {
     background-color: white;
     color: #666666;
-    height:60vh;
+    height:50vh;
    
   }
 
@@ -44,6 +44,42 @@
     color: #666666;
     height:80vh;
    
+  }
+
+  #c2 {
+    background-color: white;
+    color: #666666;
+    height:100vh;
+   
+  }
+
+  .services{
+    display: grid;
+    width: 100vw;
+    height:100vh;
+    grid-template-columns: 2fr 3fr 2fr;
+    margin: 0;
+    padding: 0;
+
+  }
+
+ 
+
+  .services .list h2{
+    font-family: 'Kingsmen';
+    color: #005688;
+    font-size: 2.5em;
+    margin-top: 3em;
+  }
+
+.item #lista{
+    font-family: 'Avenir';
+    color: black;
+    font-size: 1.2em;
+    margin-top: 1em;
+    font-weight: 100;
+    border-bottom: solid 1px #666666;
+    padding: 0.5em;
   }
 
   .gallery{
@@ -58,47 +94,67 @@
   .gallery .img1{
       background-color: #005688;
       margin-right: 5px;
+     height: 100%;
+
       
   }
+
+  .gallery .img1 img{
+    width: 100%;
+    height:80vh;
+  }
+
+
 
   .gallery .img2{
     margin-left: 5px;
     display: grid;
     width: 100%;
     height:100%;
-    grid-template-rows:  1fr 1fr;
+    grid-template-rows:1fr 1fr;
 }
 
-.gallery .img2 .a{
-
+ .img2 .a{
     display: grid;
     width: 100%;
     height:100%;
-    grid-template-columns:  1fr 1fr;
+    grid-template-columns:1fr 1fr;
+    margin-bottom: 5px;
+
+ }
+
+ .a .img2a{
+     margin-right: 5px;
+     
+ }
+
+ .a .img2b{
+    margin-left: 5px;
     
 }
 
-.d{
-    margin-right: 5px;
-    background-color: #ffa600;
-}
+ .img2 .a img{
+width: 100%;
+height:40vh;
+ }
 
-.e{
-    margin-left: 5px;
-    background-color: pink;
-}
+ .img2 .b img{
+    width: 100%;
+    height:40vh;
+     }
 
-.gallery .img2 .b{
-    margin-top: 10px;
-    background-color: black;
-}
+
+
+
+
+
 
 
 
   .info{
     display: grid;
     width: 100vw;
-    height:60vh;
+    height:50vh;
     grid-template-columns: 1fr 3fr 2fr 1fr;
     margin: 0;
     padding: 0;
@@ -198,12 +254,12 @@
 
 }
 
-  .grid2 .b .badge{
+  .grid2 .b h2{
     margin-left: 5%;
     font-size: 2.5em;
     color:#005688;
     font-family: 'Kingsmen';
-    text-decoration: none;
+
     
   
     
