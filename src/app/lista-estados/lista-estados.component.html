@@ -1,1 +1,16 @@
-<p>lista-estados works!</p>
+<div id="wrapper"[ngClass]="{'hidden': listaEstadosService.hideLista }">
+<button type="button" class="close" (click)="listaEstadosService.toggleLista()"><i class="fas fa-times"></i></button>
+
+    <div id="list" >
+        <ul class="estados">
+            <li *ngFor="let estado of estados">
+                <a routerLink="/detail/{{estado.id}}">
+
+                    <span class="badge">{{estado.nombre}}</span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+</div>

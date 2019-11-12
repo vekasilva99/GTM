@@ -7,7 +7,7 @@
     width: 100vw;
     font-family: sans-serif;
     overflow:hidden;
-    position: absolute;
+    position: fixed;
     z-index: 90;
    
  
@@ -33,7 +33,7 @@
         margin: 1vw;
 
         &:hover{
-            color:#2c3e50;
+            color:#002e64;
             background: white;
             transition: 0.6s;
         }

@@ -23,6 +23,8 @@ import { BienvenidoComponent } from './bienvenido/bienvenido.component';
 import {NgxGalleryModule} from 'ngx-gallery';
 import { HotelSliderComponent } from './hotel-slider/hotel-slider.component';
 import { ListaEstadosComponent } from './lista-estados/lista-estados.component';
+import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
+import { HabitacionComponent } from './habitacion/habitacion.component';
 
 
 
@@ -56,6 +58,8 @@ export class CustomHammerConfig extends HammerGestureConfig{
    BienvenidoComponent,
    HotelSliderComponent,
    ListaEstadosComponent,
+   HotelDetailsComponent,
+   HabitacionComponent,
   
   ],
   imports: [

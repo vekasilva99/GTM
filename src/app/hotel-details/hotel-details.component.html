@@ -1,0 +1,117 @@
+<div class="wrapper">
+    <img src="../../assets/5.png">
+    <h1>{{hotel.name}}</h1>
+    <div class="wrapper" id="c4">
+        <div class="info">
+            <div class="margen"></div>
+            <div class="direccion">
+                
+                <div class="a"> </div>
+                <div class="b">
+                    <h2>{{hotel.city}}, {{hotel.state}}</h2>
+                    <h3><i class="fas fa-map-marker-alt"></i> {{hotel.address}}</h3>
+                    <h3>Latitud: {{hotel.latitude}}  Longitud: {{hotel.length}}</h3>
+                    
+                </div>
+                <div class="c"></div>
+           
+
+            </div>
+            <div class="direccion">
+                    <div class="a"></div>
+                    <div class="b">
+                            <span *ngFor="let item of hotel.stars">
+                                    <span style="font-size: 1.5em; color:#005688;">
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </span>
+                            <div *ngIf="(hotel.fullDay)">
+                                <h4>US${{hotel.fullDayPrice}}/dia</h4>
+
+                            </div>
+                    </div>
+                    <div class="c"></div>
+                
+                </div>
+                <div class="margen"></div>
+
+
+        </div>
+
+    </div>
+ <div class="wrapper" id="c5">
+<div class="gallery">
+    <div class="img1"><img src="{{hotel.hotelPictures[0]}}"></div>
+    <div class="img2">
+        <div class="a">
+            <div class="img2a"><img src="{{hotel.hotelPictures[1]}}"></div>
+            <div class="img2b"><img src="{{hotel.hotelPictures[2]}}"></div>
+        </div>
+        <div class="b"><img src="{{hotel.hotelPictures[3]}}"></div>
+    </div>
+</div>
+
+ </div>
+
+ <div class="wrapper" id="c2">
+<div class="services">
+    <div class="margin"></div>
+    <div class="list" >
+        <h2>Los servicios incluidos son: </h2>
+        <div class="item" *ngFor="let service of hotel.services" >
+            <div id="lista" *ngIf="(service.value)"><i style="font-size: 0.8em; color:#005688;" class="fas fa-check"></i>{{service.servicio}}</div>
+        </div>
+    </div>
+    <div class="margin"></div>
+</div>
+
+ </div>
+    <div class="wrapper-rooms" *ngFor="let hab of hotel.hab; let i=index">
+        <div class="even" *ngIf="(i%2==0)">
+            <div class="grid">
+
+                <div class="a"><img src="{{hab.habPictures[0]}}">
+                </div>
+
+                <div class="b">
+
+                    <div class="grid2">
+
+                        <div class="a"></div>
+                        <div class="b">
+                                
+                                    <h2>{{hab.nombre}}</h2>
+                               
+                            <h3>Maximo de {{hab.maxPersonas}} Personas</h3>
+                            <h4>{{hab.tipoVista}}</h4>
+                            <a routerLink="/hotels/{{hotel.id}}/{{hab.i}}" class="button">VER MAS</a>
+                        </div>
+                        <div class="c"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="odd" *ngIf="(i%2!==0)">
+            <div class="grid">
+                <div class="b">
+                    <div class="grid2">
+
+                        <div class="a"></div>
+                        <div class="b">
+                                <h2>{{hab.nombre}}</h2>
+                               
+                                <h3>Maximo de {{hab.maxPersonas}} Personas</h3>
+                                <h4>{{hab.tipoVista}}</h4>
+                                <a routerLink="/hotels/{{hotel.id}}/{{hab.i}}" class="button">VER MAS</a>
+                        </div>
+                        <div class="c"></div>
+                    </div>
+                </div>
+                <div class="a"><img src="{{hab.habPictures[0]}}"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,90 @@
+#wrapper{
+    width: 100vw;
+    height:100vh;
+    background-color: transparent;
+    position: fixed;
+    z-index: 85;
+}
+
+
+#list{
+    text-align: center;
+    font-family: "Avenir";
+    border-radius:4px;
+    font-size: 1.5vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    background-color: rgba($color: white, $alpha: 0.9);
+    width:35%;
+    border: solid 2px white;
+    display: block;
+    width:40vw;
+    height:auto;
+    
+   
+}
+#wrapper.hidden{
+    display:none;
+    transition: 0.6s;
+}
+
+  a[data-toggle="collapse"] {
+    position: relative;
+  }
+
+
+
+
+
+#list ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    font-family: "Avenir";
+    
+}
+
+#list li {
+    display: inline;
+    width: 220px; 
+    padding:5px; 
+    margin:1px; 
+    text-align:center; 
+    cursor: pointer; 
+    font-family: "Avenir";
+ 
+ } 
+
+
+ #list li a{
+color:#005688;
+text-align: left;
+text-decoration: none;
+font-family: "Avenir";
+letter-spacing: 0.1em;
+
+margin-left: 5px;
+&:hover{
+  color:#ffa600;
+  
+}
+ }
+
+ .close{
+     color:white;
+     font-size: 2em;
+     margin-left: 65%;
+     margin-top: 7%;
+     border:none;
+     outline:none;
+     background:none;
+     cursor: pointer;
+     &:hover{
+         color:#005688;
+     }
+ }
