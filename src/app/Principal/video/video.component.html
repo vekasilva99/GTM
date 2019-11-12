@@ -1,5 +1,5 @@
-<div class="wrapper">
-    <video autoplay loop muted>
-        <source src="assets/GT.mp4">
+<div class="videoscreen">
+    <video loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+        <source src="assets/GT.mp4" type="video/mp4">
     </video>
 </div>
