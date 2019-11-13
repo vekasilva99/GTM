@@ -71,9 +71,48 @@
   margin-left: 10px;
 }
 
+.info-boton1{
+  font-size: 0.9vw;
+  font-family:"Avenir";
+  padding: 10px;
+  color: white;
+  background-color: #01798a;
+  border: 1px solid #01798a;
+  border-radius: 5px;
+  width: 4.5vw;
+  text-align: center;
+  margin-left: auto;
+}
+
+.info-boton2{
+  font-size: 0.9vw;
+  font-family:"Avenir";
+  padding: 10px;
+  color: white;
+  background-color: #c8a501;
+  border: 1px solid #c8a501;
+  border-radius: 5px;
+  width: 2.5vw;
+  text-align: center;
+  margin-left: auto;
+}
+
+.info-boton3{
+  font-size: 0.9vw;
+  font-family:"Avenir";
+  padding: 10px;
+  color: white;
+  background-color: #02b5da;
+  border: 1px solid #02b5da;
+  border-radius: 5px;
+  width: 7vw;
+  text-align: center;
+  margin-left: auto;
+}
+
 .dato{
   display: flex;
-  justify-content: left;
+  // justify-content: left;
   align-items: center;
 }
 
