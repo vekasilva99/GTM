@@ -15,7 +15,7 @@
   color: white;
 }
 
-.wrapper h1{
+#c1 h1{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -29,7 +29,7 @@
   word-spacing: 1em;
 }
 
-.wrapper h2{
+#c1 h2{
   text-align: center;
   font-size: 1.3vw;
   font-family:"Avenir";
@@ -49,7 +49,6 @@
 }
 
 .planea-menu div{
-  // border: 1px solid black;
   padding: 1vw;
 }
 
@@ -116,6 +115,45 @@
   align-items: center;
 }
 
+#c4{
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: grid;
+  grid-template-columns: 17% 38% 28% 17%;
+  grid-auto-rows: auto;
+}
+
+#c4 div{
+  border: 1px solid black;
+}
+
+#c4 h1{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+  text-align: center;
+  font-size: 2.2vw;
+  font-family:"Kingsmen";
+  padding: 20px;
+  margin: 15px;
+  color: #005688;
+  word-spacing: 1em;
+}
+
+// #c4 div h2{
+//   text-align: left;
+//   font-size: 1.3vw;
+//   font-family:"Avenir";
+//   padding: 10px;
+//   color: #000000;
+//   // margin-left: 25%;
+//   // margin-right: 25%;
+//   // margin-bottom: 3%;
+// }
+
+
 #c1{
   background-color: white; 
   height: auto; 
@@ -151,13 +189,7 @@
   height: 145vh;
 }
 
-#c4{
-  background-color: white;
-  color: #666666;
-  height:60vh;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
+
 
 .menu{
   display: flex;
