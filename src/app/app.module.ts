@@ -28,13 +28,14 @@ import { HabitacionComponent } from './habitacion/habitacion.component';
 
 
 
-export class CustomHammerConfig extends HammerGestureConfig{
-  overrides={
-    'pan':{
+export class CustomHammerConfig extends HammerGestureConfig {
+  overrides = {
+    // tslint:disable-next-line: object-literal-key-quotes
+    'pan': {
       direction: Hammer.DIRECTION_ALL,
 
     }
-  }
+  };
 }
 
 
@@ -60,7 +61,7 @@ export class CustomHammerConfig extends HammerGestureConfig{
    ListaEstadosComponent,
    HotelDetailsComponent,
    HabitacionComponent,
-  
+
   ],
   imports: [
     BrowserModule,
@@ -72,7 +73,7 @@ export class CustomHammerConfig extends HammerGestureConfig{
 
   ],
   providers: [
-    {provide:HAMMER_GESTURE_CONFIG, useClass:CustomHammerConfig}
+    {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
   ],
   bootstrap: [AppComponent]
 })
