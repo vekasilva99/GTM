@@ -11,7 +11,7 @@ export class HotelService {
   hotel: Hotel[] = [
     {
       id: 1, name: 'Eurobuilding Hotel & Suites Caracas', stars: [1, 2, 3, 4, 5], latitude: 'O66°51\'1.73"', length: 'N10°28\'58.04"',
-      address: 'Final Calle La Guairita, 1060 Caracas, Venezuela.', state: 'Miranda', city: 'Caracas',
+      address: 'Final Calle La Guairita, 1060 Caracas, Venezuela.', state: 'Amazonas', city: 'Caracas',
       hotelPictures: ['https://q-cf.bstatic.com/images/hotel/max1280x900/221/2212834.jpg', 'https://r-cf.bstatic.com/images/hotel/max1280x900/221/2212790.jpg',
         'https://q-cf.bstatic.com/images/hotel/max1280x900/463/46397689.jpg', 'https://r-cf.bstatic.com/images/hotel/max1280x900/463/46397679.jpg', 'https://r-cf.bstatic.com/images/hotel/max1280x900/463/46397680.jpg', 'https://r-cf.bstatic.com/images/hotel/max1280x900/463/46397677.jpg', 'https://r-cf.bstatic.com/images/hotel/max1280x900/463/46397676.jpg', 'https://r-cf.bstatic.com/images/hotel/max1280x900/144/14418866.jpg', 'https://pbs.twimg.com/media/DWKv8W0X4AA5Mno.jpg','https://r-cf.bstatic.com/images/hotel/max1280x900/221/2212807.jpg', 'https://q-cf.bstatic.com/images/hotel/max1280x900/237/2375336.jpg'],
       fullDay: true, fullDayPrice: 49, services: [{servicio: "Wifi", value: true}, {servicio:"Restaurante", value: true}, {servicio:"Piscina", value:true}, {servicio:"Parking", value:true}, {servicio:"Bar",value:true}, {servicio:"Traslado", value:true}], hab: [

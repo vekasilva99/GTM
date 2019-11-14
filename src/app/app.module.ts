@@ -25,6 +25,8 @@ import { HotelSliderComponent } from './hotel-slider/hotel-slider.component';
 import { ListaEstadosComponent } from './lista-estados/lista-estados.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { HabitacionComponent } from './habitacion/habitacion.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { Filter2Pipe } from './pipes/filter2.pipe';
 
 
 
@@ -61,6 +63,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
    ListaEstadosComponent,
    HotelDetailsComponent,
    HabitacionComponent,
+   FilterPipe,
+   Filter2Pipe,
 
   ],
   imports: [

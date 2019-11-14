@@ -3,13 +3,22 @@
         <h1>Alojamientos</h1>
 </div>
 
+<div>
+    <h3>Filtrar búsqueda:</h3>
+
+    <span>Nombre: </span><input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost"><br>
+    
+    <span>Estado: </span><input type="text" class="form-control" name="filterPost2" placeholder="Buscar..." [(ngModel)]="filterPost2"><br>
+  
+</div>
+
 <div class="wrapper">
 
-<div class="box" *ngFor="let hotel of hotels">
+<div class="box" *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2">
+
         <a routerLink="/hotels/{{hotel.id}}">
             <span class="badge">{{hotel.name}}</span>
        </a>
-    
 
         <span *ngFor="let item of hotel.stars">
             <span style="font-size: 1.5vw; color:white;">

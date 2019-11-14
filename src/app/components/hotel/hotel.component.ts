@@ -15,8 +15,10 @@ export class HotelComponent implements OnInit {
   constructor(private h: HotelService) {
     this.hotels = h.hotel;
   }
+  
+  filterPost = ''; //Utilizado para que funcione el filtro de busqueda por Nombre.
+  filterPost2 = '';
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
