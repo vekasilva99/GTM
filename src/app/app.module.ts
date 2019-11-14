@@ -27,6 +27,7 @@ import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { HabitacionComponent } from './habitacion/habitacion.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { Filter2Pipe } from './pipes/filter2.pipe';
+import { DestinosDetailsComponent } from './destinos-details/destinos-details.component';
 
 
 
@@ -65,6 +66,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
    HabitacionComponent,
    FilterPipe,
    Filter2Pipe,
+   DestinosDetailsComponent,
 
   ],
   imports: [
