@@ -122,37 +122,68 @@
   display: grid;
   grid-template-columns: 17% 38% 28% 17%;
   grid-auto-rows: auto;
+  height: 65vh;
+  // margin-top: 10vh;
+  align-items: center;
 }
 
-#c4 div{
-  border: 1px solid black;
+.bloque {
+  padding: 3vw;
 }
 
-#c4 h1{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -5%);
-  text-align: center;
+#c4 h6{
+  text-align: left;
   font-size: 2.2vw;
   font-family:"Kingsmen";
-  padding: 20px;
-  margin: 15px;
   color: #005688;
-  word-spacing: 1em;
+  margin-bottom: 2vh;
 }
 
-// #c4 div h2{
-//   text-align: left;
-//   font-size: 1.3vw;
-//   font-family:"Avenir";
-//   padding: 10px;
-//   color: #000000;
-//   // margin-left: 25%;
-//   // margin-right: 25%;
-//   // margin-bottom: 3%;
-// }
+#c4 p{
+  text-align: left;
+  font-size: 1.3vw;
+  font-family:"Avenir";
+  color: #000000;
+}
 
+#c4 h3{
+  text-align: left;
+  font-size: 0.7vw;
+  font-family:"Avenir";
+  padding: 10px;
+  color: black;
+  font-weight: bold;
+}
+
+.dot {
+  height: 8vh;
+  width: 8vh;
+  background-color: #02b5da;
+  border-radius: 50%;
+  // display: inline-block;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vw;
+  font-family:"Avenir";
+}
+
+#c4 h5{
+  text-align: left;
+  font-size: 0.8vw;
+  font-family:"Avenir";
+  padding: 10px;
+  color: #000000;
+  margin-left: 10px;
+}
+
+.datos{
+  display: flex;
+  // justify-content: left;
+  align-items: center;
+  padding: 1.5vh;
+}
 
 #c1{
   background-color: white; 
