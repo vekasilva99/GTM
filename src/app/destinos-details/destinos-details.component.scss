@@ -95,9 +95,9 @@
 
 .fotos {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-auto-rows: minmax(100px, auto);
-    grid-gap: 1em;
+    grid-template-columns: 25vw 25vw 25vw 25vw;
+    grid-auto-rows: 25vw;
+    grid-gap: 0.5vw;
     background-color: white;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -108,7 +108,7 @@
 }
 
 .fotos div{
-    border: 1px solid black;
+    overflow: hidden;
 }
 
 .box1 {
@@ -120,3 +120,4 @@
     grid-column: 3/5;
     grid-row: 2;
 }
+
