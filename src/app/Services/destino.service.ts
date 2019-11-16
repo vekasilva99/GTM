@@ -10,7 +10,7 @@ export class DestinoService {
 
   itemsCollection: AngularFirestoreCollection<destino>;
   items: destino[]=[];
-  filterDestinos: any;
+  filterDestinos: destino[]=[];
 
   constructor(private db: AngularFirestore) { 
     const order=this.db.collection<destino>('destinos').snapshotChanges();
@@ -29,6 +29,7 @@ export class DestinoService {
 
   getDestinosFiltrados(id:string){
     return (this.filterDestinos=this.items.filter(destino =>destino.tipoDestinoId ===id));
+    console.log(this.filterDestinos);
   }
 
   getDestinos(){

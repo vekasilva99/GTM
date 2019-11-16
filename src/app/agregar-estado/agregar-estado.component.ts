@@ -16,7 +16,6 @@ export class AgregarEstadoComponent implements OnInit {
   ngOnInit() {
     this.estadoForm = this.fb.group({
       nombre: [null, Validators.required],
-      // id: [''],
       imagen: [null, Validators.required],
       cultura: [null, Validators.required],
       inicio: [null, Validators.required],
@@ -82,7 +81,6 @@ export class AgregarEstadoComponent implements OnInit {
       gastronomia: this.estadoForm.value.gastronomia,
     }
 
-    console.log(this.estadoForm.value);
 
     this.estadoService.addEstado(mov);
   }

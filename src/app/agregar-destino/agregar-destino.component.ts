@@ -136,7 +136,7 @@ export class AgregarDestinoComponent implements OnInit {
       servicios: this.destinoForm.value.servicios,
     }
 
-    console.log(this.destinoForm.value);
+    
 
     this.destinoService.addDestino(mov);
   }

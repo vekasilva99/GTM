@@ -41,9 +41,12 @@ export class EstadoService {
   
   }
 
-  getEstadoSeleccionado(id:string){
+  getEstadoSeleccionado(id:string): void{
     this.estadoSeleccionado=this.items.find(estado =>estado.id === id);
+    console.log(this.estadoSeleccionado);
   }
+
+  
 
   addEstado(mov){
     this.db.collection('estados').add(mov);

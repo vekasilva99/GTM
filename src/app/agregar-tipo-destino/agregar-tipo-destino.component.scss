@@ -7,6 +7,7 @@
     z-index: 100;
     top:0;
     background-color: white;
+    overflow: hidden;
     
 
  }
@@ -26,61 +27,63 @@
  }
 
  .agregar-box{
-    width:80%;
-    position: absolute;
+    width:90%;
+    position: fixed;
+    padding: 5vw;
     top:50%;
     left: 50%;
+    margin-top: 2vw;
     transform: translate(-50%, -50%);
     color: #002e64;
+    height: 100vh;
+    overflow: hidden;
+
 
  
 }
 
 .agregar-box h1{
-    float: left;
-    font-size: 40px;
-    border-bottom: solid 6px #005688;
+    
+    justify-content: right;
+    font-size: 2.5vw;
+    font-family: 'Kingsmen';
     margin-bottom: 50px;
+    font-weight: 400;
     padding:13px 0;
-    color: #002e64;
+    width:30vw;
+    color: #005688;
 }
 
 .textbox{
-    width:100%;
+    width:30%;
     overflow:hidden;
     font-size: 20px;
-    padding: 8px 0;
-    margin: 8px 0;
+    padding: 0.2vw 0;
+    margin: 0.5vw 0;
     border-bottom: 1px solid #005688;
     font-family: 'Avenir';
     color: #002e64;
 }
 
- select{
-    outline:none;
-    border:none;
-    width:100%;
-    background: none;
-    padding: 10px;
-    line-height: 0.8;
-    color:grey;
-    font-size: 18px;
-    
-    
+small{
+    letter-spacing: 0.1vw;
+    font-size: 0.8vw;
+    font-family: 'Avenir';
+   
 }
-
 
 
 .textbox1{
-    width:50%;
+    width:30%;
     overflow:hidden;
-    font-size: 20px;
-    padding: 8px 0;
-    margin: 8px 0;
+    padding: 0.2vw 0;
+    margin: 0.5vw 0;
+    margin-left: 3vw;
     border-bottom: 1px solid #005688;
     font-family: 'Avenir';
     color: #002e64;
 }
+
 
 .textbox1 i{
     width: 26px;
@@ -131,4 +134,29 @@
     border-radius:4px;
     font-family: 'Avenir';
     color: #002e64;
+}
+.btn{
+    width:20%;
+    background: none;
+   background-color: #002e64;
+    padding:1vw;
+    font-size: 1vw;
+    cursor: pointer;
+    margin:3vw 0;
+    border-radius:4px;
+    font-family: 'Avenir';
+    color: white;
+    letter-spacing: 0.1vw;
+   float: right;
+}
+
+
+
+#input{
+    border: none;
+    outline: none;
+    float: left;
+    margin-bottom: 1vw;
+    size: 1vw;
+    color: #005688;
 }

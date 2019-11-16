@@ -19,6 +19,8 @@ export class AgregarTipoDestinoComponent implements OnInit {
   ngOnInit() {
     this.tipoDestinoForm = this.fb.group({
       nombre: [null, Validators.required],
+      info: [null, Validators.required],
+      imagen: [null, Validators.required],
     });
 
   }

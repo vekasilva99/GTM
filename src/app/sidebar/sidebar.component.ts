@@ -12,7 +12,7 @@ import { tipoDestino } from '../destino/tipoDestino';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  tipoDestinos: tipoDestino[];
+  tipoDestinos: tipoDestino[]=[];
   constructor(public sideNavService: SideNavService, public listaEstadosService: ListaEstadosService, public tipoDestinoService: TipoDestinoService, public destinoService: DestinoService) { }
 
   ngOnInit() {
