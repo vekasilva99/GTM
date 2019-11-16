@@ -1,4 +1,8 @@
+<app-toolbar></app-toolbar>
+<app-sidebar></app-sidebar>
+<app-lista-estados></app-lista-estados>
 <div class="wrapper">
+      
     <img src="../../assets/5.png">
     <h1>{{hotel.name}}</h1>
     <div class="wrapper" id="c4">
@@ -66,7 +70,7 @@
 </div>
 
  </div>
-    <div class="wrapper-rooms" *ngFor="let hab of hotel.hab; let i=index">
+    <div class="wrapper-rooms"  *ngFor="let hab of hotel.hab; let i=index">
         <div class="even" *ngIf="(i%2==0)">
             <div class="grid">
 
@@ -84,7 +88,7 @@
                                
                             <h3>Maximo de {{hab.maxPersonas}} Personas</h3>
                             <h4>{{hab.tipoVista}}</h4>
-                            <a routerLink="/hotels/{{hotel.id}}/{{hab.i}}" class="button">VER MAS</a>
+                            <a routerLink="/hotels/{{hotel.id}}/{{hab.id}}" class="button">VER MAS</a>
                         </div>
                         <div class="c"></div>
                     </div>

@@ -21,8 +21,8 @@ export class HotelSliderComponent implements OnInit {
 
     this.galleryOptions = [
         {
-            width: '600px',
-            height: '400px',
+            width: '100%',
+            height: '80vh',
             thumbnailsColumns: 4,
             imageAnimation: NgxGalleryAnimation.Slide
         },

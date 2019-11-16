@@ -1,46 +1,60 @@
 <div class="wrapper">
+        <app-toolbar></app-toolbar>
+        <app-sidebar></app-sidebar>
+        <app-lista-estados></app-lista-estados>
         <img class="im" src="../../assets/11.png">  
         <h1>Alojamientos</h1>
+
+
+<div class="wrapper" id="c6">
+    <div class="filtro">
+<div>
+    <h3>Filtrar búsqueda:</h3>
+
+    <span>Nombre: </span><input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost"><br>
+    
+    <span>Estado: </span><input type="text" class="form-control" name="filterPost2" placeholder="Buscar..." [(ngModel)]="filterPost2"><br>
+  
 </div>
 
 <div class="wrapper">
 
-<div class="box" *ngFor="let hotel of hotels">
-        <a routerLink="/hotels/{{hotel.id}}">
-            <span class="badge">{{hotel.name}}</span>
-       </a>
-    
 
-        <span *ngFor="let item of hotel.stars">
-            <span style="font-size: 1.5vw; color:white;">
-                <i class="fas fa-star"></i>
-            </span>
-        </span> <br><br>
-    
 
-    <b>Latitud:</b> {{hotel.latitude}}
-    <b>Longitud:</b> {{hotel.length}} <br>
-    <b>Dirección:</b> {{hotel.address}} <br>
-    <b>Estado:</b> {{hotel.state}} 
-    <b>Ciudad:</b> {{hotel.city}} <br>
-    <b>Fullday:</b>
-                
-        <span *ngIf="hotel.fullDay; else noFullDay"> 
-            Si
-            <b> Precio del Fullday:</b> {{hotel.fullDayPrice}}<b>$</b>
-        </span> <br>
-                
-        <ng-template #noFullDay> 
-             No
-        </ng-template> <br>
+<div class="wrapper-rooms"  *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2">
+        <div class="even" >
+            <div class="grid">
 
-        <div class="images">
-                <app-hotel-slider [hotel]=hotel></app-hotel-slider>
-    
-        </div> <br>
+                <div class="a"> 
+                        <div class="img">  <app-hotel-slider [hotel]=hotel></app-hotel-slider></div>
+                </div>
 
-    <b>Servicios: </b> <span *ngFor="let item of hotel.services">{{item}}, </span>
+                <div class="b">
 
+                    <div class="grid2">
+
+                        <div class="a"></div>
+                        <div class="b">
+                                
+                                    <h2>{{hotel.name}}</h2>
+                                    <span class="stars" *ngFor="let item of hotel.stars">
+                                            <span style="font-size: 1.5vw; color:#ffa600;">
+                                                <i class="fas fa-star"></i>
+                                            </span>
+                                        </span> 
+                               
+                            <h3>{{hotel.state}},{{hotel.city}}  </h3>
+                            <div *ngIf="(hotel.fullDay)">
+                                <h4>US${{hotel.fullDayPrice}}/dia</h4>
+
+                            </div>
+                            <a routerLink="/hotels/{{hotel.id}}" class="button">VER MAS</a>
+                        </div>
+                        <div class="c"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
-</div>
 
+</div> 

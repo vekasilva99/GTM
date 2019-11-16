@@ -1,0 +1,174 @@
+.wrapper{
+    margin:0;
+    padding: 0;
+    height: 200vh;
+    width: 100vw;
+    background-color: white;
+
+}
+.estados{
+    display: grid;
+    width: 100%;
+    height:auto;
+    grid-template-columns: 1fr 4fr 1fr;
+    margin: 0;
+    padding: 0;
+  }
+
+  .lista{
+    display: grid;
+    width: 100%;
+    height:auto;
+    grid-template-rows: 1fr 4fr 1fr;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .data{
+      width: 100%;
+      height: 100%;
+      
+  }
+  .textbox{
+    width:100%;
+    overflow:hidden;
+    font-size: 1.8vw;
+    padding: 1vw 0;
+    margin: 1vw 0;
+    border-bottom: 1px solid #005688;
+    font-family: 'Avenir';
+    display: flex;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    
+}
+
+.textbox1{
+    width:100%;
+    overflow:hidden;
+    font-size: 2vw;
+    padding: 1vw 0;
+    margin: 1vw 0;
+    background-color: #002e64;
+    font-family: 'Avenir';
+    display: flex;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    
+}
+
+.textbox1 .nombre{
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid #005688;
+
+
+}
+
+.textbox1 .id{
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid #005688;
+
+}
+
+.textbox1 .tools{
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.textbox1 h2{
+    display: inline-block;
+    font-size: 2vw;
+    color: white;
+  
+}
+
+
+.textbox .nombre{
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid #005688;
+
+
+}
+
+.textbox .id{
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid #005688;
+
+}
+
+.textbox .tools{
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.textbox h2{
+    display: inline-block;
+    font-size: 2vw;
+    color: white;
+    background-color: #002e64;
+}
+.textbox h3{
+    display: inline-block;
+    color: #002e64;
+    font-size: 1.5vw;
+    justify-content: center;
+}
+
+
+
+
+.log {
+    
+    background-color:#002e64;
+    border-radius:4px;
+    border:2px solid #002e64;
+    display:inline-block;
+    cursor:pointer;
+    color: white;
+    font-family: "Avenir";
+    font-size:1vw;
+    padding:1vw 2vw;
+    text-decoration:none;
+    float: right;
+    margin: 1vw;
+
+    &:hover{
+        background: #ffa600;
+        border:2px solid #ffa600;
+        transition: 0.6s;
+    }
+}
+
+.lista .margen{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+.margen h1{
+font-family: 'Avenir';
+font-size:10vw;
+color: #002e64;
+justify-content: center;
+margin-bottom: 0;
+}
+
+.textbox #close{
+    cursor: pointer;
+
+    &:hover{
+        color: #ffa600;
+
+    }
+}

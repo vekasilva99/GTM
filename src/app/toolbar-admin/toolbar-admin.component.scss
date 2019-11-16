@@ -1,0 +1,37 @@
+.wrapper {
+   
+    margin:0;
+    padding: 0;
+    height: 16vh;
+    width: 100vw;
+    font-family: sans-serif;
+    overflow:hidden;
+    position: fixed;
+    z-index: 90;
+   
+ 
+
+  }
+
+
+
+.log {
+    
+        background-color:transparent;
+        display:inline-block;
+        cursor:pointer;
+        color:#002e64;
+        font-family: "Avenir";
+        font-size:4vh;
+        text-decoration:none;
+        float: right;
+        margin: 1vw;
+        outline: none;
+        border: none;
+
+        &:hover{
+            color:#ffa600;
+            transition: 0.6s;
+        }
+}
+

@@ -1,0 +1,91 @@
+<div class="wrapper">
+    <div class="info">
+        <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)" class="reservar-box">
+            <h1>Reservar</h1>
+            <h2>Hotel - Tipo de Habitacion</h2>
+            <div class="textbox">
+                <div class="row">
+
+                    <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+                        <input class="form-control" placeholder="CheckIn-CheckOut" ngModel bsDaterangepicker
+                            [minDate]="minDate" [bsConfig]="bsConfig">
+                    </div>
+                </div>
+            </div>
+            <div class="textbox">
+                <input type="number" formControlName="numeroHab" placeholder="Cantidad de Habitaciones" min="1">
+            </div>
+            <div class="textbox">
+                <input type="text" formControlName="name" placeholder="Nombre">
+            </div>
+            <div class="textbox">
+                <input type="text" formControlName="lastName" placeholder="Apellido">
+            </div>
+            <div class="textbox">
+                <input type="text" formControlName="cedula" placeholder="Cedula">
+            </div>
+            <div class="textbox">
+                <input type="email" formControlName="email" placeholder="Email">
+            </div>
+            <div class="textbox">
+                <input type="tel" formControlName="telefono" placeholder="Telefono">
+            </div>
+            <div class="textbox">
+                <input type="text" formControlName="direccion" placeholder="Direccion">
+            </div>
+
+
+
+            <button class="btn" type="submit">Reservar</button>
+
+
+
+
+        </form>
+
+        <!-- <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+                <div class="form-container">
+                    <div class="row columns">
+
+
+                        <label>Name
+                            <input type="text" formControlName="name">
+                        </label>
+
+                        <label>Last Name
+                            <input type="text" formControlName="lastName">
+                        </label>
+                        <label>Seats
+                            <input type="number" min="1" max={{movie.Seats}} formControlName="seats">
+                        </label>
+                        <label>ID
+                            <input type="text" formControlName="id">
+                        </label>
+                        <label>Phone Number
+                            <input type="text" formControlName="phoneNumber">
+                        </label>
+                        <label>Date
+                            <input type="date">
+                        </label>
+
+                        <input type="submit" class="button expanded" value="RESERVAR" [disabled]="!rForm.valid"
+                            id="boton">
+
+
+                    </div>
+                </div>
+            </form> -->
+
+
+
+
+        <!-- <div class="row">
+
+            <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+                <input class="form-control" placeholder="Daterangepicker" ngModel bsDaterangepicker [minDate]="minDate"
+                    [bsConfig]="bsConfig">
+            </div>
+        </div> -->
+
+
+    </div>

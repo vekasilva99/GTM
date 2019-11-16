@@ -12,12 +12,27 @@ import {ListaEstadosService} from '../Services/lista-estados.service';
 })
 export class ListaEstadosComponent implements OnInit {
 
-  estados: estado[];
+  estados: estado[]=[];
+  loading:boolean=false;
   
   constructor(private estadoService: EstadoService, public listaEstadosService: ListaEstadosService) { }
 
   ngOnInit() {
-    this.getEstados();
+    // this.getEstados();
+    this.loading=false;
+    this.estadoService.getOrders().subscribe(array=>{
+      array.map(item => {
+        const estado:estado={
+          id:item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+
+        this.estados.push(estado);
+        
+      });
+      this.loading=false;
+    });
+    
   }
 
   getEstados(){

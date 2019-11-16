@@ -2,7 +2,7 @@
 
 export class Hotel {
 
-    id: number;
+    id: string;
     name: string;
     stars: number[];
     latitude: string;
@@ -18,7 +18,7 @@ export class Hotel {
 }
 
 export class Hab {
-    i:number;
+    id:string;
     nombre: string;
     nightCost: number;
     tipoVista: string;

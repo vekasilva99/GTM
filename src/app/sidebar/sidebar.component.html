@@ -8,16 +8,10 @@
                 <ul>
                         <li  ><button class="item" type="button" (click)="listaEstadosService.toggleLista()">ESTADOS</button>
                             <!-- <li><button class="item" type="button" (click)="listaEstadosService.toggleLista()"></button></li> -->
-                        <li ><a href="#">DESTINOS</a>
+                        <li ><a href="#" class="nav-item" class="item" class="nav-link" >DESTINOS</a>
                             <ul>
-                                <li><a class="item" href="#">PLAYA</a></li>
-                                    <ul>
-                                            <li><a class="item" href="#">ISLA MARGARITA</a></li>
-                                            <li><a class="item" href="#">LOS ROQUES</a></li>
-                                            <li><a class="item" href="#">MORROCOY</a></li> 
-                                    </ul>
-                                <li><a class="item" href="#">SELVA</a></li>
-                                <li><a class="item" href="#">MONTAÑA</a></li>
+                                <li *ngFor="let tipoDestino of tipoDestinos"><a class="item" routerLink="/tipoDestino/{{tipoDestino.id}}" href="#"  style="text-transform: uppercase; font-size: 1vw;">{{tipoDestino.nombre}}</a></li>
+                                    
                             </ul>
                 </ul>
                 

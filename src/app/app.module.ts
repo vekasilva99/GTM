@@ -25,16 +25,45 @@ import { HotelSliderComponent } from './hotel-slider/hotel-slider.component';
 import { ListaEstadosComponent } from './lista-estados/lista-estados.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { HabitacionComponent } from './habitacion/habitacion.component';
+import { ReservarComponent } from './reservar/reservar.component';
+import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToolbarAdminComponent } from './toolbar-admin/toolbar-admin.component';
+import { SidebarAdminComponent } from './sidebar-admin/sidebar-admin.component';
+import { CrudEstadosComponent } from './crud-estados/crud-estados.component';
+import { AgregarEstadoComponent } from './agregar-estado/agregar-estado.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment.prod';
+import { AgregarHotelComponent } from './agregar-hotel/agregar-hotel.component';
+import { AgregarDestinoComponent } from './agregar-destino/agregar-destino.component';
+import { CrudDestinosComponent } from './crud-destinos/crud-destinos.component';
+import { CrudHotelesComponent } from './crud-hoteles/crud-hoteles.component';
+import { AgregarTipoDestinoComponent } from './agregar-tipo-destino/agregar-tipo-destino.component';
+import { CrudTipoDestinoComponent } from './crud-tipo-destino/crud-tipo-destino.component';
+import { CrudCiudadesComponent } from './crud-ciudades/crud-ciudades.component';
+import { AgregarCiudadComponent } from './agregar-ciudad/agregar-ciudad.component';
+import { TipoDestinoComponent } from './tipo-destino/tipo-destino.component';
 
 
 
-export class CustomHammerConfig extends HammerGestureConfig{
-  overrides={
-    'pan':{
+import { FilterPipe } from './pipes/filter.pipe';
+import { Filter2Pipe } from './pipes/filter2.pipe';
+import { DestinoDetailComponent } from './destino-detail/destino-detail.component';
+
+
+
+
+
+
+export class CustomHammerConfig extends HammerGestureConfig {
+  overrides = {
+    // tslint:disable-next-line: object-literal-key-quotes
+    'pan': {
       direction: Hammer.DIRECTION_ALL,
 
     }
-  }
+  };
 }
 
 
@@ -60,19 +89,43 @@ export class CustomHammerConfig extends HammerGestureConfig{
    ListaEstadosComponent,
    HotelDetailsComponent,
    HabitacionComponent,
+   ReservarComponent,
+   ToolbarAdminComponent,
+   SidebarAdminComponent,
+   CrudEstadosComponent,
+   AgregarEstadoComponent,
+   AgregarHotelComponent,
+   AgregarDestinoComponent,
+   CrudDestinosComponent,
+   CrudHotelesComponent,
+   AgregarTipoDestinoComponent,
+   CrudTipoDestinoComponent,
+   CrudCiudadesComponent,
+   AgregarCiudadComponent,
+   TipoDestinoComponent,
   
+  
+   FilterPipe,
+   Filter2Pipe,
+   DestinoDetailComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxGalleryModule
+    NgxGalleryModule,
+    BsDatepickerModule.forRoot(),
+    DatepickerModule.forRoot(),
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
 
 
   ],
   providers: [
-    {provide:HAMMER_GESTURE_CONFIG, useClass:CustomHammerConfig}
+    {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
   ],
   bootstrap: [AppComponent]
 })

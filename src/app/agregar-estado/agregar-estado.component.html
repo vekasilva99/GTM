@@ -1,0 +1,46 @@
+<div class="wrapper" [ngClass]="{'hidden': agregarService.hideAgregar }">
+        
+    <div class="close">
+        <i (click)="agregarService.toggleAgregar()" style="color: #002e64; " class="fas fa-times-circle"></i>
+    </div>
+    <form [formGroup]="estadoForm" class="agregar-box" (ngSubmit)="addPost()">
+        <h1>Agregar Estado</h1>
+        <div class="textbox">
+            <input type="text" formControlName="nombre" placeholder="Ingresa el nombre"></div>
+        <!-- <div class="textbox">
+            <input type="text" formControlName="id" placeholder="Ingresa el id"></div> -->
+        <div class="textbox">
+            <input type="text" formControlName="imagen" placeholder="Ingresa el imagen"></div>
+        <div class="textbox">
+            <input type="text" formControlName="cultura" placeholder="Ingresa el cultura"></div>
+        <div class="textbox">
+            <input type="text" formControlName="inicio" placeholder="Ingresa el inicio"></div>
+        <div class="textbox1">
+            <section formArrayName="img">
+                <div *ngFor="let image of imgArray.controls; let i=index">
+                    <div [formGroupName]="i">
+                        <input type="text" placeholder="Ingresa una imagen" formControlName="imgPath">
+                        <i (click)="removeImg(i)" class="fas fa-times-circle"></i>
+                    </div>
+                </div>
+                <i (click)="addImg()" class="fas fa-check-circle"></i>
+            </section>
+        </div>
+        <div class="textbox1">
+        <section formArrayName="gastronomia">
+            <div *ngFor="let gastro of gastronomiaArray.controls; let i=index">
+                <div [formGroupName]="i">
+                    <input type="text" placeholder="Ingresa una imagen de la gastronomia" formControlName="gastronomiaPath">
+                    <i (click)="removeGastronomia(i)" class="fas fa-times-circle"></i>
+                </div>
+            </div>
+            <i (click)="addGastronomia()" class="fas fa-check-circle"></i>
+        </section>
+    </div>
+
+    <input type="submit" class="btn"  value="AGREGAR" [disabled]="!estadoForm.valid"
+                            id="boton">
+
+    </form>
+   
+</div>

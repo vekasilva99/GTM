@@ -10,6 +10,12 @@ import { HotelComponent } from './components/hotel/hotel.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import {HotelDetailsComponent} from './hotel-details/hotel-details.component';
 import {HabitacionComponent} from './habitacion/habitacion.component';
+import {CrudEstadosComponent} from '../app/crud-estados/crud-estados.component';
+import {CrudDestinosComponent} from '../app/crud-destinos/crud-destinos.component';
+import {CrudTipoDestinoComponent} from '../app/crud-tipo-destino/crud-tipo-destino.component';
+import {CrudCiudadesComponent} from '../app/crud-ciudades/crud-ciudades.component';
+import {CrudHotelesComponent} from '../app/crud-hoteles/crud-hoteles.component';
+import {TipoDestinoComponent} from '../app/tipo-destino/tipo-destino.component';
 
 
 
@@ -23,6 +29,12 @@ const routes: Routes = [
   {path: 'adminHome', component: AdminHomeComponent},
   {path: 'hotels/:id', component: HotelDetailsComponent},
   {path: 'hotels/:id/:i', component: HabitacionComponent},
+  {path: 'adminHome/crudEstados', component:CrudEstadosComponent},
+  {path: 'adminHome/crudDestinos', component:CrudDestinosComponent},
+  {path: 'adminHome/crudTipoDestino', component:CrudTipoDestinoComponent},
+  {path: 'adminHome/crudCiudades', component:CrudCiudadesComponent},
+  {path: 'adminHome/crudHoteles', component:CrudHotelesComponent},
+  {path: 'tipoDestino/:id', component: TipoDestinoComponent},
 ];
 
 @NgModule({

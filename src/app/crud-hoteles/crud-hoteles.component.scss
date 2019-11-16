@@ -1,0 +1,105 @@
+.wrapper{
+    margin:0;
+    padding: 0;
+    height: auto;
+    width: 100vw;
+    background-color: white;
+}
+.estados{
+    display: grid;
+    width: 100%;
+    height:auto;
+    grid-template-columns: 1fr 4fr 1fr;
+    margin: 0;
+    padding: 0;
+  }
+
+  .lista{
+    display: grid;
+    width: 100%;
+    height:auto;
+    grid-template-rows: 1fr 4fr 1fr;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .data{
+      width: 100%;
+      height: auto;
+      
+  }
+  .textbox{
+    width:100%;
+    overflow:hidden;
+    font-size: 2vw;
+    padding: 1vw 0;
+    margin: 1vw 0;
+    border-bottom: 1px solid #005688;
+    font-family: 'Avenir';
+    display: flex;
+    justify-content: center;
+    
+}
+
+.textbox h2{
+    display: inline-block;
+    margin-right: 20%;
+    font-size: 2vw;
+    color: #002e64;
+}
+.textbox h3{
+    display: inline-block;
+    margin-right: 20%;
+    color: #002e64;
+    font-size: 2vw;
+}
+
+
+
+
+.log {
+    
+    background-color:#002e64;
+    border-radius:4px;
+    border:2px solid #002e64;
+    display:inline-block;
+    cursor:pointer;
+    color: white;
+    font-family: "Avenir";
+    font-size:1vw;
+    padding:1vw 2vw;
+    text-decoration:none;
+    float: right;
+    margin: 1vw;
+
+    &:hover{
+        background: #ffa600;
+        border:2px solid #ffa600;
+        transition: 0.6s;
+    }
+}
+
+.lista .margen{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+.margen h1{
+font-family: 'Avenir';
+font-size:10vw;
+color: #002e64;
+justify-content: center;
+margin-bottom: 0;
+align-items: flex-end;
+}
+
+.textbox #close{
+    cursor: pointer;
+
+    &:hover{
+        color: #ffa600;
+
+    }
+}

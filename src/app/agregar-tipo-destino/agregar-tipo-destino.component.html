@@ -1,0 +1,12 @@
+<div class="wrapper" [ngClass]="{'hidden': agregarService.hideAgregar }">
+
+        <div class="close">
+            <i (click)="agregarService.toggleAgregar()" style="color: #002e64; " class="fas fa-times-circle"></i>
+        </div>
+        <form [formGroup]="tipoDestinoForm" class="agregar-box" (ngSubmit)="addPost()">
+            <h1>Agregar Tipo de Destino</h1>
+            <div class="textbox">
+                <input type="text" formControlName="nombre" placeholder="Ingresa el nombre"></div>
+            <input type="submit" class="btn" value="AGREGAR" [disabled]="!estadoForm.valid" id="boton">
+    
+        </form>

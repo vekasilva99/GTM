@@ -1,0 +1,23 @@
+<div class="wrapper">
+        <app-toolbar-admin></app-toolbar-admin>
+        <app-sidebar-admin></app-sidebar-admin>
+        <app-agregar-hotel></app-agregar-hotel>
+        <div class="estados">
+            <div class="margen"></div>
+            <div class="lista">
+                <div class="margen"><h1>ALOJAMIENTOS</h1></div>
+                <div class="data"><a (click)="agregarService.toggleAgregar()" class="log" style="color: white;">AGREGAR</a>
+                    <div class="textbox" *ngFor= "let ciudad of ciudades">
+                            <h3>{{ciudad.nombre}}</h3>
+                            <h3>{{ciudad.id}}</h3> 
+                            <i class="fas fa-pen" style="color: #002e64"></i>
+                            <i (click)="deleteCiudad(ciudad.id)" class="fas fa-times" id="close" style="color: #002e64; margin-left: 1vw;"></i>     
+                    </div>
+                
+                </div>
+                <div class="margen"></div>
+            </div>
+            <div class="margen"></div>
+        </div>
+        
+        </div>

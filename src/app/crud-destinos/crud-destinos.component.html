@@ -1,0 +1,40 @@
+<ng-container *ngIf="destinos.lenght > 0; then loading; else noLoading"></ng-container>
+
+<ng-template #loading>
+    <h1>Loading...</h1>
+</ng-template>
+<ng-template #noLoading>
+<div class="wrapper">
+        <app-toolbar-admin></app-toolbar-admin>
+        <app-sidebar-admin></app-sidebar-admin>
+        <app-agregar-destino></app-agregar-destino>
+        <div class="estados">
+            <div class="margen"></div>
+            <div class="lista">
+                <div class="margen"><h1>DESTINOS</h1></div>
+                <div class="data"><a (click)="agregarService.toggleAgregar()" class="log" style="color: white; margin-bottom: 3vw;">AGREGAR</a>
+                    <div class="textbox1" >
+                            <div class="nombre"><h2>NOMBRE</h2></div>
+                            <div class="id"><h2>TIPO</h2></div>
+                            <div class="id"><h2>CIUDAD</h2></div>
+                            <div class="id"><h2>ESTADO</h2></div>
+                            <div class="tools"></div>
+                        </div>
+                    <div class="textbox" *ngFor="let destino of destinos">
+                        <div class="nombre"><h3>{{destino.nombre}}</h3></div>
+                        <div class="id"><h3>{{destino.tipoDestinoId}}</h3></div>
+                        <div class="id"><h3>{{destino.ciudad}}</h3></div>
+                        <div class="id"><h3>{{destino.estadoId}}</h3></div>
+                        <div class="tools"><i class="fas fa-pen" id="close" ></i>
+                        <i (click)="deleteDestino(destino.id)" class="fas fa-times" id="close"
+                            ></i></div>
+                    </div>
+    
+                </div>
+                <div class="margen"></div>
+            </div>
+            <div class="margen"></div>
+        </div>
+        
+        </div>
+</ng-template>

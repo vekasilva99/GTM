@@ -13,19 +13,22 @@
     border-radius:4px;
     font-size: 1.5vw;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 100;
+    transform: translate(-50%,-40%);
     background-color: rgba($color: white, $alpha: 0.9);
     width:35%;
     border: solid 2px white;
-    display: block;
+    display: grid;
+    grid-template-rows: 1fr 6fr;
     width:40vw;
     height:auto;
+    text-transform: uppercase;
+    font-weight: 100;
     
    
 }
+
 #wrapper.hidden{
     display:none;
     transition: 0.6s;
@@ -46,6 +49,7 @@
     text-align: center;
     flex-wrap: wrap;
     font-family: "Avenir";
+    font-weight: 100;
     
 }
 
@@ -57,6 +61,7 @@
     text-align:center; 
     cursor: pointer; 
     font-family: "Avenir";
+    font-weight: 100;
  
  } 
 
@@ -67,6 +72,7 @@ text-align: left;
 text-decoration: none;
 font-family: "Avenir";
 letter-spacing: 0.1em;
+font-weight: 100;
 
 margin-left: 5px;
 &:hover{
@@ -75,16 +81,20 @@ margin-left: 5px;
 }
  }
 
+
+
  .close{
-     color:white;
-     font-size: 2em;
-     margin-left: 65%;
-     margin-top: 7%;
+     color:#005688;
+     font-size: 2vw;
+     margin-right: 0.5vw;
+     margin-top: 0.5vw;
      border:none;
      outline:none;
      background:none;
+     float: right;
      cursor: pointer;
+     float: right;
      &:hover{
-         color:#005688;
+         color:#ffa600;
      }
  }

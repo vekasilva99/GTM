@@ -1,11 +1,11 @@
 .opening{
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+
 }
 
 .opening h1 {
@@ -18,11 +18,35 @@
     color: white;
 }
 
+.opening h2 {
+    text-align: center;
+    font-size: 1vw;
+    font-family:"Kingsmen";
+    padding: 20px;
+    margin: 15px;
+    z-index: 1;
+    color: white;
+}
+
 .videoscreen {
     position: absolute;
-    top: 0;
-    left: 0;
+    width: 100vw;
+    height:100vh;
+     margin:0;
+    padding:0;
+     transform: translate(-50%,-50%);
+     top:50%;
+    left:50%;
+}
+
+.videoscreen video {
+   
     width: 100%;
+    height:auto;
+    
+    margin:0;
+    padding:0;
+   
 }
 
 .color-overlay {

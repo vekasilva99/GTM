@@ -1,0 +1,108 @@
+<ng-container *ngIf="tipoDestino != null; then content; else noContent"></ng-container>
+
+<ng-template #content>
+    <div class="wrapper">
+        <app-toolbar></app-toolbar>
+        <app-sidebar></app-sidebar>
+        <app-lista-estados></app-lista-estados>
+        <img src="../../assets/playa-1.png">
+        <h1>{{tipoDestino.nombre}}</h1>
+        <div class="datos">
+            <div class="a"></div>
+            <div class="b">
+                <div class="datos2">
+                    <div class="a"></div>
+                    <div class="b">
+                        <div class="info1">
+                            <h2>Es importante resaltar que, segun estudios, Venezuela tiene una de las mejores
+                                posiciones geograficas ya que disfruta de todos los climas existente en diferentes zonas
+                                de su territorio. </h2>
+
+
+
+                        </div>
+                        <div class="info2">
+                            <div class="item">
+                                <div class="a"><span class="fa-stack fa-2x">
+                                        <i class="fas fa-circle fa-stack-2x" style="color: #00b6d9"></i>
+                                        <i class="fa-stack-text fa-stack-1x fa-inverse"
+                                            style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;"></i>
+                                    </span></div>
+                                <div class="b">
+                                    <h3>Mejores Playas </h3>
+                                </div>
+                                <div class="c"><img style="width: 60px; height: auto;margin-left: 3em;"
+                                        src="https://live-turneffe.pantheonsite.io/wp-content/uploads/2019/05/massage-therapists.svg">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="a"><span class="fa-stack fa-2x">
+                                        <i class="fas fa-circle fa-stack-2x" style="color: #00b6d9"></i>
+                                        <i class="fa-stack-text fa-stack-1x fa-inverse"
+                                            style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;"></i>
+                                    </span></div>
+                                <div class="b">
+                                    <h3>Mejor Clima</h3>
+                                </div>
+                                <div class="c"><img style="width: 60px; height: auto;margin-left: 3em;"
+                                        src="https://live-turneffe.pantheonsite.io/wp-content/uploads/2019/05/deluxe-room.svg">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="a"><span class="fa-stack fa-2x">
+                                        <i class="fas fa-circle fa-stack-2x" style="color: #00b6d9"></i>
+                                        <i class="fa-stack-text fa-stack-1x fa-inverse"
+                                            style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;"></i>
+                                    </span></div>
+                                <div class="b">
+                                    <h3>Variedad de Opciones</h3>
+                                </div>
+                                <div class="c"><img style="width: 60px; height: auto;margin-left: 3em;"
+                                        src="https://live-turneffe.pantheonsite.io/wp-content/uploads/2019/05/shower.svg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c"></div>
+
+                </div>
+            </div>
+            <div class="c"></div>
+
+        </div>
+        <div class="wrapper-rooms" *ngIf="destinos.length > 0">
+            <div class="even" *ngFor="let destinoFiltrado of destinos; let i=index">
+                <div class="grid">
+
+                    <div class="a"><img src="../../assets/15.jpg">
+                    </div>
+
+                    <div class="b">
+
+                        <div class="grid2">
+
+                            <div class="a"></div>
+                            <div class="b">
+
+                                <h2>{{destinoFiltrado.nombre}}</h2>
+                                <!-- <h3>{{estados[i].nombre}} , {{ciudades[i].nombre}}</h3> -->
+
+                                <h3></h3>
+                                <h4></h4>
+                                <a class="button" style="color: white;">VER MAS</a>
+                            </div>
+                            <div class="c"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</ng-template>
+
+<ng-template #noContent>
+    <h1>Loading...</h1>
+</ng-template>

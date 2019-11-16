@@ -19,7 +19,7 @@ export class HabitacionComponent implements OnInit {
     this.getHab();
   }
   getHotel(): void{
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.hotelService.getHotel(id).subscribe(Hotel => this.hotel = Hotel);
   }
 

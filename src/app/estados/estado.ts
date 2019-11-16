@@ -1,6 +1,6 @@
 export class estado {
 
-    id: number;
+    id: string;
     nombre: string;
     imagen: string;
     img: string[];
