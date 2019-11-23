@@ -5,7 +5,7 @@
     <!-- <div class="close">
         <i (click)="agregarService.toggleAgregar()" style="color: #002e64; " class="fas fa-times-circle"></i>
     </div> -->
-    <!-- <form [formGroup]="ciudadForm" class="agregar-box" (ngSubmit)="addPost()">
+    <form [formGroup]="ciudadForm" class="agregar-box" (ngSubmit)="addPost()">
         <h1>MODIFICAR CIUDAD</h1>
         <small>NOMBRE</small>
         <div class="textbox">
@@ -24,8 +24,7 @@
         </div>
         <input type="submit" class="btn" value="AGREGAR" [disabled]="!ciudadForm.valid" id="boton">
 
-    </form> -->
-    <h1>{{ciudad.nombre}}</h1>
+    </form>
 </div>
 </ng-template>
 

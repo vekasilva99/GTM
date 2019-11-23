@@ -51,6 +51,7 @@ import { Filter2Pipe } from './pipes/filter2.pipe';
 import { DestinoDetailComponent } from './destino-detail/destino-detail.component';
 import { ModificarEstadoComponent } from './modificar-estado/modificar-estado.component';
 import { ModificarCiudadComponent } from './modificar-ciudad/modificar-ciudad.component';
+import { ModificarDestinoComponent } from './modificar-destino/modificar-destino.component';
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = {
@@ -103,6 +104,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
    DestinoDetailComponent,
    ModificarEstadoComponent,
    ModificarCiudadComponent,
+   ModificarDestinoComponent,
 
   ],
   imports: [

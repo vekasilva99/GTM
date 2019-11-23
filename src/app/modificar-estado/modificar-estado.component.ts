@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ModificarService } from '../Services/modificar.service';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { EstadoService } from '../Services/estado.service';
 
@@ -10,7 +9,7 @@ import { EstadoService } from '../Services/estado.service';
 })
 export class ModificarEstadoComponent implements OnInit {
   estadoForm: FormGroup;
-  constructor(private fb: FormBuilder, public modificarService: ModificarService, private estadoService: EstadoService) { }
+  constructor(private fb: FormBuilder, private estadoService: EstadoService) { }
 
   ngOnInit() {
     this.estadoForm = this.fb.group({

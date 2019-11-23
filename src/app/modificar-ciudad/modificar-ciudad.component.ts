@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 import { CiudadService } from '../Services/ciudad.service';
 import { ciudad } from '../ciudad/ciudad';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { EstadoService } from '../Services/estado.service';
+import {estado} from '../estados/estado';
 
 @Component({
   selector: 'app-modificar-ciudad',
@@ -11,41 +13,47 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
   styleUrls: ['./modificar-ciudad.component.scss']
 })
 export class ModificarCiudadComponent implements OnInit {
-ciudad:ciudad=null;
-ciudadForm: FormGroup;
-  constructor(private route: ActivatedRoute, private location: Location, private ciudadService: CiudadService) { }
+  ciudad: ciudad = null;
+  ciudadForm: FormGroup;
+  editCity: ciudad;
+  estados:estado[]=[];
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private location: Location, private ciudadService: CiudadService, private estadoService: EstadoService) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.ciudadService.getCiudadSeleccionada(id).subscribe(x => {
+    this.estadoService.getOrders().subscribe(array => {
+      array.map(item => {
+        const estado: estado = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
 
-      const ci: ciudad = {
-        id: x.payload.id,
-        nombre: x.payload.get('nombre'),
-        estadoId: x.payload.get('estadoId'),
-        imagen: x.payload.get('imagen'),
+        this.estados.push(estado);
+      });
+    });
+    
+    this.route.paramMap.subscribe(params => {
+      const ciudadId = params.get('id');
+      if (ciudadId) {
+        this.getCiudad(ciudadId);
       }
-
-      this.ciudad= ci;
-     
-      
     });
 
-    
-    // this.ciudadForm.patchValue({
-    //   nombre:"hola",
-    //   imagen: "hola",
-    //   estadoId: "this.ciudad.estadoId",
+
+    this.ciudadForm = this.fb.group({
+      nombre: [null, Validators.required],
+      imagen: [null, Validators.required],
+      estadoId: [null, Validators.required],
+
+    });
+
+   
 
 
-    // });
 
-    
-    
   }
 
-  getCiudad(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+  getCiudad(id: string): void {
+
     this.ciudadService.getCiudadSeleccionada(id).subscribe(x => {
 
       const ci: ciudad = {
@@ -54,18 +62,29 @@ ciudadForm: FormGroup;
         estadoId: x.payload.get('estadoId'),
         imagen: x.payload.get('imagen'),
       }
-
+      this.editCiudad(ci);
       this.ciudad = ci;
-     
-      
+
+
     });
 
 
 
-    
 
 
 
+
+  }
+
+  editCiudad(ciudad: ciudad) {
+    this.editCity = ciudad;
+     this.ciudadForm.patchValue({
+      nombre: ciudad.nombre,
+      imagen: ciudad.imagen,
+      estadoId: ciudad.estadoId,
+
+
+    });
   }
 
 }
