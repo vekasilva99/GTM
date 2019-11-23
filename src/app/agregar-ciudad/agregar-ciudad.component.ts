@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
-import {AgregarService} from '../Services/agregar.service';
+import { AgregarService } from '../Services/agregar.service';
 import { CiudadService } from '../Services/ciudad.service';
-import {estado} from '../estados/estado';
-import {EstadoService} from '../Services/estado.service';
+import { estado } from '../estados/estado';
+import { EstadoService } from '../Services/estado.service';
 
 
 @Component({
@@ -12,17 +12,17 @@ import {EstadoService} from '../Services/estado.service';
   styleUrls: ['./agregar-ciudad.component.scss']
 })
 export class AgregarCiudadComponent implements OnInit {
-  estados: estado[]=[];
+  estados: estado[] = [];
   ciudadForm: FormGroup;
-  loading:boolean;
+  loading: boolean;
 
   constructor(private fb: FormBuilder, public agregarService: AgregarService, private ciudadService: CiudadService, private estadoService: EstadoService) { }
 
   ngOnInit() {
-    this.estadoService.getOrders().subscribe(array=>{
+    this.estadoService.getOrders().subscribe(array => {
       array.map(item => {
-        const estado:estado={
-          id:item.payload.doc.id,
+        const estado: estado = {
+          id: item.payload.doc.id,
           ...item.payload.doc.data()
         }
 
@@ -37,7 +37,7 @@ export class AgregarCiudadComponent implements OnInit {
 
     });
 
-    this.loading=false;
+    this.loading = false;
 
   }
 
@@ -45,13 +45,13 @@ export class AgregarCiudadComponent implements OnInit {
   addPost() {
 
     const mov = {
-      nombre: this.ciudadForm.value.nombre ,
+      nombre: this.ciudadForm.value.nombre,
       imagen: this.ciudadForm.value.imagen,
       estadoId: this.ciudadForm.value.estadoId,
 
     }
 
-    console.log(this.ciudadForm.value);
+ 
 
     this.ciudadService.addCiudad(mov);
   }

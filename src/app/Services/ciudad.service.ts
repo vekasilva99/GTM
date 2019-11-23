@@ -39,4 +39,6 @@ itemsCollection: AngularFirestoreCollection<ciudad>;
   }
 
   
+
+  
 }

@@ -16,6 +16,7 @@ import {CrudTipoDestinoComponent} from '../app/crud-tipo-destino/crud-tipo-desti
 import {CrudCiudadesComponent} from '../app/crud-ciudades/crud-ciudades.component';
 import {CrudHotelesComponent} from '../app/crud-hoteles/crud-hoteles.component';
 import {TipoDestinoComponent} from '../app/tipo-destino/tipo-destino.component';
+import {ModificarCiudadComponent} from '../app/modificar-ciudad/modificar-ciudad.component';
 
 
 
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path: 'adminHome/crudCiudades', component:CrudCiudadesComponent},
   {path: 'adminHome/crudHoteles', component:CrudHotelesComponent},
   {path: 'tipoDestino/:id', component: TipoDestinoComponent},
+  {path: 'adminHome/crudCiudades/edit/:id', component: ModificarCiudadComponent},
 ];
 
 @NgModule({

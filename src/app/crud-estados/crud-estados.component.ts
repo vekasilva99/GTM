@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AgregarService } from '../Services/agregar.service';
 import { estado } from '../estados/estado';
 import { EstadoService } from '../Services/estado.service';
+import { ModificarService } from '../Services/modificar.service';
 
 @Component({
   selector: 'app-crud-estados',
@@ -11,7 +12,7 @@ import { EstadoService } from '../Services/estado.service';
 export class CrudEstadosComponent implements OnInit {
   estados: estado[]=[];
   loading: boolean = false;
-  constructor(public agregarService: AgregarService, private estadoService: EstadoService) { }
+  constructor(public agregarService: AgregarService, private estadoService: EstadoService, public modificarService:ModificarService) { }
 
   ngOnInit() {
     this.loading = false;

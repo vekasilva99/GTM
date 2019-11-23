@@ -8,6 +8,7 @@
         <app-toolbar-admin></app-toolbar-admin>
         <app-sidebar-admin></app-sidebar-admin>
         <app-agregar-estado></app-agregar-estado>
+        <app-modificar-estado></app-modificar-estado>
         <div class="estados">
             <div class="margen"></div>
             <div class="lista">
@@ -33,7 +34,7 @@
                             <div class="id">
                                 <h3>{{estado.id}}</h3>
                             </div>
-                            <div class="tools"><i class="fas fa-pen" style="color: #002e64"></i>
+                            <div class="tools"><i (click)="modificarService.toggleModificar()" class="fas fa-pen" style="color: #002e64"></i>
                                 <i (click)="deleteEstado(estado.id)" class="fas fa-times" id="close"
                                     style="color: #002e64; margin-left: 1vw; size: 1.8vw;"></i></div>
                         </div>

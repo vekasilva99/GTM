@@ -3,11 +3,11 @@
     height: 100vh;
     margin: 0;
     padding:0;
-    position: fixed;
+    position: absolute;
     z-index: 100;
     top:0;
     background-color: white;
-    overflow: auto;
+    overflow: hidden;
 
  }
 
@@ -25,9 +25,10 @@
      margin:1vw;
  }
 
+
  .agregar-box{
     width:90%;
-    position: absolute;
+    position: fixed;
     padding: 5vw;
     top:50%;
     left: 50%;
@@ -35,7 +36,7 @@
     transform: translate(-50%, -50%);
     color: #002e64;
     height: 100vh;
-  
+    overflow: auto;
 
 
  
@@ -71,12 +72,27 @@ small{
    
 }
 
+ select{
+    outline:none;
+    border:none;
+    width:100%;
+    background: none;
+    padding: 10px;
+    line-height: 0.8;
+    color:grey;
+    font-size: 18px;
+    
+    
+}
+
+
+
 .textbox1{
-    width:30%;
+    width:50%;
     overflow:hidden;
-    padding: 0.2vw 0;
-    margin: 0.5vw 0;
-    margin-left: 3vw;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
     border-bottom: 1px solid #005688;
     font-family: 'Avenir';
     color: #002e64;
@@ -135,15 +151,6 @@ small{
    float: right;
 }
 
-#add{
-    border: none;
-    outline: none;
-    float: right;
-    margin-bottom: 1vw;
-    size: 1vw;
-    color: #005688;
-    background-color: transparent;
-}
 
 #input{
     border: none;
@@ -152,7 +159,6 @@ small{
     margin-bottom: 1vw;
     size: 1vw;
     color: #005688;
-    background-color: transparent;
 }
 
 

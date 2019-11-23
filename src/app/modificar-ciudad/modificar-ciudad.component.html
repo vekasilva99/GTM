@@ -1,12 +1,15 @@
-<div class="wrapper" [ngClass]="{'hidden': agregarService.hideAgregar }">
-    <div class="close">
+<ng-container *ngIf="ciudad != null; then content; else noContent"></ng-container>
+
+<ng-template #content>
+<div class="wrapper">
+    <!-- <div class="close">
         <i (click)="agregarService.toggleAgregar()" style="color: #002e64; " class="fas fa-times-circle"></i>
-    </div>
-    <form [formGroup]="ciudadForm" class="agregar-box" (ngSubmit)="addPost()">
-        <h1>AGREGAR CIUDAD</h1>
+    </div> -->
+    <!-- <form [formGroup]="ciudadForm" class="agregar-box" (ngSubmit)="addPost()">
+        <h1>MODIFICAR CIUDAD</h1>
         <small>NOMBRE</small>
         <div class="textbox">
-            <i id="input" class="fas fa-user-circle"></i>
+            <i id="input"  class="fas fa-user-circle"></i>
             <input type="text" formControlName="nombre"></div>
         <small>IMAGEN</small>
         <div class="textbox">
@@ -21,4 +24,11 @@
         </div>
         <input type="submit" class="btn" value="AGREGAR" [disabled]="!ciudadForm.valid" id="boton">
 
-    </form>
+    </form> -->
+    <h1>{{ciudad.nombre}}</h1>
+</div>
+</ng-template>
+
+<ng-template #noContent>
+    <h1>Loading...</h1>
+</ng-template>

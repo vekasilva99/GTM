@@ -20,11 +20,11 @@
                             <div class="id"><h2>ESTADO</h2></div>
                             <div class="tools"></div>
                         </div>
-                    <div class="textbox" *ngFor="let destino of destinos">
+                    <div class="textbox" *ngFor="let destino of destinos; let i=index">
                         <div class="nombre"><h3>{{destino.nombre}}</h3></div>
-                        <div class="id"><h3>{{destino.tipoDestinoId}}</h3></div>
-                        <div class="id"><h3>{{destino.ciudad}}</h3></div>
-                        <div class="id"><h3>{{destino.estadoId}}</h3></div>
+                        <div class="id"><h3>{{tipoDestinos[i]?.nombre}}</h3></div>
+                        <div class="id"><h3>{{ciudades[i]?.nombre}}</h3></div>
+                        <div class="id"><h3>{{estados[i]?.nombre}}</h3></div>
                         <div class="tools"><i class="fas fa-pen" id="close" ></i>
                         <i (click)="deleteDestino(destino.id)" class="fas fa-times" id="close"
                             ></i></div>

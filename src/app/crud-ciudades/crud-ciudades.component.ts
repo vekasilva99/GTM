@@ -13,6 +13,7 @@ import { estado } from '../estados/estado';
 })
 export class CrudCiudadesComponent implements OnInit {
   ciudades: ciudad[]=[];
+  estados:estado[]=[];
  
   
   constructor(public agregarService: AgregarService,private ciudadService: CiudadService, private estadoService: EstadoService) { }
@@ -26,6 +27,7 @@ export class CrudCiudadesComponent implements OnInit {
         }
 
         this.ciudades.push(ciudad);
+        this.getEstados(ciudad.estadoId);
       });
     });
     
@@ -33,6 +35,31 @@ export class CrudCiudadesComponent implements OnInit {
 
   deleteCiudaad(docId:string){
     this.ciudadService.deleteCiudad(docId);
+  }
+
+  getEstados(id: string): void{
+   
+    this.estadoService.getEstado2(id).subscribe(array =>{
+    
+      const estado: estado ={
+        id: array.payload.id,
+        nombre: array.payload.get('nombre'),
+        imagen: array.payload.get('imagen'),
+        img: array.payload.get('img'),
+        gastronomia: array.payload.get('gastronomia'),
+        cultura: array.payload.get('cultura'),
+        inicio: array.payload.get('inicio'),
+      }
+      
+      
+      this.estados.push(estado);
+     
+
+      
+
+
+    });
+
   }
 
 
