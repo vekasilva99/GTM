@@ -171,20 +171,20 @@
   justify-content: center;
 }
 @media screen and (min-width: 991px) {
-  div#c3{
-    h4 {
+  #c3{
+    h1 {
       font-size: 30px;
     }
-    h5 {
+    h2 {
       font-size: 18px;
     }
 }
 @media screen and (max-width: 990px) {
-  div#c3{
-    h4 {
+  #c3{
+    h1 {
       font-size: 25px;
     }
-    h5 {
+    h2 {
       font-size: 14px;
     }
   }
@@ -209,20 +209,20 @@
   align-self: center;
   grid-area: bloq2;
 }
-#c3 h4{
+#c3 h1{
   font-family:"Kingsmen";
   color: #005688;
   text-align: left;
   word-spacing: 0.5em;
 }
-#c3 h5{
+#c3 h2{
   font-family:"Avenir";
   color: #000000;
   text-align: left;
   line-height: 30px;
   margin-top: 30px;
 }
-#c3 h6{
+#c3 h3{
   font-family:"Avenir";
   color: #000000;
   text-align: left;
