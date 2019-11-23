@@ -1,3 +1,9 @@
+<ng-container *ngIf="hoteles.lenght > 0; then loading; else noLoading"></ng-container>
+
+<ng-template #loading>
+    <h1>Loading...</h1>
+</ng-template>
+<ng-template #noLoading>
 <div class="wrapper">
         <app-toolbar-admin></app-toolbar-admin>
         <app-sidebar-admin></app-sidebar-admin>
@@ -6,14 +12,25 @@
             <div class="margen"></div>
             <div class="lista">
                 <div class="margen"><h1>ALOJAMIENTOS</h1></div>
-                <div class="data"><a (click)="agregarService.toggleAgregar()" class="log" style="color: white;">AGREGAR</a>
-                    <div class="textbox" *ngFor= "let ciudad of ciudades">
-                            <h3>{{ciudad.nombre}}</h3>
-                            <h3>{{ciudad.id}}</h3> 
-                            <i class="fas fa-pen" style="color: #002e64"></i>
-                            <i (click)="deleteCiudad(ciudad.id)" class="fas fa-times" id="close" style="color: #002e64; margin-left: 1vw;"></i>     
+                <div class="data"><a (click)="agregarService.toggleAgregar()" class="log" style="color: white; margin-bottom: 3vw;">AGREGAR</a>
+                    <div class="textbox1" >
+                            <div class="nombre"><h2>NOMBRE</h2></div>
+                            <div class="id"><h2>ESTRELLAS</h2></div>
+                            <div class="id"><h2>ESTADO</h2></div>
+                            <div class="id"><h2>CIUDAD</h2></div>
+                            <div class="id"><h2>HABITACIONES</h2></div>
+                            <div class="tools"></div>
+                        </div>
+                    <div class="textbox" *ngFor="let hotel of hoteles;let i=index">
+                        <div class="nombre"><h3>{{hotel.name}}</h3></div>
+                        <div class="id"><h3>{{hotel.stars.length}}</h3></div>
+                        <div class="id"><h3>{{estados[i]?.nombre}}</h3></div>
+                        <div class="id"><h3>{{ciudades[i]?.nombre}}</h3></div>
+                        <div class="id"><h3>{{hotel.habs.length}}</h3></div>
+                        <div class="tools"><i class="fas fa-pen" id="close" ></i>
+                        <i (click)="deleteHotel(hotel.id)" class="fas fa-times" id="close"></i></div>
                     </div>
-                
+    
                 </div>
                 <div class="margen"></div>
             </div>
@@ -21,3 +38,4 @@
         </div>
         
         </div>
+</ng-template>

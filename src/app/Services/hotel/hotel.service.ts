@@ -77,8 +77,8 @@ export class HotelService {
     this.db.collection('hoteles').add(mov);
     console.log("entre");
   }
-  getOrders() {
-    return this.items;
+  getOrders(){
+    return this.db.collection<Hotel>('hoteles').snapshotChanges();
   }
 
   deleteHotel(docId: string) {

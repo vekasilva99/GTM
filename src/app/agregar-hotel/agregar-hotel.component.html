@@ -6,77 +6,75 @@
         <h1>AGREGAR HOTEL</h1>
         <small>NOMBRE</small>
         <div class="textbox">
-                <i id="input" class="fas fa-user-circle"></i> 
-                <input type="text" formControlName="name">
+            <i id="input" class="fas fa-user-circle"></i>
+            <input type="text" formControlName="name">
         </div>
         <small>IMAGEN</small>
         <div class="textbox">
-                <i id="input" class="fas fa-user-circle"></i> 
-                <input type="text" formControlName="imagen">
+            <i id="input" class="fas fa-user-circle"></i>
+            <input type="text" formControlName="imagen">
         </div>
         <small>ESTRELLAS</small>
         <div class="textbox">
-                <i id="input" class="fas fa-star-circle"></i> 
-                <input type="number" formControlName="stars" min="1" max="5">
+            <i id="input" class="fas fa-star-circle"></i>
+            <input type="number" formControlName="stars" min="1" max="5">
         </div>
         <div class="direccion">
 
-                <small>LONGITUD</small>
-                <div class="textbox">
-                        <i id="input" class="fas fa-compass"></i>
-                    <input type="text" formControlName="length">
-                </div>
-            </div>
-            <div class="direccion">
-                <small>LATITUD</small>
-                <div class="textbox">
-                        <i id="input" class="fas fa-compass"></i>
-                    <input type="text" formControlName="latitud">
-                </div>
-            </div>
-    
-            <small>DIRECCION</small>
+            <small>LONGITUD</small>
             <div class="textbox">
-                    <i id="input" class="fas fa-compass"></i>
-                <input type="text" formControlName="address">
+                <i id="input" class="fas fa-compass"></i>
+                <input type="text" formControlName="length">
             </div>
-            <div class="direccion">
-                <small>ESTADO</small>
-                <div class="textbox">
-                    <select formControlName="state" placeholder="Ingresa el Id del Estado">
-                        <option value="">Seleccione el Estado</option>
-                        <option *ngFor="let estado of estados" value="{{estado.id}}">{{estado.nombre}}</option>
-                    </select>
-                </div>
+        </div>
+        <div class="direccion">
+            <small>LATITUD</small>
+            <div class="textbox">
+                <i id="input" class="fas fa-compass"></i>
+                <input type="text" formControlName="latitud">
             </div>
-            <div class="direccion">
-                <small>CIUDAD</small>
-                <div class="textbox">
-                    <select formControlName="city">
-                        <option value="">Seleccione la Ciudad</option>
-                        <option value="{{ciudad.id}}" *ngFor="let ciudad of ciudades">{{ciudad.nombre}}</option>
-                    </select>
-                </div>
+        </div>
+
+        <small>DIRECCION</small>
+        <div class="textbox">
+            <i id="input" class="fas fa-compass"></i>
+            <input type="text" formControlName="address">
+        </div>
+        <div class="direccion">
+            <small>ESTADO</small>
+            <div class="textbox">
+                <select formControlName="state" placeholder="Ingresa el Id del Estado">
+                    <option *ngFor="let estado of estados" value="{{estado.id}}">{{estado.nombre}}</option>
+                </select>
             </div>
-            <small>DESTINO</small>
-                <div class="textbox">
-                    <select formControlName="destino">
-                        <option value="">Seleccione el Destino</option>
-                        <option value="{{destino.id}}" *ngFor="let destino of destinos">{{destino.nombre}}</option>
-                    </select>
-                </div>
-            <small>SERVICIOS</small>
-                <div class="textbox">
-                        <mat-form-field >
-                                <mat-select [formControlName]="services"[(value)]="selected" multiple>
-                                  <mat-option style="font-family:'Avenir'; font-size: 1vw; color: #002e64;" *ngFor="let servicio of servicios"[value]="servicio.value">{{servicio.viewValue}}</mat-option>
-                                </mat-select>
-                              </mat-form-field>
-                </div>
-            <small>FULL DAY</small>
+        </div>
+        <div class="direccion">
+            <small>CIUDAD</small>
+            <div class="textbox">
+                <select formControlName="city">
+                    <option value="{{ciudad.id}}" *ngFor="let ciudad of ciudades">{{ciudad.nombre}}</option>
+                </select>
+            </div>
+        </div>
+        <small>DESTINO</small>
+        <div class="textbox">
+            <select formControlName="destiny">
+                <option value="{{destino.id}}" *ngFor="let destino of destinos">{{destino.nombre}}</option>
+            </select>
+        </div>
+        <small>SERVICIOS</small>
+        <div class="textbox">
+            <mat-form-field>
+                <mat-select formControlName="services" [(value)]="selected" multiple>
+                    <mat-option style="font-family:'Avenir'; font-size: 1vw; color: #002e64;"
+                        *ngFor="let servicio of servicios" [value]="servicio.value">{{servicio.viewValue}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <small>FULL DAY</small>
         <div class="textbox4">
-                
-                <input type="radio" name="fullDay" formControlName="fullDay" value="true">
+
+            <input type="radio" name="fullDay" formControlName="fullDay" value="true">
         </div>
         <small>IMAGENES</small>
         <div class="textbox">
@@ -84,89 +82,89 @@
                 <div *ngFor="let hotelPicture of hotelPicturesArray.controls; let i=index" [formGroupName]="i">
                     <small class="imgTitle">IMAGEN {{i + 1}}</small>
                     <div class="input-group">
-                        <input type="text" formControlName="path" >
+                        <input type="text" formControlName="path">
                     </div>
-                    <button id="add" (click)="removeHotelPicture(i)"><i
+                    <button type="button" id="add" (click)="removeHotelPicture(i)"><i
                             class="fas fa-times-circle"></i></button>
 
 
                 </div>
-                <button id="add"  (click)="addHotelPicture()"><i
-                        class="fas fa-plus-circle"></i></button>
+                <button type="button" id="add" (click)="addHotelPicture()"><i class="fas fa-plus-circle"></i></button>
             </section>
         </div>
         <div class="habitacion">
-        <small>HABITACIONES</small>
-        <div class="textbox3">
-            <section formArrayName="habs">
-                <div *ngFor="let hab of hotelForm['controls'].habs['controls']; let i=index" [formGroupName]="i">
-                    <div><small class="imgTitle1">HABITACION {{i+1}}</small></div>
-                    <small>NOMBRE</small>
-                    <div class="textbox">
-                            <i id="input" class="fas fa-user-circle"></i> 
+            <small>HABITACIONES</small>
+            <div class="textbox3">
+                <section formArrayName="habs">
+                    <div *ngFor="let hab of hotelForm['controls'].habs['controls']; let i=index" [formGroupName]="i">
+                        <div><small class="imgTitle1">HABITACION {{i+1}}</small></div>
+                        <small>NOMBRE</small>
+                        <div class="textbox">
+                            <i id="input" class="fas fa-user-circle"></i>
                             <input type="text" formControlName="habNombre">
-                    </div>
-                    <small>COSTO POR NOCHE</small>
-                    <div class="textbox">
-                            <i id="input" class="fas fa-user-circle"></i> 
+                        </div>
+                        <small>COSTO POR NOCHE</small>
+                        <div class="textbox">
+                            <i id="input" class="fas fa-user-circle"></i>
                             <input type="number" formControlName="nightCost">
-                    </div>
-                    <small>TIPO DE VISTA</small>
-                    <div class="textbox">
-                            <i id="input" class="fas fa-user-circle"></i> 
+                        </div>
+                        <small>TIPO DE VISTA</small>
+                        <div class="textbox">
+                            <i id="input" class="fas fa-user-circle"></i>
                             <input type="text" formControlName="tipoVista">
-                    </div>
-                    <small>MAXIMO DE NUMERO DE PERSONAS</small>
-                    <div class="textbox">
-                            <i id="input" class="fas fa-user-circle"></i> 
+                        </div>
+                        <small>MAXIMO DE NUMERO DE PERSONAS</small>
+                        <div class="textbox">
+                            <i id="input" class="fas fa-user-circle"></i>
                             <input type="number" formControlName="maxPersonas">
-                    </div>
-                    <small>NUMERO DE HABITACIONES DISPONIBLES</small>
-                    <div class="textbox">
-                            <i id="input" class="fas fa-user-circle"></i> 
+                        </div>
+                        <small>NUMERO DE HABITACIONES DISPONIBLES</small>
+                        <div class="textbox">
+                            <i id="input" class="fas fa-user-circle"></i>
                             <input type="number" formControlName="numHab">
-                    </div>
-                    <div class="textbox">
+                        </div>
+                        <div class="textbox">
                             <small class="imgTitle1">IMAGENES</small>
-                        <section formArrayName="habPictures">
-                            <div *ngFor="let picture of hab['controls'].habPictures['controls'];let j=index" [formGroupName]="j">
-                                <small class="imgTitle">IMAGEN {{j + 1}}</small>
-                                <div class="input-group">
-                                    <input type="text" formControlName="path">
+                            <section formArrayName="habPictures">
+                                <div *ngFor="let picture of hab['controls'].habPictures['controls'];let j=index"
+                                    [formGroupName]="j">
+                                    <small class="imgTitle">IMAGEN {{j + 1}}</small>
+                                    <div class="input-group">
+                                        <input type="text" formControlName="path">
+                                    </div>
+                                    <button type="button" id="add" (click)="removeHabPicture(j)"><i
+                                            class="fas fa-times-circle"></i></button>
                                 </div>
-                                <button id="add" (click)="removeHabPicture(j)"><i
-                                    class="fas fa-times-circle"></i></button>
-                            </div>
-                            <button id="add"  (click)="addHabPicture(i)"><i
-                                class="fas fa-plus-circle"></i></button>
-                        </section>
-                    </div>
-                    <div class="textbox">
+                                <button type="button" id="add" (click)="addHabPicture(i)"><i
+                                        class="fas fa-plus-circle"></i></button>
+                            </section>
+                        </div>
+                        <div class="textbox">
                             <small class="imgTitle1">COMODIDADES</small>
-                        <section formArrayName="comodidades">
-                            <div *ngFor="let comodidad of hab['controls'].comodidades['controls'];let k=index" [formGroupName]="k">
-                                <small class="imgTitle">COMODIDAD {{k + 1}}</small>
-                                <div class="input-group">
-                                    <input type="text" formControlName="path">
+                            <section formArrayName="comodidades">
+                                <div *ngFor="let comodidad of hab['controls'].comodidades['controls'];let k=index"
+                                    [formGroupName]="k">
+                                    <small class="imgTitle">COMODIDAD {{k + 1}}</small>
+                                    <div class="input-group">
+                                        <input type="text" formControlName="path">
+                                    </div>
+                                    <button type="button" id="add" (click)="removeComodidad(k)"><i
+                                            class="fas fa-times-circle"></i></button>
                                 </div>
-                                <button id="add" (click)="removeComodidad(k)"><i
-                                    class="fas fa-times-circle"></i></button>
-                            </div>
-                            <button id="add"  (click)="addComodidad(i)"><i
-                                class="fas fa-plus-circle"></i></button>
-                        </section>
+                                <button type="button" id="add" (click)="addComodidad(i)"><i
+                                        class="fas fa-plus-circle"></i></button>
+                            </section>
+                        </div>
+                        <button type="button" id="add" (click)="removeHab(i)"><i
+                                class="fas fa-times-circle"></i></button>
                     </div>
-                    <button id="add" (click)="removeHab(i)"><i
-                        class="fas fa-times-circle"></i></button>
-                </div>
 
-                <button id="add"  (click)="addHab()"><i
-                    class="fas fa-plus-circle"></i></button>
-            </section>
+                    <button type="button" id="add" (click)="addHab()"><i class="fas fa-plus-circle"></i></button>
+                </section>
+            </div>
+
         </div>
-
-    </div>
-    <button type="submit" class="btn" value="AGREGAR"  id="boton">AGREGAR HOTEL</button>
+        <button type="submit" class="btn" value="AGREGAR" (click)="addPost()" id="boton">AGREGAR HOTEL</button>
     </form>
 
 
