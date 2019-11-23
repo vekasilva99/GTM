@@ -103,9 +103,6 @@ export class CustomHammerConfig extends HammerGestureConfig {
    CrudCiudadesComponent,
    AgregarCiudadComponent,
    TipoDestinoComponent,
-  
-  
-  
    FilterPipe,
    Filter2Pipe,
    DestinoDetailComponent,
