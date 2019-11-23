@@ -13,7 +13,8 @@ export class Hotel {
     hotelPictures: string[];
     fullDay: boolean;
     fullDayPrice: number;
-    services: [{servicio:string, value:boolean}, {servicio:string, value:boolean}, {servicio:string, value:boolean}, {servicio:string, value:boolean},{servicio:string, value:boolean}, {servicio:string, value:boolean}];
+    destino:string;
+    services: string[];
     hab: Hab[];
 }
 

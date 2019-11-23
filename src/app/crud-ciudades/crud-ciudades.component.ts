@@ -12,13 +12,22 @@ import { estado } from '../estados/estado';
   styleUrls: ['./crud-ciudades.component.scss']
 })
 export class CrudCiudadesComponent implements OnInit {
-  ciudades: ciudad[];
+  ciudades: ciudad[]=[];
  
   
   constructor(public agregarService: AgregarService,private ciudadService: CiudadService, private estadoService: EstadoService) { }
 
   ngOnInit() {
-    this.ciudades=this.ciudadService.getOrders();
+    this.ciudadService.getOrders().subscribe(array=>{
+      array.map(item => {
+        const ciudad:ciudad={
+          id:item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+
+        this.ciudades.push(ciudad);
+      });
+    });
     
   }
 

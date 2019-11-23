@@ -27,7 +27,7 @@ itemsCollection: AngularFirestoreCollection<ciudad>;
     
   }
   getOrders(){
-    return this.items;
+    return this.db.collection<ciudad>('ciudades').snapshotChanges();
   }
 
   deleteCiudad(docId: string){
@@ -35,6 +35,8 @@ itemsCollection: AngularFirestoreCollection<ciudad>;
   }
 
   getCiudadSeleccionada(id:string){
-    this.ciudadSeleccionada=this.items.find(ciudad =>ciudad.id === id);
+    return this.db.collection('ciudades').doc(id).snapshotChanges();
   }
+
+  
 }

@@ -44,7 +44,7 @@ import { CrudTipoDestinoComponent } from './crud-tipo-destino/crud-tipo-destino.
 import { CrudCiudadesComponent } from './crud-ciudades/crud-ciudades.component';
 import { AgregarCiudadComponent } from './agregar-ciudad/agregar-ciudad.component';
 import { TipoDestinoComponent } from './tipo-destino/tipo-destino.component';
-
+import {MatSelectModule} from '@angular/material/select';
 
 
 import { FilterPipe } from './pipes/filter.pipe';
@@ -105,6 +105,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
    TipoDestinoComponent,
   
   
+  
    FilterPipe,
    Filter2Pipe,
    DestinoDetailComponent,
@@ -120,7 +121,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
     DatepickerModule.forRoot(),
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatSelectModule
 
 
   ],

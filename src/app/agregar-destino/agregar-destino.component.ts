@@ -17,7 +17,7 @@ import {ciudad} from '../ciudad/ciudad';
 })
 export class AgregarDestinoComponent implements OnInit {
   estados: estado[]=[];
-  ciudades:ciudad[];
+  ciudades:ciudad[]=[];
   tipoDestinos: tipoDestino[]=[];
   destinoForm: FormGroup;
   loading:boolean;
@@ -63,7 +63,16 @@ export class AgregarDestinoComponent implements OnInit {
         this.tipoDestinos.push(tipoDestino);
       });
     });
-    this.ciudades=this.ciudadService.getOrders();
+    this.ciudadService.getOrders().subscribe(array=>{
+      array.map(item => {
+        const ciudad:ciudad={
+          id:item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+
+        this.ciudades.push(ciudad);
+      });
+    });
 
     this.loading=false;
 

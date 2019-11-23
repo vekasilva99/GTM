@@ -3,11 +3,11 @@
     height: 100vh;
     margin: 0;
     padding:0;
-    position: absolute;
+    position: fixed;
     z-index: 100;
     top:0;
     background-color: white;
-    overflow: hidden;
+    overflow: auto;
 
  }
 
@@ -27,7 +27,7 @@
 
  .agregar-box{
     width:90%;
-    position: fixed;
+    position: absolute;
     padding: 5vw;
     top:50%;
     left: 50%;
@@ -35,7 +35,7 @@
     transform: translate(-50%, -50%);
     color: #002e64;
     height: 100vh;
-    overflow: auto;
+  
 
 
  

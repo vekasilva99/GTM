@@ -3,7 +3,7 @@
         <i (click)="agregarService.toggleAgregar()" style="color: #002e64; " class="fas fa-times-circle"></i>
     </div>
 
-    <form [formGroup]="destinoForm" class="agregar-box" (ngSubmit)="addPost()">
+    <form [formGroup]="destinoForm" class="agregar-box" (ngOnSubmit)="addPost()">
         <h1>AGREGAR DESTINO</h1>
         <small>NOMBRE</small>
         <div class="textbox">
@@ -111,6 +111,7 @@
                     <div class="input-group">
                         <input type="text" formControlName="path" >
                     </div>
+                    
                     <button id="add" (click)="removeServicio(i)"><i
                             class="fas fa-times-circle"></i></button>
 

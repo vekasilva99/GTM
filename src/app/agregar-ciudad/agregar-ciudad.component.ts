@@ -12,8 +12,9 @@ import {EstadoService} from '../Services/estado.service';
   styleUrls: ['./agregar-ciudad.component.scss']
 })
 export class AgregarCiudadComponent implements OnInit {
-  estados: estado[];
+  estados: estado[]=[];
   ciudadForm: FormGroup;
+  loading:boolean;
 
   constructor(private fb: FormBuilder, public agregarService: AgregarService, private ciudadService: CiudadService, private estadoService: EstadoService) { }
 
@@ -28,12 +29,15 @@ export class AgregarCiudadComponent implements OnInit {
         this.estados.push(estado);
       });
     });
+
     this.ciudadForm = this.fb.group({
       nombre: [null, Validators.required],
       imagen: [null, Validators.required],
       estadoId: [null, Validators.required],
 
     });
+
+    this.loading=false;
 
   }
 

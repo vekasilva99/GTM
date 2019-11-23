@@ -1,12 +1,13 @@
 .wrapper{
     width: 100vw;
-    height: 150vh;
+    height: 100vh;
     margin: 0;
     padding:0;
     position: absolute;
     z-index: 100;
     top:0;
     background-color: white;
+    overflow: hidden;
 
  }
 
@@ -25,35 +26,84 @@
  }
 
  .agregar-box{
-    width:80%;
-    position: absolute;
+    width:90%;
+    position: fixed;
+    padding: 5vw;
     top:50%;
     left: 50%;
+    margin-top: 2vw;
     transform: translate(-50%, -50%);
     color: #002e64;
+    height: 100vh;
+    overflow: auto;
+
 
  
 }
 
 .agregar-box h1{
-    float: left;
-    font-size: 40px;
-    border-bottom: solid 6px #005688;
+    
+    justify-content: right;
+    font-size: 2.5vw;
+    font-family: 'Kingsmen';
     margin-bottom: 50px;
+    font-weight: 400;
     padding:13px 0;
-    color: #002e64;
+    width:30vw;
+    color: #005688;
 }
 
 .textbox{
-    width:100%;
+    width:30%;
     overflow:hidden;
     font-size: 20px;
-    padding: 8px 0;
-    margin: 8px 0;
+    padding: 0.2vw 0;
+    margin: 0.5vw 0;
     border-bottom: 1px solid #005688;
     font-family: 'Avenir';
     color: #002e64;
 }
+
+small{
+    letter-spacing: 0.1vw;
+    font-size: 0.8vw;
+    font-family: 'Avenir';
+   
+}
+
+.textbox2{
+    width:100%;
+    overflow:hidden;
+    font-size: 20px;
+    padding: 0.2vw 0;
+    margin: 0.5vw 0;
+    border-bottom: 1px solid #005688;
+    font-family: 'Avenir';
+    color: #002e64;
+}
+
+.textbox2{
+    width:100%;
+    overflow:hidden;
+    font-size: 20px;
+    padding: 0.2vw 0;
+    margin: 1vw 0;
+    border-bottom: 1px solid #005688;
+    font-family: 'Avenir';
+    color: #002e64;
+}
+
+.direccion .textbox{
+    width:60%;
+}
+
+.direccion{
+    float: left;
+    width: 50%; 
+}
+
+
+
 
  select{
     outline:none;
@@ -68,15 +118,48 @@
     
 }
 
+.select{
+    outline:none;
+    border:none;
+    width:100%;
+    background: none;
+    padding: 10px;
+    line-height: 0.8;
+    color:grey;
+    font-size: 18px;
+    font-family: 'Avenir';
+}
+
+.habitacion{
+    margin-left: 5vw;
+    margin-top: 2vw;
+}
+
+.habTitulo{
+    margin-bottom: 2vw;
+    font-weight: 400;
+}
+
 
 
 .textbox1{
-    width:50%;
+    width:30%;
     overflow:hidden;
-    font-size: 20px;
-    padding: 8px 0;
-    margin: 8px 0;
+    padding: 0.2vw 0;
+    margin: 0.5vw 0;
+    margin-left: 3vw;
     border-bottom: 1px solid #005688;
+    font-family: 'Avenir';
+    color: #002e64;
+}
+
+.textbox3{
+    width:100%;
+    overflow:hidden;
+    padding: 0.2vw 0;
+    margin: 0.5vw 0;
+    margin-top: 2vw;
+    margin-left: 3vw;
     font-family: 'Avenir';
     color: #002e64;
 }
@@ -111,7 +194,19 @@
     border:none;
     outline: none;
     background: none;
-    font-size: 18px;
+    font-size: 1vw;
+    width: 80%;
+    float: left;
+    margin:0 10px;
+    font-family: 'Avenir';
+    color: #002e64;
+}
+
+.textbox2 input{
+    border:none;
+    outline: none;
+    background: none;
+    font-size: 1vw;
     width: 80%;
     float: left;
     margin:0 10px;
@@ -120,16 +215,35 @@
 }
 
 .btn{
-    width:100%;
+    width:20%;
     background: none;
-    border: 2px solid #005688;
-    padding:5px;
-    font-size: 18px;
+   background-color: #002e64;
+    padding:1vw;
+    font-size: 1vw;
     cursor: pointer;
-    margin:12px 0;
+    margin:3vw 0;
     border-radius:4px;
     font-family: 'Avenir';
-    color: #002e64;
+    color: white;
+    letter-spacing: 0.1vw;
+   float: right;
 }
 
+#add{
+    border: none;
+    outline: none;
+    float: right;
+    margin-bottom: 1vw;
+    size: 1vw;
+    color: #005688;
+}
+
+#input{
+    border: none;
+    outline: none;
+    float: left;
+    margin-bottom: 1vw;
+    size: 1vw;
+    color: #005688;
+}
 

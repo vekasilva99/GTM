@@ -1,21 +1,25 @@
 <div class="wrapper" [ngClass]="{'hidden': agregarService.hideAgregar }">
-        <h1>{{tipoDestinos[0].id}}</h1>
-            <div class="close">
-                <i (click)="agregarService.toggleAgregar()" style="color: #002e64; " class="fas fa-times-circle"></i>
-            </div>
-            <form [formGroup]="ciudadForm" class="agregar-box" (ngSubmit)="addPost()">
-                <h1>Agregar Ciudad</h1>
-                <div class="textbox">
-                    <input type="text" formControlName="nombre" placeholder="Ingresa el nombre"></div>
-                <div class="textbox">
-                    <input type="text" formControlName="imagen" placeholder="Ingresa la imagen"></div>
-                <div class="textbox">
-                    <select formControlName="estadoId" placeholder="Ingresa el Id del Estado">
-                        <option value="">Seleccione el Estado</option>
-                        <option value="{{estado.id}}" *ngFor="let estado of estados">{{estado.nombre}}</option>
-        
-                    </select>
-                </div>      
-                <input type="submit" class="btn" value="AGREGAR" [disabled]="!estadoForm.valid" id="boton">
-        
-            </form>
+    <div class="close">
+        <i (click)="agregarService.toggleAgregar()" style="color: #002e64; " class="fas fa-times-circle"></i>
+    </div>
+    <form [formGroup]="ciudadForm" class="agregar-box" (ngSubmit)="addPost()">
+        <h1>AGREGAR CIUDAD</h1>
+        <small>NOMBRE</small>
+        <div class="textbox">
+            <i id="input" class="fas fa-user-circle"></i>
+            <input type="text" formControlName="nombre"></div>
+        <small>IMAGEN</small>
+        <div class="textbox">
+            <i id="input" class="fas fa-plus-circle"></i>
+            <input type="text" formControlName="imagen" placeholder="Ingresa la imagen"></div>
+        <small>ESTADO</small>
+        <div class="textbox">
+            <select formControlName="estadoId" placeholder="Ingresa el Id del Estado">
+                <option value="">Seleccione el Estado</option>
+                <option value="{{estado.id}}" *ngFor="let estado of estados">{{estado.nombre}}</option>
+
+            </select>
+        </div>
+        <input type="submit" class="btn" value="AGREGAR" [disabled]="!estadoForm.valid" id="boton">
+
+    </form>
