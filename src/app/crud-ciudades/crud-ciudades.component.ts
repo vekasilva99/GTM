@@ -33,7 +33,7 @@ export class CrudCiudadesComponent implements OnInit {
     
   }
 
-  deleteCiudaad(docId:string){
+  deleteCiudad(docId:string){
     this.ciudadService.deleteCiudad(docId);
   }
 

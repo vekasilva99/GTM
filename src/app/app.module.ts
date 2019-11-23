@@ -45,7 +45,7 @@ import { CrudCiudadesComponent } from './crud-ciudades/crud-ciudades.component';
 import { AgregarCiudadComponent } from './agregar-ciudad/agregar-ciudad.component';
 import { TipoDestinoComponent } from './tipo-destino/tipo-destino.component';
 import {MatSelectModule} from '@angular/material/select';
-
+import {DestinosDetailsComponent} from './destinos-details/destinos-details.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { Filter2Pipe } from './pipes/filter2.pipe';
 import { DestinoDetailComponent } from './destino-detail/destino-detail.component';
@@ -105,6 +105,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
    ModificarEstadoComponent,
    ModificarCiudadComponent,
    ModificarDestinoComponent,
+   DestinosDetailsComponent
 
   ],
   imports: [

@@ -5,10 +5,10 @@
         <img class="im" src="../../assets/11.png">  
         <h1>Alojamientos</h1>
 
-
 <div class="wrapper" id="c6">
     <div class="filtro">
 <div>
+    
     <h3>Filtrar busqueda:</h3>
 
     <span>Nombre: </span><input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost"><br>
@@ -18,8 +18,6 @@
 </div>
 
 <div class="wrapper">
-
-
 
 <div class="wrapper-rooms"  *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2">
         <div class="even" >
@@ -56,5 +54,4 @@
             </div>
         </div>
 </div>
-
 </div> 

@@ -1,7 +1,7 @@
-<div class="wrapper" [ngClass]="{'hidden': modificarService.hideModificar }">
+<div class="wrapper">
 
     <div class="close">
-        <i (click)="modificarService.toggleModificar()" style="color: #002e64; " class="fas fa-times-circle"></i>
+        <i  style="color: #002e64; " class="fas fa-times-circle"></i>
     </div>
     <form [formGroup]="estadoForm" class="agregar-box" (ngSubmit)="addPost()">
         <h1>MODIFICAR ESTADO</h1>
