@@ -46,15 +46,9 @@ import { AgregarCiudadComponent } from './agregar-ciudad/agregar-ciudad.componen
 import { TipoDestinoComponent } from './tipo-destino/tipo-destino.component';
 import {MatSelectModule} from '@angular/material/select';
 
-
 import { FilterPipe } from './pipes/filter.pipe';
 import { Filter2Pipe } from './pipes/filter2.pipe';
 import { DestinoDetailComponent } from './destino-detail/destino-detail.component';
-
-
-
-
-
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = {
@@ -65,7 +59,6 @@ export class CustomHammerConfig extends HammerGestureConfig {
     }
   };
 }
-
 
 @NgModule({
   declarations: [
@@ -103,9 +96,6 @@ export class CustomHammerConfig extends HammerGestureConfig {
    CrudCiudadesComponent,
    AgregarCiudadComponent,
    TipoDestinoComponent,
-  
-  
-  
    FilterPipe,
    Filter2Pipe,
    DestinoDetailComponent,
