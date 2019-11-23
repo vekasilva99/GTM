@@ -3,205 +3,156 @@
     width:100vw;
     margin:0;
     padding:0;
-    justify-content: center;
-    position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
+@media screen and (min-width: 991px) {
+  div#c1{
+    h1 {
+      font-size: 30px;
+    }
+    h2 {
+      font-size: 18px;
+      margin-left: 25%;
+      margin-right: 25%;
+    }
+  }
 }
-
-.container img{
-  width: 100vw;
-  margin: 0;
+@media screen and (max-width: 990px) {
+  div#c1{
+    h1 {
+      font-size: 25px;
+    }
+    h2 {
+      font-size: 14px;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
 }
-
-#c1 h1{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -5%);
-  text-align: center;
-  font-size: 2.2vw;
-  font-family:"Kingsmen";
-  padding: 20px;
-  margin: 15px;
-  color: #005688;
-  word-spacing: 1em;
-}
-
-#c1 h2{
-  text-align: center;
-  font-size: 1.3vw;
-  font-family:"Avenir";
-  padding: 10px;
-  color: #000000;
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-bottom: 3%;
-}
-
-.planea-menu{
-  display: grid;
-  grid-template-columns: repeat(3, 30vw);
-  grid-auto-rows: minmax(20vw, auto);
-  justify-content: center;
-  margin-top: 1vmin;
-}
-
-.planea-menu div{
-  padding: 1vw;
-}
-
-.planea-menu div h3{
-  text-align: left;
-  font-size: 1vw;
-  font-family:"Avenir";
-  padding: 10px;
-  color: #005688;
-  font-weight: bold;
-}
-
-.planea-menu div p{
-  text-align: left;
-  font-size: 0.8vw;
-  font-family:"Avenir";
-  padding: 10px;
-  color: #000000;
-  margin-left: 10px;
-}
-
-.info-boton1{
-  font-size: 0.9vw;
-  font-family:"Avenir";
-  padding: 10px;
-  color: white;
-  background-color: #01798a;
-  border: 1px solid #01798a;
-  border-radius: 5px;
-  width: 4.5vw;
-  text-align: center;
-  margin-left: auto;
-}
-
-.info-boton2{
-  font-size: 0.9vw;
-  font-family:"Avenir";
-  padding: 10px;
-  color: white;
-  background-color: #c8a501;
-  border: 1px solid #c8a501;
-  border-radius: 5px;
-  width: 2.5vw;
-  text-align: center;
-  margin-left: auto;
-}
-
-.info-boton3{
-  font-size: 0.9vw;
-  font-family:"Avenir";
-  padding: 10px;
-  color: white;
-  background-color: #02b5da;
-  border: 1px solid #02b5da;
-  border-radius: 5px;
-  width: 7vw;
-  text-align: center;
-  margin-left: auto;
-}
-
-.dato{
-  display: flex;
-  // justify-content: left;
-  align-items: center;
-}
-
-#c4{
-  background-color: white;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  display: grid;
-  grid-template-columns: 17% 38% 28% 17%;
-  grid-auto-rows: auto;
-  height: 65vh;
-  // margin-top: 10vh;
-  align-items: center;
-}
-
-.bloque {
-  padding: 3vw;
-}
-
-#c4 h6{
-  text-align: left;
-  font-size: 2.2vw;
-  font-family:"Kingsmen";
-  color: #005688;
-  margin-bottom: 2vh;
-}
-
-#c4 p{
-  text-align: left;
-  font-size: 1.3vw;
-  font-family:"Avenir";
-  color: #000000;
-}
-
-#c4 h3{
-  text-align: left;
-  font-size: 0.7vw;
-  font-family:"Avenir";
-  padding: 10px;
-  color: black;
-  font-weight: bold;
-}
-
-.dot {
-  height: 8vh;
-  width: 8vh;
-  background-color: #02b5da;
-  border-radius: 50%;
-  // display: inline-block;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5vw;
-  font-family:"Avenir";
-}
-
-#c4 h5{
-  text-align: left;
-  font-size: 0.8vw;
-  font-family:"Avenir";
-  padding: 10px;
-  color: #000000;
-  margin-left: 10px;
-}
-
-.datos{
-  display: flex;
-  // justify-content: left;
-  align-items: center;
-  padding: 1.5vh;
-}
-
 #c1{
   background-color: white; 
   height: auto; 
   overflow-x: hidden;
   overflow-y: hidden;
+  margin: 0%;
+  padding: 0%;
+}
+#c1 h1{
+  width: 100vw;
+  font-family:"Kingsmen";
+  color: #005688;
+  text-align: center;
+  word-spacing: 1em;
+  margin: auto;
+}
+#c1 h2{
+  text-align: center;
+  font-family:"Avenir";
+  padding: 10px;
+  color: #000000;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  line-height: 30px;
 }
 
-#c1 img{
-  width: 100%;
-  height:30%;
-  overflow-x: hidden;
-  overflow-y: hidden;
+.planea-menu{
+  display: grid;
+  grid-template-areas: none;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.wrap{
+  margin: 1.5em;
+}
+#dato1{
+  grid-area: bloque1;
+}
+#dato2{
+  grid-area: bloque2;
+}
+#dato3{
+  grid-area: bloque3;
+}
+@media screen and (min-width: 1001px) {
+  div.planea-menu{
+    grid-template-areas:
+      'bloque1 bloque2 bloque3';
+  }
+  div.wrap{
+    width: 25vw;
+  }
+}
+@media screen and (max-width: 1000px) {
+  div.planea-menu{
+    grid-template-areas:
+      'bloque1'
+      'bloque2'
+      'bloque3';
+  }
+  div.wrap{
+    width: 80vw;
+  }
+}
+#c1 h3{
+  font-family:"Avenir";
+  padding: 10px;
+  color: #005688;
+  border-top: 1px solid #c4c6c7;
+  border-bottom: 1px solid #c4c6c7;
+  font-size: .9rem;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+#c1 p{
+  font-size: 0.8rem;
+  font-family:"Avenir";
+  color: #000000;
+  margin-bottom: 0%;
+}
+.dato{
+  padding: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #c4c6c7;
+  height: 80px;
+}
+.label{
+  display: grid;
+  grid-template-columns: 0.9fr 2.1fr;
+  align-items: center;
+  height: 60px;
+  width: 12rem;
+  letter-spacing: 1px;
+  font-size: 0.65rem;
+}
+.info-boton{
+  font-family:"Avenir";
+  font-size: 0.8rem;
+  color: #fff;
+  border-radius: 10px;
+  height: 60px;
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#but1{
+  background-color: #01798a;
+  border: 1px solid #01798a;
+}
+#but2{
+  background-color: #c8a501;
+  border: 1px solid #c8a501;
+}
+#but3{
+  background-color: #02b5da;
+  border: 1px solid #02b5da;
 }
 
 #c2 img{
@@ -209,147 +160,103 @@
   height:100%;
 }
 
-#c2{
-  background-color: black;  
-}
-
-#c3 img{
-  width: 100%;
-  height:150vh;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
 #c3{
-  background-color: white;
-  height: 145vh;
-}
-
-
-
-.menu{
+  background-color: white; 
+  height: auto; 
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: 0%;
+  padding: 0%;
   display: flex;
-  justify-content: space-around;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-.log{
-  margin-top: 5px;
-  background-color:transparent;
-  display:inline-block;
-  font-family:Arial;
-  font-size:15vh;
-  text-decoration:none;
-}
-
-.log i{
-    display: block;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.wrapper h3{
-  text-align: center;
   justify-content: center;
-  font-size: 3vh;
-  font-family: "Avenir";
-  font-weight: 100;
-  color:#ffa600;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
-
-.gridhome{
-  height: 50vh;
-  width:100vw;
-  margin:0;
-  padding:0;
-  overflow: hidden;
-  justify-content: center;
-  position: relative;
+@media screen and (min-width: 991px) {
+  #c3{
+    h1 {
+      font-size: 30px;
+    }
+    h2 {
+      font-size: 18px;
+    }
+}
+@media screen and (max-width: 990px) {
+  #c3{
+    h1 {
+      font-size: 25px;
+    }
+    h2 {
+      font-size: 14px;
+    }
+  }
+}
+.griddoble{
   display: grid;
-  grid-template-columns: 15% 40% 30% 15%;
+  grid-template-areas: none;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  justify-content: center;
+  align-items: center;
 }
-  
-.gridhome > div {
-  // border: 2px solid blue;
-  padding: 5em;
+.bloque{
+  margin: 1.5em;
 }
-  
-#nopad {
-  padding: 0em;
-  margin: 0em;
+#quienes{
+  padding: 1rem;
+  align-self: center;
+  grid-area: bloq1;
 }
-  
-#yespad {
-  margin-top: 45px;
+#datos{
+  align-self: center;
+  grid-area: bloq2;
 }
-  
-.gridhome h5{
-  font-family: "Kingsmen";
+#c3 h1{
+  font-family:"Kingsmen";
   color: #005688;
-  font-size: 30px;
-  // margin-left: 1.5em;
-}
-  
-.gridhome h2{
-  font-family: "Avenir";
-  font-weight: 100;
-  font-size: 20px;
-  justify-content: left;
   text-align: left;
-  // margin-left: 1em;
-  margin-top: 1em;
-  // padding: 1em;
+  word-spacing: 0.5em;
 }
-  
-.gridhome h4{
-  font-family: "Avenir";
-  font-weight: 100;
-  font-size: 10px;
-  color: black;
-  justify-content: left;
+#c3 h2{
+  font-family:"Avenir";
+  color: #000000;
   text-align: left;
-  margin-top: 80px;
-  margin-left: 30px;
-  // padding: 1em;
+  line-height: 30px;
+  margin-top: 30px;
 }
-  
-.datosrap {
-  height: 30vh;
-  width:30vw;
-  padding:0;
-  overflow: hidden;
+#c3 h3{
+  font-family:"Avenir";
+  color: #000000;
+  text-align: left;
+  font-size: 0.6rem;
+}
+.dot {
+  height: 8vh;
+  width: 8vh;
+  background-color: #02b5da;
+  border-radius: 50%;
+  color: white;
+  display: flex;
   justify-content: center;
-  position: relative;
-  display: grid;
-  grid-template-rows: 33% 33% 33%;
-  grid-auto-columns: minmax(400px, auto);
+  align-items: center;
+  font-size: 1rem;
+  font-family:"Avenir";
 }
-  
-  .datosrap > div{
-    // border: 5px solid green;
-    display: grid;
-    grid-template-columns: 25% 50% 25%;
-    border-bottom: 1px solid grey;
+@media screen and (min-width: 1001px) {
+  div.griddoble{
+    grid-template-areas:
+      'bloq1 bloq2';
   }
-  
-  .partedato{
-    // border: 5px solid red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Avenir";
-    font-weight: 100;
-    font-size: 15px;
-    color: black;
-    justify-content: center;
-    text-align: center;
+}
+@media screen and (max-width: 1000px) {
+  div.griddoble{
+    grid-template-areas:
+      'bloq1'
+      'bloq2';
   }
+}
 
+#c4 img{
+  width: 100%;
+  height:100%;
+}
 
-  
-
-  
-    
+}
