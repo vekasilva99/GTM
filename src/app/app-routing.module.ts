@@ -18,27 +18,31 @@ import {CrudHotelesComponent} from '../app/crud-hoteles/crud-hoteles.component';
 import {TipoDestinoComponent} from '../app/tipo-destino/tipo-destino.component';
 import {ModificarCiudadComponent} from '../app/modificar-ciudad/modificar-ciudad.component';
 import {ModificarEstadoComponent} from '../app/modificar-estado/modificar-estado.component';
+<<<<<<< HEAD
 import { ModificarDestinoComponent } from './modificar-destino/modificar-destino.component';
 import { ModificarTipoDestinoComponent } from './modificar-tipo-destino/modificar-tipo-destino.component';
 import { ModificarHotelComponent } from './modificar-hotel/modificar-hotel.component';
 
 
+=======
+import { AuthGuard } from './Guardian/auth.guard';
+>>>>>>> 2fdaf8518c910a2456d52f4c8f6675bab683efad
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LogComponent},
   {path: 'estado', component: EstadosComponent},
   {path: 'detail/:id', component: EstadoDetailsComponent},
   {path: 'hotels', component: HotelComponent},
-  {path: 'adminHome', component: AdminHomeComponent},
+  {path: 'adminHome', component: AdminHomeComponent, canActivate: [AuthGuard]},
   {path: 'hotels/:id', component: HotelDetailsComponent},
   {path: 'hotels/:id/:i', component: HabitacionComponent},
-  {path: 'adminHome/crudEstados', component:CrudEstadosComponent},
-  {path: 'adminHome/crudDestinos', component:CrudDestinosComponent},
-  {path: 'adminHome/crudTipoDestino', component:CrudTipoDestinoComponent},
-  {path: 'adminHome/crudCiudades', component:CrudCiudadesComponent},
-  {path: 'adminHome/crudHoteles', component:CrudHotelesComponent},
+  {path: 'adminHome/crudEstados', component: CrudEstadosComponent},
+  {path: 'adminHome/crudDestinos', component: CrudDestinosComponent},
+  {path: 'adminHome/crudTipoDestino', component: CrudTipoDestinoComponent},
+  {path: 'adminHome/crudCiudades', component: CrudCiudadesComponent},
+  {path: 'adminHome/crudHoteles', component: CrudHotelesComponent},
   {path: 'tipoDestino/:id', component: TipoDestinoComponent},
   {path: 'adminHome/crudCiudades/edit/:id', component: ModificarCiudadComponent},
   {path: 'adminHome/crudEstados/edit/:id', component: ModificarEstadoComponent},

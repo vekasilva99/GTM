@@ -1,16 +1,24 @@
 <div class="wrapper">
+
     <form  [formGroup]="loginForm" (ngSubmit)="login()" class="login-box">
+
         <h1>Login</h1>
+
         <div class="textbox">
-                <i class="fas fa-user"></i>
-            <input type="text" name="email" id="email" placeholder="Email" formControlName="email">
+            <i class="fas fa-user"></i>
+            <input type="text" id="email" name="email"  placeholder="Email" 
+            formControlName="email" required >
         </div>
 
         <div class="textbox">
-                <i class="fas fa-lock"></i>
-            <input type="password" name="password" id="password" placeholder="Password" formControlName="password">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" name="password"  placeholder="Password" 
+            formControlName="password" required >
         </div>
-        <button class="btn" type="submit" >Sign in</button>
+
+        <button type="submit" class="btn" (click)="handleLogin()">Login</button>
+        <button type="submit" class="btn" (click)="handleLogout()">Logout</button>
+
     </form>
-    
+
 </div>

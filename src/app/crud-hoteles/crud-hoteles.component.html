@@ -1,9 +1,9 @@
-<ng-container *ngIf="hoteles.lenght > 0; then loading; else noLoading"></ng-container>
+<!-- <ng-container *ngIf="hoteles.length > 0; then loading; else noLoading"></ng-container>
 
 <ng-template #loading>
     <h1>Loading...</h1>
 </ng-template>
-<ng-template #noLoading>
+<ng-template #noLoading> -->
 <div class="wrapper">
         <app-toolbar-admin></app-toolbar-admin>
         <app-sidebar-admin></app-sidebar-admin>
@@ -27,8 +27,13 @@
                         <div class="id"><h3>{{estados[i]?.nombre}}</h3></div>
                         <div class="id"><h3>{{ciudades[i]?.nombre}}</h3></div>
                         <div class="id"><h3>{{hotel.habs.length}}</h3></div>
+<<<<<<< HEAD
                         <div class="tools"><i routerLink="/adminHome/crudHoteles/edit/{{hotel.id}}" class="fas fa-pen" id="close" ></i>
                         <i (click)="deleteHotel(hotel.id)" class="fas fa-times" id="close"></i></div>
+=======
+                        <div class="tools"><i class="fas fa-pen" id="close" ></i>
+                        <i  class="fas fa-times" id="close"></i></div>
+>>>>>>> 2fdaf8518c910a2456d52f4c8f6675bab683efad
                     </div>
     
                 </div>
@@ -38,4 +43,4 @@
         </div>
         
         </div>
-</ng-template>
+<!-- </ng-template> -->
