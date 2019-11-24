@@ -1,56 +1,90 @@
+@media screen and (min-width: 768px) {
+  .wrapper{
+    height: 170px;
+  }
+  .log{
+    font-size: 1rem;
+    width: 120px;
+    height: 55px;
+  }
+  #logo2{
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .wrapper{
+    height: 115px;
+  }
+  #menubutton{
+    display: none;
+  }
+  .log {
+    font-size: 0.7rem;
+    width: 100px;
+    height: 50px;
+  }
+  #logo1{
+    display: none;
+  }
+  .logo img {
+    height: 80px;
+  }
+}
 
 .wrapper {
-   
     margin:0;
     padding: 0;
-    height: 16vh;
     width: 100vw;
     font-family: sans-serif;
     overflow:hidden;
     position: fixed;
     z-index: 90;
-   
- 
-
+    display: flex;
+    justify-content: space-between;
   }
 
-
-
-.log {
-    
-        background-color:transparent;
-        border-radius:4px;
-        border:2px solid #ffffff;
-        display:inline-block;
-        cursor:pointer;
-        color:#ffffff;
-        font-family: "Avenir";
-        font-size:1.2vw;
-        padding:1vw 3vw;
-        justify-content: center;
-        text-decoration:none;
-        text-shadow:0px 1px 0px #f5f5f5;
-        float: right;
-        margin: 1vw;
-
-        &:hover{
-            color:#002e64;
-            background: white;
-            transition: 0.6s;
-        }
+#headernav{
+  background-color: #ffffff;
 }
-
-.logo {
-    
-  background-color:transparent;
-  display:inline-block;
+#header .log {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2px solid #ffffff;
   cursor:pointer;
-  padding:2vh 4vw;
-  float: left;
-  margin: 0;
+  color:#ffffff;
+  font-family: "Avenir";
+  text-decoration:none;
+  margin: 1rem;
+
+  &:hover{
+      color:#002e64;
+      background: white;
+      transition: 0.6s;
+  }
 }
 
-.logo img{
-  height:8vw;
-  width: auto
+#headernav .log {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2px solid #002e64;
+  cursor:pointer;
+  color:#002e64;
+  font-family: "Avenir";
+  text-decoration:none;
+  margin: 1rem;
+
+  &:hover{
+      color:white;
+      background: #ffa600;
+      border: #ffa600;
+      transition: 0.6s;
+  }
+}
+
+.logo{
+  background-color:transparent;
+  cursor:pointer;
+  text-decoration: none;
+  border: none;
+  margin: 1rem;
 }
