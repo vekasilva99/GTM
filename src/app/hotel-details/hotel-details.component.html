@@ -1,3 +1,5 @@
+<ng-container *ngIf="hotel != null && estado != null && ciudad != null; then content; else noContent"></ng-container>
+<ng-template #content>
 <app-toolbar></app-toolbar>
 <app-sidebar></app-sidebar>
 <app-lista-estados></app-lista-estados>
@@ -12,7 +14,8 @@
                 
                 <div class="a"> </div>
                 <div class="b">
-                    <h2>{{hotel.city}}, {{hotel.state}}</h2>
+                   
+                    
                     <h3><i class="fas fa-map-marker-alt"></i> {{hotel.address}}</h3>
                     <h3>Latitud: {{hotel.latitude}}  Longitud: {{hotel.length}}</h3>
                     
@@ -45,13 +48,13 @@
     </div>
  <div class="wrapper" id="c5">
 <div class="gallery">
-    <div class="img1"><img src="{{hotel.hotelPictures[0]}}"></div>
+    <div class="img1"><img src="{{hotel.hotelPictures[0].path}}"></div>
     <div class="img2">
         <div class="a">
-            <div class="img2a"><img src="{{hotel.hotelPictures[1]}}"></div>
-            <div class="img2b"><img src="{{hotel.hotelPictures[2]}}"></div>
+            <div class="img2a"><img src="{{hotel.hotelPictures[1].path}}"></div>
+            <div class="img2b"><img src="{{hotel.hotelPictures[2].path}}"></div>
         </div>
-        <div class="b"><img src="{{hotel.hotelPictures[3]}}"></div>
+        <div class="b"><img src="{{hotel.hotelPictures[3].path}}"></div>
     </div>
 </div>
 
@@ -74,7 +77,7 @@
         <div class="even" *ngIf="(i%2==0)">
             <div class="grid">
 
-                <div class="a"><img src="{{hab.habPictures[0]}}">
+                <div class="a"><img src="{{hab.habPictures[0].path}}">
                 </div>
 
                 <div class="b">
@@ -88,7 +91,7 @@
                                
                             <h3>Maximo de {{hab.maxPersonas}} Personas</h3>
                             <h4>{{hab.tipoVista}}</h4>
-                            <a routerLink="/hotels/{{hotel.id}}/{{hab.id}}" class="button">VER MAS</a>
+                            <a routerLink="/hotels/{{hotel.id}}/{{i}}" class="button">VER MAS</a>
                         </div>
                         <div class="c"></div>
                     </div>
@@ -106,12 +109,12 @@
                                
                                 <h3>Maximo de {{hab.maxPersonas}} Personas</h3>
                                 <h4>{{hab.tipoVista}}</h4>
-                                <a routerLink="/hotels/{{hotel.id}}/{{hab.i}}" class="button">VER MAS</a>
+                                <a routerLink="/hotels/{{hotel.id}}/{{i}}" class="button">VER MAS</a>
                         </div>
                         <div class="c"></div>
                     </div>
                 </div>
-                <div class="a"><img src="{{hab.habPictures[0]}}"></div>
+                <div class="a"><img src="{{hab.habPictures[0].path}}"></div>
             </div>
 
         </div>
@@ -119,3 +122,8 @@
 
 
 </div>
+</ng-template>
+
+<ng-template #noContent>
+        <h1>Loading...</h1>
+</ng-template>

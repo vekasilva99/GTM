@@ -26,6 +26,10 @@ itemsCollection: AngularFirestoreCollection<ciudad>;
     this.db.collection('ciudades').add(mov);
     
   }
+
+  updateCiudad(mov:any , id:string){
+    this.db.collection('ciudades').doc(id).update(mov);
+  }
   getOrders(){
     return this.db.collection<ciudad>('ciudades').snapshotChanges();
   }

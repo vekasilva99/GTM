@@ -82,6 +82,17 @@ small{
     color: #002e64;
 }
 
+.textbox2{
+    width:100%;
+    overflow:hidden;
+    font-size: 20px;
+    padding: 0.2vw 0;
+    margin: 1vw 0;
+    border-bottom: 1px solid #005688;
+    font-family: 'Avenir';
+    color: #002e64;
+}
+
 .direccion .textbox{
     width:60%;
 }
@@ -107,6 +118,28 @@ small{
     
 }
 
+.select{
+    outline:none;
+    border:none;
+    width:100%;
+    background: none;
+    padding: 10px;
+    line-height: 0.8;
+    color:grey;
+    font-size: 18px;
+    font-family: 'Avenir';
+}
+
+.habitacion{
+    margin-left: 5vw;
+    margin-top: 2vw;
+}
+
+.habTitulo{
+    margin-bottom: 2vw;
+    font-weight: 400;
+}
+
 
 
 .textbox1{
@@ -116,6 +149,17 @@ small{
     margin: 0.5vw 0;
     margin-left: 3vw;
     border-bottom: 1px solid #005688;
+    font-family: 'Avenir';
+    color: #002e64;
+}
+
+.textbox3{
+    width:100%;
+    overflow:hidden;
+    padding: 0.2vw 0;
+    margin: 0.5vw 0;
+    margin-top: 2vw;
+    margin-left: 3vw;
     font-family: 'Avenir';
     color: #002e64;
 }

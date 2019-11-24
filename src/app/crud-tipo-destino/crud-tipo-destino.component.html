@@ -1,3 +1,9 @@
+<!-- <ng-container *ngIf="tipoDestinos.length > 0; then loading; else noLoading"></ng-container>
+
+<ng-template #loading>
+    <h1>Loading...</h1>
+</ng-template>
+<ng-template #noLoading> -->
 <div class="wrapper">
         <app-toolbar-admin></app-toolbar-admin>
         <app-sidebar-admin></app-sidebar-admin>
@@ -17,7 +23,7 @@
                     <div class="textbox" *ngFor="let tipoDestino of tipoDestinos">
                         <div class="nombre"><h3>{{tipoDestino.nombre}}</h3></div>
                         <div class="id"><h3>{{tipoDestino.id}}</h3></div>
-                        <div class="tools"><i class="fas fa-pen" style="color: #002e64"></i>
+                        <div class="tools"><i routerLink="/adminHome/crudTipoDestino/edit/{{tipoDestino.id}}" class="fas fa-pen" style="color: #002e64"></i>
                         <i (click)="deleteTipoDestino(tipoDestino.id)" class="fas fa-times" id="close"
                             style="color: #002e64; margin-left: 1vw; size: 1.8vw;"></i></div>
                     </div>
@@ -29,3 +35,4 @@
         </div>
     
     </div>
+<!-- </ng-template> -->

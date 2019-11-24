@@ -24,12 +24,15 @@ export class DestinoService {
       })
     })
 
-    console.log(this.items);
+    
   }
 
   getDestinosFiltrados(id:string){
     return (this.filterDestinos=this.items.filter(destino =>destino.tipoDestinoId ===id));
-    console.log(this.filterDestinos);
+    
+  }
+  updateDestino(mov:any , id:string){
+    this.db.collection('destinos').doc(id).update(mov);
   }
 
   getDestinos(){
@@ -44,9 +47,8 @@ export class DestinoService {
     return this.db.collection<destino>('destinos').snapshotChanges();
   }
 
-  getDestino(id:string): Observable<destino>{
-    console.log(id);
-    return of(this.items.find(destino =>destino.id === id));
+  getDestino(id:string){
+    return this.db.collection('destinos').doc(id).snapshotChanges();
   
   }
 

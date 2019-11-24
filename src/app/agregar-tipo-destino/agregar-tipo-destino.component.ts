@@ -19,8 +19,8 @@ export class AgregarTipoDestinoComponent implements OnInit {
   ngOnInit() {
     this.tipoDestinoForm = this.fb.group({
       nombre: [null, Validators.required],
-      info: [null, Validators.required],
-      imagen: [null, Validators.required],
+      // info: [null, Validators.required],
+      // imagen: [null, Validators.required],
     });
 
   }
@@ -29,10 +29,11 @@ export class AgregarTipoDestinoComponent implements OnInit {
 
     const mov = {
       nombre: this.tipoDestinoForm.value.nombre ,
+      // imagen:this.tipoDestinoForm.value.imagen,
+      // info:this.tipoDestinoForm.value.info
   
     }
 
-    console.log(this.tipoDestinoForm.value);
 
     this.tipoDestinoService.addTipoDestino(mov);
   }

@@ -9,10 +9,12 @@ import { TipoDestinoService } from '../Services/tipo-destino.service';
   styleUrls: ['./crud-tipo-destino.component.scss']
 })
 export class CrudTipoDestinoComponent implements OnInit {
-  tipoDestinos: tipoDestino[];
+  tipoDestinos: tipoDestino[]=[];
+  loading: boolean = false;
   constructor(public agregarService: AgregarService, private tipoDestinoService: TipoDestinoService) { }
 
   ngOnInit() {
+    this.loading = false;
     this.tipoDestinoService.getOrders().subscribe(arr =>{
       arr.map(item=>{
         const dest:tipoDestino={
@@ -22,6 +24,7 @@ export class CrudTipoDestinoComponent implements OnInit {
 
         this.tipoDestinos.push(dest);
       });
+      this.loading = false;
     });
   
   }

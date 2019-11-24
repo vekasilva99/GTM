@@ -1,3 +1,4 @@
+
 <div class="wrapper">
         <app-toolbar></app-toolbar>
         <app-sidebar></app-sidebar>
@@ -21,7 +22,7 @@
 
 
 
-<div class="wrapper-rooms"  *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2">
+<div class="wrapper-rooms"  *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2; let i=index">
         <div class="even" >
             <div class="grid">
 
@@ -43,7 +44,7 @@
                                             </span>
                                         </span> 
                                
-                            <h3>{{hotel.state}},{{hotel.city}}  </h3>
+                            <h3>{{estados[i]?.nombre}},{{ciudades[i]?.nombre}}  </h3>
                             <div *ngIf="(hotel.fullDay)">
                                 <h4>US${{hotel.fullDayPrice}}/dia</h4>
 

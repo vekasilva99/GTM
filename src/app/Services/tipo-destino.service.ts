@@ -43,6 +43,10 @@ export class TipoDestinoService {
     return this.db.collection('tipoDestino').doc(id).snapshotChanges();
   
   }
+
+  updateTipoDestino(mov:any , id:string){
+    this.db.collection('tipoDestino').doc(id).update(mov);
+  }
 }
 
 

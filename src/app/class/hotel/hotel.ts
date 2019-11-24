@@ -4,29 +4,30 @@ export class Hotel {
 
     id: string;
     name: string;
+    imagen: string;
     stars: number[];
     latitude: string;
     length: string;
     address: string;
     state: string;
     city: string;
-    hotelPictures: string[];
+    hotelPictures: any[];
     fullDay: boolean;
     fullDayPrice: number;
-    destino:string;
+    destino: string;
     services: string[];
     hab: Hab[];
 }
 
 export class Hab {
-    id:string;
+    // id: string;
     nombre: string;
     nightCost: number;
     tipoVista: string;
     maxPersonas: number;
     habPictures: string[];
     comodidades: string[];
-    numHab:number;
+    numHab: number;
 }
 
 

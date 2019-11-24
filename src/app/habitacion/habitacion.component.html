@@ -5,7 +5,7 @@
       
         
         <img src="../../assets/5.png">
-        <h1>{{hab.nombre}}</h1>
+        <h1>{{hab.habNombre}}</h1>
 
         <div class="datos"> 
             <div class="a"></div> 
@@ -14,7 +14,7 @@
                             <div class="a"></div> 
                             <div class="b">
                                 <div class="info1">
-                                    <h2>Habitacion {{hab.nombre}}</h2>
+                                    <h2>Habitacion {{hab.habNombre}}</h2>
                                     <h3>US${{hab.nightCost}}/noche</h3>
                                     <a class="button">RESERVAR</a>
                                     
@@ -23,7 +23,7 @@
                                     <div class="item"> 
                                         <div class="a"><span class="fa-stack fa-2x">
                                                 <i class="fas fa-circle fa-stack-2x" style="color: #00b6d9"></i>
-                                                <i class="fa-stack-text fa-stack-1x fa-inverse" style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;">{{hab.comodidades[0]}}</i>
+                                                <i class="fa-stack-text fa-stack-1x fa-inverse" style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;">{{hab.comodidades[0].path}}</i>
                                               </span></div>
                                         <div class="b"><h3>Metros Cuadrados </h3> </div>
                                         <div class="c"><img style="width: 60px; height: auto;margin-left: 3em;"src="https://live-turneffe.pantheonsite.io/wp-content/uploads/2019/05/massage-therapists.svg"></div>
@@ -56,13 +56,13 @@
 
           <div class="wrapper" id="c5">
                 <div class="gallery">
-                    <div class="img1"><img src="{{hab.habPictures[0]}}"></div>
+                    <div class="img1"><img src="{{hab.habPictures[0].path}}"></div>
                     <div class="img2">
                         <div class="a">
-                            <div class="img2a"><img src="{{hab.habPictures[1]}}"></div>
-                            <div class="img2b"><img src="{{hab.habPictures[0]}}"></div>
+                            <div class="img2a"><img src="{{hab.habPictures[1].path}}"></div>
+                            <div class="img2b"><img src="{{hab.habPictures[0].path}}"></div>
                         </div>
-                        <div class="b"><img src="{{hab.habPictures[1]}}"></div>
+                        <div class="b"><img src="{{hab.habPictures[1].path}}"></div>
                     </div>
                 </div>
                 <div class="wrapper" id="c2">
@@ -70,7 +70,7 @@
                             <div class="margin"></div>
                             <div class="list" >
                                 <h2>Las comodidades incluidas en la habitacion {{hab.nombre}}</h2>
-                                    <div id="lista" *ngFor="let comodidad of hab.comodidades"><i style="font-size: 0.8em; color:#005688;" class="fas fa-check"></i>  {{comodidad}}</div>
+                                    <div id="lista" *ngFor="let comodidad of hab.comodidades"><i style="font-size: 0.8em; color:#005688;" class="fas fa-check"></i>  {{comodidad.path}}</div>
                                     <div class="margin"></div>
                             </div>
                             

@@ -24,7 +24,7 @@ export class EstadoService {
       })
     })
 
-    console.log(this.items);
+    
     
   }
 
@@ -40,7 +40,9 @@ export class EstadoService {
     return this.db.collection('estados').doc(id).snapshotChanges();
   
   }
-
+  updateEstado(mov:any , id:string){
+    this.db.collection('estados').doc(id).update(mov);
+  }
   getEstadoSeleccionado(id:string): void{
     this.estadoSeleccionado=this.items.find(estado =>estado.id === id);
     console.log(this.estadoSeleccionado);

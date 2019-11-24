@@ -27,7 +27,7 @@
                         <div class="id"><h3>{{estados[i]?.nombre}}</h3></div>
                         <div class="id"><h3>{{ciudades[i]?.nombre}}</h3></div>
                         <div class="id"><h3>{{hotel.habs.length}}</h3></div>
-                        <div class="tools"><i class="fas fa-pen" id="close" ></i>
+                        <div class="tools"><i routerLink="/adminHome/crudHoteles/edit/{{hotel.id}}" class="fas fa-pen" id="close" ></i>
                         <i (click)="deleteHotel(hotel.id)" class="fas fa-times" id="close"></i></div>
                     </div>
     

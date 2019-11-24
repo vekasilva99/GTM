@@ -87,4 +87,19 @@ export class ModificarCiudadComponent implements OnInit {
     });
   }
 
+  addPost(){
+    const mov = {
+      nombre: this.ciudadForm.value.nombre,
+      imagen: this.ciudadForm.value.imagen,
+      estadoId: this.ciudadForm.value.estadoId,
+
+    }
+
+ 
+
+    this.ciudadService.updateCiudad(mov, this.ciudad.id);
+    
+
+  }
+
 }

@@ -9,14 +9,15 @@ import { ciudad } from '../ciudad/ciudad';
 import { Hotel, Hab } from '../class/hotel/hotel';
 import { HotelService } from '../Services/hotel/hotel.service';
 import { destino } from '../destino/destino';
-
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-agregar-hotel',
-  templateUrl: './agregar-hotel.component.html',
-  styleUrls: ['./agregar-hotel.component.scss']
+  selector: 'app-modificar-hotel',
+  templateUrl: './modificar-hotel.component.html',
+  styleUrls: ['./modificar-hotel.component.scss']
 })
-export class AgregarHotelComponent implements OnInit {
+export class ModificarHotelComponent implements OnInit {
   estados: estado[] = [];
   ciudades: ciudad[] = [];
   destinos: destino[] = [];
@@ -25,11 +26,19 @@ export class AgregarHotelComponent implements OnInit {
   full:boolean=false;
   loading: boolean;
   selected: string[];
+  hotel: Hotel = null;
+  editHote: Hotel;
   servicios = [{ value: 'Wifi', viewValue: 'Wifi' }, { value: 'Parking', viewValue: 'Parking' }, { value: 'Restaurant', viewValue: 'Restaurant' }, { value: 'Bar', viewValue: 'Bar' }, { value: 'Piscina', viewValue: 'Piscina' }, { value: 'Traslado', viewValue: 'Traslado' }]
 
-  constructor(private fb: FormBuilder, public agregarService: AgregarService, private estadoService: EstadoService, private ciudadService: CiudadService, private hotelService: HotelService, private destinoService: DestinoService) { }
+  constructor(private route: ActivatedRoute, private location: Location,private fb: FormBuilder, public agregarService: AgregarService, private estadoService: EstadoService, private ciudadService: CiudadService, private hotelService: HotelService, private destinoService: DestinoService) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const hotelId = params.get('id');
+      if (hotelId) {
+        this.getHotel(hotelId);
+      }
+    });
     this.estadoService.getOrders().subscribe(array => {
       array.map(item => {
         const estado: estado = {
@@ -85,6 +94,90 @@ export class AgregarHotelComponent implements OnInit {
 
 
   }
+
+  getHotel(id: string): void {
+
+    this.hotelService.getHotel2(id).subscribe(array => {
+
+      const h: Hotel = {
+        id: array.payload.id,
+        name: array.payload.get('name'),
+        imagen: array.payload.get('imagen'),
+        stars: array.payload.get('stars'),
+        state: array.payload.get('state'),
+        length: array.payload.get('length'),
+        latitude: array.payload.get('latitud'),
+        address: array.payload.get('address'),
+        city: array.payload.get('city'),
+        fullDay: array.payload.get('fullDay'),
+        destino: array.payload.get('destino'),
+        services: array.payload.get('services'),
+        fullDayPrice: array.payload.get('fullDayPrice'),
+        hotelPictures: array.payload.get('hotelPictures'),
+        hab: array.payload.get('habs'),
+
+      
+      }
+      this.editHotel(h);
+      this.hotel = h;
+
+
+    });
+
+  }
+  editHotel(hotel: Hotel) {
+    this.editHote = hotel;
+    this.hotelForm.patchValue({
+      name: hotel.name,
+      imagen:hotel.imagen,
+      stars: hotel.stars.length,
+      state: hotel.state,
+      city: hotel.city,
+      length: hotel.length,
+      latitud: hotel.latitude,
+      address: hotel.address,
+      fullDay: hotel.fullDay,
+      destiny: hotel.destino,
+      services: hotel.services,
+      fullDayPrice: hotel.fullDayPrice,
+      
+    });
+    console.log(hotel);
+    this.hotelForm.setControl('hotelPictures', this.existingHotelPictures(hotel.hotelPictures));
+    this.hotelForm.setControl('habs', this.existingHabs(hotel.hab));
+    
+  }
+
+  existingHotelPictures(hotelPictures: any[]): FormArray {
+    const formArray = new FormArray([]);
+    hotelPictures.forEach(s => {
+      formArray.push(this.fb.group({
+        path: s.path,
+      }));
+
+    });
+    return formArray;
+  }
+  existingHabs(habs: any[]): FormArray {
+    const formArray = new FormArray([]);
+    habs.forEach(s => {
+      formArray.push(this.fb.group({
+        path: s.path,
+        habNombre: s.habNombre,
+      nightCost: s.nightCost,
+      tipoVista: s.tipoVista,
+      maxPersonas: s.maxPersonas,
+      numHab: s.numHab,
+      habPictures: s.habPictures,
+      comodidades: s.comodidades,
+      }));
+     
+
+    });
+    return formArray;
+  }
+
+
 
   get habsArray(): FormArray {
     return this.hotelForm.get('habs') as FormArray;
@@ -176,18 +269,17 @@ export class AgregarHotelComponent implements OnInit {
       latitud: this.hotelForm.value.latitud,
       state: this.hotelForm.value.state,
       city: this.hotelForm.value.city,
-      destiny: this.hotelForm.value.destiny,
+      destiny: this.hotelForm.value.destino,
       address: this.hotelForm.value.address,
       fullDay: this.hotelForm.value.fullDay,
       services: this.selected,
-      fullDayPrice: 49,
+      // fullDayPrice: this.hotelForm.value.fullDayPrice,
       hotelPictures: this.hotelForm.value.hotelPictures,
       habs: this.hotelForm.value.habs,
     };
 
-    console.log(this.selected);
 
-    this.hotelService.addHotel(mov);
+    this.hotelService.updateHotel(mov, this.hotel.id);
   }
 }
 

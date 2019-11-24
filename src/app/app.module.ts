@@ -52,6 +52,8 @@ import { DestinoDetailComponent } from './destino-detail/destino-detail.componen
 import { ModificarEstadoComponent } from './modificar-estado/modificar-estado.component';
 import { ModificarCiudadComponent } from './modificar-ciudad/modificar-ciudad.component';
 import { ModificarDestinoComponent } from './modificar-destino/modificar-destino.component';
+import { ModificarTipoDestinoComponent } from './modificar-tipo-destino/modificar-tipo-destino.component';
+import { ModificarHotelComponent } from './modificar-hotel/modificar-hotel.component';
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = {
@@ -105,6 +107,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
    ModificarEstadoComponent,
    ModificarCiudadComponent,
    ModificarDestinoComponent,
+   ModificarTipoDestinoComponent,
+   ModificarHotelComponent,
 
   ],
   imports: [

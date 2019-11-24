@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { EstadoService } from '../Services/estado.service';
+import { estado } from '../estados/estado';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-modificar-estado',
@@ -9,9 +12,18 @@ import { EstadoService } from '../Services/estado.service';
 })
 export class ModificarEstadoComponent implements OnInit {
   estadoForm: FormGroup;
-  constructor(private fb: FormBuilder, private estadoService: EstadoService) { }
+  estado: estado = null;
+  editState: estado;
+  constructor(private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private estadoService: EstadoService) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const estadoId = params.get('id');
+      if (estadoId) {
+        this.getEstado(estadoId);
+      }
+    });
+
     this.estadoForm = this.fb.group({
       nombre: [null, Validators.required],
       imagen: [null, Validators.required],
@@ -20,7 +32,7 @@ export class ModificarEstadoComponent implements OnInit {
       img: this.fb.array([
         this.addImgGroup()
       ]),
-      gastronomia:this.fb.array([
+      gastronomia: this.fb.array([
         this.addGastronomiaGroup()
       ]),
 
@@ -28,50 +40,113 @@ export class ModificarEstadoComponent implements OnInit {
 
   }
 
-  addImgGroup(){
+  getEstado(id: string): void {
+
+    this.estadoService.getEstado2(id).subscribe(array => {
+
+      const es: estado = {
+        id: array.payload.id,
+        nombre: array.payload.get('nombre'),
+        imagen: array.payload.get('imagen'),
+        img: array.payload.get('img'),
+        gastronomia: array.payload.get('gastronomia'),
+        cultura: array.payload.get('cultura'),
+        inicio: array.payload.get('inicio'),
+      }
+      this.editEstado(es);
+      this.estado = es;
+
+
+    });
+
+
+
+
+
+
+
+  }
+
+  editEstado(estado: estado) {
+    this.editState = estado;
+    this.estadoForm.patchValue({
+      nombre: estado.nombre,
+      imagen: estado.imagen,
+      cultura: estado.cultura,
+      inicio: estado.inicio,
+    });
+    this.estadoForm.setControl('img', this.existingImg(estado.img));
+    this.estadoForm.setControl('gastronomia', this.existingGastronomia(estado.gastronomia));
+  }
+
+  existingImg(img: any[]): FormArray {
+    const formArray = new FormArray([]);
+    img.forEach(s => {
+      formArray.push(this.fb.group({
+        imgPath: s.imgPath,
+      }));
+
+    });
+    return formArray;
+  }
+
+  existingGastronomia(gastronomia: any[]): FormArray {
+    const formArray = new FormArray([]);
+    gastronomia.forEach(s => {
+      formArray.push(this.fb.group({
+        gastronomiaPath: s.gastronomiaPath,
+      }));
+
+    });
+    return formArray;
+  }
+
+
+
+  addImgGroup() {
     return this.fb.group({
-      imgPath:[null, Validators.required]
+      imgPath: [null, Validators.required]
     });
   }
 
-  addGastronomiaGroup(){
+  addGastronomiaGroup() {
     return this.fb.group({
-      gastronomiaPath:[null, Validators.required]
+      gastronomiaPath: [null, Validators.required]
     });
   }
 
-  get imgArray(): FormArray{
+  get imgArray(): FormArray {
     return this.estadoForm.get('img') as FormArray;
   }
 
-  get gastronomiaArray(): FormArray{
+  get gastronomiaArray(): FormArray {
     return this.estadoForm.get('gastronomia') as FormArray;
   }
 
-  addImg(){
+  addImg() {
     this.imgArray.push(this.addImgGroup());
   }
 
-  addGastronomia(){
+  addGastronomia() {
     this.gastronomiaArray.push(this.addGastronomiaGroup());
   }
 
-  removeImg(index){
+  removeImg(index) {
     this.imgArray.removeAt(index);
   }
 
-  removeGastronomia(index){
+  removeGastronomia(index) {
     this.gastronomiaArray.removeAt(index);
   }
 
-  submitHandler(){
+  submitHandler() {
     console.log(this.estadoForm.value);
   }
 
   addPost() {
 
     const mov = {
-      nombre: this.estadoForm.value.nombre ,
+      nombre: this.estadoForm.value.nombre,
       imagen: this.estadoForm.value.imagen,
       cultura: this.estadoForm.value.cultura,
       inicio: this.estadoForm.value.inicio,
@@ -80,6 +155,6 @@ export class ModificarEstadoComponent implements OnInit {
     }
 
 
-    this.estadoService.addEstado(mov);
+    this.estadoService.updateEstado(mov, this.estado.id);
   }
 }
