@@ -1,14 +1,33 @@
 
 
-<div class="wrapper">
-       
-    <a routerLink="/home" class="logo"><img src="../../assets/logo.png"></a>
-        <a routerLink="/login" class="log">LOG IN</a>
-        <button type="button" class="log" (click)="listaEstadosService.toggleLista()" >ITINERARIO</button>
-        <button  type="button" class="log"  (click)="sideNavService.toggleSideNav()">MENU</button>
-    
+<!-- <div class="wrapper" id="header">
 
+    <div class="logowrap">
+        <button type="button" routerLink="/home" class="logo" id="logo1"><img src="../../assets/logo.png"></button>
+        <button type="button" routerLink="/home" class="logo" id="logo2"><img src="../../assets/logo2.png"></button>
     </div>
+
+    <div class="menuwrap">
+        <button type="button" class="log" (click)="listaEstadosService.toggleLista()" id="menubutton" >ITINERARIO</button>
+        <button type="button" routerLink="/login" class="log" id="menubutton" >LOG IN</button>
+        <button  type="button" class="log"  (click)="sideNavService.toggleSideNav()" id="menbutton">MENU</button>
+    </div>
+
+</div> -->
+
+<div class="wrapper" id="headernav">
+
+    <div class="logowrap">
+        <button type="button" routerLink="/home" class="logo" id="logo3" src="../../assets/logo3.png"></button>
+    </div>
+
+    <div class="menuwrap">
+        <button type="button" class="log" (click)="listaEstadosService.toggleLista()" id="menubutton" >ITINERARIO</button>
+        <button type="button" routerLink="/login" class="log" id="menubutton" >LOG IN</button>
+        <button  type="button" class="log"  (click)="sideNavService.toggleSideNav()" id="menbutton">MENU</button>
+    </div>
+
+</div>
 
 
 
