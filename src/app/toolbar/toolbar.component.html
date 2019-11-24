@@ -1,33 +1,25 @@
+<script src="Scripts/jquery"></script>
 
-
-<!-- <div class="wrapper" id="header">
-
-    <div class="logowrap">
-        <button type="button" routerLink="/home" class="logo" id="logo1"><img src="../../assets/logo.png"></button>
-        <button type="button" routerLink="/home" class="logo" id="logo2"><img src="../../assets/logo2.png"></button>
+<div id="menu-bar">
+    <div id="logo-wrap">
+        <img src="../../assets/logo.png" routerLink="/home" id="logo1" class="logo">
+        <img src="../../assets/logo2.png" routerLink="/home" id="logo2" class="logo">
     </div>
-
-    <div class="menuwrap">
-        <button type="button" class="log" (click)="listaEstadosService.toggleLista()" id="menubutton" >ITINERARIO</button>
-        <button type="button" routerLink="/login" class="log" id="menubutton" >LOG IN</button>
-        <button  type="button" class="log"  (click)="sideNavService.toggleSideNav()" id="menbutton">MENU</button>
+    <div id="menu-options">
+        <button id="itinerario-button" class="button" (click)="listaEstadosService.toggleLista()">ITINERARIO</button>
+        <button id="login-button" class="button" routerLink="/login">LOG IN</button>
+        <button id="menu-button" class="button" (click)="sideNavService.toggleSideNav()">MENU</button>
     </div>
-
-</div> -->
-
-<div class="wrapper" id="headernav">
-
-    <div class="logowrap">
-        <button type="button" routerLink="/home" class="logo" id="logo3" src="../../assets/logo3.png"></button>
-    </div>
-
-    <div class="menuwrap">
-        <button type="button" class="log" (click)="listaEstadosService.toggleLista()" id="menubutton" >ITINERARIO</button>
-        <button type="button" routerLink="/login" class="log" id="menubutton" >LOG IN</button>
-        <button  type="button" class="log"  (click)="sideNavService.toggleSideNav()" id="menbutton">MENU</button>
-    </div>
-
 </div>
 
-
+<div id="menu-bar-nav" style="display:none">
+    <div id="logo-wrap">
+        <img src="../../assets/logo3.png" routerLink="/home" id="logo3" class="logo">
+    </div>
+    <div id="menu-options">
+        <button id="itinerario-button" class="button" (click)="listaEstadosService.toggleLista()">ITINERARIO</button>
+        <button id="login-button" class="button" routerLink="/login">LOG IN</button>
+        <button id="menu-button" class="button" (click)="sideNavService.toggleSideNav()">MENU</button>
+    </div>
+</div>
 
