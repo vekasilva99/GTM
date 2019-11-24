@@ -12,7 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
 import { PlaneaComponent } from '../app/Principal/planea/planea.component';
 import { LogComponent } from './log/log.component';
-import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { EstadosComponent } from './estados/estados.component';
 import { EstadoDetailsComponent } from './estado-details/estado-details.component';
@@ -20,7 +20,7 @@ import { HomeComponent } from '../app/Principal/home/home.component';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { BienvenidoComponent } from './bienvenido/bienvenido.component';
-import {NgxGalleryModule} from 'ngx-gallery';
+import { NgxGalleryModule } from 'ngx-gallery';
 import { HotelSliderComponent } from './hotel-slider/hotel-slider.component';
 import { ListaEstadosComponent } from './lista-estados/lista-estados.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
@@ -32,8 +32,8 @@ import { ToolbarAdminComponent } from './toolbar-admin/toolbar-admin.component';
 import { SidebarAdminComponent } from './sidebar-admin/sidebar-admin.component';
 import { CrudEstadosComponent } from './crud-estados/crud-estados.component';
 import { AgregarEstadoComponent } from './agregar-estado/agregar-estado.component';
-import {AngularFireModule} from '@angular/fire';
-import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment.prod';
 import { AgregarHotelComponent } from './agregar-hotel/agregar-hotel.component';
 import { AgregarDestinoComponent } from './agregar-destino/agregar-destino.component';
@@ -44,14 +44,15 @@ import { CrudTipoDestinoComponent } from './crud-tipo-destino/crud-tipo-destino.
 import { CrudCiudadesComponent } from './crud-ciudades/crud-ciudades.component';
 import { AgregarCiudadComponent } from './agregar-ciudad/agregar-ciudad.component';
 import { TipoDestinoComponent } from './tipo-destino/tipo-destino.component';
-import {MatSelectModule} from '@angular/material/select';
-import {DestinosDetailsComponent} from './destinos-details/destinos-details.component';
+import { MatSelectModule } from '@angular/material/select';
+import { DestinosDetailsComponent } from './destinos-details/destinos-details.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { Filter2Pipe } from './pipes/filter2.pipe';
 import { DestinoDetailComponent } from './destino-detail/destino-detail.component';
 import { ModificarEstadoComponent } from './modificar-estado/modificar-estado.component';
 import { ModificarCiudadComponent } from './modificar-ciudad/modificar-ciudad.component';
 import { ModificarDestinoComponent } from './modificar-destino/modificar-destino.component';
+import { AuthGuard } from './Guardian/auth.guard';
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = {
@@ -62,7 +63,6 @@ export class CustomHammerConfig extends HammerGestureConfig {
     }
   };
 }
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -123,7 +123,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
 
 
   ],
-  providers: [
+  providers: [AuthGuard,
     {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
   ],
   bootstrap: [AppComponent]
