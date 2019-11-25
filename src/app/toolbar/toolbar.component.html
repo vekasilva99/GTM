@@ -1,14 +1,25 @@
+<script src="Scripts/jquery"></script>
 
-
-<div class="wrapper">
-       
-    <a routerLink="/home" class="logo"><img src="../../assets/logo.png"></a>
-        <a routerLink="/login" class="log">LOG IN</a>
-        <button type="button" class="log" (click)="listaEstadosService.toggleLista()" >ITINERARIO</button>
-        <button  type="button" class="log"  (click)="sideNavService.toggleSideNav()">MENU</button>
-    
-
+<div id="menu-bar">
+    <div id="logo-wrap">
+        <img src="../../assets/logo.png" routerLink="/home" id="logo1" class="logo">
+        <img src="../../assets/logo2.png" routerLink="/home" id="logo2" class="logo">
     </div>
+    <div id="menu-options">
+        <button id="itinerario-button" class="button" (click)="listaEstadosService.toggleLista()">ITINERARIO</button>
+        <button id="login-button" class="button" routerLink="/login">LOG IN</button>
+        <button id="menu-button" class="button" (click)="sideNavService.toggleSideNav()">MENU</button>
+    </div>
+</div>
 
-
+<div id="menu-bar-nav" style="display:none">
+    <div id="logo-wrap">
+        <img src="../../assets/logo3.png" routerLink="/home" id="logo3" class="logo">
+    </div>
+    <div id="menu-options">
+        <button id="itinerario-button" class="button" (click)="listaEstadosService.toggleLista()">ITINERARIO</button>
+        <button id="login-button" class="button" routerLink="/login">LOG IN</button>
+        <button id="menu-button" class="button" (click)="sideNavService.toggleSideNav()">MENU</button>
+    </div>
+</div>
 
