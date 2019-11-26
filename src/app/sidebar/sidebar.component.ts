@@ -24,18 +24,6 @@ export class SidebarComponent implements OnInit {
       document.getElementById('myNav').style.width = '0%';
     }
 
-  function rotateArrow() {
-  document.getElementById('arrow').style.transform = 'rotate(30deg)';
-
-  function myFunction() {
-    if (document.getElementById('navbar-destinos').style.display === 'none') {
-      document.getElementById('navbar-destinos').style.display = 'block';
-    } else {
-      document.getElementById('navbar-destinos').style.display = 'none';
-    }
-  }
-}
-
   this.tipoDestinoService.getOrders().subscribe(arr => {
       arr.map(item => {
         const dest: tipoDestino = {
