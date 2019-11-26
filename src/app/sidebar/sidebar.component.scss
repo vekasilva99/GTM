@@ -73,7 +73,14 @@ a[data-toggle="collapse"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: 0.2s ease-in-out !important;
+  &:hover{
+    #lista-destinos{
+      display: block !important;
+    };
+  }
 }
+
 #dest {
   margin-left: 2rem;
 }
@@ -81,6 +88,15 @@ a[data-toggle="collapse"] {
   transform: rotate(90deg); 
   font-size: 20px;
 }
+
+// #tg-menu{
+//   transition: 0.2s ease-in-out !important;
+//   &:hover{
+//     #lista-destinos{
+//       display: block !important;
+//     };
+//   }
+// }
 
 //   #sidebar ul{
 //       margin:0;
