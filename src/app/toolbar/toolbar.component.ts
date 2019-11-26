@@ -9,12 +9,23 @@ import {ListaEstadosService} from '../Services/lista-estados.service';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor(public sideNavService: SideNavService, public listaEstadosService: ListaEstadosService) { 
+  constructor(public sideNavService: SideNavService, public listaEstadosService: ListaEstadosService) {
   }
+
 
   ngOnInit() {
+
+    // tslint:disable-next-line: only-arrow-functions
+    window.onscroll = function() {scrollFunction(); };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 750 || document.documentElement.scrollTop > 750) {
+        document.getElementById('menu-bar').style.display = 'none';
+        document.getElementById('menu-bar-nav').style.display = 'flex';
+      } else {
+        document.getElementById('menu-bar').style.display = 'flex';
+        document.getElementById('menu-bar-nav').style.display = 'none';
+      }
+    }
   }
-
-
-
 }

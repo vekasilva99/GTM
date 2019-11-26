@@ -180,7 +180,8 @@
     h2 {
       font-size: 18px;
     }
-}
+  }
+} 
 @media screen and (max-width: 990px) {
   #c3{
     h1 {
@@ -211,6 +212,31 @@
   align-self: center;
   grid-area: bloq2;
 }
+@media screen and (min-width: 1001px) {
+  div.griddoble{
+    grid-template-areas:
+      'bloq1 bloq2';
+  }
+  #quienes{
+    width: 45vw;
+  }
+  #datos{
+    width: 25vw;
+  }
+}
+@media screen and (max-width: 1000px) {
+  div.griddoble{
+    grid-template-areas:
+      'bloq1'
+      'bloq2';
+  }
+  #quienes{
+    width: 80vw;
+  }
+  #datos{
+    width: 80vw;
+  }
+}
 #c3 h1{
   font-family:"Kingsmen";
   color: #005688;
@@ -230,6 +256,12 @@
   text-align: left;
   font-size: 0.6rem;
 }
+#c3 p{
+  font-size: 0.8rem;
+  font-family:"Avenir";
+  color: #000000;
+  margin-bottom: 0%;
+}
 .dot {
   height: 8vh;
   width: 8vh;
@@ -242,23 +274,9 @@
   font-size: 1rem;
   font-family:"Avenir";
 }
-@media screen and (min-width: 1001px) {
-  div.griddoble{
-    grid-template-areas:
-      'bloq1 bloq2';
-  }
-}
-@media screen and (max-width: 1000px) {
-  div.griddoble{
-    grid-template-areas:
-      'bloq1'
-      'bloq2';
-  }
-}
+
 
 #c4 img{
   width: 100%;
   height:100%;
-}
-
 }

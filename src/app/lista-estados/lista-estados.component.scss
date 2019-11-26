@@ -1,4 +1,4 @@
-#wrapper{
+#wrapper {
     width: 100vw;
     height:100vh;
     background-color: transparent;
@@ -6,8 +6,7 @@
     z-index: 85;
 }
 
-
-#list{
+#list {
     text-align: center;
     font-family: "Avenir";
     border-radius:4px;
@@ -25,22 +24,16 @@
     height:auto;
     text-transform: uppercase;
     font-weight: 100;
-    
-   
 }
 
-#wrapper.hidden{
+#wrapper.hidden {
     display:none;
     transition: 0.6s;
 }
 
-  a[data-toggle="collapse"] {
+a[data-toggle="collapse"] {
     position: relative;
   }
-
-
-
-
 
 #list ul {
     display: flex;
@@ -55,35 +48,29 @@
 
 #list li {
     display: inline;
-    width: 220px; 
+    width:220px; 
     padding:5px; 
     margin:1px; 
     text-align:center; 
     cursor: pointer; 
     font-family: "Avenir";
     font-weight: 100;
- 
- } 
+} 
 
-
- #list li a{
-color:#005688;
-text-align: left;
-text-decoration: none;
-font-family: "Avenir";
-letter-spacing: 0.1em;
-font-weight: 100;
-
-margin-left: 5px;
-&:hover{
-  color:#ffa600;
-  
+#list li a{
+    color:#005688;
+    text-align: left;
+    text-decoration: none;
+    font-family: "Avenir";
+    letter-spacing: 0.1em;
+    font-weight: 100;
+    margin-left: 5px;
+    &:hover{
+    color:#ffa600;
+    }
 }
- }
 
-
-
- .close{
+.close{
      color:#005688;
      font-size: 2vw;
      margin-right: 0.5vw;

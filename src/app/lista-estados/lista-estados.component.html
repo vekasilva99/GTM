@@ -1,24 +1,25 @@
+<<<<<<< HEAD
 <ng-container *ngIf="estados.length > 0; then noLoading; else loading"></ng-container>
+=======
+<!-- <ng-container *ngIf="estados.length > 0; then loading; else noLoading"></ng-container>
+>>>>>>> 58d51ac9b863c82a00187389e3e7417651ca4292
 
 <ng-template #loading>
     <h1>Loading...</h1>
-</ng-template>
+</ng-template> -->
 
-<ng-template #noLoading>
-
+<!-- <ng-template #noLoading> -->
 
     <div id="wrapper" [ngClass]="{'hidden': listaEstadosService.hideLista }">
-
-
-
         <div id="list">
-            <div class="bton"> <button type="button" class="close" (click)="listaEstadosService.toggleLista()"><i
-                        class="fas fa-times"></i></button></div>
+            <div class="bton"> 
+                <button type="button" class="close" (click)="listaEstadosService.toggleLista()"><i class="fas fa-times"></i></button>
+            </div>
+            
             <div class="lista">
                 <ul class="estados">
                     <li *ngFor="let estado of estados">
                         <a routerLink="/detail/{{estado.id}}">
-
                             <span class="badge">{{estado.nombre}}</span>
                         </a>
                     </li>
@@ -27,5 +28,4 @@
         </div>
     </div>
 
-
-</ng-template>
+<!-- </ng-template> -->

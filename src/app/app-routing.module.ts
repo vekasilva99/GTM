@@ -18,10 +18,17 @@ import {CrudHotelesComponent} from '../app/crud-hoteles/crud-hoteles.component';
 import {TipoDestinoComponent} from '../app/tipo-destino/tipo-destino.component';
 import {ModificarCiudadComponent} from '../app/modificar-ciudad/modificar-ciudad.component';
 import {ModificarEstadoComponent} from '../app/modificar-estado/modificar-estado.component';
+<<<<<<< HEAD
 import { AuthGuard } from './Guardian/auth.guard';
 import { ModificarDestinoComponent } from './modificar-destino/modificar-destino.component';
 import { ModificarTipoDestinoComponent } from './modificar-tipo-destino/modificar-tipo-destino.component';
 import { ModificarHotelComponent } from './modificar-hotel/modificar-hotel.component';
+=======
+import { ModificarDestinoComponent } from './modificar-destino/modificar-destino.component';
+import { ModificarTipoDestinoComponent } from './modificar-tipo-destino/modificar-tipo-destino.component';
+import { ModificarHotelComponent } from './modificar-hotel/modificar-hotel.component';
+import { AuthGuard } from './Guardian/auth.guard';
+>>>>>>> 58d51ac9b863c82a00187389e3e7417651ca4292
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full' },

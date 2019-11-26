@@ -12,16 +12,21 @@ import { tipoDestino } from '../destino/tipoDestino';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  tipoDestinos: tipoDestino[]=[];
+  tipoDestinos: tipoDestino[] = [];
+  // tslint:disable-next-line: max-line-length
   constructor(public sideNavService: SideNavService, public listaEstadosService: ListaEstadosService, public tipoDestinoService: TipoDestinoService, public destinoService: DestinoService) { }
 
   ngOnInit() {
-    this.tipoDestinoService.getOrders().subscribe(arr =>{
-      arr.map(item=>{
-        const dest:tipoDestino={
-          id:item.payload.doc.id,
+
+  function closeNav() {
+      document.getElementById('myNav').style.width = '0%';
+    }
+  this.tipoDestinoService.getOrders().subscribe(arr => {
+      arr.map(item => {
+        const dest: tipoDestino = {
+          id: item.payload.doc.id,
           ...item.payload.doc.data()
-        }
+        };
 
         this.tipoDestinos.push(dest);
       });
