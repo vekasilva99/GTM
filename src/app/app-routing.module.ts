@@ -30,20 +30,23 @@ const routes: Routes = [
   {path: 'estado', component: EstadosComponent},
   {path: 'detail/:id', component: EstadoDetailsComponent},
   {path: 'hotels', component: HotelComponent},
-  {path: 'adminHome', component: AdminHomeComponent, canActivate: [AuthGuard]},
+  {path: 'adminHome', canActivate: [AuthGuard],
+children: [
+  {path: '', component: AdminHomeComponent},
+  {path: 'crudEstados', component: CrudEstadosComponent},
+  {path: 'crudDestinos', component: CrudDestinosComponent},
+  {path: 'crudTipoDestino', component: CrudTipoDestinoComponent},
+  {path: 'crudCiudades', component: CrudCiudadesComponent},
+  {path: 'crudHoteles', component: CrudHotelesComponent},
+  {path: 'crudCiudades/edit/:id', component: ModificarCiudadComponent},
+  {path: 'crudEstados/edit/:id', component: ModificarEstadoComponent},
+  {path: 'crudDestinos/edit/:id', component: ModificarDestinoComponent},
+  {path: 'crudTipoDestino/edit/:id', component: ModificarTipoDestinoComponent},
+  {path: 'crudHoteles/edit/:id', component: ModificarHotelComponent}
+]},
   {path: 'hotels/:id', component: HotelDetailsComponent},
   {path: 'hotels/:id/:i', component: HabitacionComponent},
-  {path: 'adminHome/crudEstados', component: CrudEstadosComponent},
-  {path: 'adminHome/crudDestinos', component: CrudDestinosComponent},
-  {path: 'adminHome/crudTipoDestino', component: CrudTipoDestinoComponent},
-  {path: 'adminHome/crudCiudades', component: CrudCiudadesComponent},
-  {path: 'adminHome/crudHoteles', component: CrudHotelesComponent},
-  {path: 'tipoDestino/:id', component: TipoDestinoComponent},
-  {path: 'adminHome/crudCiudades/edit/:id', component: ModificarCiudadComponent},
-  {path: 'adminHome/crudEstados/edit/:id', component: ModificarEstadoComponent},
-  {path: 'adminHome/crudDestinos/edit/:id', component: ModificarDestinoComponent},
-  {path: 'adminHome/crudTipoDestino/edit/:id', component: ModificarTipoDestinoComponent},
-  {path: 'adminHome/crudHoteles/edit/:id', component: ModificarHotelComponent},
+  {path: 'tipoDestino/:id', component: TipoDestinoComponent}
 ];
 
 @NgModule({
