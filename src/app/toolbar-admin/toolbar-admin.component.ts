@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 import { SideNavService } from '../Services/side-nav.service';
 
 @Component({
@@ -8,9 +9,9 @@ import { SideNavService } from '../Services/side-nav.service';
 })
 export class ToolbarAdminComponent implements OnInit {
 
-  constructor(public sideNavService: SideNavService) { }
+//AuthService para que funcione el botón de Logout, SideNavService para que funcione el side bar.
+  constructor(private  authService: AuthService, public sideNavService: SideNavService) {} 
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
