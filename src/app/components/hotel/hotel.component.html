@@ -1,69 +1,77 @@
+<ng-container *ngIf="hotels.length > 0; then noLoading; else loading"></ng-container>
 
-<div class="wrapper">
+<ng-template #loading>
+    <h1>Loading...</h1>
+</ng-template>
+
+<ng-template #noLoading>
+    <div class="wrapper">
         <app-toolbar></app-toolbar>
         <app-sidebar></app-sidebar>
         <app-lista-estados></app-lista-estados>
-        <img class="im" src="../../assets/11.png">  
+        <img class="im" src="../../assets/11.png">
         <h1>Alojamientos</h1>
 
-<div class="wrapper" id="c6">
-    <div class="filtro">
-<div>
-    
-    <h3>Filtrar busqueda:</h3>
+        <div class="wrapper" id="c6">
+            <div class="filtro">
+                <div>
 
-    <span>Nombre: </span><input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost"><br>
-    
-    <span>Estado: </span><input type="text" class="form-control" name="filterPost2" placeholder="Buscar..." [(ngModel)]="filterPost2"><br>
-  
-</div>
+                    <h3>Filtrar busqueda:</h3>
 
-<div class="wrapper">
+                    <span>Nombre: </span><input type="text" class="form-control" name="filterPost"
+                        placeholder="Buscar..." [(ngModel)]="filterPost"><br>
 
-<<<<<<< HEAD
+                    <span>Estado: </span><input type="text" class="form-control" name="filterPost2"
+                        placeholder="Buscar..." [(ngModel)]="filterPost2"><br>
 
-
-<div class="wrapper-rooms"  *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2; let i=index">
-=======
-<div class="wrapper-rooms"  *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2">
->>>>>>> 2fdaf8518c910a2456d52f4c8f6675bab683efad
-        <div class="even" >
-            <div class="grid">
-
-                <div class="a"> 
-                        <div class="img">  <app-hotel-slider [hotel]=hotel></app-hotel-slider></div>
                 </div>
 
-                <div class="b">
+                <div class="wrapper">
 
-                    <div class="grid2">
 
-                        <div class="a"></div>
-                        <div class="b">
-                                
-                                    <h2>{{hotel.name}}</h2>
-                                    <span class="stars" *ngFor="let item of hotel.stars">
-                                            <span style="font-size: 1.5vw; color:#ffa600;">
-                                                <i class="fas fa-star"></i>
+
+                    <div class="wrapper-rooms"
+                        *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2; let i=index">
+                        <div class="even">
+                            <div class="grid">
+
+                                <div class="a">
+                                    <div class="img">
+                                        <app-hotel-slider [hotel]=hotel></app-hotel-slider>
+                                    </div>
+                                </div>
+
+                                <div class="b">
+
+                                    <div class="grid2">
+
+                                        <div class="a"></div>
+                                        <div class="b">
+
+                                            <h2>{{hotel.name}}</h2>
+                                            <span class="stars" *ngFor="let item of hotel.stars">
+                                                <span style="font-size: 1.5vw; color:#ffa600;">
+                                                    <i class="fas fa-star"></i>
+                                                </span>
                                             </span>
-                                        </span> 
-                               
-                            <h3>{{estados[i]?.nombre}},{{ciudades[i]?.nombre}}  </h3>
-                            <div *ngIf="(hotel.fullDay)">
-                                <h4>US${{hotel.fullDayPrice}}/dia</h4>
 
+                                            <h3>{{estados[i]?.nombre}},{{ciudades[i]?.nombre}} </h3>
+                                            <div *ngIf="(hotel.fullDay)">
+                                                <h4>US${{hotel.fullDayPrice}}/dia</h4>
+
+                                            </div>
+                                            <a routerLink="/hotels/{{hotel.id}}" class="button">VER MAS</a>
+                                        </div>
+                                        <div class="c"></div>
+                                    </div>
+                                </div>
                             </div>
-                            <a routerLink="/hotels/{{hotel.id}}" class="button">VER MAS</a>
                         </div>
-                        <div class="c"></div>
                     </div>
                 </div>
             </div>
         </div>
-</div>
-<<<<<<< HEAD
+    </div>
 
-</div> 
-=======
-</div> 
->>>>>>> 2fdaf8518c910a2456d52f4c8f6675bab683efad
+
+</ng-template>

@@ -23,14 +23,14 @@ export class ModificarHotelComponent implements OnInit {
   destinos: destino[] = [];
   hotelForm: FormGroup;
   star: number[] = [];
-  full:boolean=false;
+  full: boolean = false;
   loading: boolean;
   selected: string[];
   hotel: Hotel = null;
   editHote: Hotel;
   servicios = [{ value: 'Wifi', viewValue: 'Wifi' }, { value: 'Parking', viewValue: 'Parking' }, { value: 'Restaurant', viewValue: 'Restaurant' }, { value: 'Bar', viewValue: 'Bar' }, { value: 'Piscina', viewValue: 'Piscina' }, { value: 'Traslado', viewValue: 'Traslado' }]
 
-  constructor(private route: ActivatedRoute, private location: Location,private fb: FormBuilder, public agregarService: AgregarService, private estadoService: EstadoService, private ciudadService: CiudadService, private hotelService: HotelService, private destinoService: DestinoService) { }
+  constructor(private route: ActivatedRoute, private location: Location, private fb: FormBuilder, public agregarService: AgregarService, private estadoService: EstadoService, private ciudadService: CiudadService, private hotelService: HotelService, private destinoService: DestinoService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -116,7 +116,7 @@ export class ModificarHotelComponent implements OnInit {
         hotelPictures: array.payload.get('hotelPictures'),
         hab: array.payload.get('habs'),
 
-      
+
       }
       this.editHotel(h);
       this.hotel = h;
@@ -129,7 +129,7 @@ export class ModificarHotelComponent implements OnInit {
     this.editHote = hotel;
     this.hotelForm.patchValue({
       name: hotel.name,
-      imagen:hotel.imagen,
+      imagen: hotel.imagen,
       stars: hotel.stars.length,
       state: hotel.state,
       city: hotel.city,
@@ -140,12 +140,12 @@ export class ModificarHotelComponent implements OnInit {
       destiny: hotel.destino,
       services: hotel.services,
       fullDayPrice: hotel.fullDayPrice,
-      
+
     });
     console.log(hotel);
     this.hotelForm.setControl('hotelPictures', this.existingHotelPictures(hotel.hotelPictures));
     this.hotelForm.setControl('habs', this.existingHabs(hotel.hab));
-    
+
   }
 
   existingHotelPictures(hotelPictures: any[]): FormArray {
@@ -160,20 +160,32 @@ export class ModificarHotelComponent implements OnInit {
   }
   existingHabs(habs: any[]): FormArray {
     const formArray = new FormArray([]);
-    habs.forEach(s => {
+    habs.forEach((s: Hab) => {
       formArray.push(this.fb.group({
-        path: s.path,
-        habNombre: s.habNombre,
-      nightCost: s.nightCost,
-      tipoVista: s.tipoVista,
-      maxPersonas: s.maxPersonas,
-      numHab: s.numHab,
-      habPictures: s.habPictures,
-      comodidades: s.comodidades,
+        path: '',
+        habNombre: s.nombre,
+        nightCost: s.nightCost,
+        tipoVista: s.tipoVista,
+        maxPersonas: s.maxPersonas,
+        numHab: s.numHab,
+        habPictures: s.habPictures,
+        comodidades: s.comodidades,
       }));
-     
+
 
     });
+    return formArray;
+  }
+
+  existingImages(pictures: any[]) {
+    const formArray = new FormArray([]);
+
+    pictures.forEach(elem => {
+      formArray.push(this.fb.group({
+        path: elem.path
+      }));
+    });
+
     return formArray;
   }
 

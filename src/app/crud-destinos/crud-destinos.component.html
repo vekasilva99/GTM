@@ -1,9 +1,10 @@
-<ng-container *ngIf="destinos.length > 0; then loading; else noLoading"></ng-container>
+<ng-container *ngIf="destinos.length > 0;  then noLoading; else loading"></ng-container>
 
 <ng-template #loading>
     <h1>Loading...</h1>
 </ng-template>
 <ng-template #noLoading>
+
 <div class="wrapper">
         <app-toolbar-admin></app-toolbar-admin>
         <app-sidebar-admin></app-sidebar-admin>

@@ -1,4 +1,4 @@
-<ng-container *ngIf="estados.length > 0; then loading; else noLoading"></ng-container>
+<ng-container *ngIf="estados.length > 0; then noLoading; else loading"></ng-container>
 
 <ng-template #loading>
     <h1>Loading...</h1>
