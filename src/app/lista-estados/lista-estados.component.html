@@ -1,14 +1,9 @@
-<<<<<<< HEAD
-<ng-container *ngIf="estados.length > 0; then noLoading; else loading"></ng-container>
-=======
-<!-- <ng-container *ngIf="estados.length > 0; then loading; else noLoading"></ng-container>
->>>>>>> 58d51ac9b863c82a00187389e3e7417651ca4292
+<ng-container *ngIf="estados.length > 0; then noLoading; else lLoading"></ng-container>
 
 <ng-template #loading>
     <h1>Loading...</h1>
-</ng-template> -->
-
-<!-- <ng-template #noLoading> -->
+</ng-template>
+<ng-template #noLoading>
 
     <div id="wrapper" [ngClass]="{'hidden': listaEstadosService.hideLista }">
         <div id="list">
@@ -28,4 +23,4 @@
         </div>
     </div>
 
-<!-- </ng-template> -->
+</ng-template>
