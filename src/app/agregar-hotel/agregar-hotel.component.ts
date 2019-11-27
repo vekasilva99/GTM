@@ -8,7 +8,8 @@ import { CiudadService } from '../Services/ciudad.service';
 import { ciudad } from '../ciudad/ciudad';
 import { Hotel, Hab } from '../class/hotel/hotel';
 import { HotelService } from '../Services/hotel/hotel.service';
-import { destino } from '../destino/destino';
+import { destino, tipoDestino } from '../destino/destino';
+import { TipoDestinoService } from '../Services/tipo-destino.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class AgregarHotelComponent implements OnInit {
   estados: estado[] = [];
   ciudades: ciudad[] = [];
   destinos: destino[] = [];
+  tipoDestinos: tipoDestino[]=[];
   hotelForm: FormGroup;
   star: number[] = [];
   full:boolean=false;
@@ -27,7 +29,7 @@ export class AgregarHotelComponent implements OnInit {
   selected: string[];
   servicios = [{ value: 'Wifi', viewValue: 'Wifi' }, { value: 'Parking', viewValue: 'Parking' }, { value: 'Restaurant', viewValue: 'Restaurant' }, { value: 'Bar', viewValue: 'Bar' }, { value: 'Piscina', viewValue: 'Piscina' }, { value: 'Traslado', viewValue: 'Traslado' }]
 
-  constructor(private fb: FormBuilder, public agregarService: AgregarService, private estadoService: EstadoService, private ciudadService: CiudadService, private hotelService: HotelService, private destinoService: DestinoService) { }
+  constructor(private fb: FormBuilder, public agregarService: AgregarService, private estadoService: EstadoService, private ciudadService: CiudadService, private hotelService: HotelService, private destinoService: DestinoService, private tipoDestinoService: TipoDestinoService) { }
 
   ngOnInit() {
     this.estadoService.getOrders().subscribe(array => {
@@ -38,6 +40,17 @@ export class AgregarHotelComponent implements OnInit {
         };
 
         this.estados.push(estado);
+      });
+    });
+
+       this.tipoDestinoService.getOrders().subscribe(array => {
+      array.map(item => {
+        const tipoDestino: tipoDestino = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        };
+
+        this.tipoDestinos.push(tipoDestino);
       });
     });
 
@@ -74,10 +87,10 @@ export class AgregarHotelComponent implements OnInit {
       address: [null, Validators.required],
       fullDay: [null, Validators.required],
       destiny: [null, Validators.required],
+      tipoDestiny: [null, Validators.required],
       services: [null, Validators.required],
       fullDayPrice: [null, Validators.required],
       hotelPictures: this.fb.array([]),
-      habs: this.fb.array([]),
     });
 
     this.loading = false;
@@ -86,15 +99,10 @@ export class AgregarHotelComponent implements OnInit {
 
   }
 
-  get habsArray(): FormArray {
-    return this.hotelForm.get('habs') as FormArray;
-  }
 
 
 
-  get comodidadesArray(): FormArray {
-    return this.hotelForm.get('comodidades') as FormArray;
-  }
+
 
   addHotelPicture() {
     const img = this.fb.group({
@@ -108,49 +116,14 @@ export class AgregarHotelComponent implements OnInit {
     return this.hotelForm.get('hotelPictures') as FormArray;
   }
 
-  addHabPicture(index: number) {
-    const img = (this.hotelForm.controls.habs as FormArray).at(index).get('habPictures') as FormArray;
-    img.push(this.fb.group({
-      path: [''],
-    }));
 
-  }
 
-  addComodidad(index: number) {
-    const com = (this.hotelForm.controls.habs as FormArray).at(index).get('comodidades') as FormArray;
-    com.push(this.fb.group({
-      path: [''],
-    }));
-  }
-
-  addHab() {
-    this.habsArray.push(this.fb.group({
-      habNombre: [null, Validators.required],
-      nightCost: [null, Validators.required],
-      tipoVista: [null, Validators.required],
-      maxPersonas: [null, Validators.required],
-      numHab: [null, Validators.required],
-      habPictures: this.fb.array([]),
-      comodidades: this.fb.array([]),
-    }));
-
-  }
-
-  removeHab(i: number) {
-    this.habsArray.removeAt(i);
-  }
-
-  removeHabPicture(i: number) {
-
-  }
 
   removeHotelPicture(i: number) {
     this.hotelPicturesArray.removeAt(i);
   }
 
-  removeComodidad(i: number) {
-    this.comodidadesArray.removeAt(i);
-  }
+
 
 
 
@@ -182,7 +155,6 @@ export class AgregarHotelComponent implements OnInit {
       services: this.selected,
       fullDayPrice: 49,
       hotelPictures: this.hotelForm.value.hotelPictures,
-      habs: this.hotelForm.value.habs,
     };
 
     console.log(this.selected);

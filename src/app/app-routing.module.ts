@@ -22,6 +22,9 @@ import { ModificarDestinoComponent } from './modificar-destino/modificar-destino
 import { ModificarTipoDestinoComponent } from './modificar-tipo-destino/modificar-tipo-destino.component';
 import { ModificarHotelComponent } from './modificar-hotel/modificar-hotel.component';
 import { AuthGuard } from './Guardian/auth.guard';
+import { CrudHabitacionComponent } from './crud-habitacion/crud-habitacion.component';
+import { ModificarHabitacionComponent } from './modificar-habitacion/modificar-habitacion.component';
+import { ReservarComponent } from './reservar/reservar.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,6 +33,9 @@ const routes: Routes = [
   {path: 'estado', component: EstadosComponent},
   {path: 'detail/:id', component: EstadoDetailsComponent},
   {path: 'hotels', component: HotelComponent},
+  {path: 'hotels/:id', component: HotelDetailsComponent},
+  {path: 'planeatuviaje', component: ReservarComponent},
+  {path: 'tipoDestino/:id', component: TipoDestinoComponent},
   {path: 'adminHome', canActivate: [AuthGuard],
 children: [
   {path: '', component: AdminHomeComponent},
@@ -42,11 +48,10 @@ children: [
   {path: 'crudEstados/edit/:id', component: ModificarEstadoComponent},
   {path: 'crudDestinos/edit/:id', component: ModificarDestinoComponent},
   {path: 'crudTipoDestino/edit/:id', component: ModificarTipoDestinoComponent},
-  {path: 'crudHoteles/edit/:id', component: ModificarHotelComponent}
+  {path: 'crudHoteles/edit/:id', component: ModificarHotelComponent},
+  {path: 'crudHabitacion', component: CrudHabitacionComponent},
+  {path: 'crudHabitacion/edit/:id', component: ModificarHabitacionComponent},
 ]},
-  {path: 'hotels/:id', component: HotelDetailsComponent},
-  {path: 'hotels/:id/:i', component: HabitacionComponent},
-  {path: 'tipoDestino/:id', component: TipoDestinoComponent}
 ];
 
 @NgModule({

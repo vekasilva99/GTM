@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Hotel, Hab } from 'src/app/class/hotel/hotel';
 import { HotelService } from 'src/app/Services/hotel/hotel.service';
-import {ActivatedRoute} from '@angular/router';
-import {Location} from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { estado } from '../estados/estado';
 import { ciudad } from '../ciudad/ciudad';
 import { CiudadService } from '../Services/ciudad.service';
 import { EstadoService } from '../Services/estado.service';
+import { HabitacionService } from '../Services/habitacion.service';
 
 @Component({
   selector: 'app-hotel-details',
@@ -14,31 +15,55 @@ import { EstadoService } from '../Services/estado.service';
   styleUrls: ['./hotel-details.component.scss']
 })
 export class HotelDetailsComponent implements OnInit {
-  
-  hotel: Hotel=null;
-  estado:estado=null;
-  ciudad:ciudad=null;
-  
-  constructor(private route: ActivatedRoute , private hotelService: HotelService , private location: Location, private ciudadService:CiudadService, private estadoService:EstadoService) { }
+
+  hotel: Hotel = null;
+  estado: estado = null;
+  ciudad: ciudad = null;
+  habsFiltradas: Hab[] = [];
+
+  constructor(private route: ActivatedRoute, private hotelService: HotelService, private location: Location, private ciudadService: CiudadService, private estadoService: EstadoService, private habService: HabitacionService) { }
 
   ngOnInit() {
     this.getHotel();
+    this.getHabsFiltradas();
 
 
 
-    
+
   }
 
   // getHotel(): void{
   //   const id = this.route.snapshot.paramMap.get('id');
   //   this.hotelService.getHotel2(id).subscribe(Hotel => this.hotel = Hotel);
-    
+
   // }
 
-  getHotel(): void{
+  getHabsFiltradas(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.hotelService.getHotel2(id).subscribe(array =>{
-      
+    this.habService.getOrders().subscribe(array => {
+      array.map(item => {
+        const hab: Hab = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+
+        if (id === hab.hotel) {
+          this.habsFiltradas.push(hab);
+        }
+
+
+
+
+
+
+      });
+    });
+  }
+
+  getHotel(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.hotelService.getHotel2(id).subscribe(array => {
+
       const hotel: Hotel = {
         id: array.payload.id,
         name: array.payload.get('name'),
@@ -50,25 +75,26 @@ export class HotelDetailsComponent implements OnInit {
         address: array.payload.get('address'),
         city: array.payload.get('city'),
         fullDay: array.payload.get('fullDay'),
-        destino: array.payload.get('destino'),
+        destino: array.payload.get('destiny'),
+        tipoDestino: array.payload.get('tipoDestiny'),
         services: array.payload.get('services'),
         fullDayPrice: array.payload.get('fullDayPrice'),
         hotelPictures: array.payload.get('hotelPictures'),
-        hab: array.payload.get('habs'),
+
       }
-      this.hotel=hotel;
+      this.hotel = hotel;
       this.getEstados(hotel.state);
       this.getCiudades(hotel.city);
 
     });
-    
+
   }
 
-  getEstados(id: string): void{
-   
-    this.estadoService.getEstado2(id).subscribe(array =>{
-    
-      const estado: estado ={
+  getEstados(id: string): void {
+
+    this.estadoService.getEstado2(id).subscribe(array => {
+
+      const estado: estado = {
         id: array.payload.id,
         nombre: array.payload.get('nombre'),
         imagen: array.payload.get('imagen'),
@@ -77,40 +103,40 @@ export class HotelDetailsComponent implements OnInit {
         cultura: array.payload.get('cultura'),
         inicio: array.payload.get('inicio'),
       }
-      
-      
-      this.estado=estado;
-     
 
-      
+
+      this.estado = estado;
+
+
+
 
 
     });
 
   }
 
-  getCiudades(id: string): void{
-   
-    this.ciudadService.getCiudadSeleccionada(id).subscribe(array =>{
-    
-      const ciudad: ciudad ={
+  getCiudades(id: string): void {
+
+    this.ciudadService.getCiudadSeleccionada(id).subscribe(array => {
+
+      const ciudad: ciudad = {
         id: array.payload.id,
         nombre: array.payload.get('nombre'),
         imagen: array.payload.get('imagen'),
         estadoId: array.payload.get('estadoId'),
       }
-      
-      
-      this.ciudad=ciudad;
-     
 
-      
+
+      this.ciudad = ciudad;
+
+
+
 
 
     });
 
   }
 
-  
+
 
 }

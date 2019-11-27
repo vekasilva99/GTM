@@ -1,83 +1,178 @@
 
 .wrapper{
     width: 100vw;
-    height: 100vh;
-    position: relative; 
+    height: auto;
+    position: absolute; 
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    overflow: hidden;
+ }
+
+#paso .paso h1{
+     font-family:'Billy-Ohio';
+     color: white;
+     font-size: 10vw;
+
+ }
+#paso .opciones h2{
+    font-family:'Avenir';
+    color: white;
+    font-size: 20px;
+
+}
+
+ #paso .a{
+display: flex;
+justify-content: center;
+width: 100vw;
+position: absolute;
+margin-top: 50px;
+ }
+
+#paso .paso{
+     margin-top: 100px;
+     display: flex;
+     justify-content: center;
+     position: absolute;
+     width: 100vw;
+ }
+
+#paso .opciones{
+
+     display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    width: 100vw;
+    height:auto;
+    position: absolute;
+    justify-content: center;
+    margin-top: 250px;
+ }
+
+ .opciones .instruccion{
+     display: flex;
+     justify-content: center;
+     width: 100vw;
+     align-items: center;
+
  }
 
 
- .reservar-box{
-    width:400px;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
 
- 
+ #paso{
+    display: grid;
+    grid-template-rows: 1fr 2fr 4fr;
+    position: relative;
+    justify-content: center;
+     width: 100vw;
+     height:100vh;
+
+     
+ }
+#paso img{
+    width: 100vw;
+    height:90vh;
+    position: relative;
+
+      
 }
 
-.reservar-box h1{
-    float: left;
-    font-size: 40px;
-    border-bottom: solid 6px #ffa600;
-    padding:13px 0;
-    color: white;
-}
-
-.reservar-box h2{
-    float: left;
-    font-size: 20px;
-    border-bottom: solid 6px #ffa600;
-    margin-bottom: 50px;
-    padding:13px 0;
-    color: white;
-}
 
 .textbox{
-    width:100%;
-    overflow:hidden;
-    font-size: 20px;
-    padding: 8px 0;
-    margin: 8px 0;
-    border-bottom: 1px solid #ffa600;
-    font-family: 'Avenir';
-    color: white;
+justify-content: center;
+display: flex;
+}
+.filtros1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  width: 40vw;
+
+}
+.filtros{
+    display: flex;
+    justify-content: center;
 }
 
-.textbox i{
-    width: 26px;
-    float: left;
-    text-align: center;
+select{
+    outline:none;
+    border:solid white 2px;
+    border-radius: 5px;
+    width: 150px;
+    height: 50px;
+    background-color: rgba($color: white, $alpha: 0.4);
+    padding: 10px;
+    line-height: 0.8;
+    color:grey;
+    font-size: 18px;
+}
+
+#campos{
+    border:solid white 2px;
+    border-radius: 5px; 
+    outline:none;
+    width: 150px;
+    height: 50px;
+    background-color: rgba($color: white, $alpha: 0.4);
+    padding: 10px;
+    line-height: 0.8;
+    color:grey;
+    font-size: 18px;
+}
+
+#date{
+    border:solid white 2px;
+    border-radius: 5px; 
+    outline:none;
+    width: 300px;
+    height: 50px;
+    background-color: rgba($color: white, $alpha: 0.4);
+    padding: 10px;
+
+    // line-height: 0.8;
+    // color:grey;
+    // font-size: 18px;
+}
+
+.row{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.boton{
+    display: flex;
+    justify-content: center;
+    align-items:baseline;
+   
+    
+}
+
+.button {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid #ffffff;
+    cursor:pointer;
+    color:#002e64;
+    font-family: "Avenir";
+    text-decoration:none;
+    margin: 2rem;
+    width: 150px;
+    height: 50px;
+    padding: 10px;
   
-}
+    &:hover{
+        color:#002e64;
+        background: white;
+        transition: 0.6s;
+    }
+  }
 
-.textbox input{
-    border:none;
-    outline: none;
-    background: none;
-    font-size: 18px;
-    width: 80%;
-    float: left;
-    margin:0 10px;
-    font-family: 'Avenir';
-    color: white;
-}
-
-.btn{
-    width:100%;
-    background: none;
-    border: 2px solid #ffa600;
-    padding:5px;
-    font-size: 18px;
-    cursor: pointer;
-    margin:12px 0;
-    border-radius:4px;
-    font-family: 'Avenir';
-    color: white;
-}
+  .datepicker {
+    background-color: #fff ;
+    color: #333 ;
+    }
 
 
+
+ 

@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { TipoDestinoService } from '../Services/tipo-destino.service';
+import { tipoDestino } from '../destino/tipoDestino';
+import { moment } from 'ngx-bootstrap/chronos/test/chain';
 
 @Component({
   selector: 'app-reservar',
@@ -11,55 +14,60 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 })
 export class ReservarComponent implements OnInit {
   rForm: FormGroup;
-  post: any;
-  name: string = '';
-  lastName: string = '';
-  cedula: number;
-  email: string = '';
-  phoneNumber: number;
-  direccion: string = '';
-  numeroHab: number;
+  tipoDestinos:tipoDestino[]=[];
   bsInlineValue = new Date();
   bsInlineRangeValue: Date[];
   minDate: Date;
-  colorTheme = 'theme-dark-blue';
+  maxDate: Date;
+  checkIn:Date;
+  checkOut:Date;
+  days:number;
+  colorTheme = 'theme-blue';
   bsConfig: Partial<BsDatepickerConfig>;
+  dateForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private location: Location) {
-    this.rForm = fb.group({
-      'name': [null, Validators.required],
-      'lastName': [null, Validators.required],
-      'cedula': [null, Validators.required],
-      'email': [null, Validators.required],
-      'phoneNumber': [null, Validators.required],
-      'direccion': [null, Validators.required],
-      'numeroHab': [null, Validators.required],
-      date: null,
-      range: null
-
-
-    });
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private location: Location, private tipoDestinoService:TipoDestinoService) {
+    
     this.minDate = new Date();
-    this.minDate.setDate(this.minDate.getDate() );
+    this.minDate.setDate(this.minDate.getDate());
+    
     this.bsConfig = Object.assign({}, { containerClass: this.colorTheme });
+   
     
    }
 
-   addPost(post) {
 
-    const mov = {
-      name : post.name,
-      lastName:post.lastName,
-      cedula:post.cedula,
-      email:post.email,
-      phoneNumber:post.phoneNumber,
-      direccion:post.direccion,
-      numeroHab:post.numeroHab,
-    }
 
-  }
+
+
+
+  
 
   ngOnInit() {
+    this.dateForm = this.fb.group({
+      range: null
+    });
+    this.tipoDestinoService.getOrders().subscribe(array => {
+      array.map(item => {
+        const tipoDestino: tipoDestino = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        };
+
+        this.tipoDestinos.push(tipoDestino);
+      });
+    });
   }
 
-}
+
+  fechaReservacion(){
+    this.checkIn=this.dateForm.value.range[0];
+    this.checkOut=this.dateForm.value.range[1];
+    this.days=(this.checkOut.getTime()-this.checkIn.getTime())/86400000;
+
+
+  }
+  }
+
+
+

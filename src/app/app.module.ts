@@ -44,6 +44,7 @@ import { CrudTipoDestinoComponent } from './crud-tipo-destino/crud-tipo-destino.
 import { CrudCiudadesComponent } from './crud-ciudades/crud-ciudades.component';
 import { AgregarCiudadComponent } from './agregar-ciudad/agregar-ciudad.component';
 import { TipoDestinoComponent } from './tipo-destino/tipo-destino.component';
+import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { DestinosDetailsComponent } from './destinos-details/destinos-details.component';
 import { FilterPipe } from './pipes/filter.pipe';
@@ -55,6 +56,10 @@ import { ModificarDestinoComponent } from './modificar-destino/modificar-destino
 import { ModificarTipoDestinoComponent } from './modificar-tipo-destino/modificar-tipo-destino.component';
 import { ModificarHotelComponent } from './modificar-hotel/modificar-hotel.component';
 import { AuthGuard } from './Guardian/auth.guard';
+import { CrudHabitacionComponent } from './crud-habitacion/crud-habitacion.component';
+import { AgregarHabitacionComponent } from './agregar-habitacion/agregar-habitacion.component';
+import { ModificarHabitacionComponent } from './modificar-habitacion/modificar-habitacion.component';
+
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './admin/login/login.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -83,6 +88,54 @@ export class CustomHammerConfig extends HammerGestureConfig {
 }
 @NgModule({
   declarations: [
+    AppComponent,
+    ToolbarComponent,
+   SidebarComponent,
+   VideoComponent,
+   TittleComponent,
+   MenuComponent,
+   HeaderComponent,
+   PlaneaComponent,
+   LogComponent,
+   FooterComponent,
+   EstadosComponent,
+   EstadoDetailsComponent,
+   HomeComponent,
+   HotelComponent,
+   AdminHomeComponent,
+   BienvenidoComponent,
+   HotelSliderComponent,
+   ListaEstadosComponent,
+   HotelDetailsComponent,
+   HabitacionComponent,
+   ReservarComponent,
+   ToolbarAdminComponent,
+   SidebarAdminComponent,
+   CrudEstadosComponent,
+   AgregarEstadoComponent,
+   AgregarHotelComponent,
+   AgregarDestinoComponent,
+   CrudDestinosComponent,
+   CrudHotelesComponent,
+   AgregarTipoDestinoComponent,
+   CrudTipoDestinoComponent,
+   CrudCiudadesComponent,
+   AgregarCiudadComponent,
+   TipoDestinoComponent,
+   FilterPipe,
+   Filter2Pipe,
+   DestinoDetailComponent,
+   ModificarEstadoComponent,
+   ModificarCiudadComponent,
+   ModificarDestinoComponent,
+   ModificarTipoDestinoComponent,
+   ModificarHotelComponent,
+   DestinosDetailsComponent,
+   CrudHabitacionComponent,
+   AgregarHabitacionComponent,
+   ModificarHabitacionComponent,
+   
+
   AppComponent,
   ToolbarComponent,
   SidebarComponent,
@@ -143,6 +196,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     MatSelectModule,
+    MatDatepickerModule, MatNativeDateModule,
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
     NgxSpinnerModule,
