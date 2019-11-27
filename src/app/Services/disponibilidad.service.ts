@@ -159,6 +159,9 @@ export class DisponibilidadService {
           if (this.disp2.febrero[dia - 1] - numHab >= 0) {
             this.disp2.febrero[dia - 1] = this.disp2.febrero[dia - 1] - numHab;
             dia = dia + 1;
+          } else {
+            this.noSePudoReservar(mes, dia, cant, numHab, i);
+            return false;
           }
         }
       }
@@ -170,6 +173,9 @@ export class DisponibilidadService {
           if (this.disp2.marzo[dia - 1] - numHab >= 0) {
             this.disp2.marzo[dia - 1] = this.disp2.marzo[dia - 1] - numHab;
             dia = dia + 1;
+          } else {
+            this.noSePudoReservar(mes, dia, cant, numHab, i);
+            return false;
           }
         }
       }
@@ -181,6 +187,9 @@ export class DisponibilidadService {
           if (this.disp2.abril[dia - 1] - numHab >= 0) {
             this.disp2.abril[dia - 1] = this.disp2.abril[dia - 1] - numHab;
             dia = dia + 1;
+          } else {
+            this.noSePudoReservar(mes, dia, cant, numHab, i);
+            return false;
           }
         }
       }
@@ -192,6 +201,9 @@ export class DisponibilidadService {
           if (this.disp2.mayo[dia - 1] - numHab >= 0) {
             this.disp2.mayo[dia - 1] = this.disp2.mayo[dia - 1] - numHab;
             dia = dia + 1;
+          } else {
+            this.noSePudoReservar(mes, dia, cant, numHab, i);
+            return false;
           }
         }
       }
@@ -203,6 +215,9 @@ export class DisponibilidadService {
           if (this.disp2.junio[dia - 1] - numHab >= 0) {
             this.disp2.junio[dia - 1] = this.disp2.junio[dia - 1] - numHab;
             dia = dia + 1;
+          } else {
+            this.noSePudoReservar(mes, dia, cant, numHab, i);
+            return false;
           }
         }
       }
@@ -214,6 +229,9 @@ export class DisponibilidadService {
           if (this.disp2.julio[dia - 1] - numHab >= 0) {
             this.disp2.julio[dia - 1] = this.disp2.julio[dia - 1] - numHab;
             dia = dia + 1;
+          } else {
+            this.noSePudoReservar(mes, dia, cant, numHab, i);
+            return false;
           }
         }
       }
@@ -225,6 +243,9 @@ export class DisponibilidadService {
           if (this.disp2.agosto[dia - 1] - numHab >= 0) {
             this.disp2.agosto[dia - 1] = this.disp2.agosto[dia - 1] - numHab;
             dia = dia + 1;
+          } else {
+            this.noSePudoReservar(mes, dia, cant, numHab, i);
+            return false;
           }
         }
       }
@@ -236,6 +257,9 @@ export class DisponibilidadService {
           if (this.disp2.septiembre[dia - 1] - numHab >= 0) {
             this.disp2.septiembre[dia - 1] = this.disp2.septiembre[dia - 1] - numHab;
             dia = dia + 1;
+          } else {
+            this.noSePudoReservar(mes, dia, cant, numHab, i);
+            return false;
           }
         }
       }
@@ -247,6 +271,9 @@ export class DisponibilidadService {
           if (this.disp2.octubre[dia - 1] - numHab >= 0) {
             this.disp2.octubre[dia - 1] = this.disp2.octubre[dia - 1] - numHab;
             dia = dia + 1;
+          } else {
+            this.noSePudoReservar(mes, dia, cant, numHab, i);
+            return false;
           }
         }
       }
@@ -258,6 +285,9 @@ export class DisponibilidadService {
           if (this.disp2.noviembre[dia - 1] - numHab >= 0) {
             this.disp2.noviembre[dia - 1] = this.disp2.noviembre[dia - 1] - numHab;
             dia = dia + 1;
+          } else {
+            this.noSePudoReservar(mes, dia, cant, numHab, i);
+            return false;
           }
         }
       }
@@ -269,6 +299,9 @@ export class DisponibilidadService {
           if (this.disp2.diciembre[dia - 1] - numHab >= 0) {
             this.disp2.diciembre[dia - 1] = this.disp2.diciembre[dia - 1] - numHab;
             dia = dia + 1;
+          } else {
+            this.noSePudoReservar(mes, dia, cant, numHab, i);
+            return false;
           }
         }
       }
