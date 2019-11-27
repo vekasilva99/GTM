@@ -1,8 +1,10 @@
+
 <ng-container *ngIf="estados.length > 0; then noLoading; else lLoading"></ng-container>
 
 <ng-template #loading>
-    <h1>Loading...</h1>
+    <app-spinner></app-spinner>
 </ng-template>
+
 <ng-template #noLoading>
 
     <div id="wrapper" [ngClass]="{'hidden': listaEstadosService.hideLista }">

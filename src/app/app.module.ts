@@ -57,6 +57,8 @@ import { ModificarHotelComponent } from './modificar-hotel/modificar-hotel.compo
 import { AuthGuard } from './Guardian/auth.guard';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './admin/login/login.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 const config = {
     apiKey: 'AIzaSyCHMYQWGNdRLv6-HDvEri7wI1WkA_KPR3o',
@@ -70,8 +72,7 @@ const config = {
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = {
-    // tslint:disable-next-line: object-literal-key-quotes
-    'pan': {
+    pan: {
       direction: Hammer.DIRECTION_ALL,
     }
   };
@@ -121,7 +122,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
   ModificarTipoDestinoComponent,
   ModificarHotelComponent,
   DestinosDetailsComponent,
-  LoginComponent
+  LoginComponent,
+  SpinnerComponent
   ],
 
   imports: [
@@ -137,7 +139,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
     AngularFirestoreModule,
     MatSelectModule,
     AngularFireModule.initializeApp(config),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NgxSpinnerModule
   ],
 
   providers: [AuthGuard,

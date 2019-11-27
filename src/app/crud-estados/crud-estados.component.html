@@ -1,9 +1,3 @@
-<ng-container *ngIf="estados.length > 0;  then noLoading; else loading"></ng-container>
-
-<ng-template #loading>
-    <h1>Loading...</h1>
-</ng-template>
-<ng-template #noLoading>
     <div class="wrapper">
         <app-toolbar-admin></app-toolbar-admin>
         <app-sidebar-admin></app-sidebar-admin>
@@ -25,6 +19,14 @@
                         </div>
                         <div class="tools"></div>
                     </div>
+
+<ng-container *ngIf="estados.length > 0;  then noLoading; else loading"></ng-container>
+
+<ng-template #loading>
+        <app-spinner></app-spinner>  
+</ng-template>
+
+<ng-template #noLoading>
                     <div class="list">
                         <div class="textbox" *ngFor="let estado of estados">
                             <div class="nombre">
@@ -38,7 +40,7 @@
                                     style="color: #002e64; margin-left: 1vw; size: 1.8vw;"></i></div>
                         </div>
                     </div>
-
+</ng-template>
                 </div>
                 <div class="margen"></div>
             </div>
@@ -46,4 +48,3 @@
         </div>
 
     </div>
-</ng-template>
