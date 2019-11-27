@@ -19,7 +19,7 @@ export class ToolbarComponent implements OnInit {
     window.onscroll = function() {scrollFunction(); };
 
     function scrollFunction() {
-      if (document.body.scrollTop > 750 || document.documentElement.scrollTop > 750) {
+      if (document.body.scrollTop > 550 || document.documentElement.scrollTop > 550) {
         document.getElementById('menu-bar').style.display = 'none';
         document.getElementById('menu-bar-nav').style.display = 'flex';
       } else {

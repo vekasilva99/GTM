@@ -1,42 +1,76 @@
 
-.menu {
-   
-    margin:0;
-    padding: 0;
-    height: 10vh;
-    width: 100vw;
-  
-    overflow:hidden;
-    position: absolute;
-    z-index: 100;
-    top:90%;
-    justify-content: center;
-    text-align: center;
-    background-color: rgb(0, 0, 0, 0.5);
-
+@media screen and (min-width: 992px) {
+  .menu {
+    height: 80px;
   }
-
-.menu .log {
-    
- background-color:transparent;
-display:inline-block;
-cursor:pointer;
-        font-family: "Avenir";
-        font-weight: 900;
-        font-size:2vh;
-        padding:4vh 6vw;
-        text-decoration:none;
-  
-       border-left: 1px solid #666666;
-       border-right: 1px solid #666666;
-       transition: 0.1s;
-        
-
-        &:hover{
-            color:#ffa600;
-            transition: 0.1s;
-            font-size: 2.5vh;
-        }
+  .item {
+    height: 75px;
+    width: 15rem;
+  }
+  #logo {
+    font-size: 30px;
+  }
+  #text {
+    font-size: 12px;
+    letter-spacing: 0.1rem;
+    margin-left: 1rem;
+  }
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .menu {
+    height: 70px;
+  }
+  .item {
+    height: 70px;
+    width: 10rem;
+  }
+  #logo {
+    font-size: 20px;
+  }
+  #text {
+    font-size: 10px;
+    letter-spacing: 0.1rem;
+    margin-left: 0.5rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .menu {
+    height: 70px;
+  }
+  .item {
+    height: 70px;
+    width: 5rem;
+  }
+  #logo {
+    font-size: 20px;
+  }
+  #text {
+    display: none;
+  }
 }
 
+.menu {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+  position: absolute;
+  z-index: 100;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0, 0.5);
+  bottom: 0px;
+}
 
+.item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Avenir";
+  color: #ffa600;
+  transition: 0.2s ease-in-out !important;
+  &:hover{
+    transform: scale(1.2);
+  }
+}
