@@ -50,6 +50,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { FilterPipe } from './pipes/filter.pipe';
 import { Filter2Pipe } from './pipes/filter2.pipe';
 import { DestinoDetailComponent } from './destino-detail/destino-detail.component';
+import { AlojamientosComponent } from './alojamientos/alojamientos.component';
 
 
 
@@ -106,6 +107,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
    FilterPipe,
    Filter2Pipe,
    DestinoDetailComponent,
+   AlojamientosComponent,
 
   ],
   imports: [
