@@ -1,25 +1,21 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
-import { LogService } from '../Services/log/log.service';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-
-  constructor( private logservice: LogService, private router: Router) {}
-
-  canActivate(): boolean {
-
-      if (this.logservice.isLoggedin) {
-        // if we return true user is allowed to access that route
-        return true;
+  constructor(private authService: AuthService, private router: Router) {}
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean | UrlTree {
+    if (this.authService.isLoggedIn) {
+      return true;
     } else {
-        // if we return false user is not allowed to access
-        alert('Primero debes iniciar sesión');
-        this.router.navigate(['login']);
-        console.log('epa');
-        return false;
+      alert('Debes iniciar sesión');
+      return this.router.parseUrl('login');
     }
   }
 }

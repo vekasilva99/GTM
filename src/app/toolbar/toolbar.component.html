@@ -11,7 +11,6 @@
         <button id="menu-button" class="button" (click)="sideNavService.toggleSideNav()">MENU</button>
     </div>
 </div>
-
 <div id="menu-bar-nav" style="display:none">
     <div id="logo-wrap">
         <img src="../../assets/logo3.png" routerLink="/home" id="logo3" class="logo">
@@ -21,5 +20,10 @@
         <button id="login-button" class="button" routerLink="/login">LOG IN</button>
         <button id="menu-button" class="button" (click)="sideNavService.toggleSideNav()">MENU</button>
     </div>
+</div>
+
+<div id="foot">
+    <button id="itinerario-button-foot" class="button" (click)="listaEstadosService.toggleLista()">ITINERARIO</button>
+    <button id="login-button-foot" class="button" routerLink="/login">LOG IN</button>
 </div>
 

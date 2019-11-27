@@ -1,8 +1,9 @@
-<ng-container *ngIf="estados.length > 0; then noLoading; else loading"></ng-container>
+
+<ng-container *ngIf="estados.length > 0; then noLoading; else lLoading"></ng-container>
 
 <ng-template #loading>
-    <h1>Loading...</h1>
-</ng-template> 
+    <app-spinner></app-spinner>
+</ng-template>
 
 <ng-template #noLoading>
 

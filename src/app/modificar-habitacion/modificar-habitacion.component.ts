@@ -76,6 +76,7 @@ export class ModificarHabitacionComponent implements OnInit {
         comodidades: array.payload.get('comodidades'),
         numHab: array.payload.get('numHab'),
         hotel: array.payload.get('hotel'),
+        disponibilidad: array.payload.get('disponibilidad'),
       
 
 
