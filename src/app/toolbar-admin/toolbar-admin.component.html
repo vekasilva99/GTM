@@ -1,6 +1,5 @@
 <div class="wrapper">
        
-        
-            <a routerLink="/login" class="log"><i class="fas fa-sign-out-alt"></i></a>
-            <button  type="button" class="log"  (click)="sideNavService.toggleSideNav()"><i class="fas fa-bars"></i><span class="navbar-toggler-icon"></span></button>
+            <a *ngIf="authService.isLoggedIn" class="log" (click)="authService.logout()"><i class="fas fa-sign-out-alt"></i></a>
+            <button  type="button" class="log" (click)="sideNavService.toggleSideNav()"><i class="fas fa-bars"></i><span class="navbar-toggler-icon"></span></button>
 </div>

@@ -1,91 +1,132 @@
 <div class="wrapper">
-    <div class="info">
-        <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)" class="reservar-box">
-            <h1>Reservar</h1>
-            <h2>Hotel - Tipo de Habitacion</h2>
-            <div class="textbox">
-                <div class="row">
+    <form>
+        <div class="destinos" id="paso">
+            <img src="../../assets/playa-1.png">
+            <div class="a"><span class="fa-stack fa-2x">
+                    <i class="far fa-circle fa-stack-2x" style="color: white; border: pink;"></i>
+                    <i class="fa-stack-text fa-stack-1x fa-inverse"
+                        style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;">1</i>
+                </span>
+            </div>
+            <div class="paso">
+                <h1>Destinos</h1>
 
-                    <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
-                        <input class="form-control" placeholder="CheckIn-CheckOut" ngModel bsDaterangepicker
-                            [minDate]="minDate" [bsConfig]="bsConfig">
-                    </div>
+            </div>
+            <div class="opciones">
+                <div class="instruccion">
+                    <h2>SELECCIONA LOS FILTROS</h2>
                 </div>
-            </div>
-            <div class="textbox">
-                <input type="number" formControlName="numeroHab" placeholder="Cantidad de Habitaciones" min="1">
-            </div>
-            <div class="textbox">
-                <input type="text" formControlName="name" placeholder="Nombre">
-            </div>
-            <div class="textbox">
-                <input type="text" formControlName="lastName" placeholder="Apellido">
-            </div>
-            <div class="textbox">
-                <input type="text" formControlName="cedula" placeholder="Cedula">
-            </div>
-            <div class="textbox">
-                <input type="email" formControlName="email" placeholder="Email">
-            </div>
-            <div class="textbox">
-                <input type="tel" formControlName="telefono" placeholder="Telefono">
-            </div>
-            <div class="textbox">
-                <input type="text" formControlName="direccion" placeholder="Direccion">
-            </div>
 
+                <div class="filtros">
+                    <div class="filtros1">
 
+                        <div class="textbox">
+                            <select formControlName="destino">
+                                <option value="" selected disabled>TIPO DE DESTINO</option>
+                                <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
+                                    {{tipoDestino.nombre}}</option>
+                            </select>
+                        </div>
 
-            <button class="btn" type="submit">Reservar</button>
-
-
-
-
-        </form>
-
-        <!-- <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
-                <div class="form-container">
-                    <div class="row columns">
-
-
-                        <label>Name
-                            <input type="text" formControlName="name">
-                        </label>
-
-                        <label>Last Name
-                            <input type="text" formControlName="lastName">
-                        </label>
-                        <label>Seats
-                            <input type="number" min="1" max={{movie.Seats}} formControlName="seats">
-                        </label>
-                        <label>ID
-                            <input type="text" formControlName="id">
-                        </label>
-                        <label>Phone Number
-                            <input type="text" formControlName="phoneNumber">
-                        </label>
-                        <label>Date
-                            <input type="date">
-                        </label>
-
-                        <input type="submit" class="button expanded" value="RESERVAR" [disabled]="!rForm.valid"
-                            id="boton">
+                        <div class="textbox">
+                            <select formControlName="destino">
+                                <option value="" selected disabled>ESTADO</option>
+                                <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
+                                    {{tipoDestino.nombre}}</option>
+                            </select>
+                        </div>
 
 
                     </div>
+
                 </div>
-            </form> -->
-
-
-
-
-        <!-- <div class="row">
-
-            <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
-                <input class="form-control" placeholder="Daterangepicker" ngModel bsDaterangepicker [minDate]="minDate"
-                    [bsConfig]="bsConfig">
+                <div class="instruccion">
+                    <h2>SELECCIONA EL DESTINO</h2>
+                </div>
+                <div class="opcion">
+                    <div class="textbox">
+                        <select formControlName="destino">
+                            <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
+                                {{tipoDestino.nombre}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="boton">
+                    <button id="itinerario-button" class="button">ACEPTAR</button>
+                </div>
             </div>
-        </div> -->
 
 
-    </div>
+        </div>
+        <div class="alojamiento" id="paso">
+            <img src="../../assets/playa-1.png">
+            <div class="a"><span class="fa-stack fa-2x">
+                    <i class="far fa-circle fa-stack-2x" style="color: white; border: pink;"></i>
+                    <i class="fa-stack-text fa-stack-1x fa-inverse"
+                        style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;">2</i>
+                </span>
+            </div>
+            <div class="paso">
+                <h1>Alojamientos</h1>
+
+            </div>
+            <div class="opciones">
+                <div class="instruccion">
+                    <h2>SELECCIONA TU ALOJAMIENTO</h2>
+                </div>
+                <div class="opcion">
+                    <div class="textbox">
+                        <select formControlName="destino">
+                            <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
+                                {{tipoDestino.nombre}}</option>
+                        </select>
+                    </div>
+                </div>
+                <form [formGroup]="dateForm">
+                        <div class="row">
+                                <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+                                    <input id="date" class="form-control" placeholder="CheckIn/CheckOut" ngModel bsDaterangepicker [minDate]="minDate"
+                                        [bsConfig]="bsConfig" formControlName="range">
+                                </div>
+                            </div>
+                        </form>
+                <div class="instruccion">
+                    <h2>SELECCIONA EL NUMERO DE HABITACIONES</h2>
+                </div>
+                <div class="opcion">
+                    <div class="textbox">
+                        <input id="campos" type="number" formControlName="maxPersonas" min="1">
+                    </div>
+                </div>
+                <div class="boton">
+                    <button id="itinerario-button" class="button" (click)="fechaReservacion()">ACEPTAR</button>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="habitaciones" id="paso">
+                <div class="paso">
+                    <h2>Habitaciones</h2>
+                </div>
+
+
+        </div>
+
+
+    </form>
+
+   
+
+
+
+
+
+
+</div>
+
+
+
+
+

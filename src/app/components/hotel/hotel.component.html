@@ -1,10 +1,11 @@
 <ng-container *ngIf="hotels.length > 0; then noLoading; else loading"></ng-container>
 
 <ng-template #loading>
-    <h1>Loading...</h1>
+        <app-spinner></app-spinner>
 </ng-template>
 
 <ng-template #noLoading>
+
     <div class="wrapper">
         <app-toolbar></app-toolbar>
         <app-sidebar></app-sidebar>
@@ -27,8 +28,6 @@
                 </div>
 
                 <div class="wrapper">
-
-
 
                     <div class="wrapper-rooms"
                         *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2; let i=index">
@@ -72,6 +71,5 @@
             </div>
         </div>
     </div>
-
-
+    
 </ng-template>

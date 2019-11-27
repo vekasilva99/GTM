@@ -62,6 +62,12 @@
                 <option value="{{destino.id}}" *ngFor="let destino of destinos">{{destino.nombre}}</option>
             </select>
         </div>
+        <small>TIPO DESTINO</small>
+        <div class="textbox">
+            <select formControlName="tipoDestiny">
+                <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">{{tipoDestino.nombre}}</option>
+            </select>
+        </div>
         <small>SERVICIOS</small>
         <div class="textbox">
             <mat-form-field>
@@ -92,7 +98,7 @@
                 <button type="button" id="add" (click)="addHotelPicture()"><i class="fas fa-plus-circle"></i></button>
             </section>
         </div>
-        <div class="habitacion">
+        <!-- <div class="habitacion">
             <small>HABITACIONES</small>
             <div class="textbox3">
                 <section formArrayName="habs">
@@ -163,7 +169,7 @@
                 </section>
             </div>
 
-        </div>
+        </div> -->
         <button type="submit" class="btn" value="AGREGAR" (click)="addPost()" id="boton">AGREGAR HOTEL</button>
     </form>
 

@@ -89,10 +89,11 @@ export class HotelSliderComponent implements OnInit {
                 city: array.payload.get('city'),
                 fullDay: array.payload.get('fullDay'),
                 destino: array.payload.get('destino'),
+                tipoDestino:array.payload.get('tipoDestino'),
                 services: array.payload.get('services'),
                 fullDayPrice: array.payload.get('fullDayPrice'),
                 hotelPictures: array.payload.get('hotelPictures'),
-                hab: array.payload.get('habs'),
+                
             }
 
             this.h = hotel;

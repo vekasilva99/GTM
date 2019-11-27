@@ -1,0 +1,39 @@
+<!-- <ng-container *ngIf="habitaciones.length > 0;  then noLoading; else loading"></ng-container>
+
+<ng-template #loading>
+    <h1>Loading...</h1>
+</ng-template>
+<ng-template #noLoading> -->
+<div class="wrapper">
+        <app-toolbar-admin></app-toolbar-admin>
+        <app-sidebar-admin></app-sidebar-admin>
+        <app-agregar-habitacion></app-agregar-habitacion>
+        <div class="estados">
+            <div class="margen"></div>
+            <div class="lista">
+                <div class="margen"><h1>HABITACIONES</h1></div>
+                <div class="data"><a (click)="agregarService.toggleAgregar()" class="log" style="color: white; margin-bottom: 3vw;">AGREGAR</a>
+                    <div class="textbox1" >
+                            <div class="nombre"><h2>NOMBRE</h2></div>
+                            <div class="id"><h2>HOTEL</h2></div>
+                            <div class="id"><h2>MAXIMO PERSONAS</h2></div>
+                            <div class="id"><h2>NUMERO DE HABITACIONES</h2></div>
+                            <div class="tools"></div>
+                        </div>
+                    <div class="textbox" *ngFor="let hab of habs;let i=index">
+                        <div class="nombre"><h3>{{hab.nombre}}</h3></div>
+                        <div class="id"><h3>{{hoteles[i]?.name}}</h3></div>
+                        <div class="id"><h3>{{hab.maxPersonas}}</h3></div>
+                        <div class="id"><h3>{{hab.numHab}}</h3></div>
+                        <div class="tools"><i routerLink="/adminHome/crudHabitacion/edit/{{hab.id}}" class="fas fa-pen" id="close" ></i>
+                        <i (click)="deleteHotel(hotel.id)" class="fas fa-times" id="close"></i></div>
+                    </div>
+    
+                </div>
+                <div class="margen"></div>
+            </div>
+            <div class="margen"></div>
+        </div>
+        
+        </div>
+<!-- </ng-template> -->

@@ -1,9 +1,5 @@
-<ng-container *ngIf="hoteles.length > 0;  then noLoading; else loading"></ng-container>
 
-<ng-template #loading>
-    <h1>Loading...</h1>
-</ng-template>
-<ng-template #noLoading>
+
 <div class="wrapper">
         <app-toolbar-admin></app-toolbar-admin>
         <app-sidebar-admin></app-sidebar-admin>
@@ -21,6 +17,13 @@
                             <div class="id"><h2>HABITACIONES</h2></div>
                             <div class="tools"></div>
                         </div>
+<ng-container *ngIf="hoteles.length > 0;  then noLoading; else loading"></ng-container>
+
+<ng-template #loading>
+        <app-spinner></app-spinner>      
+</ng-template>
+
+<ng-template #noLoading>
                     <div class="textbox" *ngFor="let hotel of hoteles;let i=index">
                         <div class="nombre"><h3>{{hotel.name}}</h3></div>
                         <div class="id"><h3>{{hotel.stars.length}}</h3></div>
@@ -30,7 +33,7 @@
                         <div class="tools"><i routerLink="/adminHome/crudHoteles/edit/{{hotel.id}}" class="fas fa-pen" id="close" ></i>
                         <i (click)="deleteHotel(hotel.id)" class="fas fa-times" id="close"></i></div>
                     </div>
-    
+</ng-template>
                 </div>
                 <div class="margen"></div>
             </div>
@@ -38,4 +41,3 @@
         </div>
         
         </div>
-</ng-template>

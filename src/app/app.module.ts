@@ -44,6 +44,7 @@ import { CrudTipoDestinoComponent } from './crud-tipo-destino/crud-tipo-destino.
 import { CrudCiudadesComponent } from './crud-ciudades/crud-ciudades.component';
 import { AgregarCiudadComponent } from './agregar-ciudad/agregar-ciudad.component';
 import { TipoDestinoComponent } from './tipo-destino/tipo-destino.component';
+import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { DestinosDetailsComponent } from './destinos-details/destinos-details.component';
 import { FilterPipe } from './pipes/filter.pipe';
@@ -55,13 +56,29 @@ import { ModificarDestinoComponent } from './modificar-destino/modificar-destino
 import { ModificarTipoDestinoComponent } from './modificar-tipo-destino/modificar-tipo-destino.component';
 import { ModificarHotelComponent } from './modificar-hotel/modificar-hotel.component';
 import { AuthGuard } from './Guardian/auth.guard';
+import { CrudHabitacionComponent } from './crud-habitacion/crud-habitacion.component';
+import { AgregarHabitacionComponent } from './agregar-habitacion/agregar-habitacion.component';
+import { ModificarHabitacionComponent } from './modificar-habitacion/modificar-habitacion.component';
+
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { LoginComponent } from './admin/login/login.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { SpinnerComponent } from './spinner/spinner.component';
+
+const config = {
+    apiKey: 'AIzaSyCHMYQWGNdRLv6-HDvEri7wI1WkA_KPR3o',
+    authDomain: 'guacamayatours-f9882.firebaseapp.com',
+    databaseURL: 'https://guacamayatours-f9882.firebaseio.com',
+    projectId: 'guacamayatours-f9882',
+    storageBucket: 'guacamayatours-f9882.appspot.com',
+    messagingSenderId: '825835417522',
+    appId: '1:825835417522:web:847e6a22732d2cc0e43eab'
+};
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = {
-    // tslint:disable-next-line: object-literal-key-quotes
-    'pan': {
+    pan: {
       direction: Hammer.DIRECTION_ALL,
-
     }
   };
 }
@@ -109,9 +126,59 @@ export class CustomHammerConfig extends HammerGestureConfig {
    ModificarDestinoComponent,
    ModificarTipoDestinoComponent,
    ModificarHotelComponent,
-   DestinosDetailsComponent
+   DestinosDetailsComponent,
+   CrudHabitacionComponent,
+   AgregarHabitacionComponent,
+   ModificarHabitacionComponent,
+   
 
+  AppComponent,
+  ToolbarComponent,
+  SidebarComponent,
+  VideoComponent,
+  TittleComponent,
+  MenuComponent,
+  HeaderComponent,
+  PlaneaComponent,
+  LogComponent,
+  FooterComponent,
+  EstadosComponent,
+  EstadoDetailsComponent,
+  HomeComponent,
+  HotelComponent,
+  AdminHomeComponent,
+  BienvenidoComponent,
+  HotelSliderComponent,
+  ListaEstadosComponent,
+  HotelDetailsComponent,
+  HabitacionComponent,
+  ReservarComponent,
+  ToolbarAdminComponent,
+  SidebarAdminComponent,
+  CrudEstadosComponent,
+  AgregarEstadoComponent,
+  AgregarHotelComponent,
+  AgregarDestinoComponent,
+  CrudDestinosComponent,
+  CrudHotelesComponent,
+  AgregarTipoDestinoComponent,
+  CrudTipoDestinoComponent,
+  CrudCiudadesComponent,
+  AgregarCiudadComponent,
+  TipoDestinoComponent,
+  FilterPipe,
+  Filter2Pipe,
+  DestinoDetailComponent,
+  ModificarEstadoComponent,
+  ModificarCiudadComponent,
+  ModificarDestinoComponent,
+  ModificarTipoDestinoComponent,
+  ModificarHotelComponent,
+  DestinosDetailsComponent,
+  LoginComponent,
+  SpinnerComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -123,13 +190,17 @@ export class CustomHammerConfig extends HammerGestureConfig {
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    MatSelectModule
-
-
+    MatSelectModule,
+    MatDatepickerModule, MatNativeDateModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule,
+    NgxSpinnerModule
   ],
+
   providers: [AuthGuard,
     {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
