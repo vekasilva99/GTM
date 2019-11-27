@@ -59,15 +59,10 @@ import { AuthGuard } from './Guardian/auth.guard';
 import { CrudHabitacionComponent } from './crud-habitacion/crud-habitacion.component';
 import { AgregarHabitacionComponent } from './agregar-habitacion/agregar-habitacion.component';
 import { ModificarHabitacionComponent } from './modificar-habitacion/modificar-habitacion.component';
-
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './admin/login/login.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { nodemailer } from 'nodemailer';
-import { AutoEmailComponent } from './auto-email/auto-email.component';
-
-const nodemailer = require('nodemailer');
 
 const config = {
     apiKey: 'AIzaSyCHMYQWGNdRLv6-HDvEri7wI1WkA_KPR3o',
@@ -180,8 +175,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
   ModificarHotelComponent,
   DestinosDetailsComponent,
   LoginComponent,
-  SpinnerComponent,
-  AutoEmailComponent
+  SpinnerComponent
   ],
 
   imports: [
@@ -199,8 +193,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
     MatDatepickerModule, MatNativeDateModule,
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
-    NgxSpinnerModule,
-    nodemailer
+    NgxSpinnerModule
   ],
 
   providers: [AuthGuard,
