@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SideNavService } from '../Services/side-nav.service';
-import {ListaEstadosService} from '../Services/lista-estados.service';
+import { ListaEstadosService } from '../Services/lista-estados.service';
 import { TipoDestinoService } from '../Services/tipo-destino.service';
 import { DestinoService } from '../Services/destino.service';
 import { tipoDestino } from '../destino/tipoDestino';

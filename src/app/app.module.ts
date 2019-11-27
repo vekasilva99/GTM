@@ -59,6 +59,10 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './admin/login/login.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { nodemailer } from 'nodemailer';
+import { AutoEmailComponent } from './auto-email/auto-email.component';
+
+const nodemailer = require('nodemailer');
 
 const config = {
     apiKey: 'AIzaSyCHMYQWGNdRLv6-HDvEri7wI1WkA_KPR3o',
@@ -123,7 +127,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
   ModificarHotelComponent,
   DestinosDetailsComponent,
   LoginComponent,
-  SpinnerComponent
+  SpinnerComponent,
+  AutoEmailComponent
   ],
 
   imports: [
@@ -140,7 +145,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
     MatSelectModule,
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    nodemailer
   ],
 
   providers: [AuthGuard,
