@@ -5,19 +5,19 @@
     </div>
     <div id="navbar-nav">
         <ul style="list-style-type: none;">
-            <li><a class="item" id="nav" routerLink="/hotels" routerLinkActive="router-link-active"  href="#">ALOJAMIENTOS</a></li>
-            <li><a class="item" id="nav" href="#">PLANEA TU VIAJE</a></li>
-            <li><a class="item" id="nav" href="#">A DÓNDE IR</a></li>
-            <li><button class="item" id="nav" type="button" (click)="listaEstadosService.toggleLista()">ESTADOS</button></li>
+            <li><a class="item" routerLink="/hotels" routerLinkActive="router-link-active"  href="#">ALOJAMIENTOS</a></li>
+            <li><a class="item" href="#">PLANEA TU VIAJE</a></li>
+            <li><a class="item" href="#">A DÓNDE IR</a></li>
+            <li><button class="item" type="button" (click)="listaEstadosService.toggleLista()">ESTADOS</button></li>
 
             <li><a href="#" class="item" id="list">DESTINOS <i class="fas fa-sort-up" id="arrow" (click)="rotateArrow()"></i></a>
-                <ul id="lista-destinos" style="list-style-type: none; display: none;">
+                <ul style="list-style-type: none;">
                     <li *ngFor="let tipoDestino of tipoDestinos"><a class="item" id="dest" routerLink="/tipoDestino/{{tipoDestino.id}}" href="#" style="text-transform: uppercase;">{{tipoDestino.nombre}}</a></li>   
                 </ul>
             </li>
 
-            <li><a class="item" id="nav" href="#">LO MÁS VISITADO</a></li>
-            <li><a class="item" id="nav" href="#">CONTÁCTANOS</a></li>
+            <li><a class="item" href="#">LO MÁS VISITADO</a></li>
+            <li><a class="item" href="#">CONTÁCTANOS</a></li>
         </ul>
     </div>
 </nav> 
