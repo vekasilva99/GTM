@@ -1,28 +1,76 @@
 <div class="wrapper">
-        <app-toolbar></app-toolbar>
-        <app-sidebar></app-sidebar>
-        <app-lista-estados></app-lista-estados>
-        <img class="im" src="../../assets/11.png">  
-        <h1>Alojamientos</h1>
+    <app-toolbar></app-toolbar>
+    <app-sidebar></app-sidebar>
+    <app-lista-estados></app-lista-estados>
 
+    <div class="opening">
+        <img src="../../assets/11.png" alt="alojamientos" style="width: 100%;">
+        <div class="centered">
+            <h1>Alojamientos</h1>
+        </div>
+    </div>
 
-<div class="wrapper" id="c6">
-    <div class="filtro">
-<div>
-    <h3>Filtrar busqueda:</h3>
+    <div id="c3">
+        <div class="griddoble">
+            <div class="bloque" id="quienes">
+                <h1>LOS MEJORES DESTINOS</h1>
+                <h1>EN UN SOLO LUGAR</h1>
+                <h2>Cualquier destino que elija, cualquier lugar de Venezuela que desee visitar, tenemos los mejores alojamientos para usted. Haga de su hospedaje uno de las mejores partes de sus vacaciones y elija entre nuetrs diversas opciones para su estadía.</h2>
+            </div>
+            <div class="bloque" id="datos">
+                <h3>DATOS RÁPIDOS</h3>
+                <div class="dato">
+                    <div class="label">
+                        <div class="dot">8.247</div>
+                        <p style="margin-left: 1rem">HOTELES</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-hotel" style="color: #666666; font-size: 40px;"></i>
+                    </div>
+                </div>
+                <div class="dato">
+                    <div class="label">
+                        <div class="dot">1.353</div>
+                            <p style="margin-left: 1rem">POSADAS</p>
+                        </div>
+                    <div>
+                        <i class="fas fa-home" style="color: #666666; font-size: 40px;"></i>
+                    </div>
+                </div>
+                <div class="dato">
+                    <div class="label">
+                        <div class="dot">3.426</div>
+                            <p style="margin-left: 1rem">RESORTS</p>
+                        </div>
+                    <div>
+                        <i class="fas fa-swimming-pool" style="color: #666666; font-size: 40px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <span>Nombre: </span><input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost"><br>
-    
-    <span>Estado: </span><input type="text" class="form-control" name="filterPost2" placeholder="Buscar..." [(ngModel)]="filterPost2"><br>
-  
-</div>
+    <div id="c5">
+        <div class="filtro">
+            <h1>Filtrar Busqueda: </h1>
+            <span class="tag">NOMBRE: </span><input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost"><br>
+            <span class="tag">ESTADO: </span><input type="text" class="form-control" name="filterPost2" placeholder="Buscar..." [(ngModel)]="filterPost2"><br>
+        </div>
+    </div>
 
-<div class="wrapper">
+    <div id="c6" *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2">
+        <div class="grid">
+            <div class="a"></div>
+            <div class="b"></div>
+        </div>
+    </div>
 
+    <app-footer></app-footer>
+</div> 
 
-
+<!--
 <div class="wrapper-rooms"  *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2">
-        <div class="even" >
+        
             <div class="grid">
 
                 <div class="a"> 
@@ -54,7 +102,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
 </div>
 
-</div> 
+</div>  -->
