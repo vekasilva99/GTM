@@ -12,6 +12,9 @@
     line-height: 60px;
     width: 25vw;
   }
+  #dest {
+    width: 22vw;
+  }
 }
 @media screen and (max-width: 991px) and (min-width: 768px){
   #sidebar{
@@ -27,11 +30,14 @@
     line-height: 50px;
     width: 20vw;
   }
+  #dest {
+    width: 17vw;
+  }
 }
 @media screen and (max-width: 767px){
   #sidebar{
     width: 100vw;
-    padding: 5%;
+    padding: 10%;
   }
   #sidebar.hidden{
     transform: translateX(100vw);
@@ -41,6 +47,9 @@
     letter-spacing: 0.1rem;
     line-height: 50px;
     width: 80vw;
+  }
+  #dest {
+    width: 70vw;
   }
 }
 
@@ -117,10 +126,6 @@ a[data-toggle="collapse"] {
       transition: 0.5s ease-in;
       transform: rotate(180deg);
     }
-    #lista-destinos{
-      display: grid !important;
-      z-index: 3600;
-    }
   };
 }
 
@@ -132,146 +137,10 @@ a[data-toggle="collapse"] {
   font-size: 20px;
 }
 
-
-// #tg-menu{
-//   transition: 0.2s ease-in-out !important;
-//   &:hover{
-//     #lista-destinos{
-//       display: block !important;
-//     };
-//   }
-// }
-
-//   #sidebar ul{
-//       margin:0;
-//       padding: 0;
-
-//   }
-
-//   #sidebar ul li{
-//       list-style: none;
-      
-//   }
-
-//   #sidebar ul li a{
-//       text-decoration: none;
-//       color: black;
-//       height:30%;
-//       width:100%;
-//       font-size: 1vw;
-//       line-height: 60px;
-//       text-align: left;
-//       display: block;
-//       transition: 0.6s all;
-//       padding-top: 3%;
-//       padding-left: 10%;
-//       border-bottom: 1px solid #666666;
-//       margin-left: 30px;
-//       font-family: 'Avenir';
- 
-//   }
-
-//   #sidebar .item{
-//     text-decoration: none;
-//       color: black;
-//       height:30%;
-//       width:100%;
-//       font-size: 1vw;
-//       line-height: 60px;
-//       text-align: left;
-//       display: block;
-//       transition: 0.6s all;
-//       padding-top: 3%;
-//       padding-left: 10%;
-//       border-bottom: 1px solid #666666;
-//       border-top: none;
-//       border-left: none;
-//       border-right: none;
-//       margin-left: 30px;
-//       background: none;
-//       font-family: 'Avenir';
-//       outline: none;
-
-//       &:hover{
-//         color:#002e64;
-//       }
- 
-
-//   }
-
-//   #sidebar ul li a:hover{
-//      color:#002e64;
-
-//   }
-
-//   #sidebar li ul{
-//       display: none;
-//       border-bottom: none;
-//   }
-//   #sidebar li:hover ul{
-//    display: block;
-   
-// }
-//   #sidebar li:hover ul li{
-//       background: white;
-//       transition: 0.6s;
-//       border-bottom: none;
-//   }
-
-//   #sidebar li:hover ul li a{
-//     color: black;
-//     transition: 0.6s;
-//     margin-left: 60px;
-//     &:hover{
-//         color:#ffa600;
-//     }
-//   }
-
-//   #sidebar li li ul{
-//     display: none;
-//     border-bottom: none;
-// }
-// #sidebar li li:hover ul{
-//  display: block;
- 
-// }
-// #sidebar li li:hover ul li{
-//     background: white;
-//     transition: 0.6s;
-//     border-bottom: none;
-// }
-
-// #sidebar li li:hover ul li a{
-//   color: black;
-//   transition: 0.6s;
-//   margin-left: 80px;
-//   &:hover{
-//       color:#ffa600;
-//   }
-// }
-
-// #sidebar li li li ul{
-//   display: none;
-//   border-bottom: none;
-// }
-// #sidebar li li li:hover ul{
-// display: block;
-
-// }
-// #sidebar li li li:hover ul li{
-//   background: white;
-//   transition: 0.6s;
-//   border-bottom: none;
-// }
-
-// #sidebar li li li:hover ul li a{
-// color: black;
-// transition: 0.6s;
-// margin-left: 150px;
-// &:hover{
-//     color:#ffa600;
-// }
-// }
-
-
-
+#sidebar li ul{
+  display: none;
+  border-bottom: none;
+}
+  #sidebar li:hover ul{
+  display: block;
+}
