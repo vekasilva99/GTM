@@ -3,6 +3,7 @@ import { Hotel, Hab } from 'src/app/class/hotel/hotel';
 import { HotelService } from 'src/app/Services/hotel/hotel.service';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
+import { HabitacionService } from '../Services/habitacion.service';
 
 @Component({
   selector: 'app-habitacion',
@@ -12,10 +13,10 @@ import {Location} from '@angular/common';
 export class HabitacionComponent implements OnInit {
   hotel: Hotel=null;
   hab: Hab=null;
-  constructor(private route: ActivatedRoute , private hotelService: HotelService , private location: Location) { }
+  constructor(private route: ActivatedRoute , private hotelService: HotelService , private location: Location, private habService: HabitacionService) { }
 
   ngOnInit() {
-   this.getHotel();
+   this.getHab();
    
    
   }
@@ -24,40 +25,30 @@ export class HabitacionComponent implements OnInit {
   //   this.hotelService.getHotel2(id).subscribe(Hotel => this.hotel = Hotel);
   // }
 
-  getHotel(): void{
-    const id = this.route.snapshot.paramMap.get('id');
-    this.hotelService.getHotel2(id).subscribe(array =>{
+  getHab(): void{
+    const id = this.route.snapshot.paramMap.get('i');
+    this.habService.getHab(id).subscribe(array =>{
       
-      const hotel: Hotel = {
+      const hab: Hab = {
         id: array.payload.id,
-        name: array.payload.get('name'),
+        nombre: array.payload.get('nombre'),
         imagen: array.payload.get('imagen'),
-        stars: array.payload.get('stars'),
-        state: array.payload.get('state'),
-        length: array.payload.get('length'),
-        latitude: array.payload.get('latitud'),
-        address: array.payload.get('address'),
-        city: array.payload.get('city'),
-        fullDay: array.payload.get('fullDay'),
-        destino: array.payload.get('destino'),
-        services: array.payload.get('services'),
-        fullDayPrice: array.payload.get('fullDayPrice'),
-        hotelPictures: array.payload.get('hotelPictures'),
-        hab: array.payload.get('habs'),
+        nightCost: array.payload.get('nightCost'),
+        tipoVista: array.payload.get('tipoVista'),
+        maxPersonas: array.payload.get('maxPersonas'),
+        habPictures: array.payload.get('habPictures'),
+        comodidades: array.payload.get('comodidades'),
+        numHab: array.payload.get('numHab'),
+        hotel: array.payload.get('hotel'),
+        
       }
-      this.hotel=hotel;
-      this.getHab(hotel);
-      console.log(this.hotel);
+      this.hab=hab;
+      console.log(this.hab);
 
 
     });
     
   }
 
-  getHab(hotel: Hotel): void{
-    const i = +this.route.snapshot.paramMap.get('i');
-    this.hab=hotel.hab[i];
-    
-    
-  }
+
 }

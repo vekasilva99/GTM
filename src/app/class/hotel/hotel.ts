@@ -16,18 +16,46 @@ export class Hotel {
     fullDayPrice: number;
     destino: string;
     services: string[];
-    hab: Hab[];
+    tipoDestino: string;
+
+}
+
+
+export class Mes {
+    disponibilidad: number[];
 }
 
 export class Hab {
-    // id: string;
+    id: string;
     nombre: string;
+    imagen: string;
     nightCost: number;
     tipoVista: string;
     maxPersonas: number;
     habPictures: string[];
     comodidades: string[];
     numHab: number;
+    hotel: string;
+    disponibilidad: string;
 }
+
+export class disp {
+    id: string;
+    enero: number[];
+    febrero: number[];
+    marzo: number[];
+    abril: number[];
+    mayo: number[];
+    junio: number[];
+    julio: number[];
+    agosto: number[];
+    septiembre: number[];
+    octubre: number[];
+    noviembre: number[];
+    diciembre: number[];
+}
+
+
+
 
 

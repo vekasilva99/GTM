@@ -8,9 +8,10 @@ import { CiudadService } from '../Services/ciudad.service';
 import { ciudad } from '../ciudad/ciudad';
 import { Hotel, Hab } from '../class/hotel/hotel';
 import { HotelService } from '../Services/hotel/hotel.service';
-import { destino } from '../destino/destino';
+import { destino, tipoDestino } from '../destino/destino';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { TipoDestinoService } from '../Services/tipo-destino.service';
 
 @Component({
   selector: 'app-modificar-hotel',
@@ -21,6 +22,7 @@ export class ModificarHotelComponent implements OnInit {
   estados: estado[] = [];
   ciudades: ciudad[] = [];
   destinos: destino[] = [];
+  tipoDestinos: tipoDestino[] = [];
   hotelForm: FormGroup;
   star: number[] = [];
   full: boolean = false;
@@ -30,7 +32,7 @@ export class ModificarHotelComponent implements OnInit {
   editHote: Hotel;
   servicios = [{ value: 'Wifi', viewValue: 'Wifi' }, { value: 'Parking', viewValue: 'Parking' }, { value: 'Restaurant', viewValue: 'Restaurant' }, { value: 'Bar', viewValue: 'Bar' }, { value: 'Piscina', viewValue: 'Piscina' }, { value: 'Traslado', viewValue: 'Traslado' }]
 
-  constructor(private route: ActivatedRoute, private location: Location, private fb: FormBuilder, public agregarService: AgregarService, private estadoService: EstadoService, private ciudadService: CiudadService, private hotelService: HotelService, private destinoService: DestinoService) { }
+  constructor(private route: ActivatedRoute, private location: Location, private fb: FormBuilder, public agregarService: AgregarService, private estadoService: EstadoService, private ciudadService: CiudadService, private hotelService: HotelService, private destinoService: DestinoService, private tipoDestinoService: TipoDestinoService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -38,6 +40,16 @@ export class ModificarHotelComponent implements OnInit {
       if (hotelId) {
         this.getHotel(hotelId);
       }
+    });
+    this.tipoDestinoService.getOrders().subscribe(array => {
+      array.map(item => {
+        const tipoDestino: tipoDestino = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        };
+
+        this.tipoDestinos.push(tipoDestino);
+      });
     });
     this.estadoService.getOrders().subscribe(array => {
       array.map(item => {
@@ -86,7 +98,6 @@ export class ModificarHotelComponent implements OnInit {
       services: [null, Validators.required],
       fullDayPrice: [null, Validators.required],
       hotelPictures: this.fb.array([]),
-      habs: this.fb.array([]),
     });
 
     this.loading = false;
@@ -110,11 +121,12 @@ export class ModificarHotelComponent implements OnInit {
         address: array.payload.get('address'),
         city: array.payload.get('city'),
         fullDay: array.payload.get('fullDay'),
-        destino: array.payload.get('destino'),
+        destino: array.payload.get('destiny'),
+        tipoDestino:array.payload.get('tipoDestiny'),
         services: array.payload.get('services'),
         fullDayPrice: array.payload.get('fullDayPrice'),
         hotelPictures: array.payload.get('hotelPictures'),
-        hab: array.payload.get('habs'),
+      
 
 
       }
@@ -138,13 +150,14 @@ export class ModificarHotelComponent implements OnInit {
       address: hotel.address,
       fullDay: hotel.fullDay,
       destiny: hotel.destino,
+      tipoDestiny: hotel.tipoDestino,
       services: hotel.services,
       fullDayPrice: hotel.fullDayPrice,
 
     });
     console.log(hotel);
     this.hotelForm.setControl('hotelPictures', this.existingHotelPictures(hotel.hotelPictures));
-    this.hotelForm.setControl('habs', this.existingHabs(hotel.hab));
+    
 
   }
 
@@ -158,24 +171,7 @@ export class ModificarHotelComponent implements OnInit {
     });
     return formArray;
   }
-  existingHabs(habs: any[]): FormArray {
-    const formArray = new FormArray([]);
-    habs.forEach((s: Hab) => {
-      formArray.push(this.fb.group({
-        path: '',
-        habNombre: s.nombre,
-        nightCost: s.nightCost,
-        tipoVista: s.tipoVista,
-        maxPersonas: s.maxPersonas,
-        numHab: s.numHab,
-        habPictures: s.habPictures,
-        comodidades: s.comodidades,
-      }));
-
-
-    });
-    return formArray;
-  }
+ 
 
   existingImages(pictures: any[]) {
     const formArray = new FormArray([]);
@@ -190,10 +186,6 @@ export class ModificarHotelComponent implements OnInit {
   }
 
 
-
-  get habsArray(): FormArray {
-    return this.hotelForm.get('habs') as FormArray;
-  }
 
 
 
@@ -213,41 +205,9 @@ export class ModificarHotelComponent implements OnInit {
     return this.hotelForm.get('hotelPictures') as FormArray;
   }
 
-  addHabPicture(index: number) {
-    const img = (this.hotelForm.controls.habs as FormArray).at(index).get('habPictures') as FormArray;
-    img.push(this.fb.group({
-      path: [''],
-    }));
 
-  }
 
-  addComodidad(index: number) {
-    const com = (this.hotelForm.controls.habs as FormArray).at(index).get('comodidades') as FormArray;
-    com.push(this.fb.group({
-      path: [''],
-    }));
-  }
 
-  addHab() {
-    this.habsArray.push(this.fb.group({
-      habNombre: [null, Validators.required],
-      nightCost: [null, Validators.required],
-      tipoVista: [null, Validators.required],
-      maxPersonas: [null, Validators.required],
-      numHab: [null, Validators.required],
-      habPictures: this.fb.array([]),
-      comodidades: this.fb.array([]),
-    }));
-
-  }
-
-  removeHab(i: number) {
-    this.habsArray.removeAt(i);
-  }
-
-  removeHabPicture(i: number) {
-
-  }
 
   removeHotelPicture(i: number) {
     this.hotelPicturesArray.removeAt(i);
@@ -281,13 +241,13 @@ export class ModificarHotelComponent implements OnInit {
       latitud: this.hotelForm.value.latitud,
       state: this.hotelForm.value.state,
       city: this.hotelForm.value.city,
-      destiny: this.hotelForm.value.destino,
+      destiny: this.hotelForm.value.destiny,
+      tipoDestiny:this.hotelForm.value.tipoDestiny,
       address: this.hotelForm.value.address,
       fullDay: this.hotelForm.value.fullDay,
       services: this.selected,
       // fullDayPrice: this.hotelForm.value.fullDayPrice,
       hotelPictures: this.hotelForm.value.hotelPictures,
-      habs: this.hotelForm.value.habs,
     };
 
 
