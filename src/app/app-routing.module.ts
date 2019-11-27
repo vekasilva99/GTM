@@ -8,24 +8,6 @@ import { EstadosComponent } from './estados/estados.component';
 import { EstadoDetailsComponent } from './estado-details/estado-details.component';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
-<<<<<<< HEAD
-import {HotelDetailsComponent} from './hotel-details/hotel-details.component';
-import {HabitacionComponent} from './habitacion/habitacion.component';
-import {CrudEstadosComponent} from '../app/crud-estados/crud-estados.component';
-import {CrudDestinosComponent} from '../app/crud-destinos/crud-destinos.component';
-import {CrudTipoDestinoComponent} from '../app/crud-tipo-destino/crud-tipo-destino.component';
-import {CrudCiudadesComponent} from '../app/crud-ciudades/crud-ciudades.component';
-import {CrudHotelesComponent} from '../app/crud-hoteles/crud-hoteles.component';
-import {TipoDestinoComponent} from '../app/tipo-destino/tipo-destino.component';
-import {ModificarCiudadComponent} from '../app/modificar-ciudad/modificar-ciudad.component';
-import {ModificarEstadoComponent} from '../app/modificar-estado/modificar-estado.component';
-import { AuthGuard } from './Guardian/auth.guard';
-import { ModificarDestinoComponent } from './modificar-destino/modificar-destino.component';
-import { ModificarTipoDestinoComponent } from './modificar-tipo-destino/modificar-tipo-destino.component';
-import { ModificarHotelComponent } from './modificar-hotel/modificar-hotel.component';
-
-
-=======
 import { HotelDetailsComponent} from './hotel-details/hotel-details.component';
 import { HabitacionComponent} from './habitacion/habitacion.component';
 import { CrudEstadosComponent} from '../app/crud-estados/crud-estados.component';
@@ -43,7 +25,6 @@ import { AuthGuard } from './Guardian/auth.guard';
 import { CrudHabitacionComponent } from './crud-habitacion/crud-habitacion.component';
 import { ModificarHabitacionComponent } from './modificar-habitacion/modificar-habitacion.component';
 import { ReservarComponent } from './reservar/reservar.component';
->>>>>>> master
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full' },
