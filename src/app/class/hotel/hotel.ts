@@ -20,11 +20,9 @@ export class Hotel {
 
 }
 
-
 export class Mes {
     disponibilidad: number[];
 }
-
 export class Hab {
     id: string;
     nombre: string;
@@ -38,7 +36,6 @@ export class Hab {
     hotel: string;
     disponibilidad: string;
 }
-
 export class disp {
     id: string;
     enero: number[];

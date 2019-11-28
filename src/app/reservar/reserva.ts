@@ -1,24 +1,25 @@
-import {Hotel, Hab} from '../class/hotel/hotel';
+import { Hotel, Hab } from '../class/hotel/hotel';
 
-export class reserva{
-    nombre:string;
-    apellido:string;
-    cedula:number;
-    email:string;
-    telefono:number;
-    direccion:string;
-    estatus:string;
-    itinerario: itinerario[];
-    localizador:string;
+export class itinerario {
+    nombre: string;
+    apellido: string;
+    cedula: number;
+    email: string;
+    telefono: number;
+    direccion: string;
+    estatus: string;
+    reserva: string[];
+    id: string;
+    costoTotal: number;
 }
 
-export class itinerario{
-localizador:string;
-hotelId:string;
-fechaLlegada:Date;
-fechaSalida:Date;
-hab: Hab;
-costo:number;
-numeroHab:number;
+export class reserva {
+    id: string;
+    hotelId: string;
+    fechaLlegada: Date;
+    fechaSalida: Date;
+    hab: [{tipoHab:string, numHab:number}];
+    costo: number;
+    
 
 }

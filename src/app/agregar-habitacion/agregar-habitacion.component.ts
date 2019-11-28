@@ -75,7 +75,6 @@ export class AgregarHabitacionComponent implements OnInit {
     this.habPicturesArray.removeAt(i);
   }
 
-
   addComodidades() {
     const comodidad = this.fb.group({
       path: [null, Validators.required],
@@ -92,9 +91,7 @@ export class AgregarHabitacionComponent implements OnInit {
     this.comodidadesArray.removeAt(i);
   }
 
-
   addPost() {
-
     // this.habService.disponibilidad1(this.habForm.value.numHab);
     // this.disp = this.habService.disp;
     this.disponibilidadService.disponibilidad1(this.habForm.value.numHab);
@@ -128,17 +125,25 @@ export class AgregarHabitacionComponent implements OnInit {
         hotel: this.habForm.value.hotel,
         disponibilidad: item.id,
       };
-  
-  
+
       this.habService.addHab(mov);
-
-      
-     
+      console.log(this.disponibilidadService.disp2);
+      this.disponibilidadService.reservar(1,26,5,2);
+      const u = {
+        enero: this.disponibilidadService.disp2.enero,
+        febrero: this.disponibilidadService.disp2.febrero,
+        marzo: this.disponibilidadService.disp2.marzo,
+        abril: this.disponibilidadService.disp2.abril,
+        mayo: this.disponibilidadService.disp2.mayo,
+        junio: this.disponibilidadService.disp2.junio,
+        julio: this.disponibilidadService.disp2.julio,
+        agosto: this.disponibilidadService.disp2.agosto,
+        septiembre: this.disponibilidadService.disp2.septiembre,
+        octubre: this.disponibilidadService.disp2.octubre,
+        noviembre: this.disponibilidadService.disp2.noviembre,
+        diciembre: this.disponibilidadService.disp2.diciembre,
+      }
+      this.disponibilidadService.updateDisponibilidad(u, item.id);
     });
-    
-    
-
-   
   }
-
 }
