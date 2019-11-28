@@ -72,7 +72,7 @@ export class ModificarTipoDestinoComponent implements OnInit {
     }
 
 
-    this.tipoDestinoService.addTipoDestino(mov);
+    this.tipoDestinoService.updateTipoDestino(mov, this.tipoDestino.id);
   }
 
 }

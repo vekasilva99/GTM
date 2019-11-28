@@ -23,7 +23,7 @@
 
             </select>
         </div>
-        <input type="submit" class="btn" value="MODIFICAR" [disabled]="!ciudadForm.valid" id="boton">
+        <input type="submit" class="btn" value="MODIFICAR" [disabled]="!ciudadForm.valid" (click)="addPost()" id="boton">
 
     </form>
 </div>

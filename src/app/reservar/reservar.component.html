@@ -46,14 +46,15 @@
                 <div class="opcion">
                     <div class="textbox">
                         <select formControlName="destinoId" (change)="changeDestino($event.target.value)">
+                                <option value="" selected disabled>DESTINO</option>
                             <option value="{{destino.id}}" *ngFor="let destino of destinos">
                                 {{destino.nombre}}</option>
                         </select>
                     </div>
                 </div>
-                <div class="boton">
+                <!-- <div class="boton">
                     <button id="itinerario-button" class="button" (click)="pasoDestino()">PASO 2</button>
-                </div>
+                </div> -->
             </div>
 
 

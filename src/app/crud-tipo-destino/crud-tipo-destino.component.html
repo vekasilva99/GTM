@@ -1,4 +1,4 @@
-<ng-container *ngIf="tipoDestinos.length > 0; then loading; else noLoading"></ng-container>
+<ng-container *ngIf="tipoDestinos.length > 0; then noLoading; else loading"></ng-container>
 
 <ng-template #loading>
     <app-spinner></app-spinner>
