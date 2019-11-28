@@ -50,12 +50,6 @@ export class HotelDetailsComponent implements OnInit {
         if (id === hab.hotel) {
           this.habsFiltradas.push(hab);
         }
-
-
-
-
-
-
       });
     });
   }
@@ -85,10 +79,35 @@ export class HotelDetailsComponent implements OnInit {
       this.hotel = hotel;
       this.getEstados(hotel.state);
       this.getCiudades(hotel.city);
+      this.getHabs(hotel.id);
 
     });
 
   }
+
+  getHabs(id: string) {
+    this.habService.getHab(id).subscribe(array => {
+      const hab: Hab = {
+        id: array.payload.id,
+        nombre: array.payload.get('nombre'),
+        imagen: array.payload.get('imagen'),
+        nightCost: array.payload.get('nightCost'),
+        tipoVista: array.payload.get('tipoVista'),
+        maxPersonas: array.payload.get('maxPersonas'),
+        habPictures:array.payload.get('habPictures'),
+        comodidades: array.payload.get('comodidades'),
+        numHab: array.payload.get('numHab'),
+        hotel: array.payload.get('hotel'),
+        disponibilidad: array.payload.get('disponibilidad'),
+      }
+
+      if(hab.hotel===id){
+        this.habsFiltradas.push(hab);
+      }
+
+    })
+  }
+
 
   getEstados(id: string): void {
 
