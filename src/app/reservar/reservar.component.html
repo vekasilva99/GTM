@@ -1,11 +1,7 @@
 <div class="wrapper">
-<<<<<<< HEAD
 
     <form>
 
-=======
-    <form [formGroup]="reservarForm">
->>>>>>> 86fa6ae9774b9cc248715ee171747a13110c4944
         <div class="destinos" id="paso">
 
             <img src="../../assets/playa-1.png">
@@ -40,7 +36,6 @@
                     <div class="filtros1">
 
                         <div class="textbox">
-<<<<<<< HEAD
 
                             <select formControlName="destino">
 
@@ -48,10 +43,6 @@
                                     TIPO DE DESTINO
                                 </option>
 
-=======
-                            <select formControlName="tipoDestinoId">
-                                <option value="" selected disabled>TIPO DE DESTINO</option>
->>>>>>> 86fa6ae9774b9cc248715ee171747a13110c4944
                                 <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
                                     {{tipoDestino.nombre}}
                                 </option>
@@ -61,7 +52,6 @@
                         </div>
 
                         <div class="textbox">
-<<<<<<< HEAD
 
                             <select formControlName="destino">
 
@@ -73,12 +63,6 @@
                                     {{tipoDestino.nombre}}
                                 </option>
 
-=======
-                            <select formControlName="estadoId">
-                                <option value="" selected disabled>ESTADO</option>
-                                <option value="{{estado.id}}" *ngFor="let estado of estados">
-                                    {{estado.nombre}}</option>
->>>>>>> 86fa6ae9774b9cc248715ee171747a13110c4944
                             </select>
 
                         </div>
@@ -96,7 +80,6 @@
                 <div class="opcion">
 
                     <div class="textbox">
-<<<<<<< HEAD
 
                         <select formControlName="destino">
                             
@@ -104,11 +87,6 @@
                                 {{tipoDestino.nombre}}
                             </option>
 
-=======
-                        <select formControlName="destinoId" (change)="changeDestino($event.target.value)">
-                            <option value="{{destino.id}}" *ngFor="let destino of destinos">
-                                {{destino.nombre}}</option>
->>>>>>> 86fa6ae9774b9cc248715ee171747a13110c4944
                         </select>
 
                     </div>
@@ -116,13 +94,9 @@
                 </div>
 
                 <div class="boton">
-<<<<<<< HEAD
 
                     <button id="itinerario-button" class="button">ACEPTAR</button>
 
-=======
-                    <button id="itinerario-button" class="button" (click)="pasoDestino()">PASO 2</button>
->>>>>>> 86fa6ae9774b9cc248715ee171747a13110c4944
                 </div>
 
             </div>
