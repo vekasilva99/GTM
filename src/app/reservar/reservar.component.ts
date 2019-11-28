@@ -49,23 +49,15 @@ export class ReservarComponent implements OnInit {
   selectedDestino: string = null;
   selectedHotel: string = null;
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private location: Location, private tipoDestinoService: TipoDestinoService, private disponibilidadService: DisponibilidadService, private reservaService: ReservaService, private itinerarioService: ItinerarioService, private estadoService: EstadoService, private hotelService: HotelService, private habService: HabitacionService, private destinoService: DestinoService) {
+  // tslint:disable: max-line-length
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private location: Location, private tipoDestinoService: TipoDestinoService,
+              private disponibilidadService: DisponibilidadService, private reservaService: ReservaService, private itinerarioService: ItinerarioService,
+              private estadoService: EstadoService, private hotelService: HotelService, private habService: HabitacionService, private destinoService: DestinoService) {
 
     this.minDate = new Date();
     this.minDate.setDate(this.minDate.getDate());
-
     this.bsConfig = Object.assign({}, { containerClass: this.colorTheme });
-
-
   }
-
-
-
-
-
-
-
-
   ngOnInit() {
 
     this.reservarForm = this.fb.group({
@@ -78,8 +70,8 @@ export class ReservarComponent implements OnInit {
       estatus: [null, Validators.required],
       hotelId: [null, Validators.required],
       destinoId: [null, Validators.required],
-      tipoDestinoId:[null, Validators.required],
-      estadoId:[null, Validators.required],
+      tipoDestinoId: [null, Validators.required],
+      estadoId: [null, Validators.required],
       habId: [null, Validators.required],
       costo: [null, Validators.required],
       numHab: [null, Validators.required],
@@ -96,7 +88,6 @@ export class ReservarComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-
         this.tipoDestinos.push(tipoDestino);
       });
     });
@@ -107,7 +98,6 @@ export class ReservarComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-  
         this.destinos.push(destino);
       });
     });
@@ -118,7 +108,6 @@ export class ReservarComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-  
         this.estados.push(estado);
       });
     });
@@ -129,7 +118,6 @@ export class ReservarComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-  
         this.hoteles.push(hotel);
       });
     });
@@ -140,39 +128,34 @@ export class ReservarComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-  
         this.habs.push(hab);
       });
     });
 
   }
-  
-  pasoDestino(){
-    this.selectedDestino=this.reservarForm.value.destinoId;
+
+  pasoDestino() {
+    this.selectedDestino = this.reservarForm.value.destinoId;
     console.log(this.selectedDestino);
   }
 
-  changeDestino(selectedValue:string){
-    this.selectedDestino=selectedValue;
-
-
+  changeDestino(selectedValue: string) {
+    this.selectedDestino = selectedValue;
   }
 
-  changeHotel(selectedValue:string){
-    this.selectedHotel=selectedValue;
+  changeHotel(selectedValue: string) {
+    this.selectedHotel = selectedValue;
     this.getHabs(this.selectedHotel);
     console.log(this.habs);
-
   }
 
- getHabs(id: string): void {
+  getHabs(id: string): void {
     this.habService.getOrders().subscribe(array => {
       array.map(item => {
         const hab: Hab = {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
-        }
-
+        };
         if (id === hab.hotel) {
           this.habs.push(hab);
         }
@@ -180,47 +163,37 @@ export class ReservarComponent implements OnInit {
     });
   }
 
-
-
-
-
-fechaReservacion() {
-  this.checkIn = this.dateForm.value.range[0];
-  this.checkOut = this.dateForm.value.range[1];
-  this.days = (this.checkOut.getTime() - this.checkIn.getTime()) / 86400000;
-
-}
-
-addPost() {
-
-  const mov = {
-    hotelId: this.reservarForm.value.hotelId,
-    fechaLlegada: this.checkIn,
-    fechaSalida: this.checkOut,
-    hab: this.res,
-    costo: this.costoReserva,
+  fechaReservacion() {
+    this.checkIn = this.dateForm.value.range[0];
+    this.checkOut = this.dateForm.value.range[1];
+    this.days = (this.checkOut.getTime() - this.checkIn.getTime()) / 86400000;
   }
-  this.reservaService.addReserva(mov).then(item => {
-    if (this.reservas.length === 0) {
-      const itin = {
-        nombre: this.reservarForm.value.nombre,
-        apellido: this.reservarForm.value.apellido,
-        cedula: this.reservarForm.value.email,
-        telefono: this.reservarForm.value.telefono,
-        direccion: this.reservarForm.value.direccion,
-        estatus: 'Sin Pagar',
-        reserva: this.reservas,
-        costoTotal: this.costoItinerario
 
+  addPost() {
+    const mov = {
+      hotelId: this.reservarForm.value.hotelId,
+      fechaLlegada: this.checkIn,
+      fechaSalida: this.checkOut,
+      hab: this.res,
+      costo: this.costoReserva,
+    };
+    this.reservaService.addReserva(mov).then(item => {
+      if (this.reservas.length === 0) {
+        const itin = {
+          nombre: this.reservarForm.value.nombre,
+          apellido: this.reservarForm.value.apellido,
+          cedula: this.reservarForm.value.email,
+          telefono: this.reservarForm.value.telefono,
+          direccion: this.reservarForm.value.direccion,
+          estatus: 'Sin Pagar',
+          reserva: this.reservas,
+          costoTotal: this.costoItinerario
+        };
+        this.reservas.push(item.id);
       }
-      this.reservas.push(item.id);
+    });
 
-
-    }
-
-  });
-
-}
+  }
 }
 
 

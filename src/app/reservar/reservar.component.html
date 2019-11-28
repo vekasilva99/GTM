@@ -1,6 +1,6 @@
 <div class="wrapper">
 
-    <form>
+    <form [formGroup]="reservarForm">
 
         <div class="destinos" id="paso">
 
@@ -37,7 +37,7 @@
 
                         <div class="textbox">
 
-                            <select formControlName="destino">
+                            <select formControlName="tipoDestinoId">
 
                                 <option value="" selected disabled>
                                     TIPO DE DESTINO
@@ -53,16 +53,9 @@
 
                         <div class="textbox">
 
-                            <select formControlName="destino">
-
-                                <option value="" selected disabled>
-                                    ESTADO
-                                </option>
-
-                                <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
-                                    {{tipoDestino.nombre}}
-                                </option>
-
+                            <select formControlName="estadoId" class="form-control" name="filterPost3" [(ngModel)]="filterPost3">
+                                <option value="" selected disabled>ESTADO</option>
+                                <option value="{{estado.id}}"  *ngFor="let estado of estados">{{estado.nombre}}</option>
                             </select>
 
                         </div>
@@ -80,30 +73,18 @@
                 <div class="opcion">
 
                     <div class="textbox">
-<<<<<<< HEAD
-                        <select formControlName="destinoId" (change)="changeDestino($event.target.value)">
-                                <option value="" selected disabled>DESTINO</option>
-                            <option value="{{destino.id}}" *ngFor="let destino of destinos">
-                                {{destino.nombre}}</option>
-=======
 
-                        <select formControlName="destino">
+                        <select formControlName="destinoId">
                             
-                            <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos | filterHotelState:filterPost2; let i=index">
-                                {{tipoDestino.nombre}}
+                            <option value="{{destino.id}}" *ngFor="let destino of destinos | filterDestinoEstado: filterPost2; let i=index">
+                                {{destino.nombre}}
                             </option>
 
->>>>>>> 4b0f35307d598f7cf407c8e66ebcc8047392969d
                         </select>
 
                     </div>
 
                 </div>
-<<<<<<< HEAD
-                <!-- <div class="boton">
-                    <button id="itinerario-button" class="button" (click)="pasoDestino()">PASO 2</button>
-                </div> -->
-=======
 
                 <div class="boton">
 
@@ -111,7 +92,6 @@
 
                 </div>
 
->>>>>>> 4b0f35307d598f7cf407c8e66ebcc8047392969d
             </div>
 
 
