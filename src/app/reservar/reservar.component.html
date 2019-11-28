@@ -1,60 +1,117 @@
 <div class="wrapper">
-    <form [formGroup]="reservarForm">
+
+    <form>
+
         <div class="destinos" id="paso">
+
             <img src="../../assets/playa-1.png">
-            <div class="a"><span class="fa-stack fa-2x">
+
+            <div class="a">
+
+                <span class="fa-stack fa-2x">
+
                     <i class="far fa-circle fa-stack-2x" style="color: white; border: pink;"></i>
-                    <i class="fa-stack-text fa-stack-1x fa-inverse"
-                        style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;">1</i>
+                    <i class="fa-stack-text fa-stack-1x fa-inverse" style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;">1</i>
+
                 </span>
+
             </div>
+
             <div class="paso">
+
                 <h1>Destinos</h1>
 
             </div>
+
             <div class="opciones">
+
                 <div class="instruccion">
+
                     <h2>SELECCIONA LOS FILTROS</h2>
+
                 </div>
 
                 <div class="filtros">
+
                     <div class="filtros1">
 
                         <div class="textbox">
-                            <select formControlName="tipoDestinoId">
-                                <option value="" selected disabled>TIPO DE DESTINO</option>
+
+                            <select formControlName="destino">
+
+                                <option value="" selected disabled>
+                                    TIPO DE DESTINO
+                                </option>
+
                                 <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
-                                    {{tipoDestino.nombre}}</option>
+                                    {{tipoDestino.nombre}}
+                                </option>
+
                             </select>
+
                         </div>
 
                         <div class="textbox">
-                            <select formControlName="estadoId">
-                                <option value="" selected disabled>ESTADO</option>
-                                <option value="{{estado.id}}" *ngFor="let estado of estados">
-                                    {{estado.nombre}}</option>
-                            </select>
-                        </div>
 
+                            <select formControlName="destino">
+
+                                <option value="" selected disabled>
+                                    ESTADO
+                                </option>
+
+                                <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
+                                    {{tipoDestino.nombre}}
+                                </option>
+
+                            </select>
+
+                        </div>
 
                     </div>
 
                 </div>
+
                 <div class="instruccion">
+
                     <h2>SELECCIONA EL DESTINO</h2>
+
                 </div>
+
                 <div class="opcion">
+
                     <div class="textbox">
+<<<<<<< HEAD
                         <select formControlName="destinoId" (change)="changeDestino($event.target.value)">
                                 <option value="" selected disabled>DESTINO</option>
                             <option value="{{destino.id}}" *ngFor="let destino of destinos">
                                 {{destino.nombre}}</option>
+=======
+
+                        <select formControlName="destino">
+                            
+                            <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos | filterHotelState:filterPost2; let i=index">
+                                {{tipoDestino.nombre}}
+                            </option>
+
+>>>>>>> 4b0f35307d598f7cf407c8e66ebcc8047392969d
                         </select>
+
                     </div>
+
                 </div>
+<<<<<<< HEAD
                 <!-- <div class="boton">
                     <button id="itinerario-button" class="button" (click)="pasoDestino()">PASO 2</button>
                 </div> -->
+=======
+
+                <div class="boton">
+
+                    <button id="itinerario-button" class="button">ACEPTAR</button>
+
+                </div>
+
+>>>>>>> 4b0f35307d598f7cf407c8e66ebcc8047392969d
             </div>
 
 

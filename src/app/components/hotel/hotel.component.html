@@ -1,33 +1,40 @@
-<ng-container *ngIf="hotels.length > 0; then noLoading; else loading"></ng-container>
-
-<ng-template #loading>
-        <app-spinner></app-spinner>
-</ng-template>
-
-<ng-template #noLoading>
-
     <div class="wrapper">
         <app-toolbar></app-toolbar>
         <app-sidebar></app-sidebar>
         <app-lista-estados></app-lista-estados>
+
         <img class="im" src="../../assets/11.png">
+
         <h1>Alojamientos</h1>
 
         <div class="wrapper" id="c6">
             <div class="filtro">
-                <div>
 
+                <div>
+                    
                     <h3>Filtrar busqueda:</h3>
 
                     <span>Nombre: </span><input type="text" class="form-control" name="filterPost"
                         placeholder="Buscar..." [(ngModel)]="filterPost"><br>
 
-                    <span>Estado: </span><input type="text" class="form-control" name="filterPost2"
-                        placeholder="Buscar..." [(ngModel)]="filterPost2"><br>
+                    <span>Estado: </span>
+                    <select type="text" class="form-control" name="filterPost2" placeholder="Buscar..." [(ngModel)]="filterPost2">
+                        <option value="{{item.id}}" *ngFor="let item of estadosFilter">
+                            {{item.nombre}}
+                        </option>
+                    </select><br>
 
                 </div>
 
                 <div class="wrapper">
+
+                        <ng-container *ngIf="hotels.length > 0; then noLoading; else loading"></ng-container>
+
+                        <ng-template #loading>
+                                <app-spinner></app-spinner>
+                        </ng-template>
+                        
+                        <ng-template #noLoading>
 
                     <div class="wrapper-rooms"
                         *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2; let i=index">
@@ -67,9 +74,11 @@
                             </div>
                         </div>
                     </div>
+
+                </ng-template>
+
                 </div>
             </div>
         </div>
     </div>
     
-</ng-template>

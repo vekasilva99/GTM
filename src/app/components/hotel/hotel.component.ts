@@ -5,6 +5,7 @@ import { ciudad } from 'src/app/ciudad/ciudad';
 import { CiudadService } from 'src/app/Services/ciudad.service';
 import { estado } from 'src/app/estados/estado';
 import { EstadoService } from 'src/app/Services/estado.service';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-hotel',
@@ -15,9 +16,10 @@ import { EstadoService } from 'src/app/Services/estado.service';
 export class HotelComponent implements OnInit {
 
   hotels: Hotel[] = [];
-  loading: boolean = false;
+  loading = false;
   ciudades: ciudad[] = [];
   estados: estado[] = [];
+  estadosFilter: estado[] = [];
 
   constructor(private hotelService: HotelService, private ciudadService: CiudadService, private estadoService: EstadoService) {
     // this.hotels = h.hotel;
@@ -28,29 +30,34 @@ export class HotelComponent implements OnInit {
 
   ngOnInit() {
     this.loading = false;
+    this.estadoService.getOrders().subscribe(array => {
+      array.map(item => {
+        const estado: estado = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        };
+        this.estadosFilter.push(estado);
+      });
+
+    });
     this.hotelService.getOrders().subscribe(array => {
       array.map(item => {
         const hotel: Hotel = {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
-        }
-
+        };
         this.hotels.push(hotel);
         this.getCiudades(hotel.city);
         this.getEstados(hotel.state);
-
       });
       this.loading = false;
     });
-
-
   }
 
-  getEstados(id: string): void{
-   
-    this.estadoService.getEstado2(id).subscribe(array =>{
-    
-      const estado: estado ={
+  getEstados(id: string): void {
+    this.estadoService.getEstado2(id).subscribe(array => {
+      // tslint:disable-next-line: no-shadowed-variable
+      const estado: estado = {
         id: array.payload.id,
         nombre: array.payload.get('nombre'),
         imagen: array.payload.get('imagen'),
@@ -58,39 +65,22 @@ export class HotelComponent implements OnInit {
         gastronomia: array.payload.get('gastronomia'),
         cultura: array.payload.get('cultura'),
         inicio: array.payload.get('inicio'),
-      }
-      
-      
+      };
       this.estados.push(estado);
-     
-
-      
-
-
     });
-
   }
 
-  getCiudades(id: string): void{
-   
-    this.ciudadService.getCiudadSeleccionada(id).subscribe(array =>{
-    
-      const ciudad: ciudad ={
+  getCiudades(id: string): void {
+    this.ciudadService.getCiudadSeleccionada(id).subscribe(array => {
+      // tslint:disable-next-line: no-shadowed-variable
+      const ciudad: ciudad = {
         id: array.payload.id,
         nombre: array.payload.get('nombre'),
         imagen: array.payload.get('imagen'),
         estadoId: array.payload.get('estadoId'),
-      }
-      
-      
+      };
       this.ciudades.push(ciudad);
-     
-
-      
-
-
     });
-
   }
 
 }
