@@ -1,7 +1,6 @@
 // Propiedades de los Hoteles
 
 export class Hotel {
-
     id: string;
     name: string;
     imagen: string;
@@ -17,9 +16,7 @@ export class Hotel {
     destino: string;
     services: string[];
     tipoDestino: string;
-
 }
-
 export class Mes {
     disponibilidad: number[];
 }
@@ -36,6 +33,7 @@ export class Hab {
     hotel: string;
     disponibilidad: string;
 }
+// tslint:disable-next-line: class-name
 export class disp {
     id: string;
     enero: number[];

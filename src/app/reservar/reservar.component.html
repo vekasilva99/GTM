@@ -1,59 +1,104 @@
 <div class="wrapper">
+
     <form>
+
         <div class="destinos" id="paso">
+
             <img src="../../assets/playa-1.png">
-            <div class="a"><span class="fa-stack fa-2x">
+
+            <div class="a">
+
+                <span class="fa-stack fa-2x">
+
                     <i class="far fa-circle fa-stack-2x" style="color: white; border: pink;"></i>
-                    <i class="fa-stack-text fa-stack-1x fa-inverse"
-                        style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;">1</i>
+                    <i class="fa-stack-text fa-stack-1x fa-inverse" style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;">1</i>
+
                 </span>
+
             </div>
+
             <div class="paso">
+
                 <h1>Destinos</h1>
 
             </div>
+
             <div class="opciones">
+
                 <div class="instruccion">
+
                     <h2>SELECCIONA LOS FILTROS</h2>
+
                 </div>
 
                 <div class="filtros">
+
                     <div class="filtros1">
 
                         <div class="textbox">
+
                             <select formControlName="destino">
-                                <option value="" selected disabled>TIPO DE DESTINO</option>
+
+                                <option value="" selected disabled>
+                                    TIPO DE DESTINO
+                                </option>
+
                                 <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
-                                    {{tipoDestino.nombre}}</option>
+                                    {{tipoDestino.nombre}}
+                                </option>
+
                             </select>
+
                         </div>
 
                         <div class="textbox">
+
                             <select formControlName="destino">
-                                <option value="" selected disabled>ESTADO</option>
+
+                                <option value="" selected disabled>
+                                    ESTADO
+                                </option>
+
                                 <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
-                                    {{tipoDestino.nombre}}</option>
+                                    {{tipoDestino.nombre}}
+                                </option>
+
                             </select>
+
                         </div>
 
-
                     </div>
 
                 </div>
+
                 <div class="instruccion">
+
                     <h2>SELECCIONA EL DESTINO</h2>
+
                 </div>
+
                 <div class="opcion">
+
                     <div class="textbox">
+
                         <select formControlName="destino">
-                            <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
-                                {{tipoDestino.nombre}}</option>
+                            
+                            <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos | filterHotelState:filterPost2; let i=index">
+                                {{tipoDestino.nombre}}
+                            </option>
+
                         </select>
+
                     </div>
+
                 </div>
+
                 <div class="boton">
+
                     <button id="itinerario-button" class="button">ACEPTAR</button>
+
                 </div>
+
             </div>
 
 
