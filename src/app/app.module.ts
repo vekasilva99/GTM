@@ -59,7 +59,6 @@ import { AuthGuard } from './Guardian/auth.guard';
 import { CrudHabitacionComponent } from './crud-habitacion/crud-habitacion.component';
 import { AgregarHabitacionComponent } from './agregar-habitacion/agregar-habitacion.component';
 import { ModificarHabitacionComponent } from './modificar-habitacion/modificar-habitacion.component';
-
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './admin/login/login.component';
 import { NgxSpinnerModule } from 'ngx-spinner';

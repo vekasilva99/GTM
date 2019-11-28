@@ -6,11 +6,10 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
   providedIn: 'root'
 })
 export class DisponibilidadService {
+
   itemsCollection: AngularFirestoreCollection<Hab>;
   items: disp[] = [];
-  mes28: Mes = new Mes();
-  mes30: Mes = new Mes();
-  mes31: Mes = new Mes();
+
   disponibilidadEnero: number[] = [];
   disponibilidadFebrero: number[] = [];
   disponibilidadMarzo: number[] = [];
@@ -23,11 +22,13 @@ export class DisponibilidadService {
   disponibilidadNov: number[] = [];
   disponibilidadDic: number[] = [];
   disponibilidadJul: number[] = [];
+
   disp: Mes[] = [];
   disp2: disp = new disp();
 
   constructor(private db: AngularFirestore) {
     const order = this.db.collection<disp>('disponibilidades').snapshotChanges();
+    // tslint:disable-next-line: no-shadowed-variable
     order.subscribe(disp => {
       disp.forEach(item => {
         const dis: disp = {
@@ -130,16 +131,11 @@ export class DisponibilidadService {
         this.disp2.noviembre = this.disponibilidadNov;
         console.log(this.disp2.noviembre);
       }
-   
-
-
-
-
     }
   }
 
 
-  reservar(mes: number, dia: number, cant: number, numHab: number): void {
+  reservar(mes: number, dia: number, cant: number, numHab: number): boolean {
     for (let i = 0; i <= cant; i++) {
       if (mes === 0) {
         if (dia > this.disp2.enero.length) {
@@ -149,161 +145,249 @@ export class DisponibilidadService {
           if (this.disp2.enero[dia - 1] - numHab >= 0) {
             this.disp2.enero[dia - 1] = this.disp2.enero[dia - 1] - numHab;
             dia = dia + 1;
+          } else {
+            this.noSePudoReservar(mes, dia, cant, numHab, i);
+            return false;
           }
         }
       }
       if (mes === 1) {
         if (dia > this.disp2.febrero.length) {
           dia = 1;
-          mes=mes+1;
+          mes = mes + 1;
         } else {
           if (this.disp2.febrero[dia - 1] - numHab >= 0) {
             this.disp2.febrero[dia - 1] = this.disp2.febrero[dia - 1] - numHab;
-            dia=dia+1;
+            dia = dia + 1;
           }
         }
       }
       if (mes === 2) {
         if (dia > this.disp2.marzo.length) {
           dia = 1;
-          mes=mes+1;
+          mes = mes + 1;
         } else {
           if (this.disp2.marzo[dia - 1] - numHab >= 0) {
             this.disp2.marzo[dia - 1] = this.disp2.marzo[dia - 1] - numHab;
-            dia=dia+1;
+            dia = dia + 1;
           }
         }
       }
       if (mes === 3) {
         if (dia > this.disp2.abril.length) {
           dia = 1;
-          mes=mes+1;
+          mes = mes + 1;
         } else {
           if (this.disp2.abril[dia - 1] - numHab >= 0) {
             this.disp2.abril[dia - 1] = this.disp2.abril[dia - 1] - numHab;
-            dia=dia+1;
+            dia = dia + 1;
           }
         }
       }
       if (mes === 4) {
         if (dia > this.disp2.mayo.length) {
           dia = 1;
-          mes=mes+1;
+          mes = mes + 1;
         } else {
           if (this.disp2.mayo[dia - 1] - numHab >= 0) {
             this.disp2.mayo[dia - 1] = this.disp2.mayo[dia - 1] - numHab;
-            dia=dia+1;
+            dia = dia + 1;
           }
         }
       }
       if (mes === 5) {
         if (dia > this.disp2.junio.length) {
           dia = 1;
-          mes=mes+1;
+          mes = mes + 1;
         } else {
           if (this.disp2.junio[dia - 1] - numHab >= 0) {
             this.disp2.junio[dia - 1] = this.disp2.junio[dia - 1] - numHab;
-            dia=dia+1;
+            dia = dia + 1;
           }
         }
       }
       if (mes === 6) {
         if (dia > this.disp2.julio.length) {
           dia = 1;
-          mes=mes+1;
+          mes = mes + 1;
         } else {
           if (this.disp2.julio[dia - 1] - numHab >= 0) {
             this.disp2.julio[dia - 1] = this.disp2.julio[dia - 1] - numHab;
-            dia=dia+1;
+            dia = dia + 1;
           }
         }
       }
       if (mes === 7) {
         if (dia > this.disp2.agosto.length) {
           dia = 1;
-          mes=mes+1;
+          mes = mes + 1;
         } else {
           if (this.disp2.agosto[dia - 1] - numHab >= 0) {
             this.disp2.agosto[dia - 1] = this.disp2.agosto[dia - 1] - numHab;
-            dia=dia+1;
+            dia = dia + 1;
           }
         }
       }
       if (mes === 8) {
         if (dia > this.disp2.septiembre.length) {
           dia = 1;
-          mes=mes+1;
+          mes = mes + 1;
         } else {
           if (this.disp2.septiembre[dia - 1] - numHab >= 0) {
             this.disp2.septiembre[dia - 1] = this.disp2.septiembre[dia - 1] - numHab;
-            dia=dia+1;
+            dia = dia + 1;
           }
         }
       }
       if (mes === 9) {
         if (dia > this.disp2.octubre.length) {
           dia = 1;
-          mes=mes+1;
+          mes = mes + 1;
         } else {
           if (this.disp2.octubre[dia - 1] - numHab >= 0) {
             this.disp2.octubre[dia - 1] = this.disp2.octubre[dia - 1] - numHab;
-            dia=dia+1;
+            dia = dia + 1;
           }
         }
       }
       if (mes === 10) {
         if (dia > this.disp2.noviembre.length) {
           dia = 1;
-          mes=mes+1;
+          mes = mes + 1;
         } else {
           if (this.disp2.noviembre[dia - 1] - numHab >= 0) {
             this.disp2.noviembre[dia - 1] = this.disp2.noviembre[dia - 1] - numHab;
-            dia=dia+1;
+            dia = dia + 1;
           }
         }
       }
       if (mes === 11) {
         if (dia > this.disp2.diciembre.length) {
           dia = 1;
-          mes=0;
+          mes = 0;
         } else {
           if (this.disp2.diciembre[dia - 1] - numHab >= 0) {
             this.disp2.diciembre[dia - 1] = this.disp2.diciembre[dia - 1] - numHab;
-            dia=dia+1;
+            dia = dia + 1;
           }
         }
       }
-
-
-      //     } else {
-      //       console.log(i);
-      //       for (let j = i; j > 0; j--) {
-      //         console.log(dia);
-      //         if (dia < 1) {
-      //           mes = mes - 1;
-      //           dia = this.disp[mes].disponibilidad.length;
-      //           if (mes === 0) {
-      //             mes = 11;
-      //           } else {
-      //             this.disp[mes].disponibilidad[dia - 1] = this.disp[mes].disponibilidad[dia - 1] + numHab;
-      //             dia = dia - 1;
-      //           }
-      //         } else {
-      //           this.disp[mes].disponibilidad[dia - 1] = this.disp[mes].disponibilidad[dia - 1] + numHab;
-      //           dia = dia - 1;
-      //         }
-      //       }
-      //       console.log(this.disp);
-
-      //     }
-      //   }
-
-
-      // }
-
-
     }
     console.log(this.disp2);
+  }
+
+  noSePudoReservar(mes: number, dia: number, cant: number, numHab: number, valor: number): void {
+
+    for (let i = valor; valor > 0; i--) {
+      if (mes === 0) {
+        if (dia < 1) {
+          mes = 11;
+          dia = 31;
+        } else {
+          this.disp2.enero[dia - 1] = this.disp2.enero[dia - 1] + numHab;
+          dia = dia - 1;
+        }
+      }
+      if (mes === 1) {
+        if (dia < 1) {
+          mes = mes - 1;
+          dia = 31;
+        } else {
+            this.disp2.febrero[dia - 1] = this.disp2.febrero[dia - 1] - numHab;
+            dia = dia - 1;
+          }
+      }
+      if (mes === 2) {
+        if (dia < 1) {
+          mes = mes - 1;
+          dia = 30;
+        } else {
+            this.disp2.marzo[dia - 1] = this.disp2.marzo[dia - 1] - numHab;
+            dia = dia - 1;
+        }
+      }
+      if (mes === 3) {
+        if (dia < 1) {
+          mes = mes - 1;
+          dia = 31;
+        } else {
+            this.disp2.abril[dia - 1] = this.disp2.abril[dia - 1] - numHab;
+            dia = dia - 1;
+        }
+      }
+      if (mes === 4) {
+        if (dia < 1) {
+          mes = mes - 1;
+          dia = 30;
+        } else {
+            this.disp2.mayo[dia - 1] = this.disp2.mayo[dia - 1] - numHab;
+            dia = dia - 1;
+        }
+      }
+      if (mes === 5) {
+        if (dia < 1) {
+          mes = mes - 1;
+          dia = 31;
+        } else {
+            this.disp2.junio[dia - 1] = this.disp2.junio[dia - 1] - numHab;
+            dia = dia - 1;
+        }
+      }
+      if (mes === 6) {
+        if (dia < 1) {
+          mes = mes - 1;
+          dia = 30;
+        } else {
+            this.disp2.julio[dia - 1] = this.disp2.julio[dia - 1] - numHab;
+            dia = dia - 1;
+        }
+      }
+      if (mes === 7) {
+        if (dia < 1) {
+          mes = mes - 1;
+          dia = 31;
+        } else {
+            this.disp2.agosto[dia - 1] = this.disp2.agosto[dia - 1] - numHab;
+            dia = dia - 1;
+        }
+      }
+      if (mes === 8) {
+        if (dia < 1) {
+          mes = mes - 1;
+          dia = 31;
+        } else {
+            this.disp2.septiembre[dia - 1] = this.disp2.septiembre[dia - 1] - numHab;
+            dia = dia - 1;
+        }
+      }
+      if (mes === 9) {
+        if (dia < 1) {
+          mes = mes - 1;
+          dia = 30;
+        } else {
+            this.disp2.octubre[dia - 1] = this.disp2.octubre[dia - 1] - numHab;
+            dia = dia - 1;
+        }
+      }
+      if (mes === 10) {
+        if (dia < 1) {
+          mes = mes - 1;
+          dia = 31;
+        } else {
+            this.disp2.noviembre[dia - 1] = this.disp2.noviembre[dia - 1] - numHab;
+            dia = dia - 1;
+        }
+      }
+      if (mes === 11) {
+        if (dia < 1) {
+          mes = mes - 1;
+          dia = 30;
+        } else {
+            this.disp2.diciembre[dia - 1] = this.disp2.diciembre[dia - 1] - numHab;
+            dia = dia - 1;
+        }
+      }
+    }
   }
 
   getDisponibilidad(id: string) {
