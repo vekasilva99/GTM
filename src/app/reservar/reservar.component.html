@@ -73,6 +73,7 @@
                 <div class="opcion">
 
                     <div class="textbox">
+<<<<<<< HEAD
 
                         <select formControlName="destinoId">
                             
@@ -80,11 +81,18 @@
                                 {{destino.nombre}}
                             </option>
 
+=======
+                        <select formControlName="destinoId" (change)="changeDestino($event.target.value)">
+                                <option value="" selected disabled>DESTINO</option>
+                            <option value="{{destino.id}}" *ngFor="let destino of destinos">
+                                {{destino.nombre}}</option>
+>>>>>>> 49a9321b222026388080b2803e63aa3a144622e6
                         </select>
 
                     </div>
 
                 </div>
+<<<<<<< HEAD
 
                 <div class="boton">
 
@@ -92,6 +100,11 @@
 
                 </div>
 
+=======
+                <!-- <div class="boton">
+                    <button id="itinerario-button" class="button" (click)="pasoDestino()">PASO 2</button>
+                </div> -->
+>>>>>>> 49a9321b222026388080b2803e63aa3a144622e6
             </div>
 
 
