@@ -136,7 +136,6 @@ export class CustomHammerConfig extends HammerGestureConfig {
    CrudHabitacionComponent,
    AgregarHabitacionComponent,
    ModificarHabitacionComponent,
-   
 
   AppComponent,
   ToolbarComponent,
