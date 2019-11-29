@@ -3,11 +3,14 @@
 <app-lista-estados></app-lista-estados>
 <div class="wrapper">
 
+
+
+    <img src="../../assets/playa-1.png" style="position: absolute; height: 150vh; width: 100vw;">
     <form [formGroup]="reservarForm">
 
         <div class="destinos" id="paso">
 
-            <img src="../../assets/playa-1.png">
+            
 
             <div class="a">
 
@@ -42,8 +45,8 @@
                         <div class="textbox">
 
                             <select formControlName="tipoDestinoId" class="form-control" name="filterPost4" [(ngModel)]="filterPost4">
-                                <option value="" selected disabled>TIPO DE DESTINO</option>
-                                <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">{{tipoDestino.nombre}}</option>
+                                <option value="" selected disabled id="cubo">TIPO DE DESTINO</option>
+                                <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos" id="cubo">{{tipoDestino.nombre}}</option>
                             </select>
 
                         </div>
