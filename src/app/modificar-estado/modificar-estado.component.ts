@@ -59,12 +59,6 @@ export class ModificarEstadoComponent implements OnInit {
 
     });
 
-
-
-
-
-
-
   }
 
   editEstado(estado: estado) {
