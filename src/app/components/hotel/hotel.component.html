@@ -54,11 +54,14 @@
         <div class="filtro">
             <h1>Filtrar Busqueda: </h1>
             <span class="tag">NOMBRE: </span><input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost"><br>
-            <span class="tag">ESTADO: </span><input type="text" class="form-control" name="filterPost2" placeholder="Buscar..." [(ngModel)]="filterPost2"><br>
+            <span class="tag">ESTADO: </span>
+            <select   name="filterPost2" [(ngModel)]="filterPost2">
+                    <option value="{{estado.id}}"  *ngFor="let estado of estadosFilter">{{estado.nombre}}</option>
+            </select><br>
         </div>
     </div>
 
-    <div id="c6" *ngFor="let hotel of hotels| filterHotelName:filterPost | filterHotelState:filterPost2;let i=index ">
+    <div id="c6" *ngFor="let hotel of hotels| filterHotelName: filterPost | filterHotelState: filterPost2; let i=index ">
         <div class="grid">
             <div class="a">
                 <app-hotel-slider [hotel]=hotel></app-hotel-slider>

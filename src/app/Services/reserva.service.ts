@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { reserva } from '../reservar/reserva';
+import { JsonpInterceptor } from '@angular/common/http';
 
 
 @Injectable({
@@ -40,6 +41,19 @@ export class ReservaService {
 
   deleteReserva(docId: string){
     return this.db.collection('reservas').doc(docId).delete();
+  }
+
+  addReservaLocal(item: reserva){
+    let items: reserva[]=[];
+    if(localStorage.getItem('items')===null){
+      items.push(item);
+      localStorage.setItem('items',JSON.stringify(items));
+    }else{
+      items=JSON.parse(localStorage.getItem('items'));
+      items.push(item);
+      localStorage.setItem('items', JSON.stringify(items));
+    
+    }
   }
 
 
