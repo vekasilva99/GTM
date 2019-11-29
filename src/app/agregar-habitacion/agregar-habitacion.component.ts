@@ -128,8 +128,8 @@ export class AgregarHabitacionComponent implements OnInit {
       };
 
       this.habService.addHab(mov);
-      console.log(this.disponibilidadService.disp2);
-      this.disponibilidadService.reservar(1, 26, 5, 4);
+     
+      
       const u = {
         enero: this.disponibilidadService.disp2.enero,
         febrero: this.disponibilidadService.disp2.febrero,

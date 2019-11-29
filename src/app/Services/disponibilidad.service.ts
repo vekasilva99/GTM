@@ -312,8 +312,10 @@ export class DisponibilidadService {
         }
       }
     }
+
+
     return true;
-   
+
   }
 
   noSePudoReservar(mes: number, dia: number, cant: number, numHab: number, valor: number): void {
