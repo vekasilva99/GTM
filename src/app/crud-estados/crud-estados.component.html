@@ -1,32 +1,32 @@
-    <div class="wrapper">
-        <app-toolbar-admin></app-toolbar-admin>
-        <app-sidebar-admin></app-sidebar-admin>
-        <app-agregar-estado></app-agregar-estado>
-        <div class="estados">
-            <div class="margen"></div>
-            <div class="lista">
-                <div class="margen">
-                    <h1>ESTADOS</h1>
-                </div>
-                <div class="data"><a (click)="agregarService.toggleAgregar()" class="log"
-                        style="color: white;">AGREGAR</a>
-                    <div class="textbox1">
-                        <div class="nombre">
-                            <h2>NOMBRE</h2>
-                        </div>
-                        <div class="id">
-                            <h2>ID</h2>
-                        </div>
-                        <div class="tools"></div>
+<div class="wrapper">
+    <app-toolbar-admin></app-toolbar-admin>
+    <app-sidebar-admin></app-sidebar-admin>
+    <app-agregar-estado></app-agregar-estado>
+    <br><br><br>
+    <div class="estados">
+        <div class="margen"></div>
+        <div class="lista">
+            <div class="margen">
+                <h1>ESTADOS</h1>
+            </div>
+            <div class="data"><a (click)="agregarService.toggleAgregar()" class="log" style="color: white;">AGREGAR</a>
+                <div class="textbox1">
+                    <div class="nombre">
+                        <h2>NOMBRE</h2>
                     </div>
+                    <div class="id">
+                        <h2>ID</h2>
+                    </div>
+                    <div class="tools"></div>
+                </div>
 
-<ng-container *ngIf="estados.length > 0;  then noLoading; else loading"></ng-container>
+                <ng-container *ngIf="estados.length > 0;  then noLoading; else loading"></ng-container>
 
-<ng-template #loading>
-        <app-spinner></app-spinner>  
-</ng-template>
+                <ng-template #loading>
+                    <app-spinner></app-spinner>
+                </ng-template>
 
-<ng-template #noLoading>
+                <ng-template #noLoading>
                     <div class="list">
                         <div class="textbox" *ngFor="let estado of estados">
                             <div class="nombre">
@@ -35,16 +35,17 @@
                             <div class="id">
                                 <h3>{{estado.id}}</h3>
                             </div>
-                            <div class="tools"><i routerLink="/adminHome/crudEstados/edit/{{estado.id}}" class="fas fa-pen" style="color: #002e64"></i>
+                            <div class="tools"><i routerLink="/adminHome/crudEstados/edit/{{estado.id}}"
+                                    class="fas fa-pen" style="color: #002e64"></i>
                                 <i (click)="deleteEstado(estado.id)" class="fas fa-times" id="close"
                                     style="color: #002e64; margin-left: 1vw; size: 1.8vw;"></i></div>
                         </div>
                     </div>
-</ng-template>
-                </div>
-                <div class="margen"></div>
+                </ng-template>
             </div>
             <div class="margen"></div>
         </div>
-
+        <div class="margen"></div>
     </div>
+
+</div>

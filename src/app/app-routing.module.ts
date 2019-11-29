@@ -53,7 +53,6 @@ children: [
   {path: 'crudHabitacion/edit/:id', component: ModificarHabitacionComponent},
 ]},
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

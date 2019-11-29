@@ -14,14 +14,15 @@ import { ciudad } from '../ciudad/ciudad';
   styleUrls: ['./crud-hoteles.component.scss']
 })
 export class CrudHotelesComponent implements OnInit {
-  hoteles: Hotel[]=[];
-  loading: boolean = false;
-  estados: estado[]=[];
-  ciudades:ciudad[]=[];
+  hoteles: Hotel[] = [];
+  loading = false;
+  estados: estado[] = [];
+  ciudades: ciudad[] = [];
 
-  constructor(public agregarService: AgregarService, private hotelService: HotelService, private estadoService:EstadoService, private ciudadService:CiudadService, private destinoService:DestinoService) {
-   
-   }
+  // tslint:disable-next-line: max-line-length
+  constructor(public agregarService: AgregarService, private hotelService: HotelService, private estadoService: EstadoService, private ciudadService: CiudadService, private destinoService: DestinoService) {
+
+  }
 
   ngOnInit() {
     this.loading = false;
@@ -30,75 +31,44 @@ export class CrudHotelesComponent implements OnInit {
         const hotel: Hotel = {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
-        }
-
-
+        };
         this.hoteles.push(hotel);
         this.getEstados(hotel.state);
         this.getCiudades(hotel.city);
-
-
-
       });
       this.loading = false;
     });
- 
-    
-    
-
-   
   }
 
-  getEstados(id: string): void{
-   
-      this.estadoService.getEstado2(id).subscribe(array =>{
-      
-        const estado: estado ={
-          id: array.payload.id,
-          nombre: array.payload.get('nombre'),
-          imagen: array.payload.get('imagen'),
-          img: array.payload.get('img'),
-          gastronomia: array.payload.get('gastronomia'),
-          cultura: array.payload.get('cultura'),
-          inicio: array.payload.get('inicio'),
-        }
-        
-        
-        this.estados.push(estado);
-       
-  
-        
+  getEstados(id: string): void {
 
-  
-      });
+    this.estadoService.getEstado2(id).subscribe(array => {
+      // tslint:disable-next-line: no-shadowed-variable
+      const estado: estado = {
+        id: array.payload.id,
+        nombre: array.payload.get('nombre'),
+        imagen: array.payload.get('imagen'),
+        img: array.payload.get('img'),
+        gastronomia: array.payload.get('gastronomia'),
+        cultura: array.payload.get('cultura'),
+        inicio: array.payload.get('inicio'),
+      };
+      this.estados.push(estado);
+    });
+  }
 
-    }
+  getCiudades(id: string): void {
 
-    getCiudades(id: string): void{
-   
-      this.ciudadService.getCiudadSeleccionada(id).subscribe(array =>{
-      
-        const ciudad: ciudad ={
-          id: array.payload.id,
-          nombre: array.payload.get('nombre'),
-          imagen: array.payload.get('imagen'),
-          estadoId: array.payload.get('estadoId'),
-        }
-        
-        
-        this.ciudades.push(ciudad);
-       
-  
-        
-
-  
-      });
-
-    }
-
-
-  
-
-  
+    this.ciudadService.getCiudadSeleccionada(id).subscribe(array => {
+      // tslint:disable-next-line: no-shadowed-variable
+      const ciudad: ciudad = {
+        id: array.payload.id,
+        nombre: array.payload.get('nombre'),
+        imagen: array.payload.get('imagen'),
+        estadoId: array.payload.get('estadoId'),
+      };
+      this.ciudades.push(ciudad);
+    });
+  }
 
 }

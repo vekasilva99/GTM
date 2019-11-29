@@ -122,7 +122,7 @@
             </section>
         </div>
 
-        <button type="submit" class="btn" value="AGREGAR" [disabled]="!destinoForm.valid" id="boton" (click)="addPost()">AGREGAR DESTINO</button>
+        <button type="submit" class="btn" value="AGREGAR" [disabled]="!destinoForm.valid" (click)="agregarService.toggleAgregar()" id="boton" (click)="addPost()">AGREGAR DESTINO</button>
     </form>
 
 </div>

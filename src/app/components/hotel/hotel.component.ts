@@ -22,7 +22,7 @@ export class HotelComponent implements OnInit {
   estadosFilter: estado[] = [];
 
   constructor(private hotelService: HotelService, private ciudadService: CiudadService, private estadoService: EstadoService) {
-    // this.hotels = h.hotel;
+
   }
 
   filterPost = '';  // Utilizado para que funcione el filtro de busqueda por Nombre.
@@ -32,7 +32,6 @@ export class HotelComponent implements OnInit {
     this.loading = false;
     this.estadoService.getOrders().subscribe(array => {
       array.map(item => {
-        // tslint:disable-next-line: no-shadowed-variable
         const estado: estado = {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
@@ -41,6 +40,7 @@ export class HotelComponent implements OnInit {
       });
 
     });
+
     this.hotelService.getOrders().subscribe(array => {
       array.map(item => {
         const hotel: Hotel = {
@@ -57,7 +57,6 @@ export class HotelComponent implements OnInit {
 
   getEstados(id: string): void {
     this.estadoService.getEstado2(id).subscribe(array => {
-      // tslint:disable-next-line: no-shadowed-variable
       const estado: estado = {
         id: array.payload.id,
         nombre: array.payload.get('nombre'),
@@ -73,7 +72,6 @@ export class HotelComponent implements OnInit {
 
   getCiudades(id: string): void {
     this.ciudadService.getCiudadSeleccionada(id).subscribe(array => {
-      // tslint:disable-next-line: no-shadowed-variable
       const ciudad: ciudad = {
         id: array.payload.id,
         nombre: array.payload.get('nombre'),

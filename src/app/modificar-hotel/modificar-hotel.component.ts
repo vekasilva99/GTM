@@ -95,8 +95,9 @@ export class ModificarHotelComponent implements OnInit {
       address: [null, Validators.required],
       fullDay: [null, Validators.required],
       destiny: [null, Validators.required],
+      tipoDestiny: [null, Validators.required],
       services: [null, Validators.required],
-      fullDayPrice: [null, Validators.required],
+      // fullDayPrice: [null, Validators.required],
       hotelPictures: this.fb.array([]),
     });
 
@@ -121,8 +122,8 @@ export class ModificarHotelComponent implements OnInit {
         address: array.payload.get('address'),
         city: array.payload.get('city'),
         fullDay: array.payload.get('fullDay'),
-        destino: array.payload.get('destiny'),
-        tipoDestino:array.payload.get('tipoDestiny'),
+        destino: array.payload.get('destino'),
+        tipoDestino:array.payload.get('tipoDestino'),
         services: array.payload.get('services'),
         fullDayPrice: array.payload.get('fullDayPrice'),
         hotelPictures: array.payload.get('hotelPictures'),
@@ -152,7 +153,7 @@ export class ModificarHotelComponent implements OnInit {
       destiny: hotel.destino,
       tipoDestiny: hotel.tipoDestino,
       services: hotel.services,
-      fullDayPrice: hotel.fullDayPrice,
+      // fullDayPrice: hotel.fullDayPrice,
 
     });
     console.log(hotel);
@@ -241,12 +242,12 @@ export class ModificarHotelComponent implements OnInit {
       latitud: this.hotelForm.value.latitud,
       state: this.hotelForm.value.state,
       city: this.hotelForm.value.city,
-      destiny: this.hotelForm.value.destiny,
-      tipoDestiny:this.hotelForm.value.tipoDestiny,
+      destino: this.hotelForm.value.destiny,
+      tipoDestino:this.hotelForm.value.tipoDestiny,
       address: this.hotelForm.value.address,
       fullDay: this.hotelForm.value.fullDay,
       services: this.selected,
-      // fullDayPrice: this.hotelForm.value.fullDayPrice,
+      fullDayPrice: 56,
       hotelPictures: this.hotelForm.value.hotelPictures,
     };
 

@@ -89,7 +89,7 @@ export class AgregarHotelComponent implements OnInit {
       destiny: [null, Validators.required],
       tipoDestiny: [null, Validators.required],
       services: [null, Validators.required],
-      fullDayPrice: [null, Validators.required],
+      // fullDayPrice: [null, Validators.required],
       hotelPictures: this.fb.array([]),
     });
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AgregarService } from '../Services/agregar.service';
-import {destino, tipoDestino} from '../destino/destino';
-import {DestinoService} from '../Services/destino.service';
-import {estado} from '../estados/estado'
+import { destino, tipoDestino } from '../destino/destino';
+import { DestinoService } from '../Services/destino.service';
+import { estado } from '../estados/estado'
 import { ciudad } from '../ciudad/ciudad';
 import { EstadoService } from '../Services/estado.service';
 import { CiudadService } from '../Services/ciudad.service';
@@ -14,13 +14,13 @@ import { TipoDestinoService } from '../Services/tipo-destino.service';
   styleUrls: ['./crud-destinos.component.scss']
 })
 export class CrudDestinosComponent implements OnInit {
-  destinos: destino[]=[];
+  destinos: destino[] = [];
   loading: boolean = false;
-  tipoDestinos: tipoDestino[]=[];
-  estados:estado[]=[];
-  ciudades:ciudad[]=[];
-  
-  constructor(public agregarService: AgregarService, private destinoService: DestinoService, private estadoService:EstadoService, private ciudadService:CiudadService, private tipoDestinoService:TipoDestinoService) { }
+  tipoDestinos: tipoDestino[] = [];
+  estados: estado[] = [];
+  ciudades: ciudad[] = [];
+
+  constructor(public agregarService: AgregarService, private destinoService: DestinoService, private estadoService: EstadoService, private ciudadService: CiudadService, private tipoDestinoService: TipoDestinoService) { }
 
   ngOnInit() {
     // this.destinos=this.destinoService.getOrders();
@@ -31,31 +31,26 @@ export class CrudDestinosComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         }
-
         this.destinos.push(destino);
         this.getEstados(destino.estadoId);
         this.getCiudades(destino.ciudad);
         this.getTipoDeDestino(destino.tipoDestinoId);
-        
-
       });
       this.loading = false;
     });
-console.log(this.estados);
-   
-    
+    console.log(this.estados);
   }
 
-  
-  deleteDestino(docId:string){
+
+  deleteDestino(docId: string) {
     this.destinoService.deleteDestino(docId);
   }
 
-  getEstados(id: string): void{
-   
-    this.estadoService.getEstado2(id).subscribe(array =>{
-    
-      const estado: estado ={
+  getEstados(id: string): void {
+
+    this.estadoService.getEstado2(id).subscribe(array => {
+
+      const estado: estado = {
         id: array.payload.id,
         nombre: array.payload.get('nombre'),
         imagen: array.payload.get('imagen'),
@@ -64,58 +59,34 @@ console.log(this.estados);
         cultura: array.payload.get('cultura'),
         inicio: array.payload.get('inicio'),
       }
-      
-      
       this.estados.push(estado);
-     
-
-      
-
-
     });
-
   }
 
-  getCiudades(id: string): void{
-   
-    this.ciudadService.getCiudadSeleccionada(id).subscribe(array =>{
-    
-      const ciudad: ciudad ={
+  getCiudades(id: string): void {
+
+    this.ciudadService.getCiudadSeleccionada(id).subscribe(array => {
+
+      const ciudad: ciudad = {
         id: array.payload.id,
         nombre: array.payload.get('nombre'),
         imagen: array.payload.get('imagen'),
         estadoId: array.payload.get('estadoId'),
       }
-      
-      
       this.ciudades.push(ciudad);
-     
-
-      
-
-
     });
 
   }
 
-  getTipoDeDestino(id: string): void{
-   
-    this.tipoDestinoService.getTipoDestino(id).subscribe(array =>{
-    
-      const tipoDestino: tipoDestino ={
+  getTipoDeDestino(id: string): void {
+
+    this.tipoDestinoService.getTipoDestino(id).subscribe(array => {
+
+      const tipoDestino: tipoDestino = {
         id: array.payload.id,
         nombre: array.payload.get('nombre'),
       }
-      
-      
       this.tipoDestinos.push(tipoDestino);
-     
-
-      
-
-
     });
-
   }
-
 }

@@ -28,7 +28,7 @@ export class AgregarHabitacionComponent implements OnInit {
   id: string;
 
   constructor(private fb: FormBuilder, public agregarService: AgregarService, private habService: HabitacionService,
-              private hotelService: HotelService, private disponibilidadService: DisponibilidadService) { }
+    private hotelService: HotelService, private disponibilidadService: DisponibilidadService) { }
 
   ngOnInit() {
 
@@ -93,8 +93,6 @@ export class AgregarHabitacionComponent implements OnInit {
   }
 
   addPost() {
-    // this.habService.disponibilidad1(this.habForm.value.numHab);
-    // this.disp = this.habService.disp;
     this.disponibilidadService.disponibilidad1(this.habForm.value.numHab);
 
     const d = {
@@ -128,8 +126,8 @@ export class AgregarHabitacionComponent implements OnInit {
       };
 
       this.habService.addHab(mov);
-     
-      
+
+
       const u = {
         enero: this.disponibilidadService.disp2.enero,
         febrero: this.disponibilidadService.disp2.febrero,

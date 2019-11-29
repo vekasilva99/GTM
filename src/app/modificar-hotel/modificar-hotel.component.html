@@ -104,7 +104,7 @@
                     <button type="button" id="add" (click)="addHotelPicture()"><i class="fas fa-plus-circle"></i></button>
                 </section>
             </div>
-            <button type="submit" class="btn" value="AGREGAR" (click)="addPost()" id="boton" [routerLink]="['/adminHome/crudHoteles']" routerLinkActive="router-link-active" >MODIFICAR HOTEL</button>
+            <button type="submit" class="btn" value="AGREGAR" [disabled]="!hotelForm.valid" (click)="addPost()" id="boton" [routerLink]="['/adminHome/crudHoteles']" routerLinkActive="router-link-active" >MODIFICAR HOTEL</button>
         </form>
     
     </div>

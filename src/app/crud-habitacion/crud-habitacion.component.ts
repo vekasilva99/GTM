@@ -11,43 +11,30 @@ import { DisponibilidadService } from '../Services/disponibilidad.service';
   styleUrls: ['./crud-habitacion.component.scss']
 })
 export class CrudHabitacionComponent implements OnInit {
-  habs: Hab[]=[];
-  hoteles: Hotel[]=[];
-  loading: boolean = false;
-  constructor(public agregarService: AgregarService, private hotelService: HotelService, private habService:HabitacionService, private disService:DisponibilidadService) { }
+  habs: Hab[] = [];
+  hoteles: Hotel[] = [];
+  loading = false;
+  // tslint:disable-next-line: max-line-length
+  constructor(public agregarService: AgregarService, private hotelService: HotelService, private habService: HabitacionService, private disService: DisponibilidadService) { }
 
   ngOnInit() {
-    // this.habService.disponibilidad1(5);
-    // this.habService.reservar(1,26,5,5);
-    // this.disService.disponibilidad1(5);
-    // this.disService.reservar(11,28,5,1);
-
     this.loading = false;
     this.habService.getOrders().subscribe(array => {
       array.map(item => {
         const hab: Hab = {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
-        }
-
-
+        };
         this.habs.push(hab);
         this.getHoteles(hab.hotel);
-        
-
-
-
       });
       this.loading = false;
     });
- 
   }
 
-  getHoteles(id: string): void{
-   
-    this.hotelService.getHotel2(id).subscribe(array =>{
-    
-      const hotel: Hotel ={
+  getHoteles(id: string): void {
+    this.hotelService.getHotel2(id).subscribe(array => {
+      const hotel: Hotel = {
         id: array.payload.id,
         name: array.payload.get('name'),
         imagen: array.payload.get('imagen'),
@@ -63,17 +50,8 @@ export class CrudHabitacionComponent implements OnInit {
         destino: array.payload.get('destino'),
         services: array.payload.get('services'),
         tipoDestino: array.payload.get('tipoDestino'),
-      }
-      
-      
+      };
       this.hoteles.push(hotel);
-     
-
-      
-
-
     });
-
   }
-
 }

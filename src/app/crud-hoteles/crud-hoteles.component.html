@@ -1,43 +1,66 @@
-
-
 <div class="wrapper">
-        <app-toolbar-admin></app-toolbar-admin>
-        <app-sidebar-admin></app-sidebar-admin>
-        <app-agregar-hotel></app-agregar-hotel>
-        <div class="estados">
-            <div class="margen"></div>
-            <div class="lista">
-                <div class="margen"><h1>ALOJAMIENTOS</h1></div>
-                <div class="data"><a (click)="agregarService.toggleAgregar()" class="log" style="color: white; margin-bottom: 3vw;">AGREGAR</a>
-                    <div class="textbox1" >
-                            <div class="nombre"><h2>NOMBRE</h2></div>
-                            <div class="id"><h2>ESTRELLAS</h2></div>
-                            <div class="id"><h2>ESTADO</h2></div>
-                            <div class="id"><h2>CIUDAD</h2></div>
-                            <div class="id"><h2>HABITACIONES</h2></div>
-                            <div class="tools"></div>
-                        </div>
+    <app-toolbar-admin></app-toolbar-admin>
+    <app-sidebar-admin></app-sidebar-admin>
+    <app-agregar-hotel></app-agregar-hotel>
+    <br><br><br>
+    <div class="estados">
+        <div class="margen"></div>
+        <div class="lista">
+            <div class="margen">
+                <h1>ALOJAMIENTOS</h1>
+            </div>
+            <div class="data"><a (click)="agregarService.toggleAgregar()" class="log"
+                    style="color: white; margin-bottom: 3vw;">AGREGAR</a>
+                <div class="textbox1">
+                    <div class="nombre">
+                        <h2>NOMBRE</h2>
+                    </div>
+                    <div class="id">
+                        <h2>ESTRELLAS</h2>
+                    </div>
+                    <div class="id">
+                        <h2>ESTADO</h2>
+                    </div>
+                    <div class="id">
+                        <h2>CIUDAD</h2>
+                    </div>
+                    <div class="id">
+                        <h2>HABITACIONES</h2>
+                    </div>
+                    <div class="tools"></div>
+                </div>
 <ng-container *ngIf="hoteles.length > 0;  then noLoading; else loading"></ng-container>
 
 <ng-template #loading>
-        <app-spinner></app-spinner>      
+    <app-spinner></app-spinner>
 </ng-template>
 
-<ng-template #noLoading>
+                <ng-template #noLoading>
                     <div class="textbox" *ngFor="let hotel of hoteles;let i=index">
-                        <div class="nombre"><h3>{{hotel.name}}</h3></div>
-                        <div class="id"><h3>{{hotel.stars.length}}</h3></div>
-                        <div class="id"><h3>{{estados[i]?.nombre}}</h3></div>
-                        <div class="id"><h3>{{ciudades[i]?.nombre}}</h3></div>
-                        <div class="id"><h3>{{hotel.habs.length}}</h3></div>
-                        <div class="tools"><i routerLink="/adminHome/crudHoteles/edit/{{hotel.id}}" class="fas fa-pen" id="close" ></i>
-                        <i (click)="deleteHotel(hotel.id)" class="fas fa-times" id="close"></i></div>
+                        <div class="nombre">
+                            <h3>{{hotel.name}}</h3>
+                        </div>
+                        <div class="id">
+                            <h3>{{hotel.stars.length}}</h3>
+                        </div>
+                        <div class="id">
+                            <h3>{{estados[i]?.nombre}}</h3>
+                        </div>
+                        <div class="id">
+                            <h3>{{ciudades[i]?.nombre}}</h3>
+                        </div>
+                        <div class="id">
+                            <!-- <h3>{{hotel.habs | json}}</h3> -->
+                        </div>
+                        <div class="tools"><i routerLink="/adminHome/crudHoteles/edit/{{hotel.id}}" class="fas fa-pen"
+                                id="close"></i>
+                            <i (click)="deleteHotel(hotel.id)" class="fas fa-times" id="close"></i></div>
                     </div>
 </ng-template>
-                </div>
-                <div class="margen"></div>
             </div>
             <div class="margen"></div>
         </div>
-        
-        </div>
+        <div class="margen"></div>
+    </div>
+
+</div>

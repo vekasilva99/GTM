@@ -19,7 +19,6 @@ import { EstadoDetailsComponent } from './estado-details/estado-details.componen
 import { HomeComponent } from '../app/Principal/home/home.component';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { BienvenidoComponent } from './bienvenido/bienvenido.component';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { HotelSliderComponent } from './hotel-slider/hotel-slider.component';
 import { ListaEstadosComponent } from './lista-estados/lista-estados.component';
@@ -107,7 +106,6 @@ export class CustomHammerConfig extends HammerGestureConfig {
    HomeComponent,
    HotelComponent,
    AdminHomeComponent,
-   BienvenidoComponent,
    HotelSliderComponent,
    ListaEstadosComponent,
    HotelDetailsComponent,
@@ -154,7 +152,6 @@ export class CustomHammerConfig extends HammerGestureConfig {
   HomeComponent,
   HotelComponent,
   AdminHomeComponent,
-  BienvenidoComponent,
   HotelSliderComponent,
   ListaEstadosComponent,
   HotelDetailsComponent,
@@ -184,10 +181,10 @@ export class CustomHammerConfig extends HammerGestureConfig {
   DestinosDetailsComponent,
   LoginComponent,
   SpinnerComponent,
-  Filter3Pipe,
   AutoEmailComponent,
   PaymeComponent,
   ItinerarioComponent,
+  Filter3Pipe,
   Filter4Pipe
   ],
 
