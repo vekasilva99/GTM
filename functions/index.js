@@ -1,29 +1,30 @@
 const functions = require('firebase-functions');
-const admin = require ('firebase-admin');
+const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
 
 admin.initializeApp()
 require('dotenv').config()
 
-let authData = nodemailer.createTransport({
+let authData= nodemailer.createTransport({
     service: 'gmail',
-    auth:{
-        user: 'tuturoluis06@gmail.com',
-        pass: 'tuturoluis'
+    auth: {
+        user: 'guacamayatours2020@gmail.com',
+        pass: 'anvorguesa'
     }
 });
 
-exports.sendEmailNotification = functions.firestore.document('submissions/{docId}')
-.onCreate((snap, ctx)=>{
+exports.sendEmailNotification=functions.firestore.document('submissions/{docId}')
+.onCreate((snap,ctx)=>{
 
-    const data = snap.data();
-    
+    const data=snap.data();
+    //info.truly@makethatapp.com
     authData.sendMail({
-        from: 'info.truly@makethtapp.com',
+        from: 'Guacama Tours guacamayatours2020@gmail.com',
         to: data.email,
-        subject: 'Your submission Info',
-        text: data.name + ', hola',
-        html: data.name + ', hola'
-    }).then(res=>console.log('Se ha enviado el correo!')).catch(err=>console.log(err)
-);
-});
+        subject: 'Código de itinerario',
+        text: 'Hola '+ data.name +'! Este es tu código de itinerario: hola men',
+        html: 'Hola '+ data.name +'! Este es tu código de itinerario: hola men',
+    }).then(res=>console.log('Succesfuly sent that mail')).catch(
+        err=>console.log(err)
+    );
+})

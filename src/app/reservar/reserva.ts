@@ -1,5 +1,6 @@
 import { Hotel, Hab } from '../class/hotel/hotel';
 
+// tslint:disable-next-line: class-name
 export class itinerario {
     nombre: string;
     apellido: string;
@@ -13,6 +14,7 @@ export class itinerario {
     costoTotal: number;
 }
 
+// tslint:disable-next-line: class-name
 export class reserva {
     id: string;
     hotelId: string;
@@ -20,6 +22,4 @@ export class reserva {
     fechaSalida: Date;
     hab: {tipoHab:string, numHab:number}[];
     costo: number;
-    
-
 }

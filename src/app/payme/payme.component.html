@@ -1,0 +1,24 @@
+<div class="contenedor">
+    <div *ngIf="!paidFor">
+    
+        <h1>Completa tus reservas! - ${{ product.price }}</h1>
+      <div class="reservas">
+
+      </div>
+        <p>{{ product.description }}</p>
+      
+        <img width="400" [src]="product.img">
+      
+      </div>
+      
+      <div *ngIf=paidFor>
+        <h1>Felicidades! Has completado la reserva!</h1>
+      
+        <img src="assets/giphy.gif">
+      </div>
+
+      <div [hidden]="paidFor" #paypal></div>
+</div>
+  
+  
+  

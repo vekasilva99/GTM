@@ -55,22 +55,15 @@ export class ReservarComponent implements OnInit {
   reserva:reserva;
 
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private location: Location, private tipoDestinoService: TipoDestinoService, private disponibilidadService: DisponibilidadService, private reservaService: ReservaService, private itinerarioService: ItinerarioService, private estadoService: EstadoService, private hotelService: HotelService, private habService: HabitacionService, private destinoService: DestinoService) {
+  // tslint:disable: max-line-length
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private location: Location, private tipoDestinoService: TipoDestinoService,
+              private disponibilidadService: DisponibilidadService, private reservaService: ReservaService, private itinerarioService: ItinerarioService,
+              private estadoService: EstadoService, private hotelService: HotelService, private habService: HabitacionService, private destinoService: DestinoService) {
 
     this.minDate = new Date();
     this.minDate.setDate(this.minDate.getDate());
     this.bsConfig = Object.assign({}, { containerClass: this.colorTheme });
-
-
   }
-
-
-
-
-
-
-
-
   ngOnInit() {
 
     this.reservarForm = this.fb.group({
@@ -94,7 +87,6 @@ export class ReservarComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-
         this.tipoDestinos.push(tipoDestino);
       });
     });
@@ -105,7 +97,6 @@ export class ReservarComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-
         this.destinos.push(destino);
       });
     });
@@ -116,7 +107,6 @@ export class ReservarComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-
         this.estados.push(estado);
       });
     });
@@ -127,7 +117,6 @@ export class ReservarComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-
         this.hoteles.push(hotel);
       });
     });
@@ -138,7 +127,6 @@ export class ReservarComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-
         this.habs.push(hab);
       });
     });
@@ -201,7 +189,6 @@ export class ReservarComponent implements OnInit {
     this.habs = [];
     this.getHabs(this.selectedHotel);
     console.log(this.habs);
-
   }
 
   getHabs(id: string): void {

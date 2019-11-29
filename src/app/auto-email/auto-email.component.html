@@ -1,0 +1,14 @@
+<form [formGroup]="emailForm" (ngSubmit)="addUser()">
+  <label>NOMBRE</label><br>
+  <input type="text" formControlName="name"/>
+  <br>
+  <label>EMAIL</label>
+  <br>
+  <input type="email" formControlName="email"/>
+  <br>
+  <button type="submit">MANDAR CORREO</button>
+  <button (click)="promesa()">aja carajo</button>
+
+  <input type="date" formControlName="date">
+
+</form>

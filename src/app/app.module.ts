@@ -63,6 +63,13 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './admin/login/login.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { Filter3Pipe } from './pipes/filter3.pipe';
+import { AutoEmailComponent } from './auto-email/auto-email.component';
+import { Routes, RouterModule } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { PaymeComponent } from './payme/payme.component';
+
+const routes: Routes = [];
 
 const config = {
     apiKey: 'AIzaSyCHMYQWGNdRLv6-HDvEri7wI1WkA_KPR3o',
@@ -129,7 +136,6 @@ export class CustomHammerConfig extends HammerGestureConfig {
    CrudHabitacionComponent,
    AgregarHabitacionComponent,
    ModificarHabitacionComponent,
-   
 
   AppComponent,
   ToolbarComponent,
@@ -175,7 +181,10 @@ export class CustomHammerConfig extends HammerGestureConfig {
   ModificarHotelComponent,
   DestinosDetailsComponent,
   LoginComponent,
-  SpinnerComponent
+  SpinnerComponent,
+  Filter3Pipe,
+  AutoEmailComponent,
+  PaymeComponent
   ],
 
   imports: [
@@ -193,10 +202,15 @@ export class CustomHammerConfig extends HammerGestureConfig {
     MatDatepickerModule, MatNativeDateModule,
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    RouterModule.forRoot(routes),
+    AngularFireModule.initializeApp(environment.firebase)
+  ],
+  exports: [
+    RouterModule
   ],
 
-  providers: [AuthGuard,
+  providers: [AuthGuard, AngularFirestore,
     {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
   ],
   bootstrap: [AppComponent]
