@@ -25,13 +25,14 @@ export class ModificarHotelComponent implements OnInit {
   tipoDestinos: tipoDestino[] = [];
   hotelForm: FormGroup;
   star: number[] = [];
-  full: boolean = false;
+  full = false;
   loading: boolean;
   selected: string[];
   hotel: Hotel = null;
   editHote: Hotel;
-  servicios = [{ value: 'Wifi', viewValue: 'Wifi' }, { value: 'Parking', viewValue: 'Parking' }, { value: 'Restaurant', viewValue: 'Restaurant' }, { value: 'Bar', viewValue: 'Bar' }, { value: 'Piscina', viewValue: 'Piscina' }, { value: 'Traslado', viewValue: 'Traslado' }]
-
+  // tslint:disable-next-line: max-line-length
+  servicios = [{ value: 'Wifi', viewValue: 'Wifi' }, { value: 'Parking', viewValue: 'Parking' }, { value: 'Restaurant', viewValue: 'Restaurant' }, { value: 'Bar', viewValue: 'Bar' }, { value: 'Piscina', viewValue: 'Piscina' }, { value: 'Traslado', viewValue: 'Traslado' }];
+  // tslint:disable-next-line: max-line-length
   constructor(private route: ActivatedRoute, private location: Location, private fb: FormBuilder, public agregarService: AgregarService, private estadoService: EstadoService, private ciudadService: CiudadService, private hotelService: HotelService, private destinoService: DestinoService, private tipoDestinoService: TipoDestinoService) { }
 
   ngOnInit() {
@@ -43,43 +44,41 @@ export class ModificarHotelComponent implements OnInit {
     });
     this.tipoDestinoService.getOrders().subscribe(array => {
       array.map(item => {
+        // tslint:disable-next-line: no-shadowed-variable
         const tipoDestino: tipoDestino = {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-
         this.tipoDestinos.push(tipoDestino);
       });
     });
     this.estadoService.getOrders().subscribe(array => {
       array.map(item => {
+        // tslint:disable-next-line: no-shadowed-variable
         const estado: estado = {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-
         this.estados.push(estado);
       });
     });
-
     this.ciudadService.getOrders().subscribe(array => {
       array.map(item => {
+        // tslint:disable-next-line: no-shadowed-variable
         const ciudad: ciudad = {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-
         this.ciudades.push(ciudad);
       });
     });
-
     this.destinoService.getOrders().subscribe(array => {
       array.map(item => {
+        // tslint:disable-next-line: no-shadowed-variable
         const destino: destino = {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         };
-
         this.destinos.push(destino);
       });
     });
@@ -100,17 +99,11 @@ export class ModificarHotelComponent implements OnInit {
       // fullDayPrice: [null, Validators.required],
       hotelPictures: this.fb.array([]),
     });
-
     this.loading = false;
-
-
-
   }
 
   getHotel(id: string): void {
-
     this.hotelService.getHotel2(id).subscribe(array => {
-
       const h: Hotel = {
         id: array.payload.id,
         name: array.payload.get('name'),
@@ -122,22 +115,18 @@ export class ModificarHotelComponent implements OnInit {
         address: array.payload.get('address'),
         city: array.payload.get('city'),
         fullDay: array.payload.get('fullDay'),
-        destino: array.payload.get('destino'),
-        tipoDestino:array.payload.get('tipoDestino'),
+        destino: array.payload.get('destiny'),
+        tipoDestino: array.payload.get('tipoDestiny'),
         services: array.payload.get('services'),
         fullDayPrice: array.payload.get('fullDayPrice'),
         hotelPictures: array.payload.get('hotelPictures'),
-      
-
-
-      }
+      };
       this.editHotel(h);
+    
       this.hotel = h;
-
-
     });
-
   }
+
   editHotel(hotel: Hotel) {
     this.editHote = hotel;
     this.hotelForm.patchValue({
@@ -154,12 +143,9 @@ export class ModificarHotelComponent implements OnInit {
       tipoDestiny: hotel.tipoDestino,
       services: hotel.services,
       // fullDayPrice: hotel.fullDayPrice,
-
     });
-    console.log(hotel);
+   
     this.hotelForm.setControl('hotelPictures', this.existingHotelPictures(hotel.hotelPictures));
-    
-
   }
 
   existingHotelPictures(hotelPictures: any[]): FormArray {
@@ -168,25 +154,10 @@ export class ModificarHotelComponent implements OnInit {
       formArray.push(this.fb.group({
         path: s.path,
       }));
-
     });
+  
     return formArray;
   }
- 
-
-  existingImages(pictures: any[]) {
-    const formArray = new FormArray([]);
-
-    pictures.forEach(elem => {
-      formArray.push(this.fb.group({
-        path: elem.path
-      }));
-    });
-
-    return formArray;
-  }
-
-
 
 
 
@@ -198,17 +169,12 @@ export class ModificarHotelComponent implements OnInit {
     const img = this.fb.group({
       path: [null, Validators.required],
     });
-
     this.hotelPicturesArray.push(img);
   }
 
   get hotelPicturesArray(): FormArray {
     return this.hotelForm.get('hotelPictures') as FormArray;
   }
-
-
-
-
 
   removeHotelPicture(i: number) {
     this.hotelPicturesArray.removeAt(i);
@@ -218,22 +184,10 @@ export class ModificarHotelComponent implements OnInit {
     this.comodidadesArray.removeAt(i);
   }
 
-
-
-
-
-
-
-
-
-
   addPost() {
-
-
     for (let i = 0; i < this.hotelForm.value.stars; i++) {
       this.star[i] = i + 1;
     }
-
     const mov = {
       name: this.hotelForm.value.name,
       imagen: this.hotelForm.value.imagen,
@@ -242,16 +196,14 @@ export class ModificarHotelComponent implements OnInit {
       latitud: this.hotelForm.value.latitud,
       state: this.hotelForm.value.state,
       city: this.hotelForm.value.city,
-      destino: this.hotelForm.value.destiny,
-      tipoDestino:this.hotelForm.value.tipoDestiny,
+      destiny: this.hotelForm.value.destiny,
+      tipoDestiny: this.hotelForm.value.tipoDestiny,
       address: this.hotelForm.value.address,
       fullDay: this.hotelForm.value.fullDay,
-      services: this.selected,
+      // services: this.selected,
       fullDayPrice: 56,
       hotelPictures: this.hotelForm.value.hotelPictures,
     };
-
-
     this.hotelService.updateHotel(mov, this.hotel.id);
   }
 }

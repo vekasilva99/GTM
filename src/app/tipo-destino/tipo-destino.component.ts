@@ -55,7 +55,10 @@ export class TipoDestinoComponent implements OnInit {
 
       const dest: tipoDestino = {
         id: x.payload.id,
-        nombre: x.payload.get('nombre')
+        nombre: x.payload.get('nombre'),
+        imagen: x.payload.get('imagen'),
+        info: x.payload.get('info'),
+        
       }
 
       this.tipoDestino = dest;

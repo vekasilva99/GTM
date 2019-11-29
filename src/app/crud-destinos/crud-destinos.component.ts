@@ -85,6 +85,8 @@ export class CrudDestinosComponent implements OnInit {
       const tipoDestino: tipoDestino = {
         id: array.payload.id,
         nombre: array.payload.get('nombre'),
+        imagen: array.payload.get('ímagen'),
+        info: array.payload.get('info'),
       }
       this.tipoDestinos.push(tipoDestino);
     });
