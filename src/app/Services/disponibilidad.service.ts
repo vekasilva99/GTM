@@ -392,12 +392,7 @@ export class DisponibilidadService {
         }
       }
     }
-
-
     return true;
-<<<<<<< HEAD
-
-=======
   }
 
   reservar2(mes: number, dia: number, cant: number, numHab: number): boolean {
@@ -560,7 +555,6 @@ export class DisponibilidadService {
       }
     }
     return true;
->>>>>>> e5bb7c460be4ab00952887fa257d628ea2eaf830
   }
 
   noSePudoReservar(mes: number, dia: number, cant: number, numHab: number, valor: number): void {

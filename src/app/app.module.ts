@@ -68,11 +68,8 @@ import { AutoEmailComponent } from './auto-email/auto-email.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { PaymeComponent } from './payme/payme.component';
-<<<<<<< HEAD
 import { ItinerarioComponent } from './itinerario/itinerario.component';
-=======
 import { Filter4Pipe } from './pipes/filter4.pipe';
->>>>>>> e5bb7c460be4ab00952887fa257d628ea2eaf830
 
 const routes: Routes = [];
 
@@ -190,11 +187,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
   Filter3Pipe,
   AutoEmailComponent,
   PaymeComponent,
-<<<<<<< HEAD
-  ItinerarioComponent
-=======
+  ItinerarioComponent,
   Filter4Pipe
->>>>>>> e5bb7c460be4ab00952887fa257d628ea2eaf830
   ],
 
   imports: [
