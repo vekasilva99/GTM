@@ -1,4 +1,3 @@
-
 <ng-container *ngIf="estados.length > 0; then noLoading; else lLoading"></ng-container>
 
 <ng-template #loading>
@@ -9,12 +8,13 @@
 
     <div id="wrapper" [ngClass]="{'hidden': listaEstadosService.hideLista }">
         <div id="list">
-            <div id="bton"> 
-                <button type="button" class="close"><i class="fas fa-times"></i></button> 
+            <div class="bton"> 
+                <button type="button" class="close" (click)="listaEstadosService.toggleLista()"><i class="fas fa-times"></i></button>
             </div>
-            <div id="lista">
-                <ul style="list-style-type: none;">
-                    <li class="item"  *ngFor="let estado of estados">
+            
+            <div class="lista">
+                <ul class="estados">
+                    <li *ngFor="let estado of estados">
                         <a routerLink="/detail/{{estado.id}}">
                             <span class="badge">{{estado.nombre}}</span>
                         </a>
