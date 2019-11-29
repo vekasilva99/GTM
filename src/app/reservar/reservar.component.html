@@ -1,6 +1,9 @@
+<app-toolbar></app-toolbar>
+<app-sidebar></app-sidebar>
+<app-lista-estados></app-lista-estados>
 <div class="wrapper">
 
-    <form>
+    <form [formGroup]="reservarForm">
 
         <div class="destinos" id="paso">
 
@@ -11,7 +14,8 @@
                 <span class="fa-stack fa-2x">
 
                     <i class="far fa-circle fa-stack-2x" style="color: white; border: pink;"></i>
-                    <i class="fa-stack-text fa-stack-1x fa-inverse" style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;">1</i>
+                    <i class="fa-stack-text fa-stack-1x fa-inverse"
+                        style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;">1</i>
 
                 </span>
 
@@ -37,11 +41,10 @@
 
                         <div class="textbox">
 
-                            <select formControlName="destino">
+                            <select formControlName="tipoDestinoId">
 
                                 <option value="" selected disabled>
-                                    TIPO DE DESTINO
-                                </option>
+                                    TIPO DE DESTINO</option>
 
                                 <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
                                     {{tipoDestino.nombre}}
@@ -53,14 +56,14 @@
 
                         <div class="textbox">
 
-                            <select formControlName="destino">
+                            <select formControlName="estadoId">
 
                                 <option value="" selected disabled>
                                     ESTADO
                                 </option>
 
-                                <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
-                                    {{tipoDestino.nombre}}
+                                <option value="{{estado.id}}" *ngFor="let estado of estados">
+                                    {{estado.nombre}}
                                 </option>
 
                             </select>
@@ -81,7 +84,7 @@
 
                     <div class="textbox">
                         <select formControlName="destinoId" (change)="changeDestino($event.target.value)">
-                                <option value="" selected disabled>DESTINO</option>
+                            <option value="" selected disabled>DESTINO</option>
                             <option value="{{destino.id}}" *ngFor="let destino of destinos">
                                 {{destino.nombre}}</option>
                         </select>
@@ -97,66 +100,179 @@
 
         </div>
         <div class="paso2" *ngIf="selectedDestino!==null">
-        <div class="alojamiento" id="paso">
-            <img src="../../assets/playa-1.png">
-            <div class="a"><span class="fa-stack fa-2x">
-                    <i class="far fa-circle fa-stack-2x" style="color: white; border: pink;"></i>
-                    <i class="fa-stack-text fa-stack-1x fa-inverse"
-                        style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;">2</i>
-                </span>
-            </div>
-            <div class="paso">
-                <h1>Alojamientos</h1>
-
-            </div>
-            <div class="opciones">
-                <div class="instruccion">
-                    <h2>SELECCIONA TU ALOJAMIENTO</h2>
+            <div class="alojamiento" id="paso">
+                <img src="../../assets/playa-1.png">
+                <div class="a"><span class="fa-stack fa-2x">
+                        <i class="far fa-circle fa-stack-2x" style="color: white; border: pink;"></i>
+                        <i class="fa-stack-text fa-stack-1x fa-inverse"
+                            style="font-family: 'Avenir'; font-weight: 200; color: white; font-style: normal;">2</i>
+                    </span>
                 </div>
-                <div class="opcion">
-                    <div class="textbox">
-                        <select formControlName="hotelId" (change)="changeHotel($event.target.value)">
-                            <option value="{{hotel.id}}" *ngFor="let hotel of hoteles">
-                                {{hotel.name}}</option>
-                        </select>
-                    </div>
-                </div>
-                <form [formGroup]="dateForm">
-                        <div class="row">
-                                <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
-                                    <input id="date" class="form-control" placeholder="CheckIn/CheckOut" ngModel bsDaterangepicker [minDate]="minDate"
-                                        [bsConfig]="bsConfig" formControlName="range">
-                                </div>
-                            </div>
-                        </form>
-                <div class="instruccion">
-                    <h2>SELECCIONA EL NUMERO DE HABITACIONES</h2>
-                </div>
-                <div class="opcion">
-                    <div class="textbox">
-                        <input id="campos" type="number" formControlName="numHab" min="1">
-                    </div>
-                </div>
-                <div class="boton">
-                    <button id="itinerario-button" class="button" (click)="fechaReservacion()">ACEPTAR</button>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="habitaciones" id="paso">
                 <div class="paso">
-                    <h2>Habitaciones</h2>
+                    <h1>Alojamientos</h1>
+
+                </div>
+                <div class="opciones">
+                    <form [formGroup]="dateForm">
+                        <div class="row">
+                            <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+                                <input id="date" class="form-control" placeholder="CheckIn/CheckOut" ngModel
+                                    bsDaterangepicker [minDate]="minDate" [bsConfig]="bsConfig" formControlName="range"
+                                    (change)="changeDate($event.target.value)">
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="boton">
+                        <button id="itinerario-button" class="button" (click)="fechaReservacion()">ACEPTAR</button>
+                    </div>
                 </div>
 
 
-        </div>
+            </div>
+            <div class="wrapper-rooms" *ngFor="let hotel of hoteles; let i=index">
+                <div class="even" *ngIf="(i%2==0)">
+                    <div class="grid">
+                        <div class="a"><img src="{{hotel.hotelPictures[0].path}}"></div>
+                        <div class="b">
+                            <div class="grid2">
+                                <div class="a"></div>
+                                <div class="b">
+                                    <h2>{{hotel.name}}</h2>
+                                    <div class="stars" style="margin-top: 3%;
+                                    margin-left: 5%;">
+                                        <span *ngFor="let item of hotel.stars">
+                                            <span style="font-size: 1.5em; color:#ffa600;">
+                                                <i class="fas fa-star"></i>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <h4>{{hotel.address}}</h4>
 
+                                    <button id="itinerario-button" class="numHab"
+                                        (click)="changeHotel(hotel.id)">SELECCIONAR</button>
+
+                                </div>
+                                <div class="c"></div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="odd" *ngIf="(i%2!==0)">
+                    <div class="grid">
+                        <div class="a">
+                            <div class="grid2">
+                                <div class="a"></div>
+                                <div class="b">
+                                    <h2>{{hotel.name}}</h2>
+                                    <div class="stars" style="margin-top: 3%;
+                                    margin-left: 5%;">
+                                        <span *ngFor="let item of hotel.stars">
+                                            <span style="font-size: 1.5em; color:#ffa600;">
+                                                <i class="fas fa-star"></i>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <h4>{{hotel.address}}</h4>
+                                    <button id="itinerario-button" class="numHab"
+                                        (click)="changeHotel(hotel.id)">SELECCIONAR</button>
+                                </div>
+                                <div class="c"></div>
+                            </div>
+                        </div>
+                        <div class="b"><img src="{{hotel.hotelPictures[0].path}}"></div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="pasoH" *ngIf="selectedHotel!==null">
+                <div class="alojamiento" id="paso">
+                    <img src="../../assets/playa-1.png">
+                    <div class="paso">
+                        <h1>HABITACIONES</h1>
+
+                    </div>
+
+                    
+                </div>
+
+                <div class="opcion" >
+                    <div class="wrapper-rooms" *ngFor="let hab of habs; let i = index">
+                        <div class="even" *ngIf="(i%2==0)">
+                            <div class="grid">
+                                <div class="a"><img src="../../assets/1-1.png"></div>
+                                <div class="b">
+                                    <div class="grid2">
+                                        <div class="a"></div>
+                                        <div class="b">
+                                            <h2>{{hab.nombre}}</h2>
+                                            <h3>Maximo de {{hab.maxPersonas}} Personas</h3>
+                                            <h4>{{hab.tipoVista}}</h4>
+                                            <h4>${{hab.nightCost}}</h4>
+                                            <div class="selectNum" style=" margin-top: 0;
+                                            margin-left: 0;">
+                                                    <select class="numHab" formControlName="numHab" (change)="changeNumHab(hab.id ,$event.target.value)">
+                                                        <option style="color:white;" value="">Selecciona el Número de Habitaciones</option>
+                                                        <option style="color:white;" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" value="{{i}}">{{i}}</option>
+                                                    </select>
+                                                </div>
+                                                <h4 *ngIf="!available">No hay disponibilidad de la cantidad requerida</h4>
+                                        </div>
+                                        <div class="c"></div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="odd" *ngIf="(i%2!==0)">
+                            <div class="grid">
+                                <div class="a">
+                                    <div class="grid2">
+                                        <div class="a"></div>
+                                        <div class="b">
+                                            <h2>{{hab.nombre}}</h2>
+                                            <h3>Maximo de {{hab.maxPersonas}} Personas</h3>
+                                            <h4>{{hab.tipoVista}}</h4>
+                                            <h4>${{hab.nightCost}}</h4>
+                                            <div class="selectNum" style=" margin-top: 0;
+                                            margin-left: 0;">
+                                                    <select class="numHab" formControlName="numHab" (change)="changeNumHab(hab.id ,$event.target.value)">
+                                                        <option style="color:white;" value="">Selecciona el Número de Habitaciones</option>
+                                                        <option style="color:white;" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" value="{{i}}">{{i}}</option>
+                                                    </select>
+                                                </div>
+                                                <h4 *ngIf="!available">No hay disponibilidad de la cantidad requerida</h4>
+                                        </div>
+                                        <div class="c"></div>
+                                    </div>
+                                </div>
+                                <div class="b"><img src="../../assets/1-1.png"></div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="boton">
+        <button *ngIf="res.length>0 "id="itinerario-button" style="margin-bottom: 5%;"class="numHab"
+        (click)="addPost()">AGREGAR AL ITINERARIO</button>
     </div>
     </form>
 
-   
+
 
 
 
@@ -164,8 +280,3 @@
 
 
 </div>
-
-
-
-
-

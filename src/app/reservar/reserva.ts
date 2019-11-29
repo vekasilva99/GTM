@@ -18,7 +18,7 @@ export class reserva {
     hotelId: string;
     fechaLlegada: Date;
     fechaSalida: Date;
-    hab: [{tipoHab:string, numHab:number}];
+    hab: {tipoHab:string, numHab:number}[];
     costo: number;
     
 

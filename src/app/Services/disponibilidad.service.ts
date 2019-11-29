@@ -38,6 +38,9 @@ export class DisponibilidadService {
         this.items.push(dis);
       });
     });
+
+
+
   }
 
   disponibilidad1(numHabs: number): void {
@@ -47,49 +50,49 @@ export class DisponibilidadService {
           this.disponibilidadEnero[j] = numHabs;
         }
         this.disp2.enero = this.disponibilidadEnero;
-        console.log(this.disp2.enero);
+
       }
       if (i === 2) {
         for (let j = 0; j < 31; j++) {
           this.disponibilidadMarzo[j] = numHabs;
         }
         this.disp2.marzo = this.disponibilidadMarzo;
-        console.log(this.disp2.marzo);
+
       }
       if (i === 4) {
         for (let j = 0; j < 31; j++) {
           this.disponibilidadMayo[j] = numHabs;
         }
         this.disp2.mayo = this.disponibilidadMayo;
-        console.log(this.disp2.mayo);
+
       }
       if (i === 6) {
         for (let j = 0; j < 31; j++) {
           this.disponibilidadJul[j] = numHabs;
         }
         this.disp2.julio = this.disponibilidadJul;
-        console.log(this.disp2.julio);
+
       }
       if (i === 7) {
         for (let j = 0; j < 31; j++) {
           this.disponibilidadAgo[j] = numHabs;
         }
         this.disp2.agosto = this.disponibilidadAgo;
-        console.log(this.disp2.agosto);
+
       }
       if (i === 9) {
         for (let j = 0; j < 31; j++) {
           this.disponibilidadOct[j] = numHabs;
         }
         this.disp2.octubre = this.disponibilidadOct;
-        console.log(this.disp2.octubre);
+
       }
       if (i === 11) {
         for (let j = 0; j < 31; j++) {
           this.disponibilidadDic[j] = numHabs;
         }
         this.disp2.diciembre = this.disponibilidadDic;
-        console.log(this.disp2.diciembre);
+
       }
 
 
@@ -98,7 +101,7 @@ export class DisponibilidadService {
           this.disponibilidadFebrero[j] = numHabs;
         }
         this.disp2.febrero = this.disponibilidadFebrero;
-        console.log(this.disp2.febrero);
+
       }
 
 
@@ -108,35 +111,35 @@ export class DisponibilidadService {
           this.disponibilidadAbril[j] = numHabs;
         }
         this.disp2.abril = this.disponibilidadAbril;
-        console.log(this.disp2.abril);
+
       }
       if (i === 5) {
         for (let j = 0; j < 30; j++) {
           this.disponibilidadJunio[j] = numHabs;
         }
         this.disp2.junio = this.disponibilidadJunio;
-        console.log(this.disp2.junio);
+
       }
       if (i === 8) {
         for (let j = 0; j < 30; j++) {
           this.disponibilidadSept[j] = numHabs;
         }
         this.disp2.septiembre = this.disponibilidadSept;
-        console.log(this.disp2.septiembre);
+
       }
       if (i === 10) {
         for (let j = 0; j < 30; j++) {
           this.disponibilidadNov[j] = numHabs;
         }
         this.disp2.noviembre = this.disponibilidadNov;
-        console.log(this.disp2.noviembre);
+
       }
     }
   }
 
 
   reservar(mes: number, dia: number, cant: number, numHab: number): boolean {
-    for (let i = 0; i <= cant; i++) {
+    for (let i = 0; i < cant; i++) {
       if (mes === 0) {
         if (dia > this.disp2.enero.length) {
           dia = 1;
@@ -298,15 +301,19 @@ export class DisponibilidadService {
         } else {
           if (this.disp2.diciembre[dia - 1] - numHab >= 0) {
             this.disp2.diciembre[dia - 1] = this.disp2.diciembre[dia - 1] - numHab;
+            console.log(this.disp2.diciembre[dia - 1]);
+            console.log(numHab);
             dia = dia + 1;
           } else {
+            console.log('ENTRE');
             this.noSePudoReservar(mes, dia, cant, numHab, i);
             return false;
           }
         }
       }
     }
-    console.log(this.disp2);
+    return true;
+   
   }
 
   noSePudoReservar(mes: number, dia: number, cant: number, numHab: number, valor: number): void {
@@ -326,17 +333,17 @@ export class DisponibilidadService {
           mes = mes - 1;
           dia = 31;
         } else {
-            this.disp2.febrero[dia - 1] = this.disp2.febrero[dia - 1] - numHab;
-            dia = dia - 1;
-          }
+          this.disp2.febrero[dia - 1] = this.disp2.febrero[dia - 1] - numHab;
+          dia = dia - 1;
+        }
       }
       if (mes === 2) {
         if (dia < 1) {
           mes = mes - 1;
           dia = 30;
         } else {
-            this.disp2.marzo[dia - 1] = this.disp2.marzo[dia - 1] - numHab;
-            dia = dia - 1;
+          this.disp2.marzo[dia - 1] = this.disp2.marzo[dia - 1] - numHab;
+          dia = dia - 1;
         }
       }
       if (mes === 3) {
@@ -344,8 +351,8 @@ export class DisponibilidadService {
           mes = mes - 1;
           dia = 31;
         } else {
-            this.disp2.abril[dia - 1] = this.disp2.abril[dia - 1] - numHab;
-            dia = dia - 1;
+          this.disp2.abril[dia - 1] = this.disp2.abril[dia - 1] - numHab;
+          dia = dia - 1;
         }
       }
       if (mes === 4) {
@@ -353,8 +360,8 @@ export class DisponibilidadService {
           mes = mes - 1;
           dia = 30;
         } else {
-            this.disp2.mayo[dia - 1] = this.disp2.mayo[dia - 1] - numHab;
-            dia = dia - 1;
+          this.disp2.mayo[dia - 1] = this.disp2.mayo[dia - 1] - numHab;
+          dia = dia - 1;
         }
       }
       if (mes === 5) {
@@ -362,8 +369,8 @@ export class DisponibilidadService {
           mes = mes - 1;
           dia = 31;
         } else {
-            this.disp2.junio[dia - 1] = this.disp2.junio[dia - 1] - numHab;
-            dia = dia - 1;
+          this.disp2.junio[dia - 1] = this.disp2.junio[dia - 1] - numHab;
+          dia = dia - 1;
         }
       }
       if (mes === 6) {
@@ -371,8 +378,8 @@ export class DisponibilidadService {
           mes = mes - 1;
           dia = 30;
         } else {
-            this.disp2.julio[dia - 1] = this.disp2.julio[dia - 1] - numHab;
-            dia = dia - 1;
+          this.disp2.julio[dia - 1] = this.disp2.julio[dia - 1] - numHab;
+          dia = dia - 1;
         }
       }
       if (mes === 7) {
@@ -380,8 +387,8 @@ export class DisponibilidadService {
           mes = mes - 1;
           dia = 31;
         } else {
-            this.disp2.agosto[dia - 1] = this.disp2.agosto[dia - 1] - numHab;
-            dia = dia - 1;
+          this.disp2.agosto[dia - 1] = this.disp2.agosto[dia - 1] - numHab;
+          dia = dia - 1;
         }
       }
       if (mes === 8) {
@@ -389,8 +396,8 @@ export class DisponibilidadService {
           mes = mes - 1;
           dia = 31;
         } else {
-            this.disp2.septiembre[dia - 1] = this.disp2.septiembre[dia - 1] - numHab;
-            dia = dia - 1;
+          this.disp2.septiembre[dia - 1] = this.disp2.septiembre[dia - 1] - numHab;
+          dia = dia - 1;
         }
       }
       if (mes === 9) {
@@ -398,8 +405,8 @@ export class DisponibilidadService {
           mes = mes - 1;
           dia = 30;
         } else {
-            this.disp2.octubre[dia - 1] = this.disp2.octubre[dia - 1] - numHab;
-            dia = dia - 1;
+          this.disp2.octubre[dia - 1] = this.disp2.octubre[dia - 1] - numHab;
+          dia = dia - 1;
         }
       }
       if (mes === 10) {
@@ -407,8 +414,8 @@ export class DisponibilidadService {
           mes = mes - 1;
           dia = 31;
         } else {
-            this.disp2.noviembre[dia - 1] = this.disp2.noviembre[dia - 1] - numHab;
-            dia = dia - 1;
+          this.disp2.noviembre[dia - 1] = this.disp2.noviembre[dia - 1] - numHab;
+          dia = dia - 1;
         }
       }
       if (mes === 11) {
@@ -416,11 +423,12 @@ export class DisponibilidadService {
           mes = mes - 1;
           dia = 30;
         } else {
-            this.disp2.diciembre[dia - 1] = this.disp2.diciembre[dia - 1] - numHab;
-            dia = dia - 1;
+          this.disp2.diciembre[dia - 1] = this.disp2.diciembre[dia - 1] - numHab;
+          dia = dia - 1;
         }
       }
     }
+
   }
 
   getDisponibilidad(id: string) {
@@ -432,7 +440,7 @@ export class DisponibilidadService {
     return this.db.collection('disponibilidades').add(mov);
   }
   getOrders() {
-    return this.db.collection<Hab>('disponibilidades').snapshotChanges();
+    return this.db.collection<disp>('disponibilidades').snapshotChanges();
   }
 
   updateDisponibilidad(mov: any, id: string) {
