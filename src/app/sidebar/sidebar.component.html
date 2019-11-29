@@ -5,19 +5,19 @@
     </div>
     <div id="navbar-nav">
         <ul style="list-style-type: none;">
-            <li><a class="item" routerLink="/hotels" routerLinkActive="router-link-active"  href="#">ALOJAMIENTOS</a></li>
-            <li><a class="item" href="#">PLANEA TU VIAJE</a></li>
-            <li><a class="item" href="#">A DÓNDE IR</a></li>
-            <li><button class="item" type="button" (click)="listaEstadosService.toggleLista()">ESTADOS</button></li>
+            <li><a class="item" routerLink="/hotels" routerLinkActive="router-link-active"  href="#" (click)="sideNavService.toggleSideNav()">ALOJAMIENTOS</a></li>
+            <li><a class="item" href="#" (click)="sideNavService.toggleSideNav()">PLANEA TU VIAJE</a></li>
+            <li><a class="item" href="#" (click)="sideNavService.toggleSideNav()">A DÓNDE IR</a></li>
+            <li><button class="item" type="button" (click)="sideNavService.toggleSideNav()" (click)="listaEstadosService.toggleLista()">ESTADOS</button></li>
 
             <li><a href="#" class="item" id="list">DESTINOS <i class="fas fa-sort-up" id="arrow" (click)="rotateArrow()"></i></a>
                 <ul style="list-style-type: none;">
-                    <li *ngFor="let tipoDestino of tipoDestinos"><a class="item" id="dest" routerLink="/tipoDestino/{{tipoDestino.id}}" href="#" style="text-transform: uppercase;">{{tipoDestino.nombre}}</a></li>   
+                    <li *ngFor="let tipoDestino of tipoDestinos"><a class="item" id="dest" routerLink="/tipoDestino/{{tipoDestino.id}}" href="#"  (click)="sideNavService.toggleSideNav()" style="text-transform: uppercase;">{{tipoDestino.nombre}}</a></li>   
                 </ul>
             </li>
 
-            <li><a class="item" href="#">LO MÁS VISITADO</a></li>
-            <li><a class="item" href="#">CONTÁCTANOS</a></li>
+            <li><a class="item" href="#" (click)="sideNavService.toggleSideNav()">LO MÁS VISITADO</a></li>
+            <li><a class="item" href="#" (click)="sideNavService.toggleSideNav()">CONTÁCTANOS</a></li>
         </ul>
     </div>
 </nav> 
