@@ -56,6 +56,24 @@ export class ReservaService {
     }
   }
 
+  getReservasLocal(){
+    if(localStorage.getItem('items')===null){
+      return this.items;
+    }else{
+      this.items=JSON.parse(localStorage.getItem('items'));
+      return this.items;
+    }
+
+  }
+
+  deleteReservaLocal(item: reserva){
+    for(let i=0;i<this.items.length;i++){
+      if(item===this.items[i]){
+        this.items.splice(i,1);
+        localStorage.setItem('items', JSON.stringify(this.items));
+      }
+    }
+  }
 
 
 

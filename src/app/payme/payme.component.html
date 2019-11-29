@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+<div class="contenedor">
+    <div *ngIf="!paidFor">
+    
+        <h1>Completa tus reservas! - ${{ product.price }}</h1>
+      <div class="reservas">
+
+      </div>
+        <p>Hola</p>
+      
+        
+      
+      </div>
+      
+      <div *ngIf=paidFor>
+        <h1>Felicidades! Has completado la reserva!</h1>
+      
+        
+      </div>
+
+      <div class="paypal"[hidden]="paidFor" #paypal></div>
+=======
 <div class="cajota">
   <div class="caja">
   
@@ -21,6 +43,7 @@
             <div [hidden]="paidFor" #paypal></div>
           </div>
   </div>
+>>>>>>> e5bb7c460be4ab00952887fa257d628ea2eaf830
 </div>
 
   

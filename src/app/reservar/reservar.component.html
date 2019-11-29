@@ -50,9 +50,22 @@
 
                         <div class="textbox">
 
+<<<<<<< HEAD
+                            <select formControlName="estadoId">
+
+                                <option value="" selected disabled>
+                                    ESTADO
+                                </option>
+
+                                <option value="{{estado.id}}" *ngFor="let estado of estados">
+                                    {{estado.nombre}}
+                                </option>
+
+=======
                             <select formControlName="estadoId" class="form-control" name="filterPost3" [(ngModel)]="filterPost3">
                                 <option value="" selected disabled>ESTADO</option>
                                 <option value="{{estado.id}}"  *ngFor="let estado of estados">{{estado.nombre}}</option>
+>>>>>>> e5bb7c460be4ab00952887fa257d628ea2eaf830
                             </select>
 
                         </div>
