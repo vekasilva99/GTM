@@ -5,13 +5,13 @@
 
     <div id="navbar-nav">
         <ul style="list-style-type: none;">
-            <li><a class="item" routerLink="/adminHome/crudHoteles">ALOJAMIENTOS</a></li>
-            <li><a class="item" routerLink="/adminHome/crudHabitacion">HABITACIONES</a></li>
-            <li><a class="item" routerLink="/adminHome/crudReservas">RESERVAS</a></li>
-            <li><a class="item" routerLink="/adminHome/crudCiudades">CIUDADES</a></li>
-            <li><a class="item" routerLink="/adminHome/crudEstados">ESTADOS</a></li>
-            <li><a class="item" routerLink="/adminHome/crudDestinos">DESTINOS</a></li>
-            <li><a class="item" routerLink="/adminHome/crudTipoDestino">CATEGORIAS DE DESTINOS</a></li>
+            <li><a (click)="sideNavService.toggleSideNav()" class="item" routerLink="/adminHome/crudHoteles">ALOJAMIENTOS</a></li>
+            <li><a (click)="sideNavService.toggleSideNav()" class="item" routerLink="/adminHome/crudHabitacion">HABITACIONES</a></li>
+            <li><a (click)="sideNavService.toggleSideNav()" class="item" routerLink="/adminHome/crudReservas">RESERVAS</a></li>
+            <li><a (click)="sideNavService.toggleSideNav()" class="item" routerLink="/adminHome/crudCiudades">CIUDADES</a></li>
+            <li><a (click)="sideNavService.toggleSideNav()"class="item" routerLink="/adminHome/crudEstados">ESTADOS</a></li>
+            <li><a (click)="sideNavService.toggleSideNav()" class="item" routerLink="/adminHome/crudDestinos">DESTINOS</a></li>
+            <li><a (click)="sideNavService.toggleSideNav()" class="item" routerLink="/adminHome/crudTipoDestino">CATEGORIAS DE DESTINOS</a></li>
         </ul>
     </div>
     

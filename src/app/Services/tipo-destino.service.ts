@@ -10,7 +10,7 @@ export class TipoDestinoService {
   items: tipoDestino[]=[];
 
   constructor(private db: AngularFirestore) { 
-    const order=this.db.collection<destino>('tipoDestino').snapshotChanges();
+    const order=this.db.collection<tipoDestino>('tipoDestino').snapshotChanges();
     order.subscribe(tipoDestino => {
       tipoDestino.forEach(item =>{
         const tipoDestino: tipoDestino = {

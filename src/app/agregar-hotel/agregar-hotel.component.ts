@@ -150,6 +150,7 @@ export class AgregarHotelComponent implements OnInit {
       state: this.hotelForm.value.state,
       city: this.hotelForm.value.city,
       destiny: this.hotelForm.value.destiny,
+      tipoDestiny: this.hotelForm.value.tipoDestiny,
       address: this.hotelForm.value.address,
       fullDay: this.hotelForm.value.fullDay,
       services: this.selected,

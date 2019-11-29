@@ -29,12 +29,8 @@ export class ModificarEstadoComponent implements OnInit {
       imagen: [null, Validators.required],
       cultura: [null, Validators.required],
       inicio: [null, Validators.required],
-      img: this.fb.array([
-        this.addImgGroup()
-      ]),
-      gastronomia: this.fb.array([
-        this.addGastronomiaGroup()
-      ]),
+      img: this.fb.array([]),
+      gastronomia: this.fb.array([]),
 
     });
 
@@ -55,7 +51,7 @@ export class ModificarEstadoComponent implements OnInit {
       }
       this.editEstado(es);
       this.estado = es;
-
+      console.log(1, this.estado);
 
     });
 
@@ -81,6 +77,7 @@ export class ModificarEstadoComponent implements OnInit {
       }));
 
     });
+    console.log(formArray);
     return formArray;
   }
 
@@ -92,6 +89,7 @@ export class ModificarEstadoComponent implements OnInit {
       }));
 
     });
+    console.log(formArray);
     return formArray;
   }
 

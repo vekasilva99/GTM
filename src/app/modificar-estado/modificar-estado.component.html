@@ -1,4 +1,4 @@
-<ng-container *ngIf="hotel != null; then content; else noContent"></ng-container>
+<ng-container *ngIf="estado != null; then content; else noContent"></ng-container>
 
 <ng-template #content>
 
@@ -7,7 +7,7 @@
     <div class="close">
         <i  style="color: #002e64; " class="fas fa-times-circle"></i>
     </div>
-    <form [formGroup]="estadoForm" class="agregar-box" (ngSubmit)="addPost()">
+    <form [formGroup]="estadoForm" class="agregar-box">
         <h1>MODIFICAR ESTADO</h1>
         <small>NOMBRE</small>
         <div class="textbox">
@@ -59,7 +59,7 @@
             </section>
         </div>
 
-        <input type="submit" class="btn" value="MODIFICAR" [disabled]="!estadoForm.valid" id="boton" [routerLink]="['/adminHome/crudHabitacion']" routerLinkActive="router-link-active" >
+        <input type="submit"(click)="addPost()" class="btn" value="MODIFICAR" [disabled]="!estadoForm.valid" id="boton" [routerLink]="['/adminHome/crudEstados']">
 
     </form>
 

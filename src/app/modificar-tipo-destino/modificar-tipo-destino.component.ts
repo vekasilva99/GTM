@@ -28,8 +28,8 @@ export class ModificarTipoDestinoComponent implements OnInit {
     });
     this.tipoDestinoForm = this.fb.group({
       nombre: [null, Validators.required],
-      // info: [null, Validators.required],
-      // imagen: [null, Validators.required],
+      info: [null, Validators.required],
+      imagen: [null, Validators.required],
     });
   }
 
@@ -40,8 +40,8 @@ export class ModificarTipoDestinoComponent implements OnInit {
       const tipoDes: tipoDestino = {
         id: array.payload.id,
         nombre: array.payload.get('nombre'),
-        // imagen: array.payload.get('imagen'),
-        // info: array.payload.get('info'),
+        imagen: array.payload.get('imagen'),
+        info: array.payload.get('info'),
       }
       this.editTipoDestino(tipoDes);
       this.tipoDestino = tipoDes;
@@ -55,8 +55,8 @@ export class ModificarTipoDestinoComponent implements OnInit {
     this.editDestinyType = tipoDestino;
     this.tipoDestinoForm.patchValue({
       nombre: tipoDestino.nombre,
-      // imagen: tipoDestino.imagen,
-      // info: tipoDestino.info,
+      imagen: tipoDestino.imagen,
+      info: tipoDestino.info,
     });
    
     
@@ -66,8 +66,8 @@ export class ModificarTipoDestinoComponent implements OnInit {
 
     const mov = {
       nombre: this.tipoDestinoForm.value.nombre ,
-      // imagen:this.tipoDestinoForm.value.imagen,
-      // info:this.tipoDestinoForm.value.info
+      imagen:this.tipoDestinoForm.value.imagen,
+      info:this.tipoDestinoForm.value.info
   
     }
 

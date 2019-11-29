@@ -3,7 +3,7 @@
             <i style="color: #002e64; " class="fas fa-times-circle"></i>
         </div> -->
     
-        <form [formGroup]="destinoForm" class="agregar-box" (ngSubmit)="addPost()">
+        <form [formGroup]="destinoForm" class="agregar-box" >
             <h1>MODIFICAR DESTINO</h1>
             <small>NOMBRE</small>
             <div class="textbox">
@@ -122,7 +122,7 @@
                 </section>
             </div>
     
-            <button type="submit" class="btn" value="AGREGAR" [disabled]="!destinoForm.valid" id="boton">MODIFICAR DESTINO</button>
+            <button type="submit" class="btn" value="AGREGAR" [disabled]="!destinoForm.valid" id="boton" [routerLink]="['/adminHome/crudDestinos']" (click)="addPost()">MODIFICAR DESTINO</button>
         </form>
     
     </div>
