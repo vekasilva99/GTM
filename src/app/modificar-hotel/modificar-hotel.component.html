@@ -1,3 +1,7 @@
+<ng-container *ngIf="hotel != null; then content; else noContent"></ng-container>
+
+<ng-template #content>
+
 <div class="wrapper" >
         <!-- <div class="close">
             <i (click)="agregarService.toggleAgregar()" style="color: #002e64; " class="fas fa-times-circle"></i>
@@ -98,9 +102,13 @@
                     <button type="button" id="add" (click)="addHotelPicture()"><i class="fas fa-plus-circle"></i></button>
                 </section>
             </div>
-            <button type="submit" class="btn" value="AGREGAR" (click)="addPost()" id="boton">MODIFICAR HOTEL</button>
+            <button type="submit" class="btn" value="AGREGAR" (click)="addPost()" id="boton" [routerLink]="['/adminHome/crudHoteles']" routerLinkActive="router-link-active" >MODIFICAR HOTEL</button>
         </form>
     
-    
-    
     </div>
+
+</ng-template>
+
+<ng-template #noContent>
+    <app-spinner></app-spinner>
+</ng-template>

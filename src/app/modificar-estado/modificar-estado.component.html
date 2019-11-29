@@ -1,3 +1,7 @@
+<ng-container *ngIf="hotel != null; then content; else noContent"></ng-container>
+
+<ng-template #content>
+
 <div class="wrapper">
 
     <div class="close">
@@ -55,8 +59,14 @@
             </section>
         </div>
 
-        <input type="submit" class="btn" value="MODIFICAR" [disabled]="!estadoForm.valid" id="boton">
+        <input type="submit" class="btn" value="MODIFICAR" [disabled]="!estadoForm.valid" id="boton" [routerLink]="['/adminHome/crudHabitacion']" routerLinkActive="router-link-active" >
 
     </form>
 
 </div>
+
+</ng-template>
+
+<ng-template #noContent>
+    <app-spinner></app-spinner>
+</ng-template>
