@@ -1,0 +1,392 @@
+.wrapper{
+    width: 100vw;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: white;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+.opening{
+    position: relative;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.opening h1 {
+    font-family:"Billy-Ohio";
+    z-index: 1;
+    color: white;
+}
+@media screen and (min-width: 992px){
+    .opening h1{
+        font-size: 10rem;
+        margin-bottom: 10rem;
+    }
+    .opening img{
+        width: 100vw;
+    }
+}
+@media screen and (max-width: 991px){
+    .opening h1{
+        font-size: 4rem;
+        margin-bottom: 4rem;
+    }
+    .opening img{
+        height: 100vh;
+    }
+}
+
+#c3{
+    background-color: white; 
+    height: auto; 
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    justify-content: center;
+    height: auto;
+  }
+@media screen and (min-width: 992px) {
+#c3{
+    h1 {
+    font-size: 30px;
+    }
+    h2 {
+    font-size: 18px;
+    }
+}
+} 
+@media screen and (max-width: 991px) {
+#c3{
+    h1 {
+    font-size: 25px;
+    }
+    h2 {
+    font-size: 14px;
+    }
+}
+}
+.griddoble{
+    display: grid;
+    grid-template-areas: none;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.bloque{
+    margin: 1.5em;
+}
+#quienes{
+    padding: 1rem;
+    align-self: center;
+    grid-area: bloq1;
+}
+#datos{
+    align-self: center;
+    grid-area: bloq2;
+}
+@media screen and (min-width: 1001px) {
+    div.griddoble{
+        grid-template-areas:
+        'bloq1 bloq2';
+    }
+    #quienes{
+        width: 45vw;
+    }
+    #datos{
+        width: 25vw;
+    }
+}
+@media screen and (max-width: 1000px) {
+    div.griddoble{
+        grid-template-areas:
+        'bloq1'
+        'bloq2';
+    }
+    #quienes{
+        width: 80vw;
+    }
+    #datos{
+        width: 80vw;
+    }
+}
+ h1{
+    font-family:"Kingsmen";
+    color: #005688;
+    text-align: left;
+    word-spacing: 0.5em;
+}
+#c3 h2{
+    font-family:"Avenir";
+    color: #000000;
+    text-align: left;
+    line-height: 30px;
+    margin-top: 30px;
+}
+#c3 h3{
+    font-family:"Avenir";
+    color: #000000;
+    text-align: left;
+    font-size: 0.6rem;
+}
+#c3 p{
+    font-size: 0.8rem;
+    font-family:"Avenir";
+    color: #000000;
+    margin-bottom: 0%;
+}
+.dot {
+    height: 3.5rem;
+    width: 3.5rem;
+    background-color: #02b5da;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-family:"Avenir";
+}
+.dato{
+    padding: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #c4c6c7;
+    height: 80px;
+}
+.label{
+    display: grid;
+    grid-template-columns: 0.9fr 2.1fr;
+    align-items: center;
+    height: 60px;
+    width: 12rem;
+    letter-spacing: 1px;
+    font-size: 0.65rem;
+}
+
+#c5{
+    background-color: white; 
+    height: auto; 
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-top: 5%;
+  }
+.filtro {
+    border: 0.5px solid #005688;
+    border-radius: 10px;
+    display: flexbox;
+    justify-content: left;
+    align-items: center;
+    padding: 3%;
+
+    width: 80vw;
+}
+@media screen and (min-width: 992px) {
+    .filtro {
+        width: 85vw;
+    }
+    #c5{
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .tag{
+            font-size: 0.8rem;
+        }
+    }
+}
+@media screen and (max-width: 991px) {
+    .filtro {
+        width: 80vw;
+    }
+    #c5{
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .tag{
+            font-size: 0.6rem;
+        }
+    }
+}
+.tag{
+    font-family:"Avenir";
+    color: #000000;
+    text-align: left;
+    letter-spacing: 0.1rem;
+}
+
+#c6{
+    background-color: white; 
+    height: auto; 
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-top: 5%;
+}
+.grid{
+    padding: 0%;
+    display: grid;
+    grid-template-areas: none;
+    height: auto;
+}
+.a{
+    grid-area: 'contA';
+}
+.b{
+    grid-area: 'contB';
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (min-width: 992px) {
+    #c6 .grid{
+        width: 80vw;
+        grid-template-areas:
+        'contA  contB';
+    }
+    #c6 .a{
+        width: 45vw;
+    }
+    #c6 .b{
+        padding: 5%;
+        width: 35vw;
+        .span {
+            font-size: 1.3rem;
+        }
+    }
+    #c6 h2 {
+        font-size: 3vw;
+        width: 30vw;
+    }
+    #c6 h4 {
+        margin-top: 1rem;
+        font-size: 1.2vw;
+    }
+    #c6 .button {
+        height: 5vw;
+        width: 15vw;
+    }
+}
+@media screen and (max-width: 991px) {
+    #c6 .grid{
+        width: 80vw;
+        grid-template-areas:
+        'contA'
+        'contB';
+    }
+    #c6 .a{
+        width: 80vw;
+    }
+    #c6 .b{
+        padding: 5%;
+        width: 80vw;
+        .span {
+            font-size: 1.5rem;
+        }
+    }
+    #c6 h2 {
+        font-size: 2rem;
+        width: 50vw;
+        margin: 0%;
+        text-align: center;
+        margin: auto;
+    }
+    #c6 h4 {
+        margin-top: 1rem;
+        font-size: 0.6rem;
+        text-align: center;
+    }
+    #c6 .button {
+        height: 3rem;
+        width: 8rem;
+        margin: auto;
+        font-size: 0.8rem;
+    }
+    #alin{
+        margin: auto;
+    }
+    .info{
+        width: 70vw;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+}
+#c6 h2 {
+    color:#005688;
+    font-family: 'Kingsmen';
+}
+#c6 .stars{
+    letter-spacing: 15px;
+}
+#c6 h4{
+    color: black;
+    font-family: 'Avenir';
+    letter-spacing: 0.3vw;
+    text-transform: uppercase;
+}
+.button {
+    background-color:#ffa600;
+    border-radius:5px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family: "Avenir";
+    font-weight: 400;
+    text-decoration: none;
+    margin-top: 5%;
+    letter-spacing: 0.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        background: #005688;
+        transition: 0.6s;
+    }
+}
+
+ .input {
+   
+    border:solid 2px #005688;
+    border-radius:5px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffa600;
+    font-family: "Avenir";
+    font-weight: 400;
+    text-decoration: none;
+    margin-top: 5%;
+    letter-spacing: 0.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+#espacio {
+    background-color: white;
+    height: 15vh;
+}
+
+.grid .a img{
+    width:100%;
+    height:100%
+}

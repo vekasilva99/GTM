@@ -1,0 +1,83 @@
+<div class="wrapper">
+    <!-- <app-toolbar></app-toolbar>
+    <app-sidebar></app-sidebar>
+    <app-lista-estados></app-lista-estados> -->
+
+    <div class="opening">
+        <img src="../../assets/11.png" alt="alojamientos">
+        <div class="centered">
+            <h1>Itinerario</h1>
+        </div>
+    </div>
+
+    <div id="c3">
+        <div class="griddoble">
+            <div class="bloque" id="quienes">
+                <h1>REVISE SU ITINERARIO</h1>
+                <h1>EN UN SOLO LUGAR</h1>
+                <div class="input">
+                <input type="text" [formControlName]="chequear">
+            </div>
+            <a  class="button" (click)="eliminar(reserva)">BUSCAR</a>
+            </div>
+            <div class="bloque" id="datos">
+                <h3>DATOS RÁPIDOS</h3>
+                <div class="dato">
+                    <div class="label">
+                        <div class="dot">8.247</div>
+                        <p style="margin-left: 1rem">HOTELES</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-hotel" style="color: #666666; font-size: 40px;"></i>
+                    </div>
+                </div>
+                <div class="dato">
+                    <div class="label">
+                        <div class="dot">1.353</div>
+                            <p style="margin-left: 1rem">POSADAS</p>
+                        </div>
+                    <div>
+                        <i class="fas fa-home" style="color: #666666; font-size: 40px;"></i>
+                    </div>
+                </div>
+                <div class="dato">
+                    <div class="label">
+                        <div class="dot">3.426</div>
+                            <p style="margin-left: 1rem">RESORTS</p>
+                        </div>
+                    <div>
+                        <i class="fas fa-swimming-pool" style="color: #666666; font-size: 40px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="c6" *ngFor="let reserva of reservas let i=index ">
+        <div class="grid">
+            <div class="a">
+                <img src="{{hoteles[i]?.hotelPictures[0].path}}">
+            </div>
+            <div class="b">
+                <div class="info">
+                    <h2>{{hoteles[i]?.name}}</h2>
+                    <div id="alin">
+                        <span class="stars" *ngFor="let item of hoteles[i]?.stars">
+                            <span style="color:#ffa600;">
+                                <i class="fas fa-star"></i>
+                            </span>
+                        </span>
+                    </div>
+                    <h4>{{estados[i]?.nombre}},{{ciudades[i]?.nombre}}</h4>
+                    <h4>${{reserva.costo}}</h4>
+                    <h4>{{reserva.fechaLlegada}}-{{reserva.fechaSalida}}</h4>
+                    <a  class="button" (click)="eliminar(reserva)">ELIMINAR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="espacio"></div>
+    
+    <app-footer></app-footer>
+</div> 

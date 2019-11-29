@@ -53,7 +53,7 @@ export class ReservarComponent implements OnInit {
   hab: Hab = null;
   available: boolean = true;
   month: number = 0;
-  reserva: reserva;
+  reserva: reserva=new reserva;
 
 
   // tslint:disable: max-line-length
@@ -72,7 +72,6 @@ export class ReservarComponent implements OnInit {
       destinoId: [null, Validators.required],
       tipoDestinoId: [null, Validators.required],
       estadoId: [null, Validators.required],
-      habId: new FormArray([]),
       costo: [null, Validators.required],
       numHab: [null, Validators.required],
 
@@ -141,6 +140,8 @@ export class ReservarComponent implements OnInit {
         this.habs.push(hab);
       });
     });
+
+    console.log(this.disponibilidad);
 
   }
 
@@ -244,10 +245,28 @@ export class ReservarComponent implements OnInit {
 
 
   getDisponibilidad(id: string, num: number) {
-    for(let d of this.disponibilidad){
-      if(id === d.id ) {
-        this.disponibilidadService.disp2 = d;
+    for(let i=0;i<this.disponibilidad.length ;i++){
+      if(id === this.disponibilidad[i].id ) {
+        this.disponibilidadService.disp2 = this.disponibilidad[i];
+        console.log(this.disponibilidadService.disp2);
         this.available = this.disponibilidadService.reservar(this.month, this.checkIn.getDate(), this.days, num);
+        const mov={
+          enero:this.disponibilidadService.disp2.enero,
+          febrero:this.disponibilidadService.disp2.febrero,
+          marzo:this.disponibilidadService.disp2.marzo,
+          abril:this.disponibilidadService.disp2.abril,
+          mayo:this.disponibilidadService.disp2.mayo,
+          junio:this.disponibilidadService.disp2.junio,
+          julio:this.disponibilidadService.disp2.julio,
+          agosto:this.disponibilidadService.disp2.agosto,
+          septiembre:this.disponibilidadService.disp2.septiembre,
+          octubre:this.disponibilidadService.disp2.octubre,
+          noviembre:this.disponibilidadService.disp2.noviembre,
+          diciembre:this.disponibilidadService.disp2.diciembre,
+        }
+        this.disponibilidadService.updateDisponibilidad(mov, this.disponibilidadService.disp2.id);
+        this.disponibilidad.pop();
+        console.log(this.disponibilidad);
 
       }
 
@@ -286,24 +305,32 @@ export class ReservarComponent implements OnInit {
   }
 
   addPost() {
-    let array = [];
+    this.reserva.costo= this.costoReserva;
+    this.reserva.fechaSalida = this.checkOut;
+    this.reserva.fechaLlegada = this.checkIn;
+    this.reserva.hab = this.res;
+    this.reserva.hotelId = this.selectedHotel;
 
-    const reserva: reserva = this.reservarForm.value as reserva;
+    this.reservaService.addReservaLocal(this.reserva);
+      
+    // let array = [];
 
-    reserva.costo = this.costoReserva;
-    reserva.fechaSalida = this.checkOut;
-    reserva.fechaLlegada = this.checkIn;
-    reserva.hab = this.res;
-    reserva.hotelId = this.selectedHotel;
+    // const reserva: reserva = this.reservarForm.value as reserva;
+
+    // reserva.costo = this.costoReserva;
+    // reserva.fechaSalida = this.checkOut;
+    // reserva.fechaLlegada = this.checkIn;
+    // reserva.hab = this.res;
+    // reserva.hotelId = this.selectedHotel;
 
 
-    if (localStorage.getItem('cart') !== null) {
-      array = JSON.parse(localStorage.getItem('cart'));
-    }
-    array.push(reserva);
+    // if (localStorage.getItem('cart') !== null) {
+    //   array = JSON.parse(localStorage.getItem('cart'));
+    // }
+    // array.push(reserva);
 
-    localStorage.setItem('cart', JSON.stringify(array));
-    this.resetForm();
+    // localStorage.setItem('cart', JSON.stringify(array));
+    // this.resetForm();
 
     this.resetForm();
 
@@ -323,7 +350,6 @@ export class ReservarComponent implements OnInit {
       destinoId: '',
       tipoDestinoId: '',
       estadoId: '',
-      habId: '',
       costo: '',
       numHab: '',
     });
