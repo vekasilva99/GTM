@@ -1,14 +1,33 @@
-<form [formGroup]="emailForm" (ngSubmit)="addUser()">
-  <label>NOMBRE</label><br>
-  <input type="text" formControlName="name"/>
-  <br>
-  <label>EMAIL</label>
-  <br>
-  <input type="email" formControlName="email"/>
-  <br>
-  <button type="submit">MANDAR CORREO</button>
-  <button (click)="promesa()">aja carajo</button>
+<div class="caja">
+  <form [formGroup]="emailForm" (ngSubmit)="addUser()" class="contenedor">
+  
+    <label class="texto">Nombre </label>
+    <input type="text" formControlName="name" placeholder="Nombre.." class="campo">
+    <br>
+  
+    <label class="texto">Apellido </label>
+    <input type="text" formControlName="apellido" placeholder="Apellido.." class="campo">
+    <br>
+  
+    <label class="texto">Email </label>
+    <input type="email" formControlName="email" placeholder="correo@ejemplo.com" class="campo">
+    <br>
 
-  <input type="date" formControlName="date">
+    <label class="texto">Cédula </label>
+    <input type="number" formControlName="cedula" placeholder="26.666.666" class="campo">
+    <br>
 
-</form>
+    <label class="texto">Dirección </label>
+    <input type="text" formControlName="direccion" placeholder="Av. Loma Redonda, Manzanares Este, Baruta" class="campo">
+    <br>
+
+    <label class="texto">Teléfono </label>
+    <input type="number" formControlName="telefono" placeholder="+58 414 1822.." class="campo">
+    <br>
+  
+    <button type="submit" class="boton">Reservar</button>
+    <br>
+    <!-- <button (click)="promesa()">aja carajo</button> -->
+  
+  </form>
+</div>

@@ -16,15 +16,30 @@ export class DisponibilidadService {
   disponibilidadAbril: number[] = [];
   disponibilidadMayo: number[] = [];
   disponibilidadJunio: number[] = [];
+  disponibilidadJul: number[] = [];
   disponibilidadAgo: number[] = [];
   disponibilidadSept: number[] = [];
   disponibilidadOct: number[] = [];
   disponibilidadNov: number[] = [];
   disponibilidadDic: number[] = [];
-  disponibilidadJul: number[] = [];
+
+  disponibilidadEnero2: number[] = [];
+  disponibilidadFebrero2: number[] = [];
+  disponibilidadMarzo2: number[] = [];
+  disponibilidadAbril2: number[] = [];
+  disponibilidadMayo2: number[] = [];
+  disponibilidadJunio2: number[] = [];
+  disponibilidadJul2: number[] = [];
+  disponibilidadAgo2: number[] = [];
+  disponibilidadSept2: number[] = [];
+  disponibilidadOct2: number[] = [];
+  disponibilidadNov2: number[] = [];
+  disponibilidadDic2: number[] = [];
+
 
   disp: Mes[] = [];
   disp2: disp = new disp();
+  disp3: disp = new disp();
 
   constructor(private db: AngularFirestore) {
     const order = this.db.collection<disp>('disponibilidades').snapshotChanges();
@@ -38,9 +53,6 @@ export class DisponibilidadService {
         this.items.push(dis);
       });
     });
-
-
-
   }
 
   disponibilidad1(numHabs: number): void {
@@ -50,49 +62,42 @@ export class DisponibilidadService {
           this.disponibilidadEnero[j] = numHabs;
         }
         this.disp2.enero = this.disponibilidadEnero;
-
       }
       if (i === 2) {
         for (let j = 0; j < 31; j++) {
           this.disponibilidadMarzo[j] = numHabs;
         }
         this.disp2.marzo = this.disponibilidadMarzo;
-
       }
       if (i === 4) {
         for (let j = 0; j < 31; j++) {
           this.disponibilidadMayo[j] = numHabs;
         }
         this.disp2.mayo = this.disponibilidadMayo;
-
       }
       if (i === 6) {
         for (let j = 0; j < 31; j++) {
           this.disponibilidadJul[j] = numHabs;
         }
         this.disp2.julio = this.disponibilidadJul;
-
       }
       if (i === 7) {
         for (let j = 0; j < 31; j++) {
           this.disponibilidadAgo[j] = numHabs;
         }
         this.disp2.agosto = this.disponibilidadAgo;
-
       }
       if (i === 9) {
         for (let j = 0; j < 31; j++) {
           this.disponibilidadOct[j] = numHabs;
         }
         this.disp2.octubre = this.disponibilidadOct;
-
       }
       if (i === 11) {
         for (let j = 0; j < 31; j++) {
           this.disponibilidadDic[j] = numHabs;
         }
         this.disp2.diciembre = this.disponibilidadDic;
-
       }
 
 
@@ -101,9 +106,7 @@ export class DisponibilidadService {
           this.disponibilidadFebrero[j] = numHabs;
         }
         this.disp2.febrero = this.disponibilidadFebrero;
-
       }
-
 
 
       if (i === 3) {
@@ -111,28 +114,105 @@ export class DisponibilidadService {
           this.disponibilidadAbril[j] = numHabs;
         }
         this.disp2.abril = this.disponibilidadAbril;
-
       }
       if (i === 5) {
         for (let j = 0; j < 30; j++) {
           this.disponibilidadJunio[j] = numHabs;
         }
         this.disp2.junio = this.disponibilidadJunio;
-
       }
       if (i === 8) {
         for (let j = 0; j < 30; j++) {
           this.disponibilidadSept[j] = numHabs;
         }
         this.disp2.septiembre = this.disponibilidadSept;
-
       }
       if (i === 10) {
         for (let j = 0; j < 30; j++) {
           this.disponibilidadNov[j] = numHabs;
         }
         this.disp2.noviembre = this.disponibilidadNov;
+      }
+    }
+  }
 
+  disponibilidad2(): void {
+    for (let i = 0; i < 12; i++) {
+      if (i === 0) {
+        for (let j = 0; j < 31; j++) {
+          this.disponibilidadEnero2[j] = 1;
+        }
+        this.disp2.enero = this.disponibilidadEnero;
+      }
+      if (i === 2) {
+        for (let j = 0; j < 31; j++) {
+          this.disponibilidadMarzo2[j] = 1;
+        }
+        this.disp2.marzo = this.disponibilidadMarzo;
+      }
+      if (i === 4) {
+        for (let j = 0; j < 31; j++) {
+          this.disponibilidadMayo2[j] = 1;
+        }
+        this.disp2.mayo = this.disponibilidadMayo;
+      }
+      if (i === 6) {
+        for (let j = 0; j < 31; j++) {
+          this.disponibilidadJul2[j] = 1;
+        }
+        this.disp2.julio = this.disponibilidadJul;
+      }
+      if (i === 7) {
+        for (let j = 0; j < 31; j++) {
+          this.disponibilidadAgo2[j] = 1;
+        }
+        this.disp2.agosto = this.disponibilidadAgo;
+      }
+      if (i === 9) {
+        for (let j = 0; j < 31; j++) {
+          this.disponibilidadOct2[j] = 1;
+        }
+        this.disp2.octubre = this.disponibilidadOct;
+      }
+      if (i === 11) {
+        for (let j = 0; j < 31; j++) {
+          this.disponibilidadDic2[j] = 1;
+        }
+        this.disp2.diciembre = this.disponibilidadDic;
+      }
+
+
+      if (i === 1) {
+        for (let j = 0; j < 28; j++) {
+          this.disponibilidadFebrero2[j] = 1;
+        }
+        this.disp2.febrero = this.disponibilidadFebrero;
+      }
+
+
+      if (i === 3) {
+        for (let j = 0; j < 30; j++) {
+          this.disponibilidadAbril2[j] = 1;
+        }
+        this.disp2.abril = this.disponibilidadAbril;
+      }
+      if (i === 5) {
+        for (let j = 0; j < 30; j++) {
+          this.disponibilidadJunio2[j] = 1;
+        }
+        this.disp2.junio = this.disponibilidadJunio;
+      }
+      if (i === 8) {
+        for (let j = 0; j < 30; j++) {
+          this.disponibilidadSept2[j] = 1;
+        }
+        this.disp2.septiembre = this.disponibilidadSept;
+      }
+      if (i === 10) {
+        for (let j = 0; j < 30; j++) {
+          this.disponibilidadNov2[j] = 1;
+        }
+        this.disp2.noviembre = this.disponibilidadNov;
       }
     }
   }
@@ -315,7 +395,172 @@ export class DisponibilidadService {
 
 
     return true;
+<<<<<<< HEAD
 
+=======
+  }
+
+  reservar2(mes: number, dia: number, cant: number, numHab: number): boolean {
+    for (let i = 0; i < cant; i++) {
+      if (mes === 0) {
+        if (dia > this.disp3.enero.length) {
+          dia = 1;
+          mes = mes + 1;
+        } else {
+          if (this.disp3.enero[dia - 1] === 1) {
+            this.disp3.enero[dia - 1] = 0;
+            dia = dia + 1;
+          } else {
+            return false;
+          }
+        }
+      }
+      if (mes === 1) {
+        if (dia > this.disp3.febrero.length) {
+          dia = 1;
+          mes = mes + 1;
+        } else {
+          if (this.disp3.febrero[dia - 1] === 1) {
+            this.disp3.febrero[dia - 1] = 0;
+            dia = dia + 1;
+          } else {
+            return false;
+          }
+        }
+      }
+      if (mes === 3) {
+        if (dia > this.disp3.marzo.length) {
+          dia = 1;
+          mes = mes + 1;
+        } else {
+          if (this.disp3.marzo[dia - 1] === 1) {
+            this.disp3.marzo[dia - 1] = 0;
+            dia = dia + 1;
+          } else {
+            return false;
+          }
+        }
+      }
+      if (mes === 3) {
+        if (dia > this.disp3.abril.length) {
+          dia = 1;
+          mes = mes + 1;
+        } else {
+          if (this.disp3.abril[dia - 1] === 1) {
+            this.disp3.abril[dia - 1] = 0;
+            dia = dia + 1;
+          } else {
+            return false;
+          }
+        }
+      }
+      if (mes === 4) {
+        if (dia > this.disp3.mayo.length) {
+          dia = 1;
+          mes = mes + 1;
+        } else {
+          if (this.disp3.mayo[dia - 1] === 1) {
+            this.disp3.mayo[dia - 1] = 0
+            dia = dia + 1;
+          } else {
+            return false;
+          }
+        }
+      }
+      if (mes === 5) {
+        if (dia > this.disp3.junio.length) {
+          dia = 1;
+          mes = mes + 1;
+        } else {
+          if (this.disp3.junio[dia - 1] === 1) {
+            this.disp3.junio[dia - 1] = 0;
+            dia = dia + 1;
+          } else {
+            return false;
+          }
+        }
+      }
+      if (mes === 6) {
+        if (dia > this.disp3.julio.length) {
+          dia = 1;
+          mes = mes + 1;
+        } else {
+          if (this.disp3.julio[dia - 1] === 1) {
+            this.disp3.julio[dia - 1] = 0;
+            dia = dia + 1;
+          } else {
+            return false;
+          }
+        }
+      }
+      if (mes === 7) {
+        if (dia > this.disp3.agosto.length) {
+          dia = 1;
+          mes = mes + 1;
+        } else {
+          if (this.disp3.agosto[dia - 1] === 1) {
+            this.disp3.agosto[dia - 1] = 0;
+            dia = dia + 1;
+          } else {
+            return false;
+          }
+        }
+      }
+      if (mes === 8) {
+        if (dia > this.disp3.septiembre.length) {
+          dia = 1;
+          mes = mes + 1;
+        } else {
+          if (this.disp3.septiembre[dia - 1] === 1) {
+            this.disp3.septiembre[dia - 1] = 0;
+            dia = dia + 1;
+          } else {
+            return false;
+          }
+        }
+      }
+      if (mes === 9) {
+        if (dia > this.disp3.octubre.length) {
+          dia = 1;
+          mes = mes + 1;
+        } else {
+          if (this.disp3.octubre[dia - 1] === 1) {
+            this.disp3.octubre[dia - 1] = 0;
+            dia = dia + 1;
+          } else {
+            return false;
+          }
+        }
+      }
+      if (mes === 10) {
+        if (dia > this.disp3.noviembre.length) {
+          dia = 1;
+          mes = mes + 1;
+        } else {
+          if (this.disp3.noviembre[dia - 1] === 1) {
+            this.disp3.noviembre[dia - 1] = 0;
+            dia = dia + 1;
+          } else {
+            return false;
+          }
+        }
+      }
+      if (mes === 11) {
+        if (dia > this.disp3.diciembre.length) {
+          dia = 1;
+          mes = 0;
+        } else {
+          if (this.disp3.diciembre[dia - 1] === 1) {
+            this.disp3.diciembre[dia - 1] = 0;
+            dia = dia + 1;
+          } else {
+            return false;
+          }
+        }
+      }
+    }
+    return true;
+>>>>>>> e5bb7c460be4ab00952887fa257d628ea2eaf830
   }
 
   noSePudoReservar(mes: number, dia: number, cant: number, numHab: number, valor: number): void {

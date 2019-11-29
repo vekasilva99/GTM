@@ -1,6 +1,7 @@
 <ng-container *ngIf="ciudad != null; then content; else noContent"></ng-container>
 
 <ng-template #content>
+    
 <div class="wrapper">
     <!-- <div class="close">
         <i (click)="agregarService.toggleAgregar()" style="color: #002e64; " class="fas fa-times-circle"></i>
@@ -23,12 +24,13 @@
 
             </select>
         </div>
-        <input type="submit" class="btn" value="MODIFICAR" [disabled]="!ciudadForm.valid" (click)="addPost()" id="boton">
+        <input type="submit" class="btn" value="MODIFICAR" [disabled]="!ciudadForm.valid" (click)="addPost()" id="boton" [routerLink]="['/adminHome/crudCiudades']" routerLinkActive="router-link-active" >
 
     </form>
 </div>
+
 </ng-template>
 
 <ng-template #noContent>
-    <h1>Loading...</h1>
+    <app-spinner></app-spinner>
 </ng-template>

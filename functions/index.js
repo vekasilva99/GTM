@@ -19,7 +19,7 @@ exports.sendEmailNotification=functions.firestore.document('submissions/{docId}'
     const data=snap.data();
     //info.truly@makethatapp.com
     authData.sendMail({
-        from: 'Guacama Tours guacamayatours2020@gmail.com',
+        from: 'Guacamaya Tours guacamayatours2020@gmail.com',
         to: data.email,
         subject: 'Código de itinerario',
         text: 'Hola '+ data.name +'! Este es tu código de itinerario: hola men',

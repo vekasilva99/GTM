@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="contenedor">
     <div *ngIf="!paidFor">
     
@@ -18,7 +19,33 @@
       </div>
 
       <div class="paypal"[hidden]="paidFor" #paypal></div>
+=======
+<div class="cajota">
+  <div class="caja">
+  
+        <div *ngIf="!paidFor" class="contenedor">
+        
+          <div class="texto">
+            <p>Solo falta pagar y listo! --- Total: ${{ product.price }}</p>
+          </div>
+        
+          <div class="texto">
+            <p>{{ product.description }}</p>
+          </div>
+        
+        </div>
+          
+          <div *ngIf=paidFor class="texto">
+            <p>Felicidades! Has completado la reserva!</p>
+          </div>
+        
+          <div class="botones">
+            <div [hidden]="paidFor" #paypal></div>
+          </div>
+  </div>
+>>>>>>> e5bb7c460be4ab00952887fa257d628ea2eaf830
 </div>
+
   
   
   
