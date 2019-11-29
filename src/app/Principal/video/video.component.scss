@@ -32,21 +32,19 @@
     position: absolute;
     width: 100vw;
     height:100vh;
-     margin:0;
+    margin:0;
     padding:0;
-     transform: translate(-50%,-50%);
-     top:50%;
+    transform: translate(-50%,-50%);
+    top:50%;
     left:50%;
 }
 
-.videoscreen video {
+.videoscreen {
    
-    width: 100%;
-    height:auto;
-    
     margin:0;
     padding:0;
-   
+    display: flex;
+    justify-content: center;
 }
 
 .color-overlay {
@@ -59,13 +57,19 @@
     opacity: 0.2;
 }
 
-@media screen and (min-width: 992px){
-    #vid{
-        width: 100vw;
-    }
+// @media screen and (min-width: 992px){
+//     #vid{
+//         width: 100px;
+//     }
+// }
+// @media screen and (max-width: 991px){
+//     #vid{
+//         height: 100vh;
+//     }
+// }
+
+#vid{
+    height: 100vh;
+    width: auto;
 }
-@media screen and (max-width: 991px){
-    #vid{
-        height: 100vh;
-    }
-}
+
