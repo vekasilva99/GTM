@@ -1,0 +1,44 @@
+ * {
+    background-color: white;
+}
+.caja{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    padding: 5vw 5vw 0vw 5vw;
+}
+
+.contenedor{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    padding: 1vw;
+    border-color: rgb(200,200,200);
+    border-style: solid;
+    .texto{
+       font-family: "Avenir";
+       font-weight: bold;
+       font-size: 18px;
+    }
+    .boton{
+       font-family: "Avenir";
+       font-weight: bold;
+       font-size: 10;
+       width: 30vw;
+       border-color: rgb(220,220,220);
+       border-style: solid;
+       padding: .4vw;
+       background-color: rgb(230,230,230);
+    }
+    .campo{
+       font-family: "Avenir";
+       font-weight: bold;
+       font-size: 10;
+       width: 30vw;
+       padding: .2vw;
+    }
+}

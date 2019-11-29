@@ -11,7 +11,7 @@ export class PaymeComponent implements OnInit {
   @ViewChild('paypal', { static: true }) paypalElement: ElementRef;
 
   product = {
-    price: 777.77,
+    price: 79,
     description: 'Itinerario',
     img: 'assets/couch.jpg'
   };

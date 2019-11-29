@@ -1,5 +1,36 @@
-.contenedor{
-    align-content: center;
+* {
+    background-color: white;
+}
+
+.cajota{
+    display: flex;
+    justify-content: space-around;
     align-items: center;
-    background-color: red;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.caja{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    border-color: rgb(200,200,200);
+    border-style: solid;
+    margin: 5vw 3vw 5vw 3vw;
+    padding: .8vw .8vw .8vw .8vw;
+}
+
+.contenedor{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    .texto{
+       font-family: "Avenir";
+       font-weight: bold;
+       font-size: 30px;
+    }
 }

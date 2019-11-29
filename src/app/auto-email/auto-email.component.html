@@ -1,14 +1,21 @@
-<form [formGroup]="emailForm" (ngSubmit)="addUser()">
-  <label>NOMBRE</label><br>
-  <input type="text" formControlName="name"/>
-  <br>
-  <label>EMAIL</label>
-  <br>
-  <input type="email" formControlName="email"/>
-  <br>
-  <button type="submit">MANDAR CORREO</button>
-  <button (click)="promesa()">aja carajo</button>
-
-  <input type="date" formControlName="date">
-
-</form>
+<div class="caja">
+  <form [formGroup]="emailForm" (ngSubmit)="addUser()" class="contenedor">
+  
+    <label class="texto">Nombre </label>
+    <input type="text" formControlName="name" placeholder="Nombre.." class="campo">
+    <br>
+  
+    <label class="texto">Apellido </label>
+    <input type="text" formControlName="apellido" placeholder="Apellido.." class="campo">
+    <br>
+  
+    <label class="texto">Email </label>
+    <input type="email" formControlName="email" placeholder="correo@ejemplo.com" class="campo">
+    <br>
+  
+    <button type="submit" class="boton">Reservar</button>
+    <br>
+    <!-- <button (click)="promesa()">aja carajo</button> -->
+  
+  </form>
+</div>
