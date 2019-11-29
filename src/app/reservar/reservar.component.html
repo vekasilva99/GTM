@@ -37,16 +37,9 @@
 
                         <div class="textbox">
 
-                            <select formControlName="tipoDestinoId">
-
-                                <option value="" selected disabled>
-                                    TIPO DE DESTINO
-                                </option>
-
-                                <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">
-                                    {{tipoDestino.nombre}}
-                                </option>
-
+                            <select formControlName="tipoDestinoId" class="form-control" name="filterPost4" [(ngModel)]="filterPost4">
+                                <option value="" selected disabled>TIPO DE DESTINO</option>
+                                <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">{{tipoDestino.nombre}}</option>
                             </select>
 
                         </div>
@@ -73,40 +66,22 @@
                 <div class="opcion">
 
                     <div class="textbox">
-<<<<<<< HEAD
 
                         <select formControlName="destinoId">
                             
-                            <option value="{{destino.id}}" *ngFor="let destino of destinos | filterDestinoEstado: filterPost2; let i=index">
+                            <option value="{{destino.id}}" *ngFor="let destino of destinos | filterDestinoEstado: filterPost3 | filterDestinoTipoDestino: filterPost4; let i=index">
                                 {{destino.nombre}}
                             </option>
 
-=======
-                        <select formControlName="destinoId" (change)="changeDestino($event.target.value)">
-                                <option value="" selected disabled>DESTINO</option>
-                            <option value="{{destino.id}}" *ngFor="let destino of destinos">
-                                {{destino.nombre}}</option>
->>>>>>> 49a9321b222026388080b2803e63aa3a144622e6
                         </select>
 
                     </div>
 
                 </div>
-<<<<<<< HEAD
-
-                <div class="boton">
-
-                    <button id="itinerario-button" class="button">ACEPTAR</button>
-
-                </div>
-
-=======
                 <!-- <div class="boton">
                     <button id="itinerario-button" class="button" (click)="pasoDestino()">PASO 2</button>
                 </div> -->
->>>>>>> 49a9321b222026388080b2803e63aa3a144622e6
             </div>
-
 
         </div>
         <div class="paso2" *ngIf="selectedDestino!==null">

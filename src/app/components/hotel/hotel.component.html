@@ -6,9 +6,13 @@
         <img class="im" src="../../assets/11.png">
 
         <h1>Alojamientos</h1>
+
+        <app-auto-email></app-auto-email>
+        <app-payme></app-payme>
         
         <div class="wrapper" id="c6">
             <div class="filtro">
+
 
                 <div>
                     
@@ -37,7 +41,7 @@
                         <ng-template #noLoading>
 
                     <div class="wrapper-rooms"
-                        *ngFor="let hotel of hotels | filterHotelName:filterPost | filterHotelState:filterPost2; let i=index">
+                        *ngFor="let hotel of hotels | filterHotelName: filterPost | filterHotelState: filterPost2; let i=index">
                         <div class="even">
                             <div class="grid">
 
