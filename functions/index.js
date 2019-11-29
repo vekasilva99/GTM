@@ -28,3 +28,4 @@ exports.sendEmailNotification=functions.firestore.document('submissions/{docId}'
         err=>console.log(err)
     );
 })
+

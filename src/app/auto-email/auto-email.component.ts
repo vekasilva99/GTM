@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { ItinerarioService } from '../Services/itinerario.service';
 import { ReservaService } from '../Services/reserva.service';
 import { HotelService } from '../Services/hotel/hotel.service';
@@ -31,6 +31,7 @@ export class AutoEmailComponent implements OnInit {
   itinerario: itinerario = null;
   hab: { hab: string, numH: number }[] = [];
   costo:number=0;
+  private documento: AngularFirestoreCollection<any>;
 
   constructor(private builder: FormBuilder, private asf: AngularFirestore, private itinerarioService: ItinerarioService, private reservaService: ReservaService, private hotelService: HotelService, private estadoService: EstadoService, private ciudadService: CiudadService, private habService: HabitacionService) {
     this.emailForm = this.builder.group({
@@ -44,6 +45,7 @@ export class AutoEmailComponent implements OnInit {
   }
 
   ngOnInit() { 
+    this.documento=this.asf.collection('correos');
     this.reservaService.getReservasLocal();
     this.reservas = this.reservaService.items;
 
@@ -108,6 +110,7 @@ export class AutoEmailComponent implements OnInit {
 
   addUser() {
     this.costoTotal();
+    
 
     for (let i = 0; i < this.reservas.length; i++) {
      const mov={

@@ -43,7 +43,8 @@ export class AgregarHabitacionComponent implements OnInit {
         this.hoteles.push(hotel);
       });
     });
-    console.log(this.hoteles);
+
+  
 
     this.habForm = this.fb.group({
       nombre: [null, Validators.required],
@@ -93,8 +94,6 @@ export class AgregarHabitacionComponent implements OnInit {
   }
 
   addPost() {
-    // this.habService.disponibilidad1(this.habForm.value.numHab);
-    // this.disp = this.habService.disp;
     this.disponibilidadService.disponibilidad1(this.habForm.value.numHab);
 
     const d = {
@@ -128,8 +127,7 @@ export class AgregarHabitacionComponent implements OnInit {
       };
 
       this.habService.addHab(mov);
-      console.log(this.disponibilidadService.disp2);
-      this.disponibilidadService.reservar(1, 26, 5, 4);
+
       const u = {
         enero: this.disponibilidadService.disp2.enero,
         febrero: this.disponibilidadService.disp2.febrero,

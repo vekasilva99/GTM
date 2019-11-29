@@ -8,6 +8,7 @@ import { itinerario } from '../reservar/reserva';
 })
 export class ItinerarioService {
   itemsCollection: AngularFirestoreCollection<itinerario>;
+  coleccioncorreo: AngularFirestoreCollection<itinerario>;
   items: itinerario[] = [];
 
   constructor(private db: AngularFirestore) {
@@ -22,6 +23,7 @@ export class ItinerarioService {
       });
     });
   }
+
   getItinerario(id: string) {
     return this.db.collection('itinerarios').doc(id).snapshotChanges();
 

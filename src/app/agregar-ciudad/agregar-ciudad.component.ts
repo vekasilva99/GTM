@@ -50,9 +50,6 @@ export class AgregarCiudadComponent implements OnInit {
       estadoId: this.ciudadForm.value.estadoId,
 
     }
-
- 
-
     this.ciudadService.addCiudad(mov);
   }
 }

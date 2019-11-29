@@ -2,23 +2,32 @@
     <div class="close">
         <i (click)="agregarService.toggleAgregar()" style="color: #002e64; " class="fas fa-times-circle"></i>
     </div>
-    <form [formGroup]="ciudadForm" class="agregar-box" (ngSubmit)="addPost()">
-        <h1>AGREGAR CIUDAD</h1>
-        <small>NOMBRE</small>
-        <div class="textbox">
-            <i id="input" class="fas fa-user-circle"></i>
-            <input type="text" formControlName="nombre"></div>
-        <small>IMAGEN</small>
-        <div class="textbox">
-            <i id="input" class="fas fa-plus-circle"></i>
-            <input type="text" formControlName="imagen"></div>
-        <small>ESTADO</small>
-        <div class="textbox">
-            <select formControlName="estadoId" placeholder="Ingresa el Id del Estado">
-                <option value="{{estado.id}}" *ngFor="let estado of estados">{{estado.nombre}}</option>
+    <ng-container *ngIf="ciudades.length > 0; then noLoading; else loading"></ng-container>
 
-            </select>
-        </div>
-        <input type="submit" class="btn" value="AGREGAR" [disabled]="!ciudadForm.valid" id="boton">
+    <ng-template #loading>
+        <app-spinner></app-spinner>
+    </ng-template>
 
+    <ng-template #noLoading>
+        <form [formGroup]="ciudadForm" class="agregar-box">
+            <h1>AGREGAR CIUDAD</h1>
+            <small>NOMBRE</small>
+            <div class="textbox">
+                <i id="input" class="fas fa-user-circle"></i>
+                <input type="text" formControlName="nombre"></div>
+            <small>IMAGEN</small>
+            <div class="textbox">
+                <i id="input" class="fas fa-plus-circle"></i>
+                <input type="text" formControlName="imagen"></div>
+            <small>ESTADO</small>
+            <div class="textbox">
+                <select formControlName="estadoId" placeholder="Ingresa el Id del Estado">
+                    <option value="{{estado.id}}" *ngFor="let estado of estados">{{estado.nombre}}</option>
+
+                </select>
+            </div>
+
+            <input type="submit" class="btn" (click)="addPost()" value="AGREGAR" [disabled]="!ciudadForm.valid"
+                id="boton">
+    </ng-template>
     </form>

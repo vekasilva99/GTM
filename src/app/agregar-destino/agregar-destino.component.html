@@ -2,127 +2,127 @@
     <div class="close">
         <i (click)="agregarService.toggleAgregar()" style="color: #002e64; " class="fas fa-times-circle"></i>
     </div>
+    <ng-container *ngIf="ciudades.length > 0 && estados.length>0 && tipoDestinos.length; then noLoading; else loading"></ng-container>
 
-    <form [formGroup]="destinoForm" class="agregar-box" (ngOnSubmit)="addPost()">
-        <h1>AGREGAR DESTINO</h1>
-        <small>NOMBRE</small>
-        <div class="textbox">
+    <ng-template #loading>
+        <app-spinner></app-spinner>
+    </ng-template>
+    <ng-template #noLoading>
+        <form [formGroup]="destinoForm" class="agregar-box">
+            <h1>AGREGAR DESTINO</h1>
+            <small>NOMBRE</small>
+            <div class="textbox">
                 <i id="input" class="fas fa-user-circle"></i>
-            <input type="text" formControlName="nombre">
-        </div>
-        <small>IMAGEN</small>
-        <div class="textbox">
+                <input type="text" formControlName="nombre">
+            </div>
+            <small>IMAGEN</small>
+            <div class="textbox">
                 <i id="input" class="fas fa-plus-circle"></i>
-            <input type="text" formControlName="imagen">
-        </div>
-        <div class="direccion">
-
-            <small>LONGITUD</small>
-            <div class="textbox">
-                    <i id="input" class="fas fa-compass"></i>
-                <input type="text" formControlName="longitud">
+                <input type="text" formControlName="imagen">
             </div>
-        </div>
-        <div class="direccion">
-            <small>LATITUD</small>
-            <div class="textbox">
-                    <i id="input" class="fas fa-compass"></i>
-                <input type="text" formControlName="latitud">
-            </div>
-        </div>
+            <div class="direccion">
 
-        <small>DIRECCION</small>
-        <div class="textbox">
+                <small>LONGITUD</small>
+                <div class="textbox">
+                    <i id="input" class="fas fa-compass"></i>
+                    <input type="text" formControlName="longitud">
+                </div>
+            </div>
+            <div class="direccion">
+                <small>LATITUD</small>
+                <div class="textbox">
+                    <i id="input" class="fas fa-compass"></i>
+                    <input type="text" formControlName="latitud">
+                </div>
+            </div>
+
+            <small>DIRECCION</small>
+            <div class="textbox">
                 <i id="input" class="fas fa-compass"></i>
-            <input type="text" formControlName="direccion">
-        </div>
-        <div class="direccion">
-            <small>ESTADO</small>
+                <input type="text" formControlName="direccion">
+            </div>
+            <div class="direccion">
+                <small>ESTADO</small>
+                <div class="textbox">
+                    <select formControlName="estadoId" placeholder="Ingresa el Id del Estado">
+                        <option value="">Seleccione el Estado</option>
+                        <option *ngFor="let estado of estados" value="{{estado.id}}">{{estado.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="direccion">
+                <small>CIUDAD</small>
+                <div class="textbox">
+                    <select formControlName="ciudad">
+                        <option value="">Seleccione la Ciudad</option>
+                        <option value="{{ciudad.id}}" *ngFor="let ciudad of ciudades">{{ciudad.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <small>TIPO DE DESTINO</small>
             <div class="textbox">
-                <select formControlName="estadoId" placeholder="Ingresa el Id del Estado">
-                    <option value="">Seleccione el Estado</option>
-                    <option *ngFor="let estado of estados" value="{{estado.id}}">{{estado.nombre}}</option>
+                <select formControlName="tipoDestinoId">
+                    <option value="">Seleccione el Tipo de Destino</option>
+                    <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">{{tipoDestino.nombre}}
+                    </option>
+
                 </select>
             </div>
-        </div>
-        <div class="direccion">
-            <small>CIUDAD</small>
-            <div class="textbox">
-                <select formControlName="ciudad">
-                    <option value="">Seleccione la Ciudad</option>
-                    <option value="{{ciudad.id}}" *ngFor="let ciudad of ciudades">{{ciudad.nombre}}</option>
-                </select>
+
+            <small>DESCRIPCION</small>
+            <div class="textbox2">
+                <input type="text" formControlName="descripcion">
             </div>
-        </div>
-        <small>TIPO DE DESTINO</small>
-        <div class="textbox">
-            <select formControlName="tipoDestinoId">
-                <option value="">Seleccione el Tipo de Destino</option>
-                <option value="{{tipoDestino.id}}" *ngFor="let tipoDestino of tipoDestinos">{{tipoDestino.nombre}}
-                </option>
+            <small>IMAGENES</small>
+            <div class="textbox1">
+                <section formArrayName="img">
+                    <div *ngFor="let im of imgArray.controls; let i=index" [formGroupName]="i">
+                        <small class="imgTitle">IMAGEN {{i + 1}}</small>
+                        <div class="input-group">
+                            <input type="text" formControlName="path">
+                        </div>
+                        <button id="add" (click)="removeImg(i)"><i class="fas fa-times-circle"></i></button>
 
-            </select>
-        </div>
 
-        <small>DESCRIPCION</small>
-        <div class="textbox2">
-            <input type="text" formControlName="descripcion">
-        </div>
-        <small>IMAGENES</small>
-        <div class="textbox1">
-            <section formArrayName="img">
-                <div *ngFor="let im of imgArray.controls; let i=index" [formGroupName]="i">
-                    <small class="imgTitle">IMAGEN {{i + 1}}</small>
-                    <div class="input-group">
-                        <input type="text" formControlName="path" >
                     </div>
-                    <button id="add" (click)="removeImg(i)"><i
-                            class="fas fa-times-circle"></i></button>
+                    <button id="add" (click)="addImg()"><i class="fas fa-plus-circle"></i></button>
+                </section>
+            </div>
+            <small>ACTIVIDADES</small>
+            <div class="textbox1">
+                <section formArrayName="actividades">
+
+                    <div *ngFor="let actividad of actividadesArray.controls; let i=index" [formGroupName]="i">
+                        <small class="imgTitle">ACTIVIDAD {{i + 1}}</small>
+                        <div class="input-group">
+                            <input type="text" formControlName="path">
+                        </div>
+                        <button id="add" (click)="removeActividad(i)"><i class="fas fa-times-circle"></i></button>
 
 
-                </div>
-                <button id="add"  (click)="addImg()"><i
-                        class="fas fa-plus-circle"></i></button>
-            </section>
-        </div>
-        <small>ACTIVIDADES</small>
-        <div class="textbox1">
-            <section formArrayName="actividades">
-
-                <div *ngFor="let actividad of actividadesArray.controls; let i=index" [formGroupName]="i">
-                    <small class="imgTitle">ACTIVIDAD {{i + 1}}</small>
-                    <div class="input-group">
-                        <input type="text" formControlName="path" >
                     </div>
-                    <button id="add"(click)="removeActividad(i)"><i
-                            class="fas fa-times-circle"></i></button>
+                    <button id="add" (click)="addActividad()"><i class="fas fa-plus-circle"></i></button>
+                </section>
+            </div>
+            <small>SERVICIOS</small>
+            <div class="textbox1">
+                <section formArrayName="servicios">
+                    <div *ngFor="let servicio of serviciosArray.controls; let i=index" [formGroupName]="i">
+                        <small class="imgTitle">SERVICIOS {{i + 1}}</small>
+                        <div class="input-group">
+                            <input type="text" formControlName="path">
+                        </div>
+
+                        <button id="add" (click)="removeServicio(i)"><i class="fas fa-times-circle"></i></button>
 
 
-                </div>
-                <button id="add" (click)="addActividad()"><i
-                        class="fas fa-plus-circle"></i></button>
-            </section>
-        </div>
-        <small>SERVICIOS</small>
-        <div class="textbox1">
-            <section formArrayName="servicios">
-                <div *ngFor="let servicio of serviciosArray.controls; let i=index" [formGroupName]="i">
-                    <small class="imgTitle">SERVICIOS {{i + 1}}</small>
-                    <div class="input-group">
-                        <input type="text" formControlName="path" >
                     </div>
-                    
-                    <button id="add" (click)="removeServicio(i)"><i
-                            class="fas fa-times-circle"></i></button>
+                    <button id="add" (click)="addServicio()"><i class="fas fa-plus-circle"></i></button>
+                </section>
+            </div>
 
-
-                </div>
-                <button id="add" (click)="addServicio()"><i
-                        class="fas fa-plus-circle"></i></button>
-            </section>
-        </div>
-
-        <button type="submit" class="btn" value="AGREGAR" [disabled]="!destinoForm.valid" id="boton">AGREGAR DESTINO</button>
-    </form>
-
+            <button type="submit" class="btn" value="AGREGAR" (click)="addPost()" [disabled]="!destinoForm.valid"
+                id="boton">AGREGAR DESTINO</button>
+        </form>
+    </ng-template>
 </div>

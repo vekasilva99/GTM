@@ -2,7 +2,7 @@
     <div class="close">
         <i (click)="agregarService.toggleAgregar()" style="color: #002e64; " class="fas fa-times-circle"></i>
     </div>
-    <form [formGroup]="hotelForm" class="agregar-box" (ngSubmit)="addPost()">
+    <form [formGroup]="hotelForm" class="agregar-box">
         <h1>AGREGAR HOTEL</h1>
         <small>NOMBRE</small>
         <div class="textbox">
@@ -98,78 +98,7 @@
                 <button type="button" id="add" (click)="addHotelPicture()"><i class="fas fa-plus-circle"></i></button>
             </section>
         </div>
-        <!-- <div class="habitacion">
-            <small>HABITACIONES</small>
-            <div class="textbox3">
-                <section formArrayName="habs">
-                    <div *ngFor="let hab of hotelForm['controls'].habs['controls']; let i=index" [formGroupName]="i">
-                        <div><small class="imgTitle1">HABITACION {{i+1}}</small></div>
-                        <small>NOMBRE</small>
-                        <div class="textbox">
-                            <i id="input" class="fas fa-user-circle"></i>
-                            <input type="text" formControlName="habNombre">
-                        </div>
-                        <small>COSTO POR NOCHE</small>
-                        <div class="textbox">
-                            <i id="input" class="fas fa-user-circle"></i>
-                            <input type="number" formControlName="nightCost">
-                        </div>
-                        <small>TIPO DE VISTA</small>
-                        <div class="textbox">
-                            <i id="input" class="fas fa-user-circle"></i>
-                            <input type="text" formControlName="tipoVista">
-                        </div>
-                        <small>MAXIMO DE NUMERO DE PERSONAS</small>
-                        <div class="textbox">
-                            <i id="input" class="fas fa-user-circle"></i>
-                            <input type="number" formControlName="maxPersonas">
-                        </div>
-                        <small>NUMERO DE HABITACIONES DISPONIBLES</small>
-                        <div class="textbox">
-                            <i id="input" class="fas fa-user-circle"></i>
-                            <input type="number" formControlName="numHab">
-                        </div>
-                        <div class="textbox">
-                            <small class="imgTitle1">IMAGENES</small>
-                            <section formArrayName="habPictures">
-                                <div *ngFor="let picture of hab['controls'].habPictures['controls'];let j=index"
-                                    [formGroupName]="j">
-                                    <small class="imgTitle">IMAGEN {{j + 1}}</small>
-                                    <div class="input-group">
-                                        <input type="text" formControlName="path">
-                                    </div>
-                                    <button type="button" id="add" (click)="removeHabPicture(j)"><i
-                                            class="fas fa-times-circle"></i></button>
-                                </div>
-                                <button type="button" id="add" (click)="addHabPicture(i)"><i
-                                        class="fas fa-plus-circle"></i></button>
-                            </section>
-                        </div>
-                        <div class="textbox">
-                            <small class="imgTitle1">COMODIDADES</small>
-                            <section formArrayName="comodidades">
-                                <div *ngFor="let comodidad of hab['controls'].comodidades['controls'];let k=index"
-                                    [formGroupName]="k">
-                                    <small class="imgTitle">COMODIDAD {{k + 1}}</small>
-                                    <div class="input-group">
-                                        <input type="text" formControlName="path">
-                                    </div>
-                                    <button type="button" id="add" (click)="removeComodidad(k)"><i
-                                            class="fas fa-times-circle"></i></button>
-                                </div>
-                                <button type="button" id="add" (click)="addComodidad(i)"><i
-                                        class="fas fa-plus-circle"></i></button>
-                            </section>
-                        </div>
-                        <button type="button" id="add" (click)="removeHab(i)"><i
-                                class="fas fa-times-circle"></i></button>
-                    </div>
-
-                    <button type="button" id="add" (click)="addHab()"><i class="fas fa-plus-circle"></i></button>
-                </section>
-            </div>
-
-        </div> -->
+    
         <button type="submit" class="btn" value="AGREGAR" (click)="addPost()" id="boton">AGREGAR HOTEL</button>
     </form>
 
