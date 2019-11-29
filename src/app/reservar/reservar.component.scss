@@ -1,100 +1,127 @@
-
+@media screen and (min-width: 768px){
+    h1{
+        font-size: 10rem;
+    }
+    h2{
+        font-size: 25px;
+    }
+    #paso .a{
+        top: 100px;
+        margin-top: 50px;
+    }#paso .paso{
+        margin-top: 100px;
+        width: 100vw;
+    }
+    #paso .opciones{
+        top: 150px;
+        margin-top: 250px;
+    }
+    .filtros1{
+        width: 40vw;
+    }
+    .textbox{
+        width: 10rem;
+    }
+}
+@media screen and (max-width: 767px){
+    h1{
+        margin-top: 50px;
+        font-size: 7rem;
+    }
+    h2{
+        font-size: 15px;
+    }
+    #paso .a{
+        top: 100px;
+        margin-top: 50px;
+    }#paso .paso{
+        margin-top: 100px;
+        width: 100vw;
+    }
+    #paso .opciones{
+        top: 150px;
+        margin-top: 250px;
+    }
+    #cubo{
+        width: 5rem;
+    }
+    .textbox{
+        width: 5rem;
+    }
+}
 .wrapper{
     width: 100vw;
     height: auto;
-    position: absolute; 
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
     overflow: hidden;
  }
-
 #paso .paso h1{
      font-family:'Billy-Ohio';
      color: white;
-     font-size: 10vw;
-
- }
+}
 #paso .opciones h2{
     font-family:'Avenir';
     color: white;
-    font-size: 20px;
-
 }
-
 #paso h2{
     font-family:'Avenir';
     color: white;
-    font-size: 20px;
-
 }
-
- #paso .a{
-display: flex;
-justify-content: center;
-width: 100vw;
-position: absolute;
-margin-top: 50px;
- }
-
+#paso .a{
+    top: 100px;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    position: absolute;
+}
 #paso .paso{
-     margin-top: 100px;
-     display: flex;
-     justify-content: center;
-     position: absolute;
-     width: 100vw;
- }
-
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100vw;
+}
 #paso .opciones{
-
-     display: grid;
+    top: 150px;
+    display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     width: 100vw;
     height:auto;
     position: absolute;
     justify-content: center;
     margin-top: 250px;
- }
-
+}
  .instruccion{
      display: flex;
      justify-content: center;
      width: 100vw;
      align-items: center;
-
  }
-
-
-
  #paso{
     display: grid;
     grid-template-rows: 1fr 2fr 4fr;
-    position: relative;
     justify-content: center;
-     width: 100vw;
-     height:100vh;
-
-     
- }
+    width: 100vw;
+    height:100vh;
+}
 #paso img{
     width: 100vw;
     height:90vh;
-    position: relative;
-
-      
+    position: relative; 
 }
 
 
 .textbox{
-justify-content: center;
-display: flex;
+    display: block;
+    justify-content: center;
+    align-self: auto;
 }
 .filtros1 {
-  display: grid;
-  grid-template-columns: 1fr 1fr ;
-  width: 40vw;
-
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    justify-items: center;
 }
 .filtros{
     display: flex;
@@ -302,5 +329,11 @@ select{
         transition: 0.6s;
     }
 }
-
+ .paso {
+    top: 100px;
+ }
+div .opcion{
+     display: grid;
+     justify-items: center;
+ }
   
