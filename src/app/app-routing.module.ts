@@ -25,10 +25,12 @@ import { AuthGuard } from './Guardian/auth.guard';
 import { CrudHabitacionComponent } from './crud-habitacion/crud-habitacion.component';
 import { ModificarHabitacionComponent } from './modificar-habitacion/modificar-habitacion.component';
 import { ReservarComponent } from './reservar/reservar.component';
+import { ItinerarioComponent } from './itinerario/itinerario.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomeComponent},
+  {path: 'itinerario', component: ItinerarioComponent},
   {path: 'login', component: LogComponent},
   {path: 'estado', component: EstadosComponent},
   {path: 'detail/:id', component: EstadoDetailsComponent},

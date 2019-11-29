@@ -6,7 +6,7 @@
     <div id="navbar-nav">
         <ul style="list-style-type: none;">
             <li><a class="item" routerLink="/hotels" routerLinkActive="router-link-active"  href="#">ALOJAMIENTOS</a></li>
-            <li><a class="item" href="#">PLANEA TU VIAJE</a></li>
+            <li><a class="item" [routerLink]="['/planeatuviaje']">PLANEA TU VIAJE</a></li>
             <li><a class="item" href="#">A DÓNDE IR</a></li>
             <li><button class="item" type="button" (click)="listaEstadosService.toggleLista()" style="background-color: transparent;">ESTADOS</button></li>
 
