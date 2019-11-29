@@ -32,6 +32,7 @@ export class HotelComponent implements OnInit {
     this.loading = false;
     this.estadoService.getOrders().subscribe(array => {
       array.map(item => {
+        // tslint:disable-next-line: no-shadowed-variable
         const estado: estado = {
           id: item.payload.doc.id,
           ...item.payload.doc.data()

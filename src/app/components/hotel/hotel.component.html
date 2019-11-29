@@ -1,88 +1,86 @@
-    <div class="wrapper">
-        <app-toolbar></app-toolbar>
-        <app-sidebar></app-sidebar>
-        <app-lista-estados></app-lista-estados>
+<div class="wrapper">
+    <app-toolbar></app-toolbar>
+    <app-sidebar></app-sidebar>
+    <app-lista-estados></app-lista-estados>
 
-        <img class="im" src="../../assets/11.png">
+    <div class="opening">
+        <img src="../../assets/11.png" alt="alojamientos">
+        <div class="centered">
+            <h1>Alojamientos</h1>
+        </div>
+    </div>
 
-        <h1>Alojamientos</h1>
-
-        <app-auto-email></app-auto-email>
-        <app-payme></app-payme>
-        
-        <div class="wrapper" id="c6">
-            <div class="filtro">
-
-
-                <div>
-                    
-                    <h3>Filtrar busqueda:</h3>
-
-                    <span>Nombre: </span><input type="text" class="form-control" name="filterPost"
-                        placeholder="Buscar..." [(ngModel)]="filterPost"><br>
-
-                    <span>Estado: </span>
-                    <select type="text" class="form-control" name="filterPost2" placeholder="Buscar..." [(ngModel)]="filterPost2">
-                        <option value="{{item.id}}" *ngFor="let item of estadosFilter">
-                            {{item.nombre}}
-                        </option>
-                    </select><br>
-
-                </div>
-
-                <div class="wrapper">
-
-                        <ng-container *ngIf="hotels.length > 0; then noLoading; else loading"></ng-container>
-
-                        <ng-template #loading>
-                                <app-spinner></app-spinner>
-                        </ng-template>
-                        
-                        <ng-template #noLoading>
-
-                    <div class="wrapper-rooms"
-                        *ngFor="let hotel of hotels | filterHotelName: filterPost | filterHotelState: filterPost2; let i=index">
-                        <div class="even">
-                            <div class="grid">
-
-                                <div class="a">
-                                    <div class="img">
-                                        <app-hotel-slider [hotel]=hotel></app-hotel-slider>
-                                    </div>
-                                </div>
-
-                                <div class="b">
-
-                                    <div class="grid2">
-
-                                        <div class="a"></div>
-                                        <div class="b">
-
-                                            <h2>{{hotel.name}}</h2>
-                                            <span class="stars" *ngFor="let item of hotel.stars">
-                                                <span style="font-size: 1.5vw; color:#ffa600;">
-                                                    <i class="fas fa-star"></i>
-                                                </span>
-                                            </span>
-
-                                            <h3>{{estados[i]?.nombre}},{{ciudades[i]?.nombre}} </h3>
-                                            <div *ngIf="(hotel.fullDay)">
-                                                <h4>US${{hotel.fullDayPrice}}/dia</h4>
-
-                                            </div>
-                                            <a routerLink="/hotels/{{hotel.id}}" class="button">VER MAS</a>
-                                        </div>
-                                        <div class="c"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div id="c3">
+        <div class="griddoble">
+            <div class="bloque" id="quienes">
+                <h1>LOS MEJORES DESTINOS</h1>
+                <h1>EN UN SOLO LUGAR</h1>
+                <h2>Cualquier destino que elija, cualquier lugar de Venezuela que desee visitar, tenemos los mejores alojamientos para usted. Haga de su hospedaje uno de las mejores partes de sus vacaciones y elija entre nuetrs diversas opciones para su estadía.</h2>
+            </div>
+            <div class="bloque" id="datos">
+                <h3>DATOS RÁPIDOS</h3>
+                <div class="dato">
+                    <div class="label">
+                        <div class="dot">8.247</div>
+                        <p style="margin-left: 1rem">HOTELES</p>
                     </div>
-
-                </ng-template>
-
+                    <div>
+                        <i class="fas fa-hotel" style="color: #666666; font-size: 40px;"></i>
+                    </div>
+                </div>
+                <div class="dato">
+                    <div class="label">
+                        <div class="dot">1.353</div>
+                            <p style="margin-left: 1rem">POSADAS</p>
+                        </div>
+                    <div>
+                        <i class="fas fa-home" style="color: #666666; font-size: 40px;"></i>
+                    </div>
+                </div>
+                <div class="dato">
+                    <div class="label">
+                        <div class="dot">3.426</div>
+                            <p style="margin-left: 1rem">RESORTS</p>
+                        </div>
+                    <div>
+                        <i class="fas fa-swimming-pool" style="color: #666666; font-size: 40px;"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
+    <div id="c5">
+        <div class="filtro">
+            <h1>Filtrar Busqueda: </h1>
+            <span class="tag">NOMBRE: </span><input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost"><br>
+            <span class="tag">ESTADO: </span><input type="text" class="form-control" name="filterPost2" placeholder="Buscar..." [(ngModel)]="filterPost2"><br>
+        </div>
+    </div>
+
+    <div id="c6" *ngFor="let hotel of hotels| filterHotelName:filterPost | filterHotelState:filterPost2;let i=index ">
+        <div class="grid">
+            <div class="a">
+                <app-hotel-slider [hotel]=hotel></app-hotel-slider>
+            </div>
+            <div class="b">
+                <div class="info">
+                    <h2>{{hotel.name}}</h2>
+                    <div id="alin">
+                        <span class="stars" *ngFor="let item of hotel.stars">
+                            <span style="color:#ffa600;">
+                                <i class="fas fa-star"></i>
+                            </span>
+                        </span>
+                    </div>
+                    <h4>{{estados[i]?.nombre}},{{ciudades[i]?.nombre}}</h4>
+                    <a routerLink="/hotels/{{hotel.id}}" class="button">VER MAS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="espacio"></div>
+
+    <app-footer></app-footer>
+</div> 
