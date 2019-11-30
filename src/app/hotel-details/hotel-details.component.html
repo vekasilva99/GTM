@@ -1,68 +1,71 @@
 <ng-container *ngIf="hotel != null && estado != null && ciudad != null; then content; else noContent"></ng-container>
 <ng-template #content>
-    <app-toolbar></app-toolbar>
-    <app-sidebar></app-sidebar>
-    <app-lista-estados></app-lista-estados>
-    <div class="wrapper">
+<div class="wrapper">
+        <app-toolbar></app-toolbar>
+        <app-sidebar></app-sidebar>
+        <app-lista-estados></app-lista-estados>
 
-        <div class="opening">
-            <img src="../../assets/11.png" alt="alojamientos">
-            <div class="centered">
-                <h1>Alojamientos</h1>
-            </div>
+    <div class="opening">
+        <img src="../../assets/11.png" alt="alojamientos">
+        <div class="centered">
+            <h1 style="text-align: center;">{{hotel.name}}</h1>
         </div>
-        <div class="wrapper" id="c4">
+    </div>
+
+<div id="c6">
+    <div id="grid">
+        <div class="b">
             <div class="info">
-                <div class="margen"></div>
-                <div class="direccion">
-
-                    <div class="a"> </div>
-                    <div class="b">
-
-
-                        <h3><i class="fas fa-map-marker-alt"></i> {{hotel.address}}</h3>
-                        <h3>Latitud: {{hotel.latitude}} Longitud: {{hotel.length}}</h3>
-
-                    </div>
-                    <div class="c"></div>
-
-
-                </div>
-                <div class="direccion">
-                    <div class="a"></div>
-                    <div class="b">
-                        <span *ngFor="let item of hotel.stars">
-                            <span style="font-size: 1.5em; color:#005688;">
-                                <i class="fas fa-star"></i>
-                            </span>
+                <div id="alin">
+                    <span class="stars" *ngFor="let item of hotel.stars">
+                        <span style="color:#ffa600; text-align: center;">
+                            <i class="fas fa-star"></i>
                         </span>
-                        <div *ngIf="(hotel.fullDay)">
-                            <h4>US${{hotel.fullDayPrice}}/dia</h4>
-
-                        </div>
-                    </div>
-                    <div class="c"></div>
-
+                    </span>
                 </div>
-                <div class="margen"></div>
+                <!-- <h4>{{estados[i]?.nombre}},{{ciudades[i]?.nombre}}</h4> -->
 
+                <h2 style="text-align: center;"><i class="fas fa-map-marker-alt"></i> {{hotel.address}}</h2>
+                <h2 style="text-align: center;">Latitud: {{hotel.latitude}} Longitud: {{hotel.length}}</h2>
+                <div *ngIf="(hotel.fullDay)"> <h4 style="text-align: center;">US${{hotel.fullDayPrice}}/dia</h4> </div>
 
+                <a routerLink="/hotels/{{hotel.id}}" class="button">VER MAS</a>
+            </div> 
+        </div> 
+    </div>
+</div>
+
+<div class="wrapper" id="c5">
+    <div class="gallery">
+        <div class="img1"><img src="{{hotel.hotelPictures[0].path}}"></div>
+        <div class="img2">
+            <div class="a">
+                <div class="img2a"><img src="{{hotel.hotelPictures[1].path}}"></div>
+                <div class="img2b"><img src="{{hotel.hotelPictures[2].path}}"></div>
             </div>
-
+            <div class="b"><img src="{{hotel.hotelPictures[3].path}}"></div>
         </div>
-        <div class="wrapper" id="c5">
-            <div class="gallery">
-                <div class="img1"><img src="{{hotel.hotelPictures[0].path}}"></div>
-                <div class="img2">
-                    <div class="a">
-                        <div class="img2a"><img src="{{hotel.hotelPictures[1].path}}"></div>
-                        <div class="img2b"><img src="{{hotel.hotelPictures[2].path}}"></div>
-                    </div>
-                    <div class="b"><img src="{{hotel.hotelPictures[3].path}}"></div>
-                </div>
+    </div>
+</div>
+
+<div id="c8">
+    <div class="gallery">
+        <div class="img1"><img src="{{hotel.hotelPictures[0].path}}"></div>
+        <div class="img2">
+            <div class="a">
+                <div class="img2a"><img src="{{hotel.hotelPictures[1].path}}"></div>
+                <div class="img2b"><img src="{{hotel.hotelPictures[2].path}}"></div>
             </div>
-
+            <div class="b"><img src="{{hotel.hotelPictures[3].path}}"></div>
         </div>
+    </div>
+</div>
+
+</div>
+        <!-- 
+
+
+        
 
         <div class="wrapper" id="c2">
             <div class="services">
@@ -222,4 +225,4 @@
     <div id="espacio"></div>
 
     <app-footer></app-footer>
-</div>
+</div> --> -->
